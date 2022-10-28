@@ -46,6 +46,7 @@ const HomeHeader = ({
       <AlgorithmDropDown
         currentAlgorithm={currentAlgorithm}
         algorithms={algorithms}
+        isVisualizing={isVisualizing}
         onAlgorithmChange={(algo) => onAlgorithmChange(algo)}
       />
       <SpeedSlider

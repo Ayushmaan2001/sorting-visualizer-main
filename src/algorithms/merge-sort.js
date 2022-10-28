@@ -93,6 +93,7 @@ const mergeSortWrapper = async ({
     setColorsArray,
     visualizationSpeed
   );
+  setColorsArray([])
 };
 
 export default mergeSortWrapper;

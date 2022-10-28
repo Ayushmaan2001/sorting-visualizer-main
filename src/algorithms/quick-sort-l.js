@@ -98,5 +98,6 @@ const quickSortLWrapper = async ({
     setColorsArray: setColorsArray,
     visualizationSpeed: visualizationSpeed,
   });
+  setColorsArray([])
 };
 export default quickSortLWrapper;

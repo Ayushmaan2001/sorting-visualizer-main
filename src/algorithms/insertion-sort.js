@@ -27,6 +27,7 @@ const insertionSort = async ({
       j--;
     }
   }
+  setColorsArray([])
 };
 
 export default insertionSort;

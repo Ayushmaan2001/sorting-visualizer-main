@@ -5,6 +5,7 @@ import {DownOutlined} from '@ant-design/icons';
 const AlgorithmDropDown = ({
   currentAlgorithm,
   algorithms,
+  isVisualizing,
   onAlgorithmChange,
 }) => {
   const width = 170;
@@ -13,7 +14,7 @@ const AlgorithmDropDown = ({
     <Menu style={{width: width}}>
       {algorithms.map(function (algorithm, idx) {
         return (
-          <Menu.Item key={idx} onClick={() => onAlgorithmChange(algorithm)}>
+          <Menu.Item key={idx} onClick={() => onAlgorithmChange(algorithm)} disabled={isVisualizing}>
             {algorithm}
           </Menu.Item>
         );

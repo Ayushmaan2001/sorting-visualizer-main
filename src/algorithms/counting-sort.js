@@ -32,6 +32,7 @@ const countingSort = async ({
         setArray(array);
         await asyncSetTimeout({ timeout: visualizationSpeed });
     }
+    setColorsArray([])
 };
 
 export default countingSort;

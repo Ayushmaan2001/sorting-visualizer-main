@@ -49,6 +49,7 @@ const radixSort = async ({
         asyncSetTimeout({ timeout: visualizationSpeed })
         countSort(array, n, exp);
     }
+    setColorsArray([])
 }
 
 export default radixSort;

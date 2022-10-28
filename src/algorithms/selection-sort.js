@@ -27,10 +27,9 @@ const selectionSort = async ({
     let temp = array[i];
     array[i] = array[minIndex];
     array[minIndex] = temp;
-    array = array.concat();
     setArray(array);
-    console.log(i);
   }
+  setColorsArray([])
 };
 
 export default selectionSort;

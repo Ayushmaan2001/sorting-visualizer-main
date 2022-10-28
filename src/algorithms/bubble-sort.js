@@ -25,6 +25,7 @@ const bubbleSort = async ({
       }
     }
   }
+  setColorsArray([])
 };
 
 export default bubbleSort;
