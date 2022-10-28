@@ -9,6 +9,7 @@ import insertionSort from '../../algorithms/insertion-sort';
 import mergeSortWrapper from '../../algorithms/merge-sort';
 import quickSortLWrapper from '../../algorithms/quick-sort-l';
 import countingSort from '../../algorithms/counting-sort';
+import radixSort from '../../algorithms/radix-sort';
 
 const Home = () => {
   const arraySize = 100;
@@ -28,7 +29,8 @@ const Home = () => {
     'Selection Sort',
     'QuickSort',
     'Merge Sort',
-    'Counting Sort'
+    'Counting Sort',
+    'Radix Sort'
   ];
 
   const onRandomize = () => {
@@ -106,6 +108,14 @@ const Home = () => {
         break;
       case 'Counting Sort':
         await countingSort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          visualizationSpeed:visualizationSpeed,
+          setColorsArray:setColorsArray
+        });
+        break;
+        case 'Radix Sort':
+        await radixSort({
           array:randomizedArray,
           setArray:setRandomizedArray,
           visualizationSpeed:visualizationSpeed,

@@ -20,16 +20,16 @@ const countingSort = async ({
             map[array[i]] = 1;
         }
     }
-    let newarray = new Array(len).fill(0);
     let k = 0;
     for (const [key, value] of Object.entries(map)) {
         let newColorsArray = new Array(len).fill(0);
         let val = value, freq = key;
         for (let j = 0; j < val; j++) {
-            newarray[k++] = Number(freq);
+            newColorsArray[k] = 2;
+            array[k++] = Number(freq);
         }
         setColorsArray(newColorsArray);
-        setArray(newarray);
+        setArray(array);
         await asyncSetTimeout({ timeout: visualizationSpeed });
     }
 };
