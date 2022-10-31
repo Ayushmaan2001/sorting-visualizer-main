@@ -17,10 +17,16 @@ const heapSort = async({
         var temp = array[0];
         array[0] = array[i];
         array[i] = temp;
-        await asyncSetTimeout({ timeout: visualizationSpeed });
         setArray(array);
-        setColorsArray(newColorsArray)
         heapify(array,i,0);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+        setColorsArray(newColorsArray)
+    }
+    for(let i=0;i<len;i++){
+        let newColorsArray = new Array(len).fill(0);
+        newColorsArray[i] = 3;
+        setColorsArray(newColorsArray)
+        await asyncSetTimeout({ timeout: visualizationSpeed });
     }
     function heapify(arr, len, i) {
         let largest = i;
@@ -32,6 +38,7 @@ const heapSort = async({
         if (r < len && arr[r] > arr[largest]) {
             largest = r;
         }
+        asyncSetTimeout({timeout:visualizationSpeed})
         if (largest !== i) {
             var swap = arr[i];
             arr[i] = arr[largest];
