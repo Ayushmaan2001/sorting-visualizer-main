@@ -10,6 +10,7 @@ import mergeSortWrapper from '../../algorithms/merge-sort';
 import quickSortLWrapper from '../../algorithms/quick-sort-l';
 import countingSort from '../../algorithms/counting-sort';
 import radixSort from '../../algorithms/radix-sort';
+import heapSort from '../../algorithms/heap-sort';
 
 const Home = () => {
   const arraySize = 100;
@@ -30,7 +31,8 @@ const Home = () => {
     'QuickSort',
     'Merge Sort',
     'Counting Sort',
-    'Radix Sort'
+    'Radix Sort',
+    'Heap Sort'
   ];
 
   const onRandomize = () => {
@@ -116,6 +118,14 @@ const Home = () => {
         break;
         case 'Radix Sort':
         await radixSort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          visualizationSpeed:visualizationSpeed,
+          setColorsArray:setColorsArray
+        });
+        break;
+        case 'Heap Sort':
+        await heapSort({
           array:randomizedArray,
           setArray:setRandomizedArray,
           visualizationSpeed:visualizationSpeed,

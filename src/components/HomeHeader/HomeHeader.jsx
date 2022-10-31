@@ -39,7 +39,7 @@ const HomeHeader = ({
         height={30}
         style={{ cursor: 'pointer' }}
         onClick={() =>
-          openUrl('https://github.com/KarimElghamry/sorting-visualizer')
+          openUrl('https://github.com/Ayushmaan2001/sorting-visualizer-main')
         }
       ></img>
 
