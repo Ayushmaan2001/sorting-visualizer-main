@@ -7,16 +7,18 @@ const CodeEditor = ({Cpp,Java,Python,Javascript}) => {
     return (
         <Collapse defaultActiveKey={['1']}>
       <Panel header="This is panel header with arrow icon" key="1">
-        <p>{Cpp}</p>
+        <pre>
+          {Cpp}
+        </pre>
       </Panel>
       <Panel header="This is panel header with no arrow icon" key="2">
-        <p>{Java}</p>
+        <pre>{Java}</pre>
       </Panel>
       <Panel header="This is panel header with no arrow icon" key="3">
-        <p>{Python}</p>
+        <pre>{Python}</pre>
       </Panel>
       <Panel header="This is panel header with no arrow icon" key="4">
-        <p>{Javascript}</p>
+        <pre>{Javascript}</pre>
       </Panel>
     </Collapse>
     );

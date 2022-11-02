@@ -1,6 +1,7 @@
 import React from 'react';
 import './table.css'
 import { Col, Row } from 'antd';
+import CodeEditor from './codeEditor'
 
 export default function BubbleSort() {
   return (
@@ -22,7 +23,7 @@ export default function BubbleSort() {
       </Col>
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
-        <table class="styled-table">
+        <table className="styled-table">
           <thead>
             <tr>
               <th>Average Complexity</th>
@@ -45,6 +46,8 @@ export default function BubbleSort() {
           </tbody>
         </table>
       </Col>
-    </Row></React.Fragment>
+    </Row>
+    {/* <CodeEditor Cpp={Cpp} Java='java' Python={'python'} Javascript={'js'}/> */}
+    </React.Fragment>
   )
 }
