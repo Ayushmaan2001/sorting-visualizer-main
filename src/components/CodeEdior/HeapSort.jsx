@@ -14,8 +14,9 @@ const HeapSort = ({text}) => {
             alignItems: 'center'
         }}>
             <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
-                <h2 style={{ color: 'white' }}>Counting sort is a sorting algorithm that sorts the elements of an array by counting the number of occurrences of each unique element in the array. The count is stored in an auxiliary array and the sorting is done by mapping the count as an index of the auxiliary array.</h2>
-                <h2>Here n is the size of elements and k is the range of the elements</h2>
+                <h2 style={{ color: 'white' }}>Heap Sort is an in-place iterative sorting algorithm based on auxiliary data structures called heap. It's less efficient than algorithm with the same time complexity and it's not suitable for data structures with few elements</h2>
+                <h2 style={{ color: 'white' }}>The heap is a data structure representable as a binary tree, where each node has a value bigger or equal to its children. Consequently, the root will hold the maximum value.</h2>
+                <h2 style={{ color: 'white' }}>The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.</h2>
             </Col>
             <Col span={8}>
                 <h1 style={{ color: 'white' }}>Complexity</h1>
@@ -23,17 +24,17 @@ const HeapSort = ({text}) => {
                     <thead>
                         <tr>
                             <th>Average Complexity</th>
-                            <th>O(nxk)</th>
+                            <th>O(nxlogn)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Best Case</td>
-                            <td>O(nxk)</td>
+                            <td>O(nxlogn)</td>
                         </tr>
                         <tr>
                             <td>Worst Case</td>
-                            <td>O(nxk)</td>
+                            <td>O(nxlogn)</td>
                         </tr>
                         <tr>
                             <td>Space Complexity</td>

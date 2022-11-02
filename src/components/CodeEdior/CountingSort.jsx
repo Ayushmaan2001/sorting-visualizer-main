@@ -14,32 +14,29 @@ export default function CountingSort({text}) {
       alignItems: 'center'
     }}>
       <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.</h2>
-        <h2 style={{ color: 'white' }}>This division in partitions is done based on an element, called pivot: all the elements bigger than the pivot get placed on the right side of the structure, the smaller ones to the left, creating two partitions. Next, this procedure gets applied recursively to the two partitions and so on.
-        </h2>
-        <h2 style={{ color: 'white' }}>This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.</h2>
-      </Col>
+        <h2 style={{ color: 'white' }}>Counting sort is a sorting algorithm that sorts the elements of an array by counting the number of occurrences of each unique element in the array. The count is stored in an auxiliary array and the sorting is done by mapping the count as an index of the auxiliary array.</h2>
+        <h2 style={{ color: 'white' }}>Here n is the size of elements and k is the range of the elements</h2></Col>
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
         <table class="styled-table">
           <thead>
             <tr>
               <th>Average Complexity</th>
-              <th>O(nxlogn)</th>
+              <th>O(nxk)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case</td>
-              <td>O(nxlogn)</td>
+              <td>O(nxk)</td>
             </tr>
             <tr>
               <td>Worst Case</td>
-              <td>O(n<sup>2</sup>)</td>
+              <td>O(nxk)</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(n)</td>
+              <td>O(1)</td>
             </tr>
           </tbody>
         </table>
