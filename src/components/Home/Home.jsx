@@ -3,8 +3,6 @@ import generateRandomizedArray from '../../helpers/randomizeArray';
 import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
-import bubblesort from '../../files/bubblesort.txt'
-import fs from 'fs'
 
 
 //algorithms import

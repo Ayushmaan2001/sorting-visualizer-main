@@ -1,11 +1,7 @@
 import React from 'react';
-import CodeEditor from './codeEditor';
 import './table.css'
 import { Col, Row } from 'antd';
 
-const str = (<pre>
-
-</pre>)
 export default function BubbleSort() {
   return (
     <React.Fragment><Row style={{
