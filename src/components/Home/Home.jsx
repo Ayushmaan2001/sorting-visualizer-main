@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import selectionSort from '../../algorithms/selection-sort';
 import generateRandomizedArray from '../../helpers/randomizeArray';
 import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
+import bubblesort from '../../files/bubblesort.txt'
+import fs from 'fs'
+
+
+//algorithms import
+import selectionSort from '../../algorithms/selection-sort';
 import bubbleSort from '../../algorithms/bubble-sort';
 import insertionSort from '../../algorithms/insertion-sort';
 import mergeSortWrapper from '../../algorithms/merge-sort';
@@ -11,6 +16,40 @@ import quickSortLWrapper from '../../algorithms/quick-sort-l';
 import countingSort from '../../algorithms/counting-sort';
 import radixSort from '../../algorithms/radix-sort';
 import heapSort from '../../algorithms/heap-sort';
+
+//CodeEditors import
+import SelectionSort from '../CodeEdior/SelectionSort';
+import RadixSort from '../CodeEdior/RadixSort';
+import QuickSort from '../CodeEdior/QuickSort';
+import MergeSort from '../CodeEdior/MergeSort';
+import InsertionSort from '../CodeEdior/InsertionSort';
+import HeapSort from '../CodeEdior/HeapSort'
+import CountingSort from '../CodeEdior/CountingSort'
+import BubbleSort from '../CodeEdior/BubbleSort';
+
+const EditorSelector = ({ algo, ...props }) => {
+  console.log(algo);
+  switch(algo){
+    case"Bubble Sort":
+      return <BubbleSort {...props} />;
+    case "Insertion Sort":
+      return <InsertionSort {...props}/>
+    case "Selection Sort":
+      return <SelectionSort {...props}/>
+    case "QuickSort":
+      return <QuickSort {...props}/>
+    case "Merge Sort":
+      return <MergeSort {...props}/>
+    case "Counting Sort":
+      return <CountingSort {...props}/>
+    case "Radix Sort":
+      return <RadixSort {...props}/>
+    case "Heap Sort":
+      return <HeapSort {...props}/>
+    default:
+      return null;
+  }
+}
 
 const Home = () => {
   const arraySize = 100;
@@ -161,6 +200,7 @@ const Home = () => {
           flexDirection: 'row',
           alignItems: 'end',
           padding: '0px 0px 0px 0px',
+          minHeight:'34rem'
         }}
       >
         {randomizedArray.map((item, index) => {
@@ -188,6 +228,7 @@ const Home = () => {
           );
         })}
       </div>
+      <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );
 };
