@@ -4,7 +4,7 @@ import axios from 'axios'
 let data;
 async function POST_REQUEST(JSONObject){
     try{
-        await axios.post('http://localhost:5000/k_way_external_merge_sort', { JSONObject })
+        await axios.post('https://external-sort-api.onrender.com/k_way_external_merge_sort', { JSONObject })
     }
     catch (err) {
         console.log(err)
@@ -13,7 +13,7 @@ async function POST_REQUEST(JSONObject){
 
 async function GET_REQUEST() {
     try {
-        data = await axios.get('http://localhost:5000/k_way_external_sort_output');
+        data = await axios.get('https://external-sort-api.onrender.com/k_way_external_sort_output');
         return data;
     } catch (error) {
         console.log(error)
