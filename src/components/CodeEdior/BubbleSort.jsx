@@ -1,7 +1,6 @@
 import React from 'react';
 import './table.css'
 import { Col, Row } from 'antd';
-import CodeEditor from './codeEditor'
 
 export default function BubbleSort() {
   return (
