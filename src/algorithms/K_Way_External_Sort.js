@@ -42,7 +42,7 @@ const K_Way_Merge_Sort = async ({
         let arr_test = [];
         let temp = "";
         for(let i=1;i<temp_array.data[0].length;i++){
-            if (temp_array.data[0][i] == ' '){
+            if (temp_array.data[0][i] === ' '){
                 arr_test.push(parseInt(temp));
                 temp = "";
             }

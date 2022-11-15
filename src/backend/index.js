@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const tmp = require('tmp-promise');
 const bodyParser = require("body-parser");
 const fs = require('fs')
@@ -8,6 +9,7 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 5000;
 const {
     Splitter,
     Merger,
@@ -20,6 +22,10 @@ const corsOptions = {
     optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
+app.use(express.static(path.resolve(__dirname, '../../build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../../build'));
+});
 
 async function run() {
     const dir = await tmp.dir({ unsafeCleanup: true }); // used to store the sorted groups 
@@ -78,6 +84,6 @@ app.get('/k_way_external_sort_output',(req,res) => {
     res.send(output_array);
 })
 
-app.listen(5000,() => {
+app.listen(PORT,() => {
     console.log('running');
 })

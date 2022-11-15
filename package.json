@@ -10,6 +10,7 @@
     "axios": "^1.1.3",
     "concurrently": "^7.5.0",
     "exmes": "^1.0.5",
+    "heroku": "^7.66.3",
     "multiline": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
