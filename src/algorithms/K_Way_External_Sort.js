@@ -38,7 +38,6 @@ const K_Way_Merge_Sort = async ({
         temp_array = data;
     }).finally(() => {
         console.log(temp_array.data[0])
-        // console.log(temp_array.data)
         let arr_test = [];
         let temp = "";
         for(let i=1;i<temp_array.data[0].length;i++){
@@ -55,15 +54,6 @@ const K_Way_Merge_Sort = async ({
         console.log(arr_test)
         setArray(arr_test)
     })
-    // let temp_arr = array;
-    // var n = temp_array.length;
-    // let k=0;
-    // for(let i=0;i<n;i++){
-    //     array[k++] = temp_array[i];
-    //     setArray(array);
-    //     console.log('s')
-    //     asyncSetTimeout({timeout:visualizationSpeed})
-    // }
 }
 
 export default K_Way_Merge_Sort
