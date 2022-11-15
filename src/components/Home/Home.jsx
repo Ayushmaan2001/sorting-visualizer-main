@@ -25,6 +25,7 @@ import InsertionSort from '../CodeEdior/InsertionSort';
 import HeapSort from '../CodeEdior/HeapSort'
 import CountingSort from '../CodeEdior/CountingSort'
 import BubbleSort from '../CodeEdior/BubbleSort';
+import KwayExternal from '../CodeEdior/KwayExternal';
 
 const EditorSelector = ({ algo, ...props }) => {
   switch (algo) {
@@ -45,7 +46,7 @@ const EditorSelector = ({ algo, ...props }) => {
     case "Heap Sort":
       return <HeapSort {...props} />
     case "K-Way External Sort":
-      return null
+      return <KwayExternal {...props}/>
     default:
       return null;
   }

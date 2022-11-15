@@ -33,15 +33,26 @@ const radixSort = async ({
             count[Math.floor(arr[i] / exp) % 10]++;
         }
         for (i = 1; i < 10; i++) {
+            let newColorsArray = new Array(n).fill(0);
+            newColorsArray[i] = 1;
+            setColorsArray(newColorsArray);
+            asyncSetTimeout({ timeout: visualizationSpeed })
             count[i] += count[i - 1];
         }
         for (i = n - 1; i >= 0; i--) {
+            let newColorsArray = new Array(n).fill(0);
+            newColorsArray[i] = 1;
+            setColorsArray(newColorsArray);
+            asyncSetTimeout({ timeout: visualizationSpeed })
             output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
             count[Math.floor(arr[i] / exp) % 10]--;
         }
         for (i = 0; i < n; i++) {
+            let newColorArray = new Array(n).fill(0);
+            newColorArray[i] = 2;
+            setColorsArray(newColorArray);
             arr[i] = output[i];
-
+            asyncSetTimeout({timeout:visualizationSpeed})
         }
     }
     let m = getMax(array);
