@@ -2,7 +2,6 @@ import { Collapse } from 'antd';
 import React from 'react';
 const { Panel } = Collapse;
 
-
 const CodeEditor = ({Cpp,Java,Python,Javascript}) => {
     return (
         <Collapse defaultActiveKey={['1']}>

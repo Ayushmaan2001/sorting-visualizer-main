@@ -14,6 +14,7 @@ import quickSortLWrapper from '../../algorithms/quick-sort-l';
 import countingSort from '../../algorithms/counting-sort';
 import radixSort from '../../algorithms/radix-sort';
 import heapSort from '../../algorithms/heap-sort';
+import K_Way_Merge_Sort from '../../algorithms/K_Way_External_Sort';
 
 //CodeEditors import
 import SelectionSort from '../CodeEdior/SelectionSort';
@@ -26,24 +27,25 @@ import CountingSort from '../CodeEdior/CountingSort'
 import BubbleSort from '../CodeEdior/BubbleSort';
 
 const EditorSelector = ({ algo, ...props }) => {
-  console.log(algo);
-  switch(algo){
-    case"Bubble Sort":
+  switch (algo) {
+    case "Bubble Sort":
       return <BubbleSort {...props} />;
     case "Insertion Sort":
-      return <InsertionSort {...props}/>
+      return <InsertionSort {...props} />
     case "Selection Sort":
-      return <SelectionSort {...props}/>
+      return <SelectionSort {...props} />
     case "QuickSort":
-      return <QuickSort {...props}/>
+      return <QuickSort {...props} />
     case "Merge Sort":
-      return <MergeSort {...props}/>
+      return <MergeSort {...props} />
     case "Counting Sort":
-      return <CountingSort {...props}/>
+      return <CountingSort {...props} />
     case "Radix Sort":
-      return <RadixSort {...props}/>
+      return <RadixSort {...props} />
     case "Heap Sort":
-      return <HeapSort {...props}/>
+      return <HeapSort {...props} />
+    case "K-Way External Sort":
+      return null
     default:
       return null;
   }
@@ -69,7 +71,8 @@ const Home = () => {
     'Merge Sort',
     'Counting Sort',
     'Radix Sort',
-    'Heap Sort'
+    'Heap Sort',
+    'K-Way External Sort'
   ];
 
   const onRandomize = () => {
@@ -134,7 +137,7 @@ const Home = () => {
           setColorsArray: setColorsArray,
         });
         break;
-      
+
       case 'Merge Sort':
         await mergeSortWrapper({
           array: randomizedArray,
@@ -147,29 +150,36 @@ const Home = () => {
         break;
       case 'Counting Sort':
         await countingSort({
-          array:randomizedArray,
-          setArray:setRandomizedArray,
-          visualizationSpeed:visualizationSpeed,
-          setColorsArray:setColorsArray
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray
         });
         break;
-        case 'Radix Sort':
+      case 'Radix Sort':
         await radixSort({
-          array:randomizedArray,
-          setArray:setRandomizedArray,
-          visualizationSpeed:visualizationSpeed,
-          setColorsArray:setColorsArray
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray
         });
         break;
-        case 'Heap Sort':
+      case 'Heap Sort':
         await heapSort({
-          array:randomizedArray,
-          setArray:setRandomizedArray,
-          visualizationSpeed:visualizationSpeed,
-          setColorsArray:setColorsArray
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray
         });
         break;
-
+      case 'K-Way External Sort':
+        await K_Way_Merge_Sort({
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray
+        });
+        break;
       default:
         break;
     }
@@ -198,7 +208,7 @@ const Home = () => {
           flexDirection: 'row',
           alignItems: 'end',
           padding: '0px 0px 0px 0px',
-          minHeight:'34rem'
+          minHeight: '34rem'
         }}
       >
         {randomizedArray.map((item, index) => {
