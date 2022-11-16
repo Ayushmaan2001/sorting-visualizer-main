@@ -3,7 +3,6 @@ import generateRandomizedArray from '../../helpers/randomizeArray';
 import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
-import Flash from 'react-reveal/Flash';
 
 //algorithms import
 import selectionSort from '../../algorithms/selection-sort';
@@ -200,7 +199,6 @@ const Home = () => {
         onStart={onVisualize}
         isVisualizing={isVisualizing}
       />
-      <Flash>
       <div
         style={{
           backgroundColor: '#0D1929',
@@ -238,7 +236,6 @@ const Home = () => {
           );
         })}
       </div>
-      </Flash>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );
