@@ -1,6 +1,48 @@
 import React from 'react';
 import './table.css'
 import { Col, Row } from 'antd';
+import CodeEditor from './codeEditor'
+let Cpp = `
+void bubbleSort(int arr[], int n)
+{
+	int i, j;
+	for (i = 0; i < n - 1; i++)
+		for (j = 0; j < n - i - 1; j++)
+			if (arr[j] > arr[j + 1])
+				swap(arr[j], arr[j + 1]);
+}
+`,
+Java = `
+class BubbleSort {
+	void bubbleSort(int arr[])
+	{
+		int n = arr.length;
+		for (int i = 0; i < n - 1; i++)
+			for (int j = 0; j < n - i - 1; j++)
+				if (arr[j] > arr[j + 1]) {
+					int temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+`,
+Python = `
+def bubbleSort(arr):
+	n = len(arr)
+	for i in range(n):
+		for j in range(0, n-i-1):
+			if arr[j] > arr[j+1]:
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+`,
+Javascript = `
+function swap(arr, xp, yp)
+{
+	var temp = arr[xp];
+	arr[xp] = arr[yp];
+	arr[yp] = temp;
+}
+`
 
 export default function BubbleSort() {
   return (
@@ -46,7 +88,7 @@ export default function BubbleSort() {
         </table>
       </Col>
     </Row>
-    {/* <CodeEditor Cpp={Cpp} Java='java' Python={'python'} Javascript={'js'}/> */}
+    <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false}/>
     </React.Fragment>
   )
 }

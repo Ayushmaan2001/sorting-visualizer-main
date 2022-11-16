@@ -1,6 +1,134 @@
 import React from 'react'
 import './table.css'
 import { Col, Row } from 'antd';
+import CodeEditor from './codeEditor';
+
+let Cpp = `
+int getMax(int arr[], int n)
+{
+    int mx = arr[0];
+    for (int i = 1; i < n; i++)
+        if (arr[i] > mx)
+            mx = arr[i];
+    return mx;
+}
+void countSort(int arr[], int n, int exp)
+{
+    int output[n]; // output array
+    int i, count[10] = { 0 };
+    for (i = 0; i < n; i++)
+        count[(arr[i] / exp) % 10]++;
+    for (i = 1; i < 10; i++)
+        count[i] += count[i - 1];
+    for (i = n - 1; i >= 0; i--) {
+        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+        count[(arr[i] / exp) % 10]--;
+    }
+    for (i = 0; i < n; i++)
+        arr[i] = output[i];
+}
+void radixsort(int arr[], int n)
+{
+    int m = getMax(arr, n);
+    for (int exp = 1; m / exp > 0; exp *= 10)
+        countSort(arr, n, exp);
+}
+`,
+Python = `
+def countingSort(arr, exp1):
+ 
+    n = len(arr)
+    output = [0] * (n)
+    count = [0] * (10)
+    for i in range(0, n):
+        index = arr[i] // exp1
+        count[index % 10] += 1
+    for i in range(1, 10):
+        count[i] += count[i - 1]
+    i = n - 1
+    while i >= 0:
+        index = arr[i] // exp1
+        output[count[index % 10] - 1] = arr[i]
+        count[index % 10] -= 1
+        i -= 1
+    i = 0
+    for i in range(0, len(arr)):
+        arr[i] = output[i]
+
+def radixSort(arr):
+    max1 = max(arr)
+    exp = 1
+    while max1 / exp >= 1:
+        countingSort(arr, exp)
+        exp *= 10
+`,
+Java = `
+static int getMax(int arr[], int n)
+    {
+        int mx = arr[0];
+        for (int i = 1; i < n; i++)
+            if (arr[i] > mx)
+                mx = arr[i];
+        return mx;
+    }
+static void countSort(int arr[], int n, int exp)
+    {
+        int output[] = new int[n]; // output array
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count, 0);
+        for (i = 0; i < n; i++)
+            count[(arr[i] / exp) % 10]++;
+        for (i = 1; i < 10; i++)
+            count[i] += count[i - 1];
+        for (i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+        }
+        for (i = 0; i < n; i++)
+            arr[i] = output[i];
+    }
+static void radixsort(int arr[], int n)
+    {
+        int m = getMax(arr, n);
+        for (int exp = 1; m / exp > 0; exp *= 10)
+            countSort(arr, n, exp);
+    }
+`,
+Javascript = `
+function getMax(arr,n)
+{
+    let mx = arr[0];
+        for (let i = 1; i < n; i++)
+            if (arr[i] > mx)
+                mx = arr[i];
+        return mx;
+}
+function countSort(arr,n,exp)
+{
+    let output = new Array(n); // output array
+        let i;
+        let count = new Array(10);
+        for(let i=0;i<10;i++)
+            count[i]=0;
+        for (i = 0; i < n; i++)
+            count[Math.floor(arr[i] / exp) % 10]++;
+        for (i = 1; i < 10; i++)
+            count[i] += count[i - 1];
+        for (i = n - 1; i >= 0; i--) {
+            output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+            count[Math.floor(arr[i] / exp) % 10]--;
+        }
+        for (i = 0; i < n; i++)
+            arr[i] = output[i];
+}
+function radixsort(arr,n)
+{
+        let m = getMax(arr, n);
+        for (let exp = 1; Math.floor(m / exp) > 0; exp *= 10)
+            countSort(arr, n, exp);
+}
+`
 
 export default function RadixSort({text}) {
   return (
@@ -44,6 +172,8 @@ export default function RadixSort({text}) {
           </tbody>
         </table>
       </Col>
-    </Row></React.Fragment>
+    </Row>
+          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+    </React.Fragment>
   )
 }
