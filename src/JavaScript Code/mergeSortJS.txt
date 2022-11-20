@@ -1,0 +1,64 @@
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+// function to merge two sorted array
+function merge(l, mid, r) {
+  
+  let output = new Array(r - l + 1);
+  let k = 0, i = l, j = mid + 1;
+  
+  while(i <= mid && j <= r) {
+    if(arr[i] < arr[j]) {
+      output[k++] = arr[i++];
+    } else {
+      output[k++] = arr[j++];
+    }
+  }
+  
+  // if some elements left in the first array
+  while(i <= mid) output[k++] = arr[i++];
+
+  // if some elements left in the second array  
+  while(j <= r) output[k++] = arr[j++];
+  
+  k = 0;
+  
+  // updating the original array from l to r inclusive
+  for(i = l; i <= r; i++) arr[i] = output[k++];
+}
+
+
+// mergeSort function which will partition the array into two halves recursively
+// and sort them using merge fucntion
+function mergeSort(l, r) {
+  if(l < r) {
+    let mid = Math.floor((l + r) / 2);
+    
+    // calling the mergeSort function recursively on both the halves
+    mergeSort(l, mid);
+    mergeSort(mid + 1, r);
+
+    // after sorting the halves then merging both sorted parts
+    merge(l, mid, r);
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling mergeSort function 
+mergeSort(0, len - 1);
+
+// after sorting this function call will print the final array
+print("After");

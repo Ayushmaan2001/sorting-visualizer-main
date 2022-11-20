@@ -1,0 +1,88 @@
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+// function to get the maximum element from the array
+function getMax(arr) {
+  let maxx = arr[0];
+  
+  arr.forEach(function(num) {
+    if(maxx < num) {
+      maxx = num;
+    }
+  });
+  return maxx;
+}
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+
+// counting sort
+function countingSort(exp) {
+  
+  
+  // count array will contain the frequency of each element
+  let count = new Array(10);
+  
+  for(let i = 0; i < 10; i++) count[i] = 0;
+  
+  // output array will contain the resultant array
+  let output = new Array(len);
+  
+  // calculating the frequency
+  arr.forEach(function(num) {
+    
+    let temp = Math.floor(num / exp) % 10;
+    
+    if(!count[temp]) {
+      count[temp] = 1;
+    } else {
+      count[temp] += 1;
+    }
+
+  });
+
+  // making the count array more suitable for output array
+  for(let i = 1; i < 10; i++) 
+    count[i] += count[i - 1];
+  
+  
+  // formation of output array
+  for(let i = len - 1; i >= 0; i--) {
+    output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+    count[Math.floor(arr[i] / exp) % 10] -= 1;
+  }
+  
+  
+  // finally copying the data from output array to original array
+  for(let i = 0; i < len; i++) {
+    arr[i] = output[i];
+  }
+}
+
+// main radix function
+function radixSort() {
+
+  // trying to get the maximum element because we need the number maximum number of digits
+  let m = getMax(arr);
+  
+  // sorting the array from rightmost bit to lowest bit
+  for(let exp = 1; Math.floor(m / exp) > 0; exp *= 10) {
+    countingSort(exp);
+  }
+}
+// this function call will print the original array
+print("Before");
+
+// calling radixSort function 
+radixSort();
+
+// after sorting this function call will print the final array
+print("After");
