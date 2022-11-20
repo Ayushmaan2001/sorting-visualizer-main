@@ -1,0 +1,40 @@
+let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+
+// bubble sort
+function bubbleSort() {
+  
+  for(let i = 0; i < len - 1; i++) {
+    for(let j = 1; j < len; j++) {
+       
+       if(arr[j] < arr[j - 1]) {
+         let temp = arr[j];
+         arr[j] = arr[j - 1];
+         arr[j - 1] = temp;
+       }
+    }
+    
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling bubbleSort function 
+bubbleSort();
+
+// after sorting this function call will print the final array
+print("After");
