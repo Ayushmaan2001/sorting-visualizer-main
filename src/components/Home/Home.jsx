@@ -13,7 +13,9 @@ import quickSortLWrapper from '../../algorithms/quick-sort-l';
 import countingSort from '../../algorithms/counting-sort';
 import radixSort from '../../algorithms/radix-sort';
 import heapSort from '../../algorithms/heap-sort';
-import K_Way_Merge_Sort from '../../algorithms/K_Way_External_Sort';
+// import K_Way_Merge_Sort from '../../algorithms/K_Way_External_Sort';
+import k_way_external from '../../algorithms/k-way-external';
+import externalReplacementSort from '../../algorithms/external-replacement-sort';
 
 //CodeEditors import
 import SelectionSort from '../CodeEdior/SelectionSort';
@@ -25,31 +27,7 @@ import HeapSort from '../CodeEdior/HeapSort'
 import CountingSort from '../CodeEdior/CountingSort'
 import BubbleSort from '../CodeEdior/BubbleSort';
 import KwayExternal from '../CodeEdior/KwayExternal';
-
-const EditorSelector = ({ algo, ...props }) => {
-  switch (algo) {
-    case "Bubble Sort":
-      return <BubbleSort {...props} />;
-    case "Insertion Sort":
-      return <InsertionSort {...props} />
-    case "Selection Sort":
-      return <SelectionSort {...props} />
-    case "QuickSort":
-      return <QuickSort {...props} />
-    case "Merge Sort":
-      return <MergeSort {...props} />
-    case "Counting Sort":
-      return <CountingSort {...props} />
-    case "Radix Sort":
-      return <RadixSort {...props} />
-    case "Heap Sort":
-      return <HeapSort {...props} />
-    case "K-Way External Sort":
-      return <KwayExternal {...props}/>
-    default:
-      return null;
-  }
-}
+import ReplacementSort from '../CodeEdior/ReplacementSort';
 
 const Home = () => {
   const arraySize = 100;
@@ -62,6 +40,32 @@ const Home = () => {
   );
   const [visualizationSpeed, setVisualizationSpeed] = useState(30);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
+  const EditorSelector = ({ algo, ...props }) => {
+    switch (algo) {
+      case "Bubble Sort":
+        return <BubbleSort {...props} />;
+      case "Insertion Sort":
+        return <InsertionSort {...props} />
+      case "Selection Sort":
+        return <SelectionSort {...props} />
+      case "QuickSort":
+        return <QuickSort {...props} />
+      case "Merge Sort":
+        return <MergeSort {...props} />
+      case "Counting Sort":
+        return <CountingSort {...props} />
+      case "Radix Sort":
+        return <RadixSort {...props} />
+      case "Heap Sort":
+        return <HeapSort {...props} />
+      case "K-Way External Sort":
+        return <KwayExternal {...props} array={randomizedArray} />
+      case "Replacement Ext Sort":
+        return <ReplacementSort {...props} />
+      default:
+        return null;
+    }
+  }
   const [currentAlgorithm, setCurrentAlgorithm] = useState('Bubble Sort');
   const algorithms = [
     'Bubble Sort',
@@ -72,7 +76,8 @@ const Home = () => {
     'Counting Sort',
     'Radix Sort',
     'Heap Sort',
-    'K-Way External Sort'
+    'K-Way External Sort',
+    'Replacement Ext Sort'
   ];
 
   const onRandomize = () => {
@@ -173,7 +178,15 @@ const Home = () => {
         });
         break;
       case 'K-Way External Sort':
-        await K_Way_Merge_Sort({
+        await k_way_external({
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray,
+        });
+        break;
+      case 'Replacement Ext Sort':
+        await externalReplacementSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
@@ -183,7 +196,6 @@ const Home = () => {
       default:
         break;
     }
-
     setIsVisualizing(false);
   };
 
