@@ -68,7 +68,7 @@ const Home = () => {
       case "K-Way External Sort":
         return <KwayExternal {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
-        return <ReplacementSort {...props} runs={runsArray}/>
+        return <ReplacementSort {...props} runs={runsArray} />
       default:
         return null;
     }
@@ -193,8 +193,8 @@ const Home = () => {
           setrunsArray: setrunsArray,
           setrunsArray1: setrunsArray1,
           setrunsArray2: setrunsArray2,
-          runsArray1:runsArray1,
-          runsArray2:runsArray2
+          runsArray1: runsArray1,
+          runsArray2: runsArray2
         });
         break;
       case 'Replacement Ext Sort':
@@ -261,7 +261,8 @@ const Home = () => {
           );
         })}
       </div>
-      <RunsBars runs={runsArray} colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem}/>
+      {currentAlgorithm === 'K-Way External Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} /> : null}
+
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );
