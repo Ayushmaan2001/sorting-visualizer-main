@@ -143,7 +143,7 @@ const k_way_external = async({
         const idx = InputArray.indexOf(runs[n-1][i]);
         let newColorsArray = new Array(InputArray.length).fill(0);
         if(idx > -1){
-            newColorsArray[idx] = 1;
+            newColorsArray[idx] = 2;
             setColorsArray(newColorsArray);
             await asyncSetTimeout({timeout:visualizationSpeed});
             InputArray.splice(idx,1);
@@ -162,7 +162,7 @@ const k_way_external = async({
         const idx = InputArray.indexOf(runs[n - 2][i]);
         let newColorsArray = new Array(InputArray.length).fill(0);
         if (idx > -1) {
-            newColorsArray[idx] = 1;
+            newColorsArray[idx] = 2;
             setColorsArray(newColorsArray);
             await asyncSetTimeout({ timeout: visualizationSpeed });
             InputArray.splice(idx, 1);
@@ -181,7 +181,7 @@ const k_way_external = async({
         const t1 = runsArray1.indexOf(outputArray[i]);
         if(t1 > -1){
             let newColorsArray = new Array(t1).fill(0);
-            newColorsArray[t1] = 1;
+            newColorsArray[t1] = 3;
             setColorsArray(newColorsArray);
             await asyncSetTimeout({timeout:visualizationSpeed})
             runsArray1.splice(t1,1);
@@ -191,7 +191,7 @@ const k_way_external = async({
             const t2 = runsArray2.indexOf(outputArray[i]);
             if(t2 > -1){
                 let newColorsArray = new Array(t2).fill(0);
-                newColorsArray[t1] = 1;
+                newColorsArray[t1] = 3;
                 setColorsArray(newColorsArray);
                 await asyncSetTimeout({ timeout: visualizationSpeed })
                 runsArray2.splice(t2,1);
