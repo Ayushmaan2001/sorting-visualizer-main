@@ -14,7 +14,8 @@ import countingSort from '../../algorithms/counting-sort';
 import radixSort from '../../algorithms/radix-sort';
 import heapSort from '../../algorithms/heap-sort';
 // import K_Way_Merge_Sort from '../../algorithms/K_Way_External_Sort';
-import k_way_external from '../../algorithms/k-way-external';
+// import k_way_external from '../../algorithms/k-way-external';
+import KWAYEXTSORT from '../../algorithms/k-way-external'
 import externalReplacementSort from '../../algorithms/external-replacement-sort';
 
 //CodeEditors import
@@ -29,9 +30,15 @@ import BubbleSort from '../CodeEdior/BubbleSort';
 import KwayExternal from '../CodeEdior/KwayExternal';
 import ReplacementSort from '../CodeEdior/ReplacementSort';
 
+//Runs Bars Import
+import RunsBars from '../RunsBars/RunsBars';
+
 const Home = () => {
   const arraySize = 100;
   const [isVisualizing, setIsVisualizing] = useState(false);
+  const [runsArray1, setrunsArray1] = useState([]);
+  const [runsArray2, setrunsArray2] = useState([]);
+  const [runsArray, setrunsArray] = useState([]);
   const [randomizedArray, setRandomizedArray] = useState(
     generateRandomizedArray({ arraySize: arraySize })
   );
@@ -61,7 +68,7 @@ const Home = () => {
       case "K-Way External Sort":
         return <KwayExternal {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
-        return <ReplacementSort {...props} />
+        return <ReplacementSort {...props} runs={runsArray}/>
       default:
         return null;
     }
@@ -178,11 +185,16 @@ const Home = () => {
         });
         break;
       case 'K-Way External Sort':
-        await k_way_external({
+        await KWAYEXTSORT.k_way_external({
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setrunsArray: setrunsArray,
+          setrunsArray1: setrunsArray1,
+          setrunsArray2: setrunsArray2,
+          runsArray1:runsArray1,
+          runsArray2:runsArray2
         });
         break;
       case 'Replacement Ext Sort':
@@ -190,7 +202,8 @@ const Home = () => {
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
-          setColorsArray: setColorsArray
+          setColorsArray: setColorsArray,
+          setrunsArray: setrunsArray
         });
         break;
       default:
@@ -248,6 +261,7 @@ const Home = () => {
           );
         })}
       </div>
+      <RunsBars runs={runsArray} colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem}/>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

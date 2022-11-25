@@ -62,19 +62,22 @@ class MinHeap {
         return obj;
     }
 };
-
+let runs = []
 
 const k_way_external = async({
     array,
     setArray,
     setColorsArray,
-    visualizationSpeed
+    visualizationSpeed,
+    setrunsArray1,
+    setrunsArray2,
+    runsArray1,
+    runsArray2
 } = {}) => {
     let InputArray = array;
     let maxSize = array.length;
-    let runSize = 2;
-    let numOfRuns = maxSize/2;
-
+    let runSize = maxSize / 2;
+    let numOfRuns = 2;
     function Merge(currentRun, low, mid, high) {
         let arr = [];
         let i = low;
@@ -91,7 +94,6 @@ const k_way_external = async({
             currentRun[i] = arr[k];
         }
     }
-
     function MergeSort(currentRun, low, high) {
         if (high - low === 1) {
             return;
@@ -101,9 +103,6 @@ const k_way_external = async({
         MergeSort(currentRun, mid, high);
         Merge(currentRun, low, mid, high);
     }
-
-    let runs = []
-
     function generateRuns() {
         let j = 0;
         for (let i = 0; i < numOfRuns; i++) {
@@ -117,9 +116,7 @@ const k_way_external = async({
 
     }
     generateRuns();
-
     let outputArray = []
-
     async function KWayMerge() {
 
         let heap = new MinHeap();
@@ -141,16 +138,71 @@ const k_way_external = async({
         }
     }
     KWayMerge();
-    let k=0;
-    for(let i=0;i<InputArray.length;i++){
-        let newColorsArray = new Array(maxSize).fill(0);
-        newColorsArray[i] = 3;
-        setColorsArray(newColorsArray);
+    let n = runs.length;
+    for(let i=0;i<runs[n-1].length;i++){
+        const idx = InputArray.indexOf(runs[n-1][i]);
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        if(idx > -1){
+            newColorsArray[idx] = 1;
+            setColorsArray(newColorsArray);
+            await asyncSetTimeout({timeout:visualizationSpeed});
+            InputArray.splice(idx,1);
+            setArray(InputArray);
+            await asyncSetTimeout({ timeout: visualizationSpeed })
+        }
+        setColorsArray([])
+        let temp = runsArray1;
+        temp.push(runs[n-1][i]);
+        setrunsArray1(temp);
         await asyncSetTimeout({timeout:visualizationSpeed})
-        InputArray[i] = outputArray[k++];
-        setArray(InputArray)
     }
     setColorsArray([])
+    await asyncSetTimeout({timeout:visualizationSpeed});
+    for (let i = 0; i < runs[n - 2].length; i++) {
+        const idx = InputArray.indexOf(runs[n - 2][i]);
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        if (idx > -1) {
+            newColorsArray[idx] = 1;
+            setColorsArray(newColorsArray);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            InputArray.splice(idx, 1);
+            setArray(InputArray);
+            await asyncSetTimeout({ timeout: visualizationSpeed })
+        }
+        setColorsArray([])
+        let temp = runsArray2;
+        temp.push(runs[n - 2][i]);
+        setrunsArray2(temp);
+        await asyncSetTimeout({ timeout: visualizationSpeed })
+    }
+    setColorsArray([])
+    for(let i=0;i<outputArray.length;i++){
+        let find = false;
+        const t1 = runsArray1.indexOf(outputArray[i]);
+        if(t1 > -1){
+            let newColorsArray = new Array(t1).fill(0);
+            newColorsArray[t1] = 1;
+            setColorsArray(newColorsArray);
+            await asyncSetTimeout({timeout:visualizationSpeed})
+            runsArray1.splice(t1,1);
+            find = true;
+        }
+        if(find === false){
+            const t2 = runsArray2.indexOf(outputArray[i]);
+            if(t2 > -1){
+                let newColorsArray = new Array(t2).fill(0);
+                newColorsArray[t1] = 1;
+                setColorsArray(newColorsArray);
+                await asyncSetTimeout({ timeout: visualizationSpeed })
+                runsArray2.splice(t2,1);
+                find = true;
+            }
+        }
+        InputArray.push(outputArray[i]);
+        setArray(InputArray);
+        await asyncSetTimeout({timeout:visualizationSpeed});
+    }
 }
 
-export default k_way_external;
+const KWAYEXTSORT =  {k_way_external,runs};
+export default KWAYEXTSORT;

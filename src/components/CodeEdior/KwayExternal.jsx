@@ -199,7 +199,7 @@ int main()
 	return 0;
 }
 `
-export default function KwayExternal({array}) {
+export default function KwayExternal({array,runs}) {
 	return (
 		<React.Fragment>
 			<Row style={{
