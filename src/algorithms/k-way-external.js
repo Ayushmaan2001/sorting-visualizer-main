@@ -177,48 +177,63 @@ const k_way_external = async ({
         await asyncSetTimeout({ timeout: visualizationSpeed });
         i++;
     }
-    console.log(unsortedRunsArray1,unsortedRunsArray2);
 
     //run 1 sorted
     for(let i=0;i<runs[n-1].length;i++){
-        const idx = InputArray.indexOf(runs[n-1][i]);
-        let newColorsArray = new Array(InputArray.length).fill(0);
-        if(idx > -1){
-            newColorsArray[idx] = 2;
-            setColorsArray(newColorsArray);
+        let check = false;
+        const idx1 = unsortedRunsArray1.indexOf(runs[n-1][i]);
+        const idx2 = unsortedRunsArray2.indexOf(runs[n-1][i]);
+        if(idx1 > -1){
+            let newColorsArray = new Array(unsortedRunsArray1.length).fill(0);
+            newColorsArray[idx1] = 2;
+            setColorsArray(unsortedRunsArray1);
             await asyncSetTimeout({timeout:visualizationSpeed});
-            InputArray.splice(idx,1);
-            setArray(InputArray);
-            await asyncSetTimeout({ timeout: visualizationSpeed })
+            unsortedRunsArray1.splice(idx1,1);
+            setunsortedRunsArray1(unsortedRunsArray1);
         }
-        setColorsArray([])
+        else{
+            let newColorsArray = new Array(unsortedRunsArray2.length).fill(0);
+            newColorsArray[idx2] = 2;
+            setColorsArray(unsortedRunsArray2);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray2.splice(idx2, 1);
+            setunsortedRunsArray1(unsortedRunsArray2);
+        }
         let temp = runsArray1;
-        temp.push(runs[n-1][i]);
+        temp.push(runs[n-1][i])
         setrunsArray1(temp);
-        await asyncSetTimeout({timeout:visualizationSpeed})
+        await asyncSetTimeout({timeout:visualizationSpeed});
     }
     setColorsArray([])
     await asyncSetTimeout({timeout:visualizationSpeed});
 
     //run 2 sorted
-    for (let i = 0; i < runs[n - 2].length; i++) {
-        const idx = InputArray.indexOf(runs[n - 2][i]);
-        let newColorsArray = new Array(InputArray.length).fill(0);
-        if (idx > -1) {
-            newColorsArray[idx] = 2;
-            setColorsArray(newColorsArray);
+    for (let i = 0; i < runs[n - 1].length; i++) {
+        const idx1 = unsortedRunsArray1.indexOf(runs[n - 2][i]);
+        const idx2 = unsortedRunsArray2.indexOf(runs[n - 2][i]);
+        if (idx1 > -1) {
+            let newColorsArray = new Array(unsortedRunsArray1.length).fill(0);
+            newColorsArray[idx1] = 2;
+            setColorsArray(unsortedRunsArray1);
             await asyncSetTimeout({ timeout: visualizationSpeed });
-            InputArray.splice(idx, 1);
-            setArray(InputArray);
-            await asyncSetTimeout({ timeout: visualizationSpeed })
+            unsortedRunsArray1.splice(idx1, 1);
+            setunsortedRunsArray1(unsortedRunsArray1);
         }
-        setColorsArray([])
+        else{
+            let newColorsArray = new Array(unsortedRunsArray2.length).fill(0);
+            newColorsArray[idx2] = 2;
+            setColorsArray(unsortedRunsArray2);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray2.splice(idx2, 1);
+            setunsortedRunsArray1(unsortedRunsArray2);
+        }
         let temp = runsArray2;
-        temp.push(runs[n - 2][i]);
+        temp.push(runs[n - 2][i])
         setrunsArray2(temp);
-        await asyncSetTimeout({ timeout: visualizationSpeed })
+        await asyncSetTimeout({ timeout: visualizationSpeed });
     }
     setColorsArray([])
+    await asyncSetTimeout({ timeout: visualizationSpeed });
 
     //output array
     for (let i = 0; i < outputArray.length; i++) {
