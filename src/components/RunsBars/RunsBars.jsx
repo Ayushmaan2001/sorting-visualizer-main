@@ -5,7 +5,7 @@ import "./RunBars.css"
 function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsArray1, unsortedRunsArray2 }) {
     return (
         <React.Fragment>
-            <div style={{ color: 'wheat', fontSize: '2rem', textAlign: 'center', margin: '5rem' }}>Run 1 Unsorted</div>
+            <div style={{ color: 'wheat', fontSize: '2rem', textAlign: 'center', margin: '5rem' }}>Run 1 Unsorted(Into the memory)</div>
             {unsortedRunsArray1.length === 0 ? null : <div
                 style={{
                     backgroundColor: '#0D1929',
@@ -45,7 +45,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                     );
                 })}
             </div>}
-            <div style={{ color: 'wheat', fontSize: '2rem', textAlign: 'center', margin: '5rem' }}>Run 2 Unsorted</div>
+            <div style={{ color: 'wheat', fontSize: '2rem', textAlign: 'center', margin: '5rem' }}>Run 2 Unsorted(Into the memory)</div>
             {unsortedRunsArray2.length === 0 ? null : <div
                     style={{
                         backgroundColor: '#0D1929',

@@ -121,7 +121,7 @@ const k_way_external = async ({
     }
     generateRuns();
     let outputArray = []
-    async function KWayMerge() {
+    function KWayMerge() {
 
         let heap = new MinHeap();
         let curPtrs = [];
@@ -161,7 +161,6 @@ const k_way_external = async ({
         i++;
     }
     setColorsArray([])
-    await asyncSetTimeout({timeout:visualizationSpeed})
 
     //run 2 unsorted
     i = l/2
@@ -204,7 +203,6 @@ const k_way_external = async ({
         await asyncSetTimeout({timeout:visualizationSpeed});
     }
     setColorsArray([])
-    await asyncSetTimeout({timeout:visualizationSpeed});
     setunsortedRunsArray1([])
 
     //run 2 sorted
@@ -232,8 +230,6 @@ const k_way_external = async ({
         setrunsArray2(temp);
         await asyncSetTimeout({ timeout: visualizationSpeed });
     }
-    setColorsArray([])
-    await asyncSetTimeout({ timeout: visualizationSpeed });
     setunsortedRunsArray2([])
 
     //output array
@@ -261,8 +257,9 @@ const k_way_external = async ({
         }
         InputArray.push(outputArray[i]);
         setArray(InputArray);
-        await asyncSetTimeout({ timeout: visualizationSpeed });
     }
+    setrunsArray1([])
+    setrunsArray2([])
 }
 
 const KWAYEXTSORT = { k_way_external, runs };

@@ -209,7 +209,15 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
-          setrunsArray: setrunsArray
+          setrunsArray: setrunsArray,
+          setrunsArray1: setrunsArray1,
+          setrunsArray2: setrunsArray2,
+          runsArray1: runsArray1,
+          runsArray2: runsArray2,
+          unsortedRunsArray1: unsortedRunsArray1,
+          unsortedRunsArray2: unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1
         });
         break;
       default:
@@ -267,7 +275,7 @@ const Home = () => {
           );
         })}
       </div>
-      {currentAlgorithm === 'K-Way External Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
+      {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

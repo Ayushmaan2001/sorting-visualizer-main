@@ -70,10 +70,18 @@ const externalReplacementSort = async ({
     array,
     setArray,
     setColorsArray,
-    visualizationSpeed
+    visualizationSpeed,
+    setrunsArray1,
+    setrunsArray2,
+    runsArray1,
+    runsArray2,
+    unsortedRunsArray2,
+    unsortedRunsArray1,
+    setunsortedRunsArray2,
+    setunsortedRunsArray1
 } = {}) => {
     let maxSize = array.length;
-    let runSize = maxSize;
+    let runSize = maxSize/2;
     let numOfRuns = 0;
 
     let InputArray = array;
@@ -136,15 +144,120 @@ const externalReplacementSort = async ({
         }
     }
     KWayMerge();
-    let k = 0;
-    for (let i = 0; i < InputArray.length; i++) {
-        let newColorsArray = new Array(maxSize).fill(0);
-        newColorsArray[i] = 3;
+    console.log(InputArray)
+
+    //unsorted run 1
+    let i = 0;
+    for(;i<runs[0].length;i++) {
+        let temp = unsortedRunsArray1;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
         setColorsArray(newColorsArray);
-        await asyncSetTimeout({ timeout: visualizationSpeed })
-        InputArray[i] = outputArray[k++];
-        setArray(InputArray)
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray1(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+        i++;
     }
+
+    //unsorted run 2
+    while(!InputArray.length == 0) {
+        let temp = unsortedRunsArray2;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
+        setColorsArray(newColorsArray);
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray2(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+        i++;
+    }
+
+    //run 1 sorted
+    for (let i = 0; i < runs[0].length; i++) {
+        const idx1 = unsortedRunsArray1.indexOf(runs[0][i]);
+        const idx2 = unsortedRunsArray2.indexOf(runs[0][i]);
+        if (idx1 > -1) {
+            let newColorsArray = new Array(unsortedRunsArray1.length).fill(0);
+            newColorsArray[idx1] = 2;
+            setColorsArray(unsortedRunsArray1);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray1.splice(idx1, 1);
+            setunsortedRunsArray1(unsortedRunsArray1);
+        }
+        else {
+            let newColorsArray = new Array(unsortedRunsArray2.length).fill(0);
+            newColorsArray[idx2] = 2;
+            setColorsArray(unsortedRunsArray2);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray2.splice(idx2, 1);
+            setunsortedRunsArray1(unsortedRunsArray2);
+        }
+        let temp = runsArray1;
+        temp.push(runs[0][i])
+        setrunsArray1(temp);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+    }
+    setColorsArray([])
+
+    //run 2 sorted
+    for (let i = 0; i < runs[1].length; i++) {
+        const idx1 = unsortedRunsArray1.indexOf(runs[1][i]);
+        const idx2 = unsortedRunsArray2.indexOf(runs[1][i]);
+        if (idx1 > -1) {
+            let newColorsArray = new Array(unsortedRunsArray1.length).fill(0);
+            newColorsArray[idx1] = 2;
+            setColorsArray(unsortedRunsArray1);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray1.splice(idx1, 1);
+            setunsortedRunsArray1(unsortedRunsArray1);
+        }
+        else {
+            let newColorsArray = new Array(unsortedRunsArray2.length).fill(0);
+            newColorsArray[idx2] = 2;
+            setColorsArray(unsortedRunsArray2);
+            await asyncSetTimeout({ timeout: visualizationSpeed });
+            unsortedRunsArray2.splice(idx2, 1);
+            setunsortedRunsArray1(unsortedRunsArray2);
+        }
+        let temp = runsArray2;
+        temp.push(runs[1][i])
+        setrunsArray2(temp);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+    }
+    setunsortedRunsArray2([])
+    setunsortedRunsArray1([])
+    //output array
+    for (let i = 0; i < outputArray.length; i++) {
+        let find = false;
+        const t1 = runsArray1.indexOf(outputArray[i]);
+        if (t1 > -1) {
+            let newColorsArray = new Array(t1).fill(0);
+            newColorsArray[t1] = 3;
+            setColorsArray(newColorsArray);
+            await asyncSetTimeout({ timeout: visualizationSpeed })
+            runsArray1.splice(t1, 1);
+            find = true;
+        }
+        if (find === false) {
+            const t2 = runsArray2.indexOf(outputArray[i]);
+            if (t2 > -1) {
+                let newColorsArray = new Array(t2).fill(0);
+                newColorsArray[t1] = 3;
+                setColorsArray(newColorsArray);
+                await asyncSetTimeout({ timeout: visualizationSpeed })
+                runsArray2.splice(t2, 1);
+                find = true;
+            }
+        }
+        InputArray.push(outputArray[i]);
+        setArray(InputArray);
+    }
+    setrunsArray1([])
+    setrunsArray2([])
+    
     setColorsArray([])
 }
 
