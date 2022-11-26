@@ -64,7 +64,7 @@ class MinHeap {
 };
 let runs = []
 
-const k_way_external = async({
+const k_way_external = async ({
     array,
     setArray,
     setColorsArray,
@@ -72,7 +72,11 @@ const k_way_external = async({
     setrunsArray1,
     setrunsArray2,
     runsArray1,
-    runsArray2
+    runsArray2,
+    unsortedRunsArray2,
+    unsortedRunsArray1,
+    setunsortedRunsArray2,
+    setunsortedRunsArray1
 } = {}) => {
     let InputArray = array;
     let maxSize = array.length;
@@ -139,6 +143,43 @@ const k_way_external = async({
     }
     KWayMerge();
     let n = runs.length;
+
+    //run 1 unsorted
+    let l = InputArray.length;
+    let i = 0;
+    while (i < l / 2) {
+        let temp = unsortedRunsArray1;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
+        setColorsArray(newColorsArray);
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray1(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+
+        i++;
+    }
+    setColorsArray([])
+    await asyncSetTimeout({timeout:visualizationSpeed})
+
+    //run 2 unsorted
+    i = l/2
+    while (i < l) {
+        let temp = unsortedRunsArray2;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
+        setColorsArray(newColorsArray);
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray2(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: visualizationSpeed });
+        i++;
+    }
+    console.log(unsortedRunsArray1,unsortedRunsArray2);
+
+    //run 1 sorted
     for(let i=0;i<runs[n-1].length;i++){
         const idx = InputArray.indexOf(runs[n-1][i]);
         let newColorsArray = new Array(InputArray.length).fill(0);
@@ -158,6 +199,8 @@ const k_way_external = async({
     }
     setColorsArray([])
     await asyncSetTimeout({timeout:visualizationSpeed});
+
+    //run 2 sorted
     for (let i = 0; i < runs[n - 2].length; i++) {
         const idx = InputArray.indexOf(runs[n - 2][i]);
         let newColorsArray = new Array(InputArray.length).fill(0);
@@ -176,33 +219,35 @@ const k_way_external = async({
         await asyncSetTimeout({ timeout: visualizationSpeed })
     }
     setColorsArray([])
-    for(let i=0;i<outputArray.length;i++){
+
+    //output array
+    for (let i = 0; i < outputArray.length; i++) {
         let find = false;
         const t1 = runsArray1.indexOf(outputArray[i]);
-        if(t1 > -1){
+        if (t1 > -1) {
             let newColorsArray = new Array(t1).fill(0);
             newColorsArray[t1] = 3;
             setColorsArray(newColorsArray);
-            await asyncSetTimeout({timeout:visualizationSpeed})
-            runsArray1.splice(t1,1);
+            await asyncSetTimeout({ timeout: visualizationSpeed })
+            runsArray1.splice(t1, 1);
             find = true;
         }
-        if(find === false){
+        if (find === false) {
             const t2 = runsArray2.indexOf(outputArray[i]);
-            if(t2 > -1){
+            if (t2 > -1) {
                 let newColorsArray = new Array(t2).fill(0);
                 newColorsArray[t1] = 3;
                 setColorsArray(newColorsArray);
                 await asyncSetTimeout({ timeout: visualizationSpeed })
-                runsArray2.splice(t2,1);
+                runsArray2.splice(t2, 1);
                 find = true;
             }
         }
         InputArray.push(outputArray[i]);
         setArray(InputArray);
-        await asyncSetTimeout({timeout:visualizationSpeed});
+        await asyncSetTimeout({ timeout: visualizationSpeed });
     }
 }
 
-const KWAYEXTSORT =  {k_way_external,runs};
+const KWAYEXTSORT = { k_way_external, runs };
 export default KWAYEXTSORT;

@@ -37,6 +37,8 @@ const Home = () => {
   const arraySize = 100;
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [runsArray1, setrunsArray1] = useState([]);
+  const [unsortedRunsArray1, setunsortedRunsArray1] = useState([]);
+  const [unsortedRunsArray2,setunsortedRunsArray2] = useState([]);
   const [runsArray2, setrunsArray2] = useState([]);
   const [runsArray, setrunsArray] = useState([]);
   const [randomizedArray, setRandomizedArray] = useState(
@@ -194,7 +196,11 @@ const Home = () => {
           setrunsArray1: setrunsArray1,
           setrunsArray2: setrunsArray2,
           runsArray1: runsArray1,
-          runsArray2: runsArray2
+          runsArray2: runsArray2,
+          unsortedRunsArray1:unsortedRunsArray1,
+          unsortedRunsArray2:unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1
         });
         break;
       case 'Replacement Ext Sort':
@@ -261,8 +267,7 @@ const Home = () => {
           );
         })}
       </div>
-      {currentAlgorithm === 'K-Way External Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} /> : null}
-
+      {currentAlgorithm === 'K-Way External Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );
