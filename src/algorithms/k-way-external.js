@@ -206,6 +206,7 @@ const k_way_external = async ({
     }
     setColorsArray([])
     await asyncSetTimeout({timeout:visualizationSpeed});
+    setunsortedRunsArray1([])
 
     //run 2 sorted
     for (let i = 0; i < runs[n - 1].length; i++) {
@@ -234,6 +235,7 @@ const k_way_external = async ({
     }
     setColorsArray([])
     await asyncSetTimeout({ timeout: visualizationSpeed });
+    setunsortedRunsArray2([])
 
     //output array
     for (let i = 0; i < outputArray.length; i++) {
