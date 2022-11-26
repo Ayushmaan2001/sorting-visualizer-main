@@ -180,7 +180,6 @@ const k_way_external = async ({
 
     //run 1 sorted
     for(let i=0;i<runs[n-1].length;i++){
-        let check = false;
         const idx1 = unsortedRunsArray1.indexOf(runs[n-1][i]);
         const idx2 = unsortedRunsArray2.indexOf(runs[n-1][i]);
         if(idx1 > -1){
