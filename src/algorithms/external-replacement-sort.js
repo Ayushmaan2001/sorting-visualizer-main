@@ -162,7 +162,7 @@ const externalReplacementSort = async ({
     }
 
     //unsorted run 2
-    while(!InputArray.length == 0) {
+    while(!InputArray.length === 0) {
         let temp = unsortedRunsArray2;
         let newColorsArray = new Array(InputArray.length).fill(0);
         newColorsArray[i] = 2;
