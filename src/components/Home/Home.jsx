@@ -5,30 +5,10 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import selectionSort from '../../algorithms/selection-sort';
-import bubbleSort from '../../algorithms/bubble-sort';
-import insertionSort from '../../algorithms/insertion-sort';
-import mergeSortWrapper from '../../algorithms/merge-sort';
-import quickSortLWrapper from '../../algorithms/quick-sort-l';
-import countingSort from '../../algorithms/counting-sort';
-import radixSort from '../../algorithms/radix-sort';
-import heapSort from '../../algorithms/heap-sort';
-// import K_Way_Merge_Sort from '../../algorithms/K_Way_External_Sort';
-// import k_way_external from '../../algorithms/k-way-external';
-import KWAYEXTSORT from '../../algorithms/k-way-external'
-import externalReplacementSort from '../../algorithms/external-replacement-sort';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, radixSort, heapSort, KWAYEXTSORT, externalReplacementSort } from '../../algorithms';
 
 //CodeEditors import
-import SelectionSort from '../CodeEdior/SelectionSort';
-import RadixSort from '../CodeEdior/RadixSort';
-import QuickSort from '../CodeEdior/QuickSort';
-import MergeSort from '../CodeEdior/MergeSort';
-import InsertionSort from '../CodeEdior/InsertionSort';
-import HeapSort from '../CodeEdior/HeapSort'
-import CountingSort from '../CodeEdior/CountingSort'
-import BubbleSort from '../CodeEdior/BubbleSort';
-import KwayExternal from '../CodeEdior/KwayExternal';
-import ReplacementSort from '../CodeEdior/ReplacementSort';
+import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal, ReplacementSort} from '../CodeEdior';
 
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
