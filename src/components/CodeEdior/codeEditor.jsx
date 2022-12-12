@@ -29,10 +29,10 @@ const CodeEditor = ({ Cpp, Java, Python, Javascript, d2, d3, d4 }) => {
         </Panel>
       </Collapse> */}
       <div class="navMenu">
-        <a onClick={(e) => { code(e) }}>Cpp</a>
-        <a onClick={(e) => { code(e) }}>Java</a>
-        <a onClick={(e) => { code(e) }}>Python</a>
-        <a onClick={(e) => { code(e) }}>Javascript</a>
+        <a onClick={(e) => { code(e) }} href={() => false}>Cpp</a>
+        <a onClick={(e) => { code(e) }} href={() => false}>Java</a>
+        <a onClick={(e) => { code(e) }} href={() => false}>Python</a>
+        <a onClick={(e) => { code(e) }} href={() => false}>Javascript</a>
       </div>
       {/* <div class="card">
         <div class="card2">
