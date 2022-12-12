@@ -1,43 +1,107 @@
 .styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.styled-table  {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
+
+.styled-table {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
 }
+
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+  padding: 12px 15px;
 }
+
 .styled-table tbody tr.active-row {
-    font-weight: bold;
+  font-weight: bold;
 }
-.desc{
+
+.desc {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap; 
-  align-content: space-around; 
+  flex-wrap: wrap;
+  align-content: space-around;
   justify-content: space-between;
   align-items: center;
 }
+
 @media (max-width: 900px) {
-  .bg{
+  .bg {
     display: flex;
   }
-  .desc{
+
+  .desc {
     margin-left: 10px;
   }
-  .mobile-table{
+
+  .mobile-table {
     margin-left: 50%;
     margin-right: 50%;
   }
-  .styled-table{
+
+  .styled-table {
     min-width: 300px;
   }
+
+  .card{
+    height: max-content;
+    max-width: 300px;
+  }
+}
+
+.navMenu {
+  margin: auto auto;
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: max-content;
+  height: max-content;
+  background: rgb(40, 40, 55);
+  background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
+  box-shadow: 4px 6px 14px #00000036;
+  border-radius: 3px;
+  color: #F9F9F9;
+  padding: 16px;
+  transition: all .3s;
+}
+
+.card:hover {
+ margin-top: 10px;
 }
