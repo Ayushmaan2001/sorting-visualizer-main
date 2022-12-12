@@ -17,5 +17,27 @@
 }
 .styled-table tbody tr.active-row {
     font-weight: bold;
-    /* color: #009879; */
+}
+.desc{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; 
+  align-content: space-around; 
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .bg{
+    display: flex;
+  }
+  .desc{
+    margin-left: 10px;
+  }
+  .mobile-table{
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+  .styled-table{
+    min-width: 300px;
+  }
 }

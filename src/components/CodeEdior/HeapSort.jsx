@@ -122,11 +122,14 @@ const HeapSort = () => {
             justifyContent: 'space-around',
             alignItems: 'center'
         }}>
+            <div className='desc'>
             <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
                 <h2 style={{ color: 'white' }}>Heap Sort is an in-place iterative sorting algorithm based on auxiliary data structures called heap. It's less efficient than algorithm with the same time complexity and it's not suitable for data structures with few elements</h2>
                 <h2 style={{ color: 'white' }}>The heap is a data structure representable as a binary tree, where each node has a value bigger or equal to its children. Consequently, the root will hold the maximum value.</h2>
                 <h2 style={{ color: 'white' }}>The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.</h2>
             </Col>
+            </div>
+            <div className="mobile-table">
             <Col span={8}>
                 <h1 style={{ color: 'white' }}>Complexity</h1>
                 <table class="styled-table">
@@ -152,6 +155,7 @@ const HeapSort = () => {
                     </tbody>
                 </table>
             </Col>
+            </div>
         </Row>
             <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
         </React.Fragment>

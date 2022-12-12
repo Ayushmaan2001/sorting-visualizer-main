@@ -191,11 +191,14 @@ export default function MergeSort({text}) {
       justifyContent: 'space-around',
       alignItems: 'center'
     }}>
+          <div className='desc'>
       <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
         <h2 style={{ color: 'white' }}>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</h2>
         <h2 style={{ color: 'white' }}>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.
         </h2>
       </Col>
+      </div>
+          <div className="mobile-table">
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
         <table class="styled-table">
@@ -221,6 +224,7 @@ export default function MergeSort({text}) {
           </tbody>
         </table>
       </Col>
+      </div>
     </Row>
       <CodeEditor Cpp={Cpp} Python={Python} Javascript={Javascript} Java={Java} d2={false} d3={false} d4={false} />
     </React.Fragment>

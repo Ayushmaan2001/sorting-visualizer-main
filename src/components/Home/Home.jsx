@@ -220,7 +220,6 @@ const Home = () => {
       />
       <div
         style={{
-          backgroundColor: '#0D1929',
           display: 'flex',
           height: '100%',
           width: '100vw',

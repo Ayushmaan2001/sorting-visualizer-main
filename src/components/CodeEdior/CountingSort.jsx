@@ -83,20 +83,21 @@ function sort(arr)
 export default function CountingSort() {
   return (
     <React.Fragment><Row style={{
-      display: 'flex',
       marginTop: '30px',
       flexDirection: 'row',
       flexWrap: 'wrap',
       alignContent: 'space-between',
       justifyContent: 'space-around',
-      alignItems: 'center'
     }}>
-      <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
+      <div className='desc'>
+      <Col span={14} style={{ color: 'white' }} ><h1 style={{ color: 'white' }}>Description</h1>
         <h2 style={{ color: 'white' }}>Counting sort is a sorting algorithm that sorts the elements of an array by counting the number of occurrences of each unique element in the array. The count is stored in an auxiliary array and the sorting is done by mapping the count as an index of the auxiliary array.</h2>
         <h2 style={{ color: 'white' }}>Here n is the size of elements and k is the range of the elements</h2></Col>
+      </div>
+      <div className="mobile-table">
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
-        <table class="styled-table">
+        <table class="styled-table mobile-table">
           <thead>
             <tr>
               <th>Average Complexity</th>
@@ -119,6 +120,7 @@ export default function CountingSort() {
           </tbody>
         </table>
       </Col>
+      </div>
     </Row>
       <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
     </React.Fragment>

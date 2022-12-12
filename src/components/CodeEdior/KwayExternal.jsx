@@ -211,6 +211,7 @@ export default function KwayExternal({array,runs}) {
 				justifyContent: 'space-around',
 				alignItems: 'center'
 			}}>
+				<div className='desc'>
 				<Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
 					<h2 style={{ color: 'white' }}>External sorting is a term for a class of sorting algorithms that can handle massive amounts of data. External sorting is required when the data being sorted does not fit into the main memory of a computing device (usually RAM) and instead, must reside in the slower external memory (usually a hard drive). </h2>
 					<h2 style={{ color: 'white' }}>External sorting typically uses a hybrid sort-merge strategy. In the sorting phase, chunks of data small enough to fit in the main memory are read, sorted, and written out to a temporary file. In the merge phase, the sorted sub-files are combined into a single larger file.</h2>
@@ -219,6 +220,8 @@ export default function KwayExternal({array,runs}) {
 					</h2>
 					<h2 style={{ color: 'whitesmoke' }}><mark style={{backgroundColor:'Highlight'}}>Array Length({array.length}) = Run Size({2}) * Number of Runs({array.length/2})</mark></h2>
 				</Col>
+				</div>
+				<div className="mobile-table">
 				<Col span={8}>
 					<h1 style={{ color: 'white' }}>Complexity</h1>
 					<table className="styled-table">
@@ -244,6 +247,7 @@ export default function KwayExternal({array,runs}) {
 						</tbody>
 					</table>
 				</Col>
+				</div>
 			</Row>
 			<CodeEditor Cpp={Cpp} d2={true} d3={true} d4={true} />
 		</React.Fragment>

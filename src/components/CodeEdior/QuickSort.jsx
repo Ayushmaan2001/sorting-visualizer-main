@@ -119,12 +119,15 @@ export default function QuickSort({text}) {
       alignContent: 'space-between',
       justifyContent: 'space-around',
       alignItems: 'center' }}>
+          <div className='desc'>
       <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
         <h2 style={{ color: 'white' }}>Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.</h2>
         <h2 style={{ color: 'white' }}>This division in partitions is done based on an element, called pivot: all the elements bigger than the pivot get placed on the right side of the structure, the smaller ones to the left, creating two partitions. Next, this procedure gets applied recursively to the two partitions and so on.
         </h2>
         <h2 style={{ color: 'white' }}>This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.</h2>
       </Col>
+        </div>
+          <div className="mobile-table">
       <Col span={8}>
         <h1 style={{color:'white'}}>Complexity</h1>
         <table class="styled-table">
@@ -150,6 +153,7 @@ export default function QuickSort({text}) {
           </tbody>
         </table>
       </Col>
+      </div>
     </Row>
           <CodeEditor Cpp={Cpp} Python={Python} Java={Java} Javascript={Javascript} d2={false} d3={false} d4={false} />
     </React.Fragment>
