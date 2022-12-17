@@ -12,9 +12,9 @@ const CodeEditor = ({ Cpp, Java, Python, Javascript, d2, d3, d4 }) => {
     <React.Fragment>
       <div class="navMenu">
         <a onClick={(e) => { code(e) }} href={() => false}>Cpp</a>
-        <a onClick={(e) => { code(e) }} href={() => false}>Java</a>
-        <a onClick={(e) => { code(e) }} href={() => false}>Python</a>
-        <a onClick={(e) => { code(e) }} href={() => false}>Javascript</a>
+        <a disabled={d2} onClick={(e) => { code(e) }} href={() => false}>Java</a>
+        <a disabled={d3} onClick={(e) => { code(e) }} href={() => false}>Python</a>
+        <a disabled={d4} onClick={(e) => { code(e) }} href={() => false}>Javascript</a>
       </div>
       <div class="card">
         <pre>

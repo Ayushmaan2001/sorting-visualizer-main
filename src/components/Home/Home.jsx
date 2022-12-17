@@ -233,6 +233,7 @@ const Home = () => {
           const height = (item / maxItem) * 100;
           const width = (1 / randomizedArray.length) * 100;
           return (
+            
             <div
               key={index}
               style={{
@@ -240,6 +241,7 @@ const Home = () => {
                 display: 'flex',
                 alignItems: 'end',
                 width: `${width}%`,
+                position:'relative'
               }}
             >
               <SortingBar
@@ -247,12 +249,19 @@ const Home = () => {
                 style={{
                   height: `calc(${height}% - 20px)`,
                   width: '100%',
-                  margin: 'auto 10% 0 10%',
+                  margin: '10% 10% 0 10%',
+                  // position:'absolute',
+                  zIndex:'1'
                 }}
-              ></SortingBar>
+              >
+                
+              </SortingBar>
+              <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
+              
             </div>
           );
         })}
+        {/* {end here} */}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       <EditorSelector algo={currentAlgorithm} val={'sample'} />

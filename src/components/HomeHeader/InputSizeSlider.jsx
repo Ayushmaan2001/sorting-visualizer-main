@@ -16,7 +16,7 @@ const InputSizeSlider = ({onInputSizeChanged, isVisualizing}) => {
         disabled={isVisualizing}
         defaultValue={100}
         min={6}
-        max={400}
+        max={40}
         step={2}
         style={{width: 200}}
         handleStyle={{borderColor: '#0D1929'}}
