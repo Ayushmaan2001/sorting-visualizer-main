@@ -14,7 +14,7 @@ import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort,
 import RunsBars from '../RunsBars/RunsBars';
 
 const Home = () => {
-  const arraySize = 100;
+  const arraySize = 40;
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [runsArray1, setrunsArray1] = useState([]);
   const [unsortedRunsArray1, setunsortedRunsArray1] = useState([]);
