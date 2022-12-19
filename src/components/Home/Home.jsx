@@ -10,6 +10,8 @@ import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLW
 //CodeEditors import
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal, ReplacementSort} from '../CodeEdior';
 
+//import graphs
+import { BubbleSortGraph } from '../GraphShows';
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
 
@@ -51,6 +53,32 @@ const Home = () => {
         return <KwayExternal {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
         return <ReplacementSort {...props} runs={runsArray} />
+      default:
+        return null;
+    }
+  }
+  const GraphSelector = ({ algo, ...props }) => {
+    switch (algo) {
+      case "Bubble Sort":
+        return <BubbleSortGraph {...props} />;
+      // case "Insertion Sort":
+      //   return <InsertionSort {...props} />
+      // case "Selection Sort":
+      //   return <SelectionSort {...props} />
+      // case "QuickSort":
+      //   return <QuickSort {...props} />
+      // case "Merge Sort":
+      //   return <MergeSort {...props} />
+      // case "Counting Sort":
+      //   return <CountingSort {...props} />
+      // case "Radix Sort":
+      //   return <RadixSort {...props} />
+      // case "Heap Sort":
+      //   return <HeapSort {...props} />
+      // case "K-Way External Sort":
+      //   return <KwayExternal {...props} array={randomizedArray} />
+      // case "Replacement Ext Sort":
+      //   return <ReplacementSort {...props} runs={runsArray} />
       default:
         return null;
     }
@@ -218,6 +246,9 @@ const Home = () => {
         onStart={onVisualize}
         isVisualizing={isVisualizing}
       />
+      <div>
+        <GraphSelector algo={currentAlgorithm} val={'sample'}/>
+      </div>
       <div
         style={{
           display: 'flex',

@@ -1,0 +1,32 @@
+.styled-table-graph {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-spacing: 0px;
+    width: 300px;
+    box-shadow: 5px 4px 30px rgba(0, 0, 0, .10);
+    border-radius: 8px;
+    background: #fff;
+    opacity: 0.8;
+    transition: all 0.5s;
+    /* max-height: 10px; */
+}
+.styled-table-graph td {
+    padding: 10px 10px;
+}
+.styled-table-graph thead {
+    background: linear-gradient(45deg, #614ad3, #e42c64);
+    border-radius: 10px 10px 0 0;
+}
+.styled-table-graph thead tr {
+    border-radius: 10px 10px;
+}
+.styled-table-graph thead td {
+    color: #fff;
+    font-size: 10px;
+}
+.styled-table-graph tbody td {
+    border-top: 1px solid #f0f0f0;
+}
+.styled-table-graph tbody tr:hover {
+    background: rgba(123, 153, 218, .1);
+}

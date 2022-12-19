@@ -1,6 +1,6 @@
 import React from 'react';
 import './table.css'
-import { AutoComplete, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 let Cpp = `
 void bubbleSort(int arr[], int n)
