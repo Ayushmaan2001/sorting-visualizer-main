@@ -5,7 +5,7 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, radixSort, heapSort, KWAYEXTSORT, externalReplacementSort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT } from '../../algorithms';
 
 //CodeEditors import
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal, ReplacementSort} from '../CodeEdior';
