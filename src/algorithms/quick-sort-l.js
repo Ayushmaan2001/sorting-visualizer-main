@@ -15,6 +15,7 @@ const partition = async (
   newColorsArray[rightIndex] = 3;
   setColorsArray(newColorsArray);
   await asyncSetTimeout({timeout: visualizationSpeed});
+  await asyncSetTimeout({timeout:3000})
 
   for (let j = leftIndex; j < rightIndex; j++) {
     newColorsArray = new Array(arr.length).fill(0);
@@ -23,6 +24,7 @@ const partition = async (
     newColorsArray[rightIndex] = 3;
     setColorsArray(newColorsArray.concat());
     await asyncSetTimeout({timeout: visualizationSpeed});
+    await asyncSetTimeout({timeout:800})
     if (arr[j] <= pivot) {
       i = i + 1;
 
@@ -31,12 +33,15 @@ const partition = async (
       newColorsArray[j] = 2;
       newColorsArray[rightIndex] = 3;
       setColorsArray(newColorsArray.concat());
-      await asyncSetTimeout({timeout: visualizationSpeed * 1.5});
+      // await asyncSetTimeout({timeout: visualizationSpeed * 1.5});
+      await asyncSetTimeout({timeout:800})
 
+      await asyncSetTimeout({timeout:1200})
       let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
       setArray(arr.concat());
+      await asyncSetTimeout({timeout:1200})
     }
   }
 
@@ -46,6 +51,7 @@ const partition = async (
   setArray(arr.concat());
   setColorsArray(new Array(arr.length).fill(0));
   await asyncSetTimeout({timeout: visualizationSpeed});
+  await asyncSetTimeout({timeout:800})
   return i + 1;
 };
 

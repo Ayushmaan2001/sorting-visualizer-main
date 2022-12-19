@@ -152,7 +152,7 @@ export default function RadixSort({text}) {
           <div className="mobile-table">
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
-        <table class="styled-table">
+        <table className="styled-table">
           <thead>
             <tr>
               <th>Average Complexity</th>

@@ -25,6 +25,7 @@ const insertionSort = async ({
       array = array.concat();
       setArray(array);
       j--;
+      await asyncSetTimeout({timeout:3000})
     }
   }
   setColorsArray([])

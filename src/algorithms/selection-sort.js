@@ -22,8 +22,9 @@ const selectionSort = async ({
       if (array[minIndex] > array[j]) {
         minIndex = j;
       }
+      await asyncSetTimeout({timeout:400})
     }
-
+    await asyncSetTimeout({timeout:3000})
     let temp = array[i];
     array[i] = array[minIndex];
     array[minIndex] = temp;

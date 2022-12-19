@@ -10,7 +10,7 @@ const countingSort = async ({
     const map = {};
     for (let i = 0; i < array.length; i++) {
         let newColorsArray = new Array(len).fill(0);
-        newColorsArray[i] = 1;
+        newColorsArray[i] = 2;
         setColorsArray(newColorsArray);
         await asyncSetTimeout({ timeout: visualizationSpeed });
         if (map[array[i]]) {
@@ -19,18 +19,20 @@ const countingSort = async ({
         else {
             map[array[i]] = 1;
         }
+        await asyncSetTimeout({timeout:visualizationSpeed})
     }
     let k = 0;
     for (const [key, value] of Object.entries(map)) {
         let newColorsArray = new Array(len).fill(0);
         let val = value, freq = key;
         for (let j = 0; j < val; j++) {
-            newColorsArray[k] = 2;
+            newColorsArray[k-1] = 1;
+            newColorsArray[k] = 3;
             array[k++] = Number(freq);
         }
         setColorsArray(newColorsArray);
         setArray(array);
-        await asyncSetTimeout({ timeout: visualizationSpeed });
+        await asyncSetTimeout({timeout:3000})
     }
     setColorsArray([])
 };

@@ -23,6 +23,9 @@ const bubbleSort = async ({
         array[j] = temp;
         setArray(array);
       }
+      // console.log(isLoading)
+      // while(isLoading){}
+      await asyncSetTimeout({timeout:1200})
     }
   }
   setColorsArray([])

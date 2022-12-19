@@ -97,7 +97,7 @@ export default function CountingSort() {
       <div className="mobile-table">
       <Col span={8}>
         <h1 style={{ color: 'white' }}>Complexity</h1>
-        <table class="styled-table mobile-table">
+        <table className="styled-table mobile-table">
           <thead>
             <tr>
               <th>Average Complexity</th>

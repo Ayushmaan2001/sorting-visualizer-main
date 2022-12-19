@@ -19,14 +19,14 @@ const heapSort = async({
         array[i] = temp;
         setArray(array);
         heapify(array,i,0);
-        await asyncSetTimeout({ timeout: visualizationSpeed });
+        await asyncSetTimeout({timeout:800})
         setColorsArray(newColorsArray)
     }
     for(let i=0;i<len;i++){
         let newColorsArray = new Array(len).fill(0);
         newColorsArray[i] = 3;
         setColorsArray(newColorsArray)
-        await asyncSetTimeout({ timeout: visualizationSpeed });
+        await asyncSetTimeout({timeout:800})
     }
     function heapify(arr, len, i) {
         let largest = i;
