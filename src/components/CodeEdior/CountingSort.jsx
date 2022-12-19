@@ -90,7 +90,7 @@ export default function CountingSort() {
       justifyContent: 'space-around',
     }}>
       <div className='desc'>
-      <Col span={14} style={{ color: 'white' }} ><h1 style={{ color: 'white' }}>Description</h1>
+      <Col span={14} style={{ color: 'white' }} ><h1 style={{ color: 'orange' }}>Description</h1>
         <h2 style={{ color: 'white' }}>Counting sort is a sorting algorithm that sorts the elements of an array by counting the number of occurrences of each unique element in the array. The count is stored in an auxiliary array and the sorting is done by mapping the count as an index of the auxiliary array.</h2>
         <h2 style={{ color: 'white' }}>Here n is the size of elements and k is the range of the elements</h2></Col>
       </div>

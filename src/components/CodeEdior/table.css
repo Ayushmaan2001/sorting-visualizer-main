@@ -56,7 +56,12 @@
 }
 
 .navMenu {
-  margin: auto auto;
+  display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: url;
 }
 
 .navMenu a {
@@ -69,10 +74,12 @@
   width: 80px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  margin-left: 1px;
 }
 
 .navMenu a:hover {
   color: #fddb3a;
+  cursor: pointer;
 }
 
 .navMenu .dot {

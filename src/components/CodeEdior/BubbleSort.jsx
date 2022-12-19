@@ -1,6 +1,6 @@
 import React from 'react';
 import './table.css'
-import { Col, Row } from 'antd';
+import { AutoComplete, Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 let Cpp = `
 void bubbleSort(int arr[], int n)
@@ -58,7 +58,7 @@ export default function BubbleSort() {
         className="bg"
       >
         <div className='desc'>
-          <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'white' }}>Description</h1>
+          <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
             <h2 style={{ color: 'white' }}>Bubble Sort is an iterative sorting algorithm that imitates the movement of bubbles in sparkling water. The bubbles represents the elements of the data structure.</h2>
             <h2 style={{ color: 'white' }}>The bigger bubbles reach the top faster than smaller bubbles, and this algorithm works in the same way. It iterates through the data structure and for each cycle compares the current element with the next one, swapping them if they are in the wrong order.
             </h2>
