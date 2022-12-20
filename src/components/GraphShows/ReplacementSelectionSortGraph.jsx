@@ -1,7 +1,6 @@
 import React from 'react'
-import './tableGraph.css'
 
-const BubbleSortGraph = () => {
+const ReplacementSelectionSortGraph = () => {
   return (
     <React.Fragment>
       <div style={{maxHeight:'160px'}}>
@@ -32,4 +31,4 @@ const BubbleSortGraph = () => {
   )
 }
 
-export default BubbleSortGraph
+export default ReplacementSelectionSortGraph

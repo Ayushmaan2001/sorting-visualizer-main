@@ -11,7 +11,8 @@ import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLW
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal, ReplacementSort} from '../CodeEdior';
 
 //import graphs
-import { BubbleSortGraph } from '../GraphShows';
+import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph } from '../GraphShows';
+
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
 
@@ -61,22 +62,22 @@ const Home = () => {
     switch (algo) {
       case "Bubble Sort":
         return <BubbleSortGraph {...props} />;
-      // case "Insertion Sort":
-      //   return <InsertionSort {...props} />
-      // case "Selection Sort":
-      //   return <SelectionSort {...props} />
-      // case "QuickSort":
-      //   return <QuickSort {...props} />
-      // case "Merge Sort":
-      //   return <MergeSort {...props} />
-      // case "Counting Sort":
-      //   return <CountingSort {...props} />
+      case "Insertion Sort":
+        return <InsertionSortGraph {...props} />
+      case "Selection Sort":
+        return <SelectionSortGraph {...props} />
+      case "QuickSort":
+        return <QuickSortGraph {...props} />
+      case "Merge Sort":
+        return <MergeSortGraph {...props} />
+      case "Counting Sort":
+        return <CountingSortGraph {...props} />
       // case "Radix Sort":
       //   return <RadixSort {...props} />
-      // case "Heap Sort":
-      //   return <HeapSort {...props} />
-      // case "K-Way External Sort":
-      //   return <KwayExternal {...props} array={randomizedArray} />
+      case "Heap Sort":
+        return <HeapSortGraph {...props} />
+      case "K-Way External Sort":
+        return <KWayExternalSortGraph {...props} array={randomizedArray} />
       // case "Replacement Ext Sort":
       //   return <ReplacementSort {...props} runs={runsArray} />
       default:

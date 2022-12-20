@@ -1,7 +1,6 @@
 import React from 'react'
-import './tableGraph.css'
 
-const BubbleSortGraph = () => {
+const InsertionSortGraph = () => {
   return (
     <React.Fragment>
       <div style={{maxHeight:'160px'}}>
@@ -19,11 +18,11 @@ const BubbleSortGraph = () => {
         </tr>
         <tr>
             <td><div style={{height:'4px',background:'red'}}></div></td>
-            <td>Values to be swap</td>
+            <td>Smallest Element in array </td>
         </tr>
         <tr>
             <td><div style={{height:'4px',background:'yellow'}}></div></td>
-            <td>Max size of the array that has to be checked</td>
+            <td>Max size of the array which is checked</td>
         </tr>
     </tbody>
 </table>
@@ -32,4 +31,4 @@ const BubbleSortGraph = () => {
   )
 }
 
-export default BubbleSortGraph
+export default InsertionSortGraph

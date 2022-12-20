@@ -1,7 +1,6 @@
 import React from 'react'
-import './tableGraph.css'
 
-const BubbleSortGraph = () => {
+const QuickSortGraph = () => {
   return (
     <React.Fragment>
       <div style={{maxHeight:'160px'}}>
@@ -15,15 +14,15 @@ const BubbleSortGraph = () => {
     <tbody>
         <tr>
             <td><div style={{height:'4px',background:'#02E095'}}></div></td>
-            <td>Values to be swap</td>
+            <td>Element smaller than the pivot and the swapping it</td>
         </tr>
         <tr>
             <td><div style={{height:'4px',background:'red'}}></div></td>
-            <td>Values to be swap</td>
+            <td>Looping through the array/element set</td>
         </tr>
         <tr>
             <td><div style={{height:'4px',background:'yellow'}}></div></td>
-            <td>Max size of the array that has to be checked</td>
+            <td>Pivot</td>
         </tr>
     </tbody>
 </table>
@@ -32,4 +31,4 @@ const BubbleSortGraph = () => {
   )
 }
 
-export default BubbleSortGraph
+export default QuickSortGraph
