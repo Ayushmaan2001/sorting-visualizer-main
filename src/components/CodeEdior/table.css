@@ -61,7 +61,7 @@
     flex-direction: row;
     align-content: space-around;
     justify-content: space-around;
-    align-items: url;
+    align-items:center
 }
 
 .navMenu a {
@@ -75,6 +75,7 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin-left: 1px;
+  color:chocolate
 }
 
 .navMenu a:hover {
