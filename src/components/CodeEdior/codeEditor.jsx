@@ -6,7 +6,6 @@ const CodeEditor = ({ Cpp, Java, Python, Javascript, d2, d3, d4 }) => {
   const [codeUrl, setCodeUrl] = React.useState('Cpp')
   const code = (e) => {
     setCodeUrl(e.target.innerHTML);
-    console.log(codeUrl)
   }
   return (
     <React.Fragment>

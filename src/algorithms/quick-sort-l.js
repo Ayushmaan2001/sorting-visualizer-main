@@ -7,24 +7,39 @@ const partition = async (
   rightIndex,
   setArray,
   setColorsArray,
-  visualizationSpeed
+  visualizationSpeed,
+  setI,
+  setJ,
+  setNum1,
+  setNum2
+
 ) => {
   let i = leftIndex - 1;
   let pivot = arr[rightIndex];
+  setI(pivot);
   let newColorsArray = new Array(arr.length).fill(0);
   newColorsArray[rightIndex] = 3;
   setColorsArray(newColorsArray);
-  await asyncSetTimeout({timeout: visualizationSpeed});
-  await asyncSetTimeout({timeout:3000})
+  await asyncSetTimeout({
+    timeout: visualizationSpeed
+  });
+  await asyncSetTimeout({
+    timeout: 3000
+  })
 
   for (let j = leftIndex; j < rightIndex; j++) {
+    setJ(j)
     newColorsArray = new Array(arr.length).fill(0);
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     newColorsArray[rightIndex] = 3;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: visualizationSpeed});
-    await asyncSetTimeout({timeout:800})
+    await asyncSetTimeout({
+      timeout: visualizationSpeed
+    });
+    await asyncSetTimeout({
+      timeout: 800
+    })
     if (arr[j] <= pivot) {
       i = i + 1;
 
@@ -34,14 +49,22 @@ const partition = async (
       newColorsArray[rightIndex] = 3;
       setColorsArray(newColorsArray.concat());
       // await asyncSetTimeout({timeout: visualizationSpeed * 1.5});
-      await asyncSetTimeout({timeout:800})
+      await asyncSetTimeout({
+        timeout: 800
+      })
 
-      await asyncSetTimeout({timeout:1200})
+      await asyncSetTimeout({
+        timeout: 1200
+      })
+      setNum1(arr[i]);
+      setNum2(arr[j]);
       let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
       setArray(arr.concat());
-      await asyncSetTimeout({timeout:1200})
+      await asyncSetTimeout({
+        timeout: 1200
+      })
     }
   }
 
@@ -50,8 +73,12 @@ const partition = async (
   arr[rightIndex] = temp;
   setArray(arr.concat());
   setColorsArray(new Array(arr.length).fill(0));
-  await asyncSetTimeout({timeout: visualizationSpeed});
-  await asyncSetTimeout({timeout:800})
+  await asyncSetTimeout({
+    timeout: visualizationSpeed
+  });
+  await asyncSetTimeout({
+    timeout: 800
+  })
   return i + 1;
 };
 
@@ -61,6 +88,10 @@ const quickSort = async ({
   setArray,
   setColorsArray,
   visualizationSpeed,
+  setI,
+  setJ,
+  setNum1,
+  setNum2
 } = {}) => {
   if (leftIndex < rightIndex) {
     let index = await partition(
@@ -68,7 +99,11 @@ const quickSort = async ({
       rightIndex,
       setArray,
       setColorsArray,
-      visualizationSpeed
+      visualizationSpeed,
+      setI,
+      setJ,
+      setNum1,
+      setNum2
     );
     await quickSort({
       leftIndex: leftIndex,
@@ -76,6 +111,10 @@ const quickSort = async ({
       setArray: setArray,
       setColorsArray: setColorsArray,
       visualizationSpeed: visualizationSpeed,
+      setI: setI,
+      setJ: setJ,
+      setNum1: setNum1,
+      setNum2: setNum2
     });
     await quickSort({
       leftIndex: index + 1,
@@ -83,6 +122,10 @@ const quickSort = async ({
       setArray: setArray,
       setColorsArray: setColorsArray,
       visualizationSpeed: visualizationSpeed,
+      setI: setI,
+      setJ: setJ,
+      setNum1: setNum1,
+      setNum2: setNum2
     });
   }
 };
@@ -94,6 +137,10 @@ const quickSortLWrapper = async ({
   setArray,
   setColorsArray,
   visualizationSpeed,
+  setI,
+  setJ,
+  setNum1,
+  setNum2
 } = {}) => {
   arr = [];
   arr = array.concat();
@@ -103,6 +150,10 @@ const quickSortLWrapper = async ({
     setArray: setArray,
     setColorsArray: setColorsArray,
     visualizationSpeed: visualizationSpeed,
+    setI: setI,
+    setJ: setJ,
+    setNum1: setNum1,
+    setNum2: setNum2
   });
   setColorsArray([])
 };

@@ -5,11 +5,16 @@ const insertionSort = async ({
   setArray,
   setColorsArray,
   visualizationSpeed,
+  setI,
+  setJ,
+  setNum1,
+  setNum2
 } = {}) => {
   let len = array.length;
 
   for (let i = 1; i < len; i++) {
     let currentValue = array[i];
+    // setI(i);
     let j = i - 1;
 
     while (j >= 0 && array[j] > currentValue) {

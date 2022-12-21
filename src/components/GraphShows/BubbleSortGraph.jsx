@@ -5,7 +5,7 @@ const BubbleSortGraph = () => {
   return (
     <React.Fragment>
       <div style={{maxHeight:'160px'}}>
-        <table class="styled-table-graph">
+        <table className="styled-table-graph">
     <thead>
         <tr>
             <th>Color Code</th>

@@ -6,7 +6,7 @@
     box-shadow: 5px 4px 30px rgba(0, 0, 0, .10);
     border-radius: 8px;
     background: #fff;
-    opacity: 0.8;
+    /* opacity: 0; */
     transition: all 0.5s;
     /* max-height: 10px; */
 }

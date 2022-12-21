@@ -16,6 +16,9 @@ import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWay
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
 
+//import details
+import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, MergeSortDetails, CountingSortDetails, HeapSortDetails, KWayExternalSortDetails, QuickSortDetails } from '../Details';
+
 const Home = () => {
   const arraySize = 40;
   const [isVisualizing, setIsVisualizing] = useState(false);
@@ -24,6 +27,10 @@ const Home = () => {
   const [unsortedRunsArray2,setunsortedRunsArray2] = useState([]);
   const [runsArray2, setrunsArray2] = useState([]);
   const [runsArray, setrunsArray] = useState([]);
+  const [I, setI] = useState(0);
+  const [J, setJ] = useState(0);
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
   const [randomizedArray, setRandomizedArray] = useState(
     generateRandomizedArray({ arraySize: arraySize })
   );
@@ -84,6 +91,32 @@ const Home = () => {
         return null;
     }
   }
+  const DetailsSelector = ({ algo, ...props }) => {
+    switch (algo) {
+      case "Bubble Sort":
+        return <BubbleSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />;
+      case "Insertion Sort":
+        return <InsertionSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Selection Sort":
+        return <SelectionSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "QuickSort":
+        return <QuickSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Merge Sort":
+        return <MergeSortDetails {...props} />
+      case "Counting Sort":
+        return <CountingSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      // // case "Radix Sort":
+      // //   return <RadixSort {...props} />
+      case "Heap Sort":
+        return <HeapSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "K-Way External Sort":
+        return <KWayExternalSortDetails {...props} />
+      // case "Replacement Ext Sort":
+      //   return <ReplacementSort {...props} runs={runsArray} />
+      default:
+        return null;
+    }
+  }
   const [currentAlgorithm, setCurrentAlgorithm] = useState('Bubble Sort');
   const algorithms = [
     'Bubble Sort',
@@ -129,6 +162,10 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,          
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
 
@@ -138,6 +175,10 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
 
@@ -158,6 +199,10 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
 
@@ -176,7 +221,11 @@ const Home = () => {
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
-          setColorsArray: setColorsArray
+          setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
       // case 'Radix Sort':
@@ -192,7 +241,11 @@ const Home = () => {
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
-          setColorsArray: setColorsArray
+          setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
       case 'K-Way External Sort':
@@ -247,8 +300,9 @@ const Home = () => {
         onStart={onVisualize}
         isVisualizing={isVisualizing}
       />
-      <div>
+      <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',alignContent:'space-between',justifyContent:'space-between',maxHeight:'210px'}}>
         <GraphSelector algo={currentAlgorithm} val={'sample'}/>
+          <DetailsSelector algo={currentAlgorithm} val={'sample'}/>
       </div>
       <div
         style={{
@@ -293,6 +347,7 @@ const Home = () => {
             </div>
           );
         })}
+        
         {/* {end here} */}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
