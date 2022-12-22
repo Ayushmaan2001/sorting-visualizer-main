@@ -17,10 +17,12 @@ import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWay
 import RunsBars from '../RunsBars/RunsBars';
 
 //import details
-import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, MergeSortDetails, CountingSortDetails, HeapSortDetails, KWayExternalSortDetails, QuickSortDetails } from '../Details';
+import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails } from '../Details';
 
 const Home = () => {
   const arraySize = 40;
+
+
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [runsArray1, setrunsArray1] = useState([]);
   const [unsortedRunsArray1, setunsortedRunsArray1] = useState([]);
@@ -39,6 +41,8 @@ const Home = () => {
   );
   const [visualizationSpeed, setVisualizationSpeed] = useState(30);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
+
+
   const EditorSelector = ({ algo, ...props }) => {
     switch (algo) {
       case "Bubble Sort":
@@ -101,18 +105,12 @@ const Home = () => {
         return <SelectionSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       case "QuickSort":
         return <QuickSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
-      case "Merge Sort":
-        return <MergeSortDetails {...props} />
       case "Counting Sort":
         return <CountingSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       // // case "Radix Sort":
       // //   return <RadixSort {...props} />
       case "Heap Sort":
         return <HeapSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
-      case "K-Way External Sort":
-        return <KWayExternalSortDetails {...props} />
-      // case "Replacement Ext Sort":
-      //   return <ReplacementSort {...props} runs={runsArray} />
       default:
         return null;
     }
@@ -347,8 +345,6 @@ const Home = () => {
             </div>
           );
         })}
-        
-        {/* {end here} */}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       <EditorSelector algo={currentAlgorithm} val={'sample'} />

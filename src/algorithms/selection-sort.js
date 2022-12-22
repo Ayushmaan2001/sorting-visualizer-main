@@ -25,14 +25,14 @@ const selectionSort = async ({
       newColorsArray[minIndex] = 1;
       newColorsArray[j] = 2;
       setColorsArray(newColorsArray);
-      await asyncSetTimeout({timeout: visualizationSpeed});
+      await asyncSetTimeout({timeout: 10*visualizationSpeed});
       if (array[minIndex] > array[j]) {
         minIndex = j;
         setNum2(array[minIndex]);
       }
-      await asyncSetTimeout({timeout:400})
+      await asyncSetTimeout({timeout:10*visualizationSpeed})
     }
-    await asyncSetTimeout({timeout:3000})
+    await asyncSetTimeout({timeout:10*visualizationSpeed})
     let temp = array[i];
     array[i] = array[minIndex];
     array[minIndex] = temp;

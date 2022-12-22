@@ -21,7 +21,7 @@ const partition = async (
   newColorsArray[rightIndex] = 3;
   setColorsArray(newColorsArray);
   await asyncSetTimeout({
-    timeout: visualizationSpeed
+    timeout: 10*visualizationSpeed
   });
   await asyncSetTimeout({
     timeout: 3000
@@ -35,7 +35,7 @@ const partition = async (
     newColorsArray[rightIndex] = 3;
     setColorsArray(newColorsArray.concat());
     await asyncSetTimeout({
-      timeout: visualizationSpeed
+      timeout: 10*visualizationSpeed
     });
     await asyncSetTimeout({
       timeout: 800
@@ -50,7 +50,7 @@ const partition = async (
       setColorsArray(newColorsArray.concat());
       // await asyncSetTimeout({timeout: visualizationSpeed * 1.5});
       await asyncSetTimeout({
-        timeout: 800
+        timeout: 10*visualizationSpeed
       })
 
       await asyncSetTimeout({
@@ -63,7 +63,7 @@ const partition = async (
       arr[j] = temp;
       setArray(arr.concat());
       await asyncSetTimeout({
-        timeout: 1200
+        timeout: 10*visualizationSpeed
       })
     }
   }
@@ -74,7 +74,7 @@ const partition = async (
   setArray(arr.concat());
   setColorsArray(new Array(arr.length).fill(0));
   await asyncSetTimeout({
-    timeout: visualizationSpeed
+    timeout: 10*visualizationSpeed
   });
   await asyncSetTimeout({
     timeout: 800

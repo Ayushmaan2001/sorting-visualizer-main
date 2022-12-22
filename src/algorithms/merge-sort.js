@@ -26,7 +26,7 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: visualizationSpeed});
+    await asyncSetTimeout({timeout: 10*visualizationSpeed});
 
     if (arr[i] > arr[j]) {
       tempArr[it] = arr[j];
@@ -44,7 +44,7 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: visualizationSpeed});
+    await asyncSetTimeout({timeout: 10*visualizationSpeed});
 
     tempArr[it] = arr[i];
     it++;
@@ -56,7 +56,7 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: visualizationSpeed});
+    await asyncSetTimeout({timeout: 10*visualizationSpeed});
 
     tempArr[it] = arr[j];
     it++;
@@ -72,7 +72,7 @@ const mergeSort = async (
     newColorsArray[j - 1] = 2;
     setArray(arr.concat());
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: visualizationSpeed});
+    await asyncSetTimeout({timeout: 10*visualizationSpeed});
   }
 };
 

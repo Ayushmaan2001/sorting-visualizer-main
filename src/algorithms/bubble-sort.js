@@ -21,7 +21,7 @@ const bubbleSort = async ({
       newColorsArray[j] = 1;
       newColorsArray[j + 1] = 2;
       setColorsArray(newColorsArray);
-      await asyncSetTimeout({timeout: visualizationSpeed});
+      await asyncSetTimeout({timeout: 10*visualizationSpeed});
       setNum1(array[j]);;
       setNum2(array[j + 1]);
       if (array[j + 1] < array[j]) {
@@ -30,7 +30,7 @@ const bubbleSort = async ({
         array[j] = temp;
         setArray(array);
       }
-      await asyncSetTimeout({timeout:1200})
+      await asyncSetTimeout({timeout:10*visualizationSpeed})
     }
   }
   setColorsArray([])

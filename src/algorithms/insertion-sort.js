@@ -23,14 +23,14 @@ const insertionSort = async ({
       newColorsArray[j] = 2;
       newColorsArray[j + 1] = 1;
       setColorsArray(newColorsArray);
-      await asyncSetTimeout({timeout: visualizationSpeed});
+      await asyncSetTimeout({timeout: 10*visualizationSpeed});
 
       array[j + 1] = array[j];
       array[j] = currentValue;
       array = array.concat();
       setArray(array);
       j--;
-      await asyncSetTimeout({timeout:3000})
+      await asyncSetTimeout({timeout:10*visualizationSpeed})
     }
   }
   setColorsArray([])

@@ -22,7 +22,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
             >
                 {unsortedRunsArray1.map((item, index) => {
                     const height = (item / maxItem) * 100;
-                    const width = (1 / 200) * 100;
+                    const width = (1 / 40) * 100;
                     return (
                         <div
                             key={index}
@@ -31,6 +31,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                 display: 'flex',
                                 alignItems: 'end',
                                 width: `${width}%`,
+                                position:'relative'
                             }}
                         >
                             <SortingBar
@@ -39,8 +40,10 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                     height: `calc(${height}% - 20px)`,
                                     width: '100%',
                                     margin: 'auto 10% 0 10%',
+                                    zIndex: '1'
                                 }}
                             ></SortingBar>
+                            <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
                         </div>
                     );
                 })}
@@ -62,7 +65,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                 >
                     {unsortedRunsArray2.map((item, index) => {
                         const height = (item / maxItem) * 100;
-                        const width = (1 / 200) * 100;
+                        const width = (1 / 40) * 100;
                         return (
                             <div
                                 key={index}
@@ -71,6 +74,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                     display: 'flex',
                                     alignItems: 'end',
                                     width: `${width}%`,
+                                    position:'relative'
                                 }}
                             >
                                 <SortingBar
@@ -79,8 +83,10 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                         height: `calc(${height}% - 20px)`,
                                         width: '100%',
                                         margin: 'auto 10% 0 10%',
+                                        zIndex:'1'
                                     }}
                                 ></SortingBar>
+                                <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
                             </div>
                         );
                     })}
@@ -102,7 +108,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
             >
                 {runsArray1.map((item, index) => {
                     const height = (item / maxItem) * 100;
-                    const width = (1 / 200) * 100;
+                    const width = (1 / 40) * 100;
                     return (
                         <div
                             key={index}
@@ -111,6 +117,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                 display: 'flex',
                                 alignItems: 'end',
                                 width: `${width}%`,
+                                position:'relative'
                             }}
                         >
                             <SortingBar
@@ -119,8 +126,10 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                     height: `calc(${height}% - 20px)`,
                                     width: '100%',
                                     margin: 'auto 10% 0 10%',
+                                    zIndex:'1'
                                 }}
                             ></SortingBar>
+                            <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
                         </div>
                     );
                 })}
@@ -142,7 +151,7 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
             >
                 {runsArray2.map((item, index) => {
                     const height = (item / maxItem) * 100;
-                    const width = (1 / 200) * 100;
+                    const width = (1 / 40) * 100;
                     return (
                         <div
                             key={index}
@@ -159,8 +168,11 @@ function RunsBars({ colorsArray, runsArray1, runsArray2, maxItem, unsortedRunsAr
                                     height: `calc(${height}% - 20px)`,
                                     width: '100%',
                                     margin: 'auto 10% 0 10%',
+                                    zIndex: '1',
+                                    position:'relative'
                                 }}
                             ></SortingBar>
+                            <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
                         </div>
                     );
                 })}
