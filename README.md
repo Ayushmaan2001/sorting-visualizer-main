@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+## About Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is build using React. This Project is all about the sorting (visualise) i.e both internal and external sort.
+
+* **Internal Sort**
+  - Bubble Sort
+  - Insertion Sort
+  - Selection Sort
+  - Quick Sort
+  - Merge Sort
+  - Counting Sort
+  - Heap Sort
+* **External Sort**
+  - K Way Merge External Sort
+  - Replacement Selection Sort 
 
 ## Available Scripts
 
@@ -68,3 +80,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Contribution
+
+Anyone from any branch and anywhere from the world can contribute to this project (Should have appropriate coding skills)
