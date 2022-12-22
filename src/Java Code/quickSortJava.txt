@@ -1,0 +1,70 @@
+import java.util.*;
+
+public class Main {
+  
+    int partition(int l, int r, int arr[]) {
+       int j = r;
+        for(int i = l; i <= r; i++) {
+          
+        // if value greater than pivot is at lower position than pivot's
+         if(i < j && arr[i] > arr[j]) {
+         
+          int temp = arr[j];
+          arr[j] = arr[i];
+          arr[i] = temp;
+         }
+         
+         // if value smaller than pivot is at greater position than pivot's
+         else if(i > j && arr[i] < arr[j]) {
+         
+         int temp = arr[j];
+         arr[j] = arr[i];
+         arr[i] = temp;
+       }
+     }
+     return j;
+    }
+  // acc to function it is taking the pivot as the last number
+    void quickSortTechnique(int l, int r, int arr[]) {
+     if(l >= r) return;
+     
+     
+     // this function will place the pivot value at its right position and
+     // return its index so that we can keep doing quicksort on left and right half
+     int j = partition(l, r, arr);
+     
+     
+     // going for left half before j
+     quickSortTechnique(l, j - 1, arr);
+     
+     //going for right half of j
+     quickSortTechnique(j + 1, r, arr);
+     
+     
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using merge sort
+      object.quickSortTechnique(0, len - 1, arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}

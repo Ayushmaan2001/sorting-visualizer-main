@@ -1,0 +1,42 @@
+let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+
+// selection sort
+function selectionSort() {
+  
+  for(let i = 0; i < len - 1; i++) {
+    
+    // this function will find that value which should be present at index i
+    for(let j = i + 1; j < len; j++) {
+       
+       if(arr[j] < arr[i]) {
+         let temp = arr[j];
+         arr[j] = arr[i];
+         arr[i] = temp;
+       }
+    }
+    
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling selectionSort function 
+selectionSort();
+
+// after sorting this function call will print the final array
+print("After");
