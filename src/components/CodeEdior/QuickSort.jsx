@@ -35,34 +35,76 @@ void quickSort(int arr[], int low, int high)
 }
 `,
 Java = `
-static void swap(int[] arr, int i, int j)
-    {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-static int partition(int[] arr, int low, int high)
-    {
-        int pivot = arr[high];
-        int i = (low - 1);
+import java.util.*;
+
+public class Main {
   
-        for (int j = low; j <= high - 1; j++) {
-            if (arr[j] < pivot) {
-                i++;
-                swap(arr, i, j);
-            }
-        }
-        swap(arr, i + 1, high);
-        return (i + 1);
+    int partition(int l, int r, int arr[]) {
+       int j = r;
+        for(int i = l; i <= r; i++) {
+          
+        // if value greater than pivot is at lower position than pivot's
+         if(i < j && arr[i] > arr[j]) {
+         
+          int temp = arr[j];
+          arr[j] = arr[i];
+          arr[i] = temp;
+         }
+         
+         // if value smaller than pivot is at greater position than pivot's
+         else if(i > j && arr[i] < arr[j]) {
+         
+         int temp = arr[j];
+         arr[j] = arr[i];
+         arr[i] = temp;
+       }
+     }
+     return j;
     }
-static void quickSort(int[] arr, int low, int high)
-    {
-        if (low < high) {
-            int pi = partition(arr, low, high);
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
-        }
+  // acc to function it is taking the pivot as the last number
+    void quickSortTechnique(int l, int r, int arr[]) {
+     if(l >= r) return;
+     
+     
+     // this function will place the pivot value at its right position and
+     // return its index so that we can keep doing quicksort on left and right half
+     int j = partition(l, r, arr);
+     
+     
+     // going for left half before j
+     quickSortTechnique(l, j - 1, arr);
+     
+     //going for right half of j
+     quickSortTechnique(j + 1, r, arr);
+     
+     
     }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using merge sort
+      object.quickSortTechnique(0, len - 1, arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}
 `,
 Python = `
 def partition(array, low, high):
@@ -82,31 +124,71 @@ def quick_sort(array, low, high):
         quick_sort(array, pi + 1, high)
 `,
 Javascript = `
-function swap(arr, i, j) {
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
-function partition(arr, low, high) {
-    let pivot = arr[high];
-    let i = (low - 1);
+// In this code we have taken pivot as the last value of range, but you can
+// take any value you want
+
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+// function to print array
+function print(str) {
   
-    for (let j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(arr, i, j);
-        }
-    }
-    swap(arr, i + 1, high);
-    return (i + 1);
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
 }
-function quickSort(arr, low, high) {
-    if (low < high) {
-        let pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
+
+// this function will place pivot value at its right position and 
+// and all greater value to its right and all lower value to its left
+function partition(l, r) {
+  
+       let j = r;
+        for(let i = l; i <= r; i++) {
+          
+        // if value greater than pivot is at lower position than pivot's
+         if(i < j && arr[i] > arr[j]) {
+         
+          let temp = arr[j];
+          arr[j] = arr[i];
+          arr[i] = temp;
+         }
+         
+         // if value smaller than pivot is at greater position than pivot's
+         else if(i > j && arr[i] < arr[j]) {
+         
+         let temp = arr[j];
+         arr[j] = arr[i];
+         arr[i] = temp;
+       }
+     }
+     
+     // returning the index of the pivot value
+     return j;
 }
+
+
+// quicksort function which recursively call itself and palce elements at their 
+// right position
+function quickSort(l, r) {
+  if(l < r) {
+    let partition_index = partition(l, r);
+    
+    quickSort(l, partition_index - 1);
+    quickSort(partition_index + 1, r);
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling quickSort function 
+quickSort(0, len - 1);
+
+// after sorting this function call will print the final array
+print("After");
 `
 
 export default function QuickSort({text}) {

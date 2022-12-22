@@ -13,19 +13,56 @@ void bubbleSort(int arr[], int n)
 }
 `,
   Java = `
-class BubbleSort {
-	void bubbleSort(int arr[])
-	{
-		int n = arr.length;
-		for (int i = 0; i < n - 1; i++)
-			for (int j = 0; j < n - i - 1; j++)
-				if (arr[j] > arr[j + 1]) {
-					int temp = arr[j];
-					arr[j] = arr[j + 1];
-					arr[j + 1] = temp;
-				}
-			}
-		}
+  import java.util.*;
+
+  public class Main {
+    
+      void bubbleSortTechnique(int arr[]) {
+        
+        // length of the array
+        int len = arr.length;
+        
+        for(int i = 0; i < len; i++) {
+          for(int j = 1; j < len; j++) {
+            
+            // this will execute when two consecutive numbers are not in order 
+            if(arr[j] < arr[j - 1]) {
+              
+              int temp = arr[j];
+              arr[j] = arr[j - 1];
+              arr[j - 1] = temp;
+              
+            }
+          }
+        }
+      }
+    
+      void printArr(int arr[]) {
+        for(int i = 0; i < arr.length; i++) {
+          System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+      }
+     
+      public static void main(String[] args) {
+        
+        // Given array
+        int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+        
+        // Creating the object of class to access its member function
+        Main object = new Main();
+        
+        System.out.println("Array before sorting - ");
+        // function to print the original Array
+        object.printArr(arr);
+        // function which will sort the given array using bubble sort
+        object.bubbleSortTechnique(arr);
+        System.out.println("Array after sorting - ");
+        
+        // function to print the new array
+        object.printArr(arr);
+    }
+  }
 `,
   Python = `
 def bubbleSort(arr):
@@ -36,12 +73,46 @@ def bubbleSort(arr):
 				arr[j], arr[j+1] = arr[j+1], arr[j]
 `,
   Javascript = `
-function swap(arr, xp, yp)
-{
-	var temp = arr[xp];
-	arr[xp] = arr[yp];
-	arr[yp] = temp;
-}
+  let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+  let len = arr.length;
+  
+  
+  // function to print array
+  function print(str) {
+    
+    console.log(str);
+    arr.forEach(function(num) {
+      console.log(num);
+    });
+  }
+  
+  
+  // bubble sort
+  function bubbleSort() {
+    
+    for(let i = 0; i < len - 1; i++) {
+      for(let j = 1; j < len; j++) {
+         
+         if(arr[j] < arr[j - 1]) {
+           let temp = arr[j];
+           arr[j] = arr[j - 1];
+           arr[j - 1] = temp;
+         }
+      }
+      
+    }
+  }
+  
+  // this function call will print the original array
+  print("Before");
+  
+  // calling bubbleSort function 
+  bubbleSort();
+  
+  // after sorting this function call will print the final array
+  print("After");
 `
 
 export default function BubbleSort() {

@@ -62,49 +62,82 @@ void mergeSort(int array[], int const begin, int const end)
 }
 `,
 Java = `
-void merge(int arr[], int l, int m, int r)
-    {
-        int n1 = m - l + 1;
-        int n2 = r - m;
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[m + 1 + j];
-        int i = 0, j = 0;
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k] = L[i];
-                i++;
-            }
-            else {
-                arr[k] = R[j];
-                j++;
-            }
-            k++;
+import java.util.*;
+
+public class Main {
+
+    
+    void merge(int l, int m, int r, int arr[]) {
+      
+      int newArr[] = new int[r - l + 1];
+      int k = 0, i = l, j = m + 1;
+      // k will be the index of the new array where it will be the at that position 
+      // where new element will reside
+      while(i <= m && j <= r) {
+        
+        if(arr[i] <= arr[j]) {
+          newArr[k++] = arr[i++];
+        } else {
+          newArr[k++] = arr[j++];
         }
-        while (i < n1) {
-            arr[k] = L[i];
-            i++;
-            k++;
-        }
-        while (j < n2) {
-            arr[k] = R[j];
-            j++;
-            k++;
-        }
+      
+      }
+      
+      // if there will be some elements left in the first half
+      while(i <= m) {
+        newArr[k++] = arr[i++];
+      }
+      
+      // if there will be some elements left in the right half
+      while(j <= r) {
+        newArr[k++] = arr[j++];
+      }
+      
+      // updating the original array
+      k = 0;
+      for(i = l; i <= r; i++) {
+        arr[i] = newArr[k++];
+      }
     }
-void sort(int arr[], int l, int r)
-    {
-        if (l < r) {
-            int m = l + (r - l) / 2;
-            sort(arr, l, m);
-            sort(arr, m + 1, r);
-            merge(arr, l, m, r);
-        }
+  
+    void mergeSortTechnique(int l, int r, int arr[]) {
+      if(l >= r) return; 
+      int mid = (l + r) / 2;
+      
+      // these two function will sperately sort their parts
+      mergeSortTechnique(l, mid, arr);
+      mergeSortTechnique(mid + 1, r, arr);
+      
+      // this function will merge the two parts of the sorted array 
+      merge(l, mid, r, arr);
+    
     }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using merge sort
+      object.mergeSortTechnique(0, len - 1, arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}
 `,
 Python = `
 def mergeSort(arr):
@@ -134,51 +167,70 @@ def mergeSort(arr):
             k += 1
 `,
 Javascript = `
-function merge(arr, l, m, r)
-{
-    var n1 = m - l + 1;
-    var n2 = r - m;
-    var L = new Array(n1);
-    var R = new Array(n2);
-    for (var i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for (var j = 0; j < n2; j++)
-        R[j] = arr[m + 1 + j];
-    var i = 0;
-    var j = 0;
-    var k = l;
- 
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
-            arr[k] = L[i];
-            i++;
-        }
-        else {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-    while (i < n1) {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-    while (j < n2) {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
 }
-function mergeSort(arr,l, r){
-    if(l>=r){
-        return;//returns recursively
+
+// function to merge two sorted array
+function merge(l, mid, r) {
+  
+  let output = new Array(r - l + 1);
+  let k = 0, i = l, j = mid + 1;
+  
+  while(i <= mid && j <= r) {
+    if(arr[i] < arr[j]) {
+      output[k++] = arr[i++];
+    } else {
+      output[k++] = arr[j++];
     }
-    var m =l+ parseInt((r-l)/2);
-    mergeSort(arr,l,m);
-    mergeSort(arr,m+1,r);
-    merge(arr,l,m,r);
+  }
+  
+  // if some elements left in the first array
+  while(i <= mid) output[k++] = arr[i++];
+
+  // if some elements left in the second array  
+  while(j <= r) output[k++] = arr[j++];
+  
+  k = 0;
+  
+  // updating the original array from l to r inclusive
+  for(i = l; i <= r; i++) arr[i] = output[k++];
 }
+
+
+// mergeSort function which will partition the array into two halves recursively
+// and sort them using merge fucntion
+function mergeSort(l, r) {
+  if(l < r) {
+    let mid = Math.floor((l + r) / 2);
+    
+    // calling the mergeSort function recursively on both the halves
+    mergeSort(l, mid);
+    mergeSort(mid + 1, r);
+
+    // after sorting the halves then merging both sorted parts
+    merge(l, mid, r);
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling mergeSort function 
+mergeSort(0, len - 1);
+
+// after sorting this function call will print the final array
+print("After");
 `
 export default function MergeSort({text}) {
   return (

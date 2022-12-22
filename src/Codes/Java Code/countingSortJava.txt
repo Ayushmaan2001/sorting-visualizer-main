@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class Main {
+  
+    void countingSortTechnique(int arr[]) {
+     
+     int len = arr.length;
+     
+     // we are assuming that there won't be a number greater than 1000
+     int newArrCount[] = new int[1001];
+     int outputArr[] = new int[len];
+     // counting the occurence of each number
+     for(int i = 0; i < len; i++) {
+       newArrCount[arr[i]]++;
+     }
+     
+     for(int i = 1; i <= 1000; i++) {
+       newArrCount[i] += newArrCount[i - 1];
+     }
+     
+     // updating the output array
+     for(int i = len - 1; i >= 0; i--) {
+       outputArr[newArrCount[arr[i]] - 1] = arr[i];
+       newArrCount[arr[i]]--;
+     }
+     
+     // updating the final array
+     for(int i = 0; i < len; i++) {
+       arr[i] = outputArr[i];
+     }
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using counting sort
+      object.countingSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}

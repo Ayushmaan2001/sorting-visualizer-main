@@ -42,43 +42,136 @@ def countSort(arr):
     return ans 
 `,
 Java = `
-void sort(char arr[])
-    {
-        int n = arr.length;
-        char output[] = new char[n];
-        int count[] = new int[256];
-        for (int i = 0; i < 256; ++i)
-            count[i] = 0;
-        for (int i = 0; i < n; ++i)
-            ++count[arr[i]];
-        for (int i = 1; i <= 255; ++i)
-            count[i] += count[i - 1];
-        for (int i = n - 1; i >= 0; i--) {
-            output[count[arr[i]] - 1] = arr[i];
-            --count[arr[i]];
-        }
-        for (int i = 0; i < n; ++i)
-            arr[i] = output[i];
+import java.util.*;
+
+public class Main {
+  
+    void countingSortTechnique(int arr[]) {
+     
+     int len = arr.length;
+     
+     // we are assuming that there won't be a number greater than 1000
+     int newArrCount[] = new int[1001];
+     int outputArr[] = new int[len];
+     // counting the occurence of each number
+     for(int i = 0; i < len; i++) {
+       newArrCount[arr[i]]++;
+     }
+     
+     for(int i = 1; i <= 1000; i++) {
+       newArrCount[i] += newArrCount[i - 1];
+     }
+     
+     // updating the output array
+     for(int i = len - 1; i >= 0; i--) {
+       outputArr[newArrCount[arr[i]] - 1] = arr[i];
+       newArrCount[arr[i]]--;
+     }
+     
+     // updating the final array
+     for(int i = 0; i < len; i++) {
+       arr[i] = outputArr[i];
+     }
     }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using counting sort
+      object.countingSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}
 `,
 Javascript = `
-function sort(arr)
-{
-    var n = arr.length;
-    var output = Array.from({length: n}, (_, i) => 0);
-    var count = Array.from({length: 256}, (_, i) => 0);
-    for (var i = 0; i < n; ++i)
-        ++count[arr[i].charCodeAt(0)];
-    for (var i = 1; i <= 255; ++i)
-        count[i] += count[i - 1];
-    for (var i = n - 1; i >= 0; i--) {
-        output[count[arr[i].charCodeAt(0)] - 1] = arr[i];
-        --count[arr[i].charCodeAt(0)];
-    }
-    for (var i = 0; i < n; ++i)
-        arr[i] = output[i];
-     return arr;
+// We are assuming the maximum element possible cannot exceed 1000 for this code
+
+
+
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
 }
+
+
+// counting sort
+function countingSort() {
+  
+  
+  // count array will contain the frequency of each element
+  let count = [];
+  
+  // output array will contain the resultant array
+  let output = [];
+  
+  // calculating the frequency
+  arr.forEach(function(num) {
+    
+    if(!count[num]) {
+      count[num] = 1;
+    } else {
+      count[num] += 1;
+    }
+
+  });
+  count[0] = 0;
+  
+  // making the count array more suitable for output array
+  for(let i = 1; i <= 1000; i++) {
+    if(!count[i]) count[i] = 0;
+    
+    count[i] += count[i - 1];
+  }
+  
+  
+  // formation of output array
+  for(let i = len - 1; i >= 0; i--) {
+    output[count[arr[i]] - 1] = arr[i];
+    count[arr[i]]--;
+  }
+  
+  
+  // finally copying the data from output array to original array
+  for(let i = 0; i < len; i++) {
+    arr[i] = output[i];
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling countingSort function 
+countingSort();
+
+// after sorting this function call will print the final array
+print("After");
 `
 export default function CountingSort() {
   return (

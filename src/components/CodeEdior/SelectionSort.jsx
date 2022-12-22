@@ -26,19 +26,53 @@ void selectionSort(int arr[], int n)
 }
 `,
 Java = `
-void sort(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++)
-        {
-            int min_idx = i;
-            for (int j = i+1; j < n; j++)
-                if (arr[j] < arr[min_idx])
-                    min_idx = j;
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
+import java.util.*;
+
+public class Main {
+  
+    void selectionSortTechnique(int arr[]) {
+      
+      int len = arr.length;
+      
+      for(int i = 0; i < len - 1; i++) {
+        
+        for(int j = i + 1; j < len; j++) {
+          
+          if(arr[j] < arr[i]) {
+            int temp = arr[j];
+            arr[j] = arr[i];
             arr[i] = temp;
+          }
         }
+      }
+    
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using selection sort
+      object.selectionSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}
 `,
 Python = `
 for i in range(len(A)):
@@ -49,25 +83,48 @@ for i in range(len(A)):
     A[i], A[min_idx] = A[min_idx], A[i]
 `,
 Javascript = `
-function swap(arr,xp, yp)
-{
-    var temp = arr[xp];
-    arr[xp] = arr[yp];
-    arr[yp] = temp;
+let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
 }
- 
-function selectionSort(arr,  n)
-{
-    var i, j, min_idx;
-    for (i = 0; i < n-1; i++)
-    {
-        min_idx = i;
-        for (j = i + 1; j < n; j++)
-        if (arr[j] < arr[min_idx])
-            min_idx = j;
-        swap(arr,min_idx, i);
+
+
+// selection sort
+function selectionSort() {
+  
+  for(let i = 0; i < len - 1; i++) {
+    
+    // this function will find that value which should be present at index i
+    for(let j = i + 1; j < len; j++) {
+       
+       if(arr[j] < arr[i]) {
+         let temp = arr[j];
+         arr[j] = arr[i];
+         arr[i] = temp;
+       }
     }
+    
+  }
 }
+
+// this function call will print the original array
+print("Before");
+
+// calling selectionSort function 
+selectionSort();
+
+// after sorting this function call will print the final array
+print("After");
 `
 export default function SelectionSort({text}) {
   return (

@@ -1,0 +1,71 @@
+// We are assuming the maximum element possible cannot exceed 1000 for this code
+
+
+
+let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+
+// counting sort
+function countingSort() {
+  
+  
+  // count array will contain the frequency of each element
+  let count = [];
+  
+  // output array will contain the resultant array
+  let output = [];
+  
+  // calculating the frequency
+  arr.forEach(function(num) {
+    
+    if(!count[num]) {
+      count[num] = 1;
+    } else {
+      count[num] += 1;
+    }
+
+  });
+  count[0] = 0;
+  
+  // making the count array more suitable for output array
+  for(let i = 1; i <= 1000; i++) {
+    if(!count[i]) count[i] = 0;
+    
+    count[i] += count[i - 1];
+  }
+  
+  
+  // formation of output array
+  for(let i = len - 1; i >= 0; i--) {
+    output[count[arr[i]] - 1] = arr[i];
+    count[arr[i]]--;
+  }
+  
+  
+  // finally copying the data from output array to original array
+  for(let i = 0; i < len; i++) {
+    arr[i] = output[i];
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling countingSort function 
+countingSort();
+
+// after sorting this function call will print the final array
+print("After");

@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main {
+  
+    void selectionSortTechnique(int arr[]) {
+      
+      int len = arr.length;
+      
+      for(int i = 0; i < len - 1; i++) {
+        
+        for(int j = i + 1; j < len; j++) {
+          
+          if(arr[j] < arr[i]) {
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+          }
+        }
+      }
+    
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using selection sort
+      object.selectionSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}

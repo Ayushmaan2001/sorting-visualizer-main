@@ -1,0 +1,76 @@
+import java.util.*;
+
+public class Main {
+
+    
+    void merge(int l, int m, int r, int arr[]) {
+      
+      int newArr[] = new int[r - l + 1];
+      int k = 0, i = l, j = m + 1;
+      // k will be the index of the new array where it will be the at that position 
+      // where new element will reside
+      while(i <= m && j <= r) {
+        
+        if(arr[i] <= arr[j]) {
+          newArr[k++] = arr[i++];
+        } else {
+          newArr[k++] = arr[j++];
+        }
+      
+      }
+      
+      // if there will be some elements left in the first half
+      while(i <= m) {
+        newArr[k++] = arr[i++];
+      }
+      
+      // if there will be some elements left in the right half
+      while(j <= r) {
+        newArr[k++] = arr[j++];
+      }
+      
+      // updating the original array
+      k = 0;
+      for(i = l; i <= r; i++) {
+        arr[i] = newArr[k++];
+      }
+    }
+  
+    void mergeSortTechnique(int l, int r, int arr[]) {
+      if(l >= r) return; 
+      int mid = (l + r) / 2;
+      
+      // these two function will sperately sort their parts
+      mergeSortTechnique(l, mid, arr);
+      mergeSortTechnique(mid + 1, r, arr);
+      
+      // this function will merge the two parts of the sorted array 
+      merge(l, mid, r, arr);
+    
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using merge sort
+      object.mergeSortTechnique(0, len - 1, arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}

@@ -1,0 +1,80 @@
+import java.util.*;
+
+public class Main {
+  
+    int getMax(int arr[], int n)
+    {
+        int mx = arr[0];
+        for (int i = 1; i < n; i++) {
+           
+           if (arr[i] > mx) {
+              mx = arr[i];
+           }
+                
+        }
+            
+        return mx;
+    }
+  
+    void countingSort(int arr[], int len, int exp) {
+     
+     int outputArr[] = new int[len];
+     
+     // max digit size is 9 so size of 10 array will be enough
+     int count[] = new int[10];
+     // counting the occurence of each number
+     for(int i = 0; i < len; i++) {
+       count[(arr[i] / exp) % 10]++;
+     }
+     
+     for(int i = 1; i < 10; i++) {
+       count[i] += count[i - 1];
+     }
+     
+     // updating the output array
+     for (int i = len - 1; i >= 0; i--) {
+            outputArr[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+     }
+     
+     // updating the final array
+     for(int i = 0; i < len; i++) {
+       arr[i] = outputArr[i];
+     }
+    }
+  
+    void radixSortTechnique(int arr[]) {
+      int len = arr.length;
+      
+      int mx = getMax(arr, len);
+      
+      for (int exp = 1; mx / exp > 0; exp *= 10) {
+        countingSort(arr, len, exp);
+      }
+    }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      int len = arr.length;
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using radix sort
+      object.radixSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}

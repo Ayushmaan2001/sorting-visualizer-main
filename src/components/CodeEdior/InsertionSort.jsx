@@ -21,19 +21,52 @@ void insertionSort(int arr[], int n)
 }
 `,
 Java = `
-void sort(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 1; i < n; ++i) {
-            int key = arr[i];
-            int j = i - 1;
-            while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
-            }
-            arr[j + 1] = key;
+import java.util.*;
+
+public class Main {
+  
+    void insertionSortTechnique(int arr[]) {
+      int len = arr.length;
+      
+      for(int i = 1; i < len; i++) {
+        
+        for(int j = i - 1; j >= 0; j--) {
+          
+          if(arr[j] > arr[j + 1]) {
+             
+             int temp = arr[j];
+             arr[j] = arr[j + 1];
+             arr[j + 1] = temp;
+          }
         }
+      }
     }
+  
+    void printArr(int arr[]) {
+      for(int i = 0; i < arr.length; i++) {
+        System.out.print(arr[i] + " ");
+      }
+      System.out.println();
+    }
+  
+    public static void main(String[] args) {
+      // Given array
+      int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
+      
+      // Creating the object of class to access its member function
+      Main object = new Main();
+      
+      System.out.println("Array before sorting - ");
+      // function to print the original Array
+      object.printArr(arr);
+      // function which will sort the given array using insertion sort
+      object.insertionSortTechnique(arr);
+      System.out.println("Array after sorting - ");
+      
+      // function to print the new array
+      object.printArr(arr);
+  }
+}
 `,
 Python = `
 def insertionSort(arr):
@@ -49,21 +82,49 @@ def insertionSort(arr):
         arr[j + 1] = key
 `,
 Javascript = `
-function insertionSort(arr, n) 
-{ 
-    let i, key, j; 
-    for (i = 1; i < n; i++)
-    { 
-        key = arr[i]; 
-        j = i - 1; 
-        while (j >= 0 && arr[j] > key)
-        { 
-            arr[j + 1] = arr[j]; 
-            j = j - 1; 
-        } 
-        arr[j + 1] = key; 
-    } 
-} 
+let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+
+
+let len = arr.length;
+
+
+// function to print array
+function print(str) {
+  
+  console.log(str);
+  arr.forEach(function(num) {
+    console.log(num);
+  });
+}
+
+
+// insertion sort
+function insertionSort() {
+  
+  for(let i = 1; i < len; i++) {
+    
+    let j = i;
+    // if ith number should be present at less index then this loop will
+    // place it at its correct position
+    while(j >= 1 && arr[j] < arr[j - 1]) {
+      
+      let temp = arr[j];
+      arr[j] = arr[j - 1];
+      arr[j - 1] = temp;
+      j--;
+    }
+    
+  }
+}
+
+// this function call will print the original array
+print("Before");
+
+// calling insertionSort function 
+insertionSort();
+
+// after sorting this function call will print the final array
+print("After"); 
 `
 export default function InsertionSort({text}) {
   return (
