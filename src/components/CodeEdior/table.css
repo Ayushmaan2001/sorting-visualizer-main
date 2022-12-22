@@ -61,7 +61,8 @@
     flex-direction: row;
     align-content: space-around;
     justify-content: space-around;
-    align-items:center
+    align-items:center;
+    /* m-width: 100vh; */
 }
 
 .navMenu a {
@@ -88,18 +89,13 @@
   height: 6px;
   background: #fddb3a;
   border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  opacity: 0
 }
 
 .card {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
-  width: max-content;
   height: max-content;
   background: rgb(40, 40, 55);
   background: linear-gradient(344deg, rgba(40, 40, 55, 1) 0%, rgba(16, 16, 18, 1) 50%);
@@ -108,6 +104,7 @@
   color: #F9F9F9;
   padding: 16px;
   transition: all .3s;
+  min-width: 100vh;
 }
 
 .card:hover {
