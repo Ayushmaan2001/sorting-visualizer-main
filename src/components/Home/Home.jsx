@@ -5,10 +5,10 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort } from '../../algorithms';
 
 //CodeEditors import
-import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal, ReplacementSort} from '../CodeEdior';
+import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort} from '../CodeEdior';
 
 //import graphs
 import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph } from '../GraphShows';
@@ -123,10 +123,10 @@ const Home = () => {
     'QuickSort',
     'Merge Sort',
     'Counting Sort',
-    // 'Radix Sort',
+    'Radix Sort',
     'Heap Sort',
     'K-Way External Sort',
-    // 'Replacement Ext Sort'
+    'Replacement Ext Sort'
   ];
 
   const onRandomize = () => {
@@ -226,14 +226,14 @@ const Home = () => {
           setNum2:setNum2
         });
         break;
-      // case 'Radix Sort':
-      //   await radixSort({
-      //     array: randomizedArray,
-      //     setArray: setRandomizedArray,
-      //     visualizationSpeed: visualizationSpeed,
-      //     setColorsArray: setColorsArray
-      //   });
-      //   break;
+      case 'Radix Sort':
+        await radixSort({
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray
+        });
+        break;
       case 'Heap Sort':
         await heapSort({
           array: randomizedArray,
@@ -263,23 +263,23 @@ const Home = () => {
           setunsortedRunsArray1: setunsortedRunsArray1
         });
         break;
-      // case 'Replacement Ext Sort':
-      //   await externalReplacementSort({
-      //     array: randomizedArray,
-      //     setArray: setRandomizedArray,
-      //     visualizationSpeed: visualizationSpeed,
-      //     setColorsArray: setColorsArray,
-      //     setrunsArray: setrunsArray,
-      //     setrunsArray1: setrunsArray1,
-      //     setrunsArray2: setrunsArray2,
-      //     runsArray1: runsArray1,
-      //     runsArray2: runsArray2,
-      //     unsortedRunsArray1: unsortedRunsArray1,
-      //     unsortedRunsArray2: unsortedRunsArray2,
-      //     setunsortedRunsArray2: setunsortedRunsArray2,
-      //     setunsortedRunsArray1: setunsortedRunsArray1
-      //   });
-      //   break;
+      case 'Replacement Ext Sort':
+        await externalReplacementSort({
+          array: randomizedArray,
+          setArray: setRandomizedArray,
+          visualizationSpeed: visualizationSpeed,
+          setColorsArray: setColorsArray,
+          setrunsArray: setrunsArray,
+          setrunsArray1: setrunsArray1,
+          setrunsArray2: setrunsArray2,
+          runsArray1: runsArray1,
+          runsArray2: runsArray2,
+          unsortedRunsArray1: unsortedRunsArray1,
+          unsortedRunsArray2: unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1
+        });
+        break;
       default:
         break;
     }
