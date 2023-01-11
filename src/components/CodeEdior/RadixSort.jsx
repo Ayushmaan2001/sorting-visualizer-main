@@ -4,63 +4,117 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor';
 
 let Cpp = `
-int getMax(int arr[], int n)
+#include <iostream>
+#include <vector>
+
+// Function to get the digit at the given place value
+int getDigit(int num, int place)
 {
-    int mx = arr[0];
-    for (int i = 1; i < n; i++)
-        if (arr[i] > mx)
-            mx = arr[i];
-    return mx;
-}
-void countSort(int arr[], int n, int exp)
-{
-    int output[n]; // output array
-    int i, count[10] = { 0 };
-    for (i = 0; i < n; i++)
-        count[(arr[i] / exp) % 10]++;
-    for (i = 1; i < 10; i++)
-        count[i] += count[i - 1];
-    for (i = n - 1; i >= 0; i--) {
-        output[count[(arr[i] / exp) % 10] - 1] = arr[i];
-        count[(arr[i] / exp) % 10]--;
+    int digit = 0;
+    while (place > 0)
+    {
+        digit = num % 10;
+        num /= 10;
+        place--;
     }
-    for (i = 0; i < n; i++)
-        arr[i] = output[i];
+    return digit;
 }
-void radixsort(int arr[], int n)
+
+// Function to get the number of digits in the largest number
+int getMaxNumDigits(const std::vector<int>& arr)
 {
-    int m = getMax(arr, n);
-    for (int exp = 1; m / exp > 0; exp *= 10)
-        countSort(arr, n, exp);
+    int max_digits = 0;
+    for (int i : arr)
+    {
+        int digits = 0;
+        int num = i;
+        while (num > 0)
+        {
+            digits++;
+            num /= 10;
+        }
+        max_digits = std::max(max_digits, digits);
+    }
+    return max_digits;
+}
+
+// Radix sort function
+void radixSort(std::vector<int>& arr)
+{
+    int max_digits = getMaxNumDigits(arr); // Get the number of digits in the largest number
+ 
+    // Loop through each place value (starting with the ones place)
+    for (int place = 1; place <= max_digits; place++)
+    {
+        // Create a bucket for each digit
+        std::vector<std::vector<int>> buckets(10);
+ 
+        // Loop through the array and add each element to the appropriate bucket
+        for (int i : arr)
+            buckets[getDigit(i, place)].push_back(i);
+ 
+        // Flatten the buckets back into
+        // Flatten the buckets back into the array
+        arr.clear();
+        for (const auto& bucket : buckets)
+            arr.insert(arr.end(), bucket.begin(), bucket.end());
+    }
+}
+
+int main()
+{
+    std::vector<int> arr = {5, 3, 6, 2, 10};
+ 
+    // Sort the array
+    radixSort(arr);
+ 
+    // Print the sorted array
+    for (int i : arr)
+        std::cout << i << " ";
+ 
+    return 0;
 }
 `,
 Python = `
-def countingSort(arr, exp1):
- 
-    n = len(arr)
-    output = [0] * (n)
-    count = [0] * (10)
-    for i in range(0, n):
-        index = arr[i] // exp1
-        count[index % 10] += 1
-    for i in range(1, 10):
-        count[i] += count[i - 1]
-    i = n - 1
-    while i >= 0:
-        index = arr[i] // exp1
-        output[count[index % 10] - 1] = arr[i]
-        count[index % 10] -= 1
-        i -= 1
-    i = 0
-    for i in range(0, len(arr)):
-        arr[i] = output[i]
+def get_digit(num, place):
+    digit = 0
+    while place > 0:
+        digit = num % 10
+        num //= 10
+        place -= 1
+    return digit
 
-def radixSort(arr):
-    max1 = max(arr)
-    exp = 1
-    while max1 / exp >= 1:
-        countingSort(arr, exp)
-        exp *= 10
+def get_max_num_digits(arr):
+    max_digits = 0
+    for i in arr:
+        digits = 0
+        num = i
+        while num > 0:
+            digits += 1
+            num //= 10
+        max_digits = max(max_digits, digits)
+    return max_digits
+
+def radix_sort(arr):
+    max_digits = get_max_num_digits(arr) # Get the number of digits in the largest number
+ 
+    # Loop through each place value (starting with the ones place)
+    for place in range(1, max_digits + 1):
+        # Create a bucket for each digit
+        buckets = [[] for _ in range(10)]
+ 
+        # Loop through the array and add each element to the appropriate bucket
+        for i in arr:
+            buckets[get_digit(i, place)].append(i)
+ 
+        # Flatten the buckets back into the array
+        arr.clear()
+        for bucket in buckets:
+            arr.extend(bucket)
+
+# Test the function
+print(radix_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
 Java = `
 import java.util.*;

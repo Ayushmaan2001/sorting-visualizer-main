@@ -4,26 +4,59 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor';
 
 let Cpp = `
-void swap(int *xp, int *yp)
+#include <iostream>
+
+// Function to find the position of the smallest element
+// in the range [start, end)
+int findSmallest(int *arr, int start, int end)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
+    int smallest = arr[start]; // Store the first element as the smallest value so far
+    int smallestIndex = start; // Store the index of the smallest value
  
-void selectionSort(int arr[], int n)
-{
-    int i, j, min_idx;
-    for (i = 0; i < n-1; i++)
+    // Loop through the remaining elements
+    for (int i = start + 1; i < end; i++)
     {
-        min_idx = i;
-        for (j = i+1; j < n; j++)
-        if (arr[j] < arr[min_idx])
-            min_idx = j;
-        if(min_idx!=i)
-            swap(&arr[min_idx], &arr[i]);
+        // If an element is smaller than the current smallest value
+        if (arr[i] < smallest)
+        {
+            // Set it as the new smallest value
+            smallest = arr[i];
+            smallestIndex = i;
+        }
+    }
+ 
+    return smallestIndex; // Return the index of the smallest element
+}
+
+// Selection sort function
+void selectionSort(int *arr, int n)
+{
+    // Loop through the array
+    for (int i = 0; i < n; i++)
+    {
+        // Find the position of the smallest element in the range [i, n)
+        int smallestIndex = findSmallest(arr, i, n);
+ 
+        // Swap the element at the current position with the smallest element
+        std::swap(arr[i], arr[smallestIndex]);
     }
 }
+
+int main()
+{
+    int arr[] = {5, 3, 6, 2, 10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    // Sort the array
+    selectionSort(arr, n);
+ 
+    // Print the sorted array
+    for (int i = 0; i < n; i++)
+        std::cout << arr[i] << " ";
+ 
+    return 0;
+}
+
 `,
 Java = `
 import java.util.*;
@@ -75,12 +108,33 @@ public class Main {
 }
 `,
 Python = `
-for i in range(len(A)):
-    min_idx = i
-    for j in range(i+1, len(A)):
-        if A[min_idx] > A[j]:
-            min_idx = j    
-    A[i], A[min_idx] = A[min_idx], A[i]
+def find_smallest(arr):
+    # Store the position of the smallest element
+    smallest = arr[0]
+    smallest_index = 0
+ 
+    # Loop through the array and find the smallest element
+    for i in range(1, len(arr)):
+        if arr[i] < smallest:
+            smallest = arr[i]
+            smallest_index = i
+ 
+    return smallest_index
+
+def selection_sort(arr):
+    # Create a new sorted array
+    sorted_arr = []
+ 
+    # Find the smallest element in the array and add it to the sorted array
+    for i in range(len(arr)):
+        smallest = find_smallest(arr)
+        sorted_arr.append(arr.pop(smallest))
+ 
+    return sorted_arr
+
+# Test the function
+print(selection_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
 Javascript = `
 let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];

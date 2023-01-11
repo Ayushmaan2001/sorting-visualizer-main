@@ -4,21 +4,47 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 
 let Cpp = `
-void insertionSort(int arr[], int n)
+#include <iostream>
+
+// Insertion sort function
+void insertionSort(int *arr, int n)
 {
-    int i, key, j;
-    for (i = 1; i < n; i++)
+    // Loop through the array
+    for (int i = 1; i < n; i++)
     {
-        key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key)
+        // Store the current element
+        int current = arr[i];
+ 
+        // Initialize the position where the element should be inserted
+        int j = i - 1;
+ 
+        // Shift the elements to the right until the correct position is found
+        while (j >= 0 && arr[j] > current)
         {
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j--;
         }
-        arr[j + 1] = key;
+ 
+        // Insert the element into the correct position
+        arr[j + 1] = current;
     }
 }
+
+int main()
+{
+    int arr[] = {5, 3, 6, 2, 10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    // Sort the array
+    insertionSort(arr, n);
+ 
+    // Print the sorted array
+    for (int i = 0; i < n; i++)
+        std::cout << arr[i] << " ";
+ 
+    return 0;
+}
+
 `,
 Java = `
 import java.util.*;
@@ -69,17 +95,26 @@ public class Main {
 }
 `,
 Python = `
-def insertionSort(arr):
- 
-    # Traverse through 1 to len(arr)
+def insertion_sort(arr):
+    # Loop through the array
     for i in range(1, len(arr)):
+        # Store the current element
+        current = arr[i]
  
-        key = arr[i]
-        j = i-1
-        while j >= 0 and key < arr[j] :
-                arr[j + 1] = arr[j]
-                j -= 1
-        arr[j + 1] = key
+        # Initialize the position where the element should be inserted
+        j = i - 1
+ 
+        # Shift the elements to the right until the correct position is found
+        while j >= 0 and arr[j] > current:
+            arr[j + 1] = arr[j]
+            j -= 1
+ 
+        # Insert the element into the correct position
+        arr[j + 1] = current
+
+# Test the function
+print(insertion_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
 Javascript = `
 let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];

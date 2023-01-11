@@ -4,42 +4,65 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor';
 
 let Cpp = `
-#define RANGE 255
-void countSort(char arr[])
+#include <iostream>
+#include <vector>
+
+// Counting sort function
+void countingSort(const std::vector<int>& arr, std::vector<int>& sorted_arr, int max)
 {
-    memset(count, 0, sizeof(count));
-    for (i = 0; arr[i]; ++i)
-        ++count[arr[i]];
-    for (i = 1; i <= RANGE; ++i)
-        count[i] += count[i - 1];
-    for (i = 0; arr[i]; ++i) {
-        output[count[arr[i]] - 1] = arr[i];
-        --count[arr[i]];
-    }
-    for (i = sizeof(arr)-1; i>=0; --i) 
-    { 
-        output[count[arr[i]]-1] = arr[i]; 
-        --count[arr[i]]; 
-    } 
-    for (i = 0; arr[i]; ++i)
-        arr[i] = output[i];
+    std::vector<int> counts(max + 1); // Vector to store the counts of each element
+ 
+    // Loop through the array and count the occurences of each element
+    for (int i : arr)
+        counts[i]++;
+ 
+    // Loop through the counts and add the elements to the sorted array
+    for (int i = 0, j = 0; i <= max; i++)
+        for (int k = 0; k < counts[i]; k++)
+            sorted_arr[j++] = i;
 }
+
+/*
+    Note that this implementation of counting sort requires the maximum element in the array to be known in advance. If the maximum element is not known, you can use a variation of counting sort called "radix sort" which works by sorting the elements based on their digits (e.g., ones place, tens place, etc.)
+*/
+
+int main()
+{
+    std::vector<int> arr = {5, 3, 6, 2, 10};
+    std::vector<int> sorted_arr(arr.size()); // Vector to store the sorted array
+ 
+    // Sort the array
+    countingSort(arr, sorted_arr, 10);
+ 
+    // Print the sorted array
+    for (int i : sorted_arr)
+        std::cout << i << " ";
+ 
+    return 0;
+}
+
 `,
 Python = `
-def countSort(arr):
-    output = [0 for i in range(len(arr))]
-    count = [0 for i in range(256)]
-    ans = ["" for _ in arr]
+def counting_sort(arr, max):
+    counts = [0] * (max + 1) # List to store the counts of each element
+ 
+    # Loop through the array and count the occurences of each element
     for i in arr:
-        count[ord(i)] += 1
-    for i in range(256):
-        count[i] += count[i-1]
-    for i in range(len(arr)):
-        output[count[ord(arr[i])]-1] = arr[i]
-        count[ord(arr[i])] -= 1
-    for i in range(len(arr)):
-        ans[i] = output[i]
-    return ans 
+        counts[i] += 1
+ 
+    # Initialize the sorted array
+    sorted_arr = []
+ 
+    # Loop through the counts and add the elements to the sorted array
+    for i, count in enumerate(counts):
+        for j in range(count):
+            sorted_arr.append(i)
+ 
+    return sorted_arr
+
+# Test the function
+print(counting_sort([5, 3, 6, 2, 10], 10)) # [2, 3, 5, 6, 10]
+
 `,
 Java = `
 import java.util.*;

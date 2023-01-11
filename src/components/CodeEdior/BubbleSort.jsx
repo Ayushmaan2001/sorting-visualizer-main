@@ -3,14 +3,48 @@ import './table.css'
 import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 let Cpp = `
-void bubbleSort(int arr[], int n)
+#include <iostream>
+
+// Bubble sort function
+void bubbleSort(int *arr, int n)
 {
-	int i, j;
-	for (i = 0; i < n - 1; i++)
-		for (j = 0; j < n - i - 1; j++)
-			if (arr[j] > arr[j + 1])
-				swap(arr[j], arr[j + 1]);
+    bool sorted = false; // Flag to track if the array is sorted
+ 
+    // Keep looping until the array is sorted
+    while (!sorted)
+    {
+        sorted = true; // Set the flag to true
+ 
+        // Loop through the array and swap adjacent elements if they are out of order
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (arr[i] > arr[i + 1])
+            {
+                // Swap the elements
+                std::swap(arr[i], arr[i + 1]);
+ 
+                // Set the flag to false
+                sorted = false;
+            }
+        }
+    }
 }
+
+int main()
+{
+    int arr[] = {5, 3, 6, 2, 10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    // Sort the array
+    bubbleSort(arr, n);
+ 
+    // Print the sorted array
+    for (int i = 0; i < n; i++)
+        std::cout << arr[i] << " ";
+ 
+    return 0;
+}
+
 `,
   Java = `
   import java.util.*;
@@ -65,12 +99,28 @@ void bubbleSort(int arr[], int n)
   }
 `,
   Python = `
-def bubbleSort(arr):
-	n = len(arr)
-	for i in range(n):
-		for j in range(0, n-i-1):
-			if arr[j] > arr[j+1]:
-				arr[j], arr[j+1] = arr[j+1], arr[j]
+  def bubble_sort(arr):
+  # Keep looping until the array is sorted
+  while True:
+      # Set a flag to track if any elements were swapped
+      swapped = False
+
+      # Loop through the array and swap adjacent elements if they are out of order
+      for i in range(len(arr) - 1):
+          if arr[i] > arr[i + 1]:
+              # Swap the elements
+              arr[i], arr[i + 1] = arr[i + 1], arr[i]
+
+              # Set the flag to True
+              swapped = True
+
+      # If no elements were swapped, the array is sorted
+      if not swapped:
+          break
+
+# Test the function
+print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
   Javascript = `
   let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
