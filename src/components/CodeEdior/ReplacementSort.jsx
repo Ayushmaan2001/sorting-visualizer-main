@@ -152,10 +152,31 @@ function ReplacementSort() {
     }}>
           <div className='desc'>
       <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Radix Sort is a sorting algorithm that doesn't use comparisons. Its complexity depends, in addition to the number of elements, by the values b and d, representing the radix of the numbers and the maximum number of digits of the elements respectively</h2>
-        <h2 style={{ color: 'white' }}>Radix Sort works by splitting the elements into buckets, according to their radix, starting from the least significant digit (LSD) or from the most significant digit (MSD) of the number. If the number has more than one significant digit, this process is repeated to account all the digits of the number.</h2>
-        <h2 style={{ color: 'white' }}>It's a particular sorting algorithm really different from the others as it is not based on comparisons, but on the digits of the number instead, so it's only applicable on whole numbers or strings.</h2>
-        <h2 style={{ color: 'white' }}>It can be faster than other logarithmic sorting algorithms on big data structures as it can even perform in linear time in special cases, but it's not widely used due to its limitations.</h2>
+        <h2 style={{ color: 'white' }}>A better approach is to use an algorithm called replacement selection that, on average, creates runs of 2M records in length. Replacement selection is actually a slight variation on the Heapsort algorithm. The fact that Heapsort is slower than Quicksort is irrelevant in this context because I/O time will dominate the total running time of any reasonable external sorting algorithm. Building longer initial runs will reduce the total I/O time required.
+</h2>
+        <h2 style={{ color: 'white' }}>Replacement selection views RAM as consisting of an array of size M in addition to an input buffer and an output buffer. (Additional I/O buffers might be desirable if the operating system supports double buffering, because replacement selection does sequential processing on both its input and its output.) Imagine that the input and output files are streams of records. Replacement selection takes the next record in sequential order from the input stream when needed, and outputs runs one record at a time to the output stream. Buffering is used so that disk I/O is performed one block at a time. A block of records is initially read and held in the input buffer. Replacement selection removes records from the input buffer one at a time until the buffer is empty. At this point the next block of records is read in. Output to a buffer is similar: Once the buffer fills up it is written to disk as a unit.
+</h2>
+        <h2 style={{ color: 'white' }}>Replacement selection works as follows. Assume that the main processing is done in an array of size M records.
+
+1. Fill the array from disk. Set LAST = M-1.
+
+2. Build a min-heap. (Recall that a min-heap is defined such that the record at each node has a key value less than the key values of its children.)
+
+3. Repeat until the array is empty:
+
+    a. Send the record with the minimum key value (the root) to the output buffer.
+
+    b. Let R be the next record in the input buffer. If R ‘s key value is greater than the key value just output …
+
+        i. Then place R at the root.
+
+        ii. Else replace the root with the record in array position LAST, and place R at position LAST. Set LAST = LAST - 1.
+
+    c. Sift down the root to reorder the heap.
+</h2>
+        <h2 style={{ color: 'white' }}>When the test at step 3(b) is successful, a new record is added to the heap, eventually to be output as part of the run. As long as records coming from the input file have key values greater than the last key value output to the run, they can be safely added to the heap. Records with smaller key values cannot be output as part of the current run because they would not be in sorted order. Such values must be stored somewhere for future processing as part of another run. However, because the heap will shrink by one element in this case, there is now a free space where the last element of the heap used to be! Thus, replacement selection will slowly shrink the heap and at the same time use the discarded heap space to store records for the next run. Once the first run is complete (i.e., the heap becomes empty), the array will be filled with records ready to be processed for the second run.
+
+It should be clear that the minimum length of a run will be M records if the size of the heap is M, because at least those records originally in the heap will be part of the run. Under good conditions (e.g., if the input is sorted), then an arbitrarily long run is possible. In fact, the entire file could be processed as one run. If conditions are bad (e.g., if the input is reverse sorted), then runs of only size M result.</h2>
       </Col>
       </div>
           <div className="mobile-table">
@@ -165,21 +186,21 @@ function ReplacementSort() {
           <thead>
             <tr>
               <th>Average Complexity</th>
-              <th>O(d×(n+b))</th>
+              <th>O(nlogn)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case</td>
-              <td>O(d×(n+b))</td>
+              <td>O(nlogn)</td>
             </tr>
             <tr>
               <td>Worst Case</td>
-              <td>O(d×(n+b))</td>
+              <td>O(nlogn)</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(n+2^d)</td>
+              <td>O(run_size)</td>
             </tr>
           </tbody>
         </table>
