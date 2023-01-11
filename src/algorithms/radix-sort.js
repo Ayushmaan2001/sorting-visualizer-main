@@ -3,10 +3,8 @@ import asyncSetTimeout from "../helpers/asyncSetTimeout";
 const radixSort = async ({
     array,
     setArray,
-    setColorsArray,
     visualizationSpeed
 } = {}) => {
-    let n = array.length;
     let test = [];
 
     function getDigit(num, i) {
