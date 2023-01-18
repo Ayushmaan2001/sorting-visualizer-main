@@ -186,6 +186,10 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2
         });
         break;
 
