@@ -7,4 +7,8 @@ export {default as selectionSort} from './selection-sort';
 export {default as heapSort} from './heap-sort';
 export {default as radixSort} from './radix-sort';
 export { default as KWAYEXTSORT } from './k-way-external';
+export {default as Genomesort} from './genome-sort';
+export {default as Stoogesort} from './stooge-sort';
+export {default as Combsort} from './comb-sort';
+export {default as Strandsort} from './strand-sort';
 export { default as externalReplacementSort } from './external-replacement-sort';

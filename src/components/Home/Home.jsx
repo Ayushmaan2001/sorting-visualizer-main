@@ -5,19 +5,19 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Strandsort,Genomesort,Stoogesort } from '../../algorithms';
 
 //CodeEditors import
-import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort} from '../CodeEdior';
+import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort} from '../CodeEdior';
 
 //import graphs
-import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph } from '../GraphShows';
+import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph,CombSortGraph,StrandSortGraph,GenomeSortGraph,StoogeSortGraph,RadixSortGraph,ReplacementSelectionSortGraph } from '../GraphShows';
 
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
 
 //import details
-import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails } from '../Details';
+import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails } from '../Details';
 
 const Home = () => {
   const arraySize = 40;
@@ -61,6 +61,14 @@ const Home = () => {
         return <RadixSort {...props} />
       case "Heap Sort":
         return <HeapSort {...props} />
+      case "Comb Sort":
+        return <CombSort {...props}/>
+      case "Strand Sort":
+        return <StrandSort {...props}/>
+      case "Genome Sort":
+        return <GenomeSort {...props}/>
+      case "Stooge Sort":
+        return <StoogeSort {...props}/>
       case "K-Way External Sort":
         return <KwayExternal {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
@@ -83,14 +91,22 @@ const Home = () => {
         return <MergeSortGraph {...props} />
       case "Counting Sort":
         return <CountingSortGraph {...props} />
-      // case "Radix Sort":
-      //   return <RadixSort {...props} />
+      case "Radix Sort":
+        return <RadixSortGraph {...props} />
       case "Heap Sort":
         return <HeapSortGraph {...props} />
+      case "Comb Sort":
+        return <CombSortGraph {...props}/>
+      case "Strand Sort":
+        return <StrandSortGraph {...props}/>
+      case "Genome Sort":
+        return <GenomeSortGraph {...props}/>
+      case "Stooge Sort":
+        return <StoogeSortGraph {...props}/>
       case "K-Way External Sort":
         return <KWayExternalSortGraph {...props} array={randomizedArray} />
-      // case "Replacement Ext Sort":
-      //   return <ReplacementSort {...props} runs={runsArray} />
+      case "Replacement Ext Sort":
+        return <ReplacementSelectionSortGraph {...props} runs={runsArray} />
       default:
         return null;
     }
@@ -107,6 +123,14 @@ const Home = () => {
         return <QuickSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       case "Counting Sort":
         return <CountingSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Comb Sort":
+        return <CombSortDetails {...props} I={I} num1={num1} num2={num2} />
+      case "Strand Sort":
+        return <StrandSortDetails {...props} I={I} num1={num1} num2={num2} />
+      case "Genome Sort":
+        return <GenomeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Stooge Sort":
+        return <StoogeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       // // case "Radix Sort":
       // //   return <RadixSort {...props} />
       case "Heap Sort":
@@ -125,6 +149,10 @@ const Home = () => {
     'Counting Sort',
     'Radix Sort',
     'Heap Sort',
+    'Comb Sort',
+    'Genome Sort',
+    'Strand Sort',
+    'Stooge Sort',
     'K-Way External Sort',
     'Replacement Ext Sort'
   ];
@@ -249,6 +277,28 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2
         });
+        break;
+      case 'Comb Sort':
+        await Combsort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          setI:setI,
+          setNum1:setNum1,
+          setNum2:setNum2
+        })
+        break;
+      case "Genome Sort":
+        await Genomesort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          setI:setI,
+          setNum1:setNum1,
+          setNum2:setNum2
+        })
         break;
       case 'K-Way External Sort':
         await KWAYEXTSORT.k_way_external({
