@@ -14,7 +14,7 @@ const Genomesort = async ({
 
     while (index < len) {
         let newColorArray = new Array(len).fill(0);
-        if (index == 0)
+        if (index === 0)
             index++;
             setI(index);
         setNum1(array[index])

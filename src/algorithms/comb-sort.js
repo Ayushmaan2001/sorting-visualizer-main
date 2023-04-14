@@ -21,7 +21,7 @@ const Combsort = async ({
   setI(gap)
   let swapped = true;
 
-  while (gap != 1 || swapped == true) {
+  while (gap !== 1 || swapped === true) {
     gap = getNextGap(gap);
     swapped = false;
     for (let i = 0; i < len - gap; i++) {
