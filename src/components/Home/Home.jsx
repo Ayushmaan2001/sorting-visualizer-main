@@ -5,7 +5,7 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort } from '../../algorithms';
 
 //CodeEditors import
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort} from '../CodeEdior';
@@ -313,6 +313,14 @@ const Home = () => {
           setunsortedRunsArray1: setunsortedRunsArray1,
           setNum1:setNum1,
           setNum2:setNum2
+        })
+        break;
+      case "Stooge Sort":
+        await Stoogesort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed
         })
         break;
       case 'K-Way External Sort':
