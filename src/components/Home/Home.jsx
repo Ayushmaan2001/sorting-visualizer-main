@@ -5,7 +5,7 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort } from '../../algorithms';
 
 //CodeEditors import
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort} from '../CodeEdior';
@@ -18,6 +18,7 @@ import RunsBars from '../RunsBars/RunsBars';
 
 //import details
 import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails } from '../Details';
+import StrandSortBars from '../RunsBars/StrandSortBars';
 
 const Home = () => {
   const arraySize = 40;
@@ -300,6 +301,20 @@ const Home = () => {
           setNum2:setNum2
         })
         break;
+      case "Strand Sort":
+        await Strandsort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          unsortedRunsArray1:unsortedRunsArray1,
+          unsortedRunsArray2:unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1,
+          setNum1:setNum1,
+          setNum2:setNum2
+        })
+        break;
       case 'K-Way External Sort':
         await KWAYEXTSORT.k_way_external({
           array: randomizedArray,
@@ -401,6 +416,7 @@ const Home = () => {
         })}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
+      {currentAlgorithm === 'Strand Sort' ? <StrandSortBars colorsArray={colorsArray} sublist={unsortedRunsArray1} output={unsortedRunsArray2} maxItem={maxItem}/> : null}
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

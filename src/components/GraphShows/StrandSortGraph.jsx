@@ -14,15 +14,11 @@ const StrandSortGraph = () => {
     <tbody>
         <tr>
             <td><div style={{height:'4px',background:'#02E095'}}></div></td>
-            <td>Values to be swap</td>
+            <td>Looping through the array</td>
         </tr>
         <tr>
             <td><div style={{height:'4px',background:'red'}}></div></td>
-            <td>Values to be swap</td>
-        </tr>
-        <tr>
-            <td><div style={{height:'4px',background:'yellow'}}></div></td>
-            <td>Max size of the array that has to be checked</td>
+            <td>Value is largest than the last element of sublist</td>
         </tr>
     </tbody>
 </table>

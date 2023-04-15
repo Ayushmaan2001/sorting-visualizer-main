@@ -2,7 +2,8 @@
 
 body,
 html {
-  background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+  /* background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%); */
+  background-color: black;
   /* background-repeat:repeat-x; */
   margin: 0;
   height: 100vh;
