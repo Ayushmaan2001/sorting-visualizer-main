@@ -8,16 +8,20 @@ const insertionSort = async ({
   setI,
   setJ,
   setNum1,
-  setNum2
+  setNum2,
+  comparisons,
+  setComparisons
 } = {}) => {
   let len = array.length;
-
+  setComparisons(0)
   for (let i = 1; i < len; i++) {
     let currentValue = array[i];
     setI(i);
     let j = i - 1;
 
     while (j >= 0 && array[j] > currentValue) {
+      comparisons++;
+      setComparisons(comparisons)
       setJ(j)
       let newColorsArray = new Array(len).fill(0);
       newColorsArray[i] = 3;
