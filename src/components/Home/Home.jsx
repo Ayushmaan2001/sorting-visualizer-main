@@ -238,9 +238,7 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         });
         break;
       case 'Merge Sort':
@@ -251,8 +249,6 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
-          comparisons:comparisons,
-          setComparisons:setComparisons
         });
         break;
       case 'Counting Sort':
@@ -264,9 +260,7 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         });
         break;
       case 'Radix Sort':
@@ -286,9 +280,7 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         });
         break;
       case 'Comb Sort':
@@ -299,9 +291,7 @@ const Home = () => {
           visualizationSpeed:visualizationSpeed,
           setI:setI,
           setNum1:setNum1,
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         })
         break;
       case "Genome Sort":
@@ -312,9 +302,7 @@ const Home = () => {
           visualizationSpeed:visualizationSpeed,
           setI:setI,
           setNum1:setNum1,
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         })
         break;
       case "Strand Sort":
@@ -328,9 +316,7 @@ const Home = () => {
           setunsortedRunsArray2: setunsortedRunsArray2,
           setunsortedRunsArray1: setunsortedRunsArray1,
           setNum1:setNum1,
-          setNum2:setNum2,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          setNum2:setNum2
         })
         break;
       case "Stooge Sort":
@@ -338,9 +324,7 @@ const Home = () => {
           array:randomizedArray,
           setArray:setRandomizedArray,
           setColorsArray:setColorsArray,
-          visualizationSpeed:visualizationSpeed,
-          comparisons:comparisons,
-          setComparisons:setComparisons
+          visualizationSpeed:visualizationSpeed
         })
         break;
       case 'K-Way External Sort':
