@@ -7,18 +7,22 @@ const Genomesort = async ({
     visualizationSpeed,
     setI,
     setNum1,
-    setNum2
+    setNum2,
+    comparisons,
+    setComparisons
 } = {}) => {
     let len = array.length
     let index = 0;
 
     while (index < len) {
+        comparisons++;
+        setComparisons(comparisons);
         let newColorArray = new Array(len).fill(0);
         if (index === 0)
             index++;
-            setI(index);
+        setI(index);
         setNum1(array[index])
-        setNum2(array[index-1])
+        setNum2(array[index - 1])
         if (array[index] >= array[index - 1]) {
             newColorArray[index] = 3;
             setColorsArray(newColorArray);
@@ -26,13 +30,14 @@ const Genomesort = async ({
                 timeout: 10 * visualizationSpeed
             });
             setI(index);
-        setNum1(array[index])
-        setNum2(array[index-1])
+            setNum1(array[index])
+            setNum2(array[index - 1])
             index++;
         } else {
             setI(index);
-        // setNum1(array[index])
-        // setNum2(array[index-1])
+            //set something
+            // setNum1(array[index])
+            // setNum2(array[index-1])
             let temp = 0;
             newColorArray[index] = 1;
             newColorArray[index - 1] = 2;
@@ -46,7 +51,7 @@ const Genomesort = async ({
             await asyncSetTimeout({
                 timeout: 10 * visualizationSpeed
             });
-            
+
             index--;
         }
         setArray(array)

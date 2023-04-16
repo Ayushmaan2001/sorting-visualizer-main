@@ -8,11 +8,13 @@ const heapSort = async({
     setI,
   setJ,
   setNum1,
-  setNum2
+  setNum2,
+  comparisons,
+  setComparisons
 } = {}) => {
     let len = array.length;
     for(let i=Math.floor(len/2)-1;i>=0;i--){
-        heapify(array,len,i);
+        heapify(array,len,i, comparisons,setComparisons);
     }
     let k=0;
     for(let i=len-1;i>=0;i--){
@@ -35,6 +37,8 @@ const heapSort = async({
         let largest = i;
         let l = 2 * i + 1;
         let r = 2 * i + 2;
+        comparisons++;
+        setComparisons(comparisons);
         if (l < len && arr[l] > arr[largest]) {
             largest = l;
         }

@@ -1,20 +1,21 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 
 let arr = [];
-
+let cmp = 0;
 const mergeSort = async (
   l,
   r,
   setArray,
   setColorsArray,
-  visualizationSpeed
+  visualizationSpeed,
+  comparisons,
+  setComparisons
 ) => {
   if (l >= r) return;
 
   let mid = Math.floor((l + r) / 2);
-  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed);
-  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed);
-
+  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons);
+  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons);
   let i = l;
   let j = mid + 1;
   let it = 0;
@@ -26,8 +27,11 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
-
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
+    cmp++;
+    setComparisons(cmp)
     if (arr[i] > arr[j]) {
       tempArr[it] = arr[j];
       j++;
@@ -44,7 +48,9 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
 
     tempArr[it] = arr[i];
     it++;
@@ -56,7 +62,9 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
 
     tempArr[it] = arr[j];
     it++;
@@ -72,7 +80,9 @@ const mergeSort = async (
     newColorsArray[j - 1] = 2;
     setArray(arr.concat());
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
   }
 };
 
@@ -83,6 +93,8 @@ const mergeSortWrapper = async ({
   setArray,
   setColorsArray,
   visualizationSpeed,
+  comparisons,
+  setComparisons
 }) => {
   arr = array.concat();
 
@@ -91,7 +103,9 @@ const mergeSortWrapper = async ({
     rightIndex,
     setArray,
     setColorsArray,
-    visualizationSpeed
+    visualizationSpeed,
+    comparisons,
+    setComparisons
   );
   setColorsArray([])
 };
