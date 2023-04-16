@@ -60,10 +60,10 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
           timeout: 10 * visualizationSpeed
         });
     }
-    if(sublist.length==0){
+    if(sublist.length===0){
         opp=[...opp,...unsortedRunsArray2];
     }
-    if(unsortedRunsArray2.length==0){
+    if(unsortedRunsArray2.length===0){
         opp=[...opp,...sublist];
     }
     unsortedRunsArray2=[...opp];
