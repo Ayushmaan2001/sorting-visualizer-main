@@ -1,7 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 
 var opp = [];
-async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2)
+async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons)
 {  
     var sublist=[];
     sublist.push(array[0]);
@@ -21,6 +21,8 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
 
     var it =0;
      while(it<=len){
+      comparisons++;
+      setComparisons(comparisons)
       let newColorsArray = new Array(array.length).fill(0);
       newColorsArray[it] = 1;
         setColorsArray(newColorsArray)
@@ -70,7 +72,7 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
     setunsortedRunsArray2(unsortedRunsArray2);
     opp.length=0;
     if(array.length>0){
-    strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2);
+    strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons);
     }
 }
 
@@ -84,9 +86,11 @@ const Strandsort = async ({
   setunsortedRunsArray2,
   setunsortedRunsArray1,
   setNum1,
-  setNum2
+  setNum2,
+  comparisons,
+  setComparisons
 } = {}) => {
-  strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2);
+  strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons);
 }
 
 export default Strandsort

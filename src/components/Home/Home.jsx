@@ -4,6 +4,9 @@ import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
+//Button Import
+import { Inpbutton } from '../../Input Button';
+
 //import Analysis Components
 import { Comparisons } from '../Analysis';
 
@@ -39,12 +42,12 @@ const Home = () => {
   const [randomizedArray, setRandomizedArray] = useState(
     generateRandomizedArray({ arraySize: arraySize })
   );
+  const [ipArray,setIpArray] = useState([]);
   const [colorsArray, setColorsArray] = useState(
     new Array(randomizedArray.length).fill(0)
   );
   const [visualizationSpeed, setVisualizationSpeed] = useState(30);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
-
 
   const EditorSelector = ({ algo, ...props }) => {
     switch (algo) {
@@ -204,7 +207,6 @@ const Home = () => {
         break;
       case 'Bubble Sort':
         setComparisons(0)
-        console.log(comparisons)
         await bubbleSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
@@ -336,7 +338,9 @@ const Home = () => {
           setunsortedRunsArray2: setunsortedRunsArray2,
           setunsortedRunsArray1: setunsortedRunsArray1,
           setNum1:setNum1,
-          setNum2:setNum2
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons
         })
         break;
       case "Stooge Sort":
@@ -344,7 +348,9 @@ const Home = () => {
           array:randomizedArray,
           setArray:setRandomizedArray,
           setColorsArray:setColorsArray,
-          visualizationSpeed:visualizationSpeed
+          visualizationSpeed:visualizationSpeed,
+          comparisons:comparisons,
+          setComparisons:setComparisons
         })
         break;
       case 'K-Way External Sort':
@@ -442,16 +448,17 @@ const Home = () => {
                   zIndex:'1'
                 }}
               >
-                
               </SortingBar>
               <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
-              
             </div>
           );
         })}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       {currentAlgorithm === 'Strand Sort' ? <StrandSortBars colorsArray={colorsArray} sublist={unsortedRunsArray1} output={unsortedRunsArray2} maxItem={maxItem}/> : null}
+      <div>
+        <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
+      </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

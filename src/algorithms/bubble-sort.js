@@ -29,7 +29,6 @@ const bubbleSort = async ({
       setNum1(array[j]);
       setNum2(array[j + 1]);
       setComparisons(comparisons)
-      console.log(setComparisons)
       if (array[j + 1] < array[j]) {
         comparisons++;
         let temp = array[j + 1];
