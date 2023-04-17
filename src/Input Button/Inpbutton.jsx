@@ -9,6 +9,7 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
     const [value, setValue] = useState();
     const pushArrayValues = () => {
         setValue(Number(val.current.input.defaultValue)) 
+        console.log(value)
         ipArray.push(Number(val.current.input.defaultValue));
         setIpArray(ipArray);
     }

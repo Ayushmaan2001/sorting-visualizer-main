@@ -42,7 +42,6 @@ const Home = () => {
   const [randomizedArray, setRandomizedArray] = useState(
     generateRandomizedArray({ arraySize: arraySize })
   );
-  const [ipArray,setIpArray] = useState([]);
   const [colorsArray, setColorsArray] = useState(
     new Array(randomizedArray.length).fill(0)
   );
