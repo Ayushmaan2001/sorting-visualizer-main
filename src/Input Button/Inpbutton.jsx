@@ -4,18 +4,27 @@ import {PlayCircleOutlined} from '@ant-design/icons';
 import React from 'react';
 
 const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
-    const val = useRef(0)
+    const val = useRef("")
     const [ipArray,setIpArray] = useState([]);
-    const [value, setValue] = useState();
     const pushArrayValues = () => {
-        setValue(Number(val.current.input.defaultValue)) 
-        console.log(value)
-        ipArray.push(Number(val.current.input.defaultValue));
-        setIpArray(ipArray);
-    }
-    const setArrayValues = () => {
+        let str = val.current.input.defaultValue;
+        for(let i=0;i<str.length;i++){
+          if(str[i]!==' '){
+            let tmp = "";
+            while(i<str.length){
+              if(str[i] === ' '){
+                break;
+              }
+              tmp += str[i]
+              i++;
+            }
+            if(tmp.length!==0)
+              ipArray.push(Number(tmp));
+          }
+        }
         setMaxItem(Math.max(...ipArray));
         setRandomizedArray(ipArray)
+        setIpArray([])
     }
     return (
         <React.Fragment>
@@ -30,15 +39,7 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
         <span> Push into the array</span><i></i>
       </button>
       <button onClick={() => {
-        setArrayValues()
-      }} icon={<PlayCircleOutlined />}
-      disabled={isVisualizing}
-      >
-        <span></span>
-        <span> Set the Array</span><i></i>
-      </button>
-      <button onClick={() => {
-        setIpArray([])
+        setRandomizedArray([])
       }} icon={<PlayCircleOutlined />}
       disabled={isVisualizing}
       >
@@ -46,20 +47,7 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
         <span> Reset the array</span><i></i>
       </button>
     </Space>
-    <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',color:'white'}}>
-        {
-            ipArray.map((item,idx) => {
-                return(
-                    <div key={idx} style={{marginLeft:'10px'}}>
-                        {
-                            item + " "
-                        }
-                        {/* {" "} */}
-                    </div>
-                )
-            })
-        }
-    </div>
+  
     </React.Fragment>
     );
 }

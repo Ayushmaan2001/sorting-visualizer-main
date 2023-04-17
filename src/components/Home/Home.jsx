@@ -21,10 +21,11 @@ import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWay
 
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
+import StrandSortBars from '../RunsBars/StrandSortBars';
 
 //import details
 import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails } from '../Details';
-import StrandSortBars from '../RunsBars/StrandSortBars';
+
 
 const Home = () => {
   const arraySize = 40;
@@ -183,7 +184,10 @@ const Home = () => {
   };
 
   const onVisualize = async () => {
-    // setComparisons(0)
+    if(randomizedArray.length<6 || randomizedArray.length>40){
+      alert('Array size should be in between 6 and 40')
+      return;
+    }
     if (isVisualizing) return;
 
     setIsVisualizing(true);
@@ -464,3 +468,20 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+// {/* <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',color:'white'}}>
+// {
+//     inpArray.map((item,idx) => {
+//         return(
+//             <div key={idx} style={{marginLeft:'10px'}}>
+//                 {
+//                     item + " "
+//                 }
+//                 {/* {" "} */}
+// //             </div>
+// //         )
+// //     })
+// // }
+// // </div> */}
