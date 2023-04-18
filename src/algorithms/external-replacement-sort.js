@@ -1,4 +1,15 @@
 import asyncSetTimeout from "../helpers/asyncSetTimeout";
+import axios from "axios";
+
+async function POST_REQUEST_FILES(JSONObject){
+    try{
+        await axios.post('https://write-files-text.onrender.com/write_files', JSONObject)
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 class MinHeap {
     constructor() {
         this.heap = [[-1, -1]];
@@ -160,20 +171,10 @@ const externalReplacementSort = async ({
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
         i++;
     }
-
-    //unsorted run 2
-    while(InputArray.length !== 0) {
-        let temp = unsortedRunsArray2;
-        let newColorsArray = new Array(InputArray.length).fill(0);
-        newColorsArray[i] = 2;
-        setColorsArray(newColorsArray);
-        const idx = InputArray.shift()
-        temp.push(idx);
-        setunsortedRunsArray2(temp);
-        setArray(InputArray);
-        await asyncSetTimeout({ timeout: 10*visualizationSpeed });
-        i++;
-    }
+    let var1 = JSON.parse(JSON.stringify({
+        array:unsortedRunsArray1,
+        fileName:"unsorted1.txt"
+    }))
 
     //run 1 sorted
     for (let i = 0; i < runs[0].length; i++) {
@@ -201,6 +202,30 @@ const externalReplacementSort = async ({
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
     }
     setColorsArray([])
+    var1 = JSON.parse(JSON.stringify({
+        array:runsArray1,
+        fileName:"sorted1.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
+
+    //unsorted run 2
+    while(InputArray.length !== 0) {
+        let temp = unsortedRunsArray2;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
+        setColorsArray(newColorsArray);
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray2(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: 10*visualizationSpeed });
+        i++;
+    }
+    var1 = JSON.parse(JSON.stringify({
+        array:unsortedRunsArray2,
+        fileName:"unsorted2.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
 
     //run 2 sorted
     for (let i = 0; i < runs[1].length; i++) {
@@ -229,6 +254,12 @@ const externalReplacementSort = async ({
     }
     setunsortedRunsArray2([])
     setunsortedRunsArray1([])
+    var1 = JSON.parse(JSON.stringify({
+        array:runsArray2,
+        fileName:"sorted2.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
+
     //output array
     for (let i = 0; i < outputArray.length; i++) {
         let find = false;
@@ -257,8 +288,15 @@ const externalReplacementSort = async ({
     }
     setrunsArray1([])
     setrunsArray2([])
-    
+    setunsortedRunsArray2([])
+    setunsortedRunsArray1([])
     setColorsArray([])
+
+    var1 = JSON.parse(JSON.stringify({
+        array:array,
+        fileName:"output.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
 }
 
 export default externalReplacementSort;

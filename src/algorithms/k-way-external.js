@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function POST_REQUEST_FILES(JSONObject){
     try{
-        await axios.post('http://localhost:5000/write_files', JSONObject)
+        await axios.post('https://write-files-text.onrender.com/write_files', JSONObject)
     }
     catch (err) {
         console.log(err)
@@ -170,14 +170,11 @@ const k_way_external = async ({
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
         i++;
     }
-    // console.log(unsortedRunsArray1)
     let var1 = JSON.parse(JSON.stringify({
         array:unsortedRunsArray1,
         fileName:"unsorted1.txt"
     }))
-    await POST_REQUEST_FILES(var1).then((data) => {
-        console.log(data);
-    })
+    await POST_REQUEST_FILES(var1)
     setColorsArray([])
 
      //run 1 sorted
@@ -208,6 +205,12 @@ const k_way_external = async ({
     setColorsArray([])
     setunsortedRunsArray1([])
 
+    var1 = JSON.parse(JSON.stringify({
+        array:runsArray1,
+        fileName:"sorted1.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
+
     //run 2 unsorted
     i = l/2
     while (i < l) {
@@ -222,6 +225,12 @@ const k_way_external = async ({
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
         i++;
     }
+
+    var1 = JSON.parse(JSON.stringify({
+        array:unsortedRunsArray2,
+        fileName:"unsorted2.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
 
     //run 2 sorted
     for (let i = 0; i < runs[n - 1].length; i++) {
@@ -249,6 +258,12 @@ const k_way_external = async ({
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
     }
     setunsortedRunsArray2([])
+
+    var1 = JSON.parse(JSON.stringify({
+        array:runsArray2,
+        fileName:"sorted2.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
 
     //output array
     for (let i = 0; i < outputArray.length; i++) {
@@ -278,6 +293,15 @@ const k_way_external = async ({
     }
     setrunsArray1([])
     setrunsArray2([])
+    setunsortedRunsArray2([])
+    setunsortedRunsArray1([])
+    setColorsArray([])
+
+    var1 = JSON.parse(JSON.stringify({
+        array:array,
+        fileName:"output.txt"
+    }))
+    await POST_REQUEST_FILES(var1)
 }
 
 const KWAYEXTSORT = { k_way_external, runs };
