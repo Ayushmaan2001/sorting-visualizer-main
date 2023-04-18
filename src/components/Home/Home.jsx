@@ -5,7 +5,10 @@ import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
 //Button Import
-import { Inpbutton } from '../../Input Button';
+import { Inpbutton } from '../Input Button';
+
+//import Download Button
+import { Downloadbtn } from '../Download Btn';
 
 //import Analysis Components
 import { Comparisons } from '../Analysis';
@@ -462,6 +465,9 @@ const Home = () => {
       <div>
         <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
       </div>
+      <div>
+        <Downloadbtn />
+        </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

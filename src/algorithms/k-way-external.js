@@ -1,4 +1,15 @@
 import asyncSetTimeout from "../helpers/asyncSetTimeout";
+import axios from "axios";
+
+async function POST_REQUEST_FILES(JSONObject){
+    try{
+        await axios.post('http://localhost:5000/write_files', JSONObject)
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 class MinHeap {
     constructor() {
         this.heap = [[0, 0]];
@@ -157,28 +168,20 @@ const k_way_external = async ({
         setunsortedRunsArray1(temp);
         setArray(InputArray);
         await asyncSetTimeout({ timeout: 10*visualizationSpeed });
-
         i++;
     }
+    // console.log(unsortedRunsArray1)
+    let var1 = JSON.parse(JSON.stringify({
+        array:unsortedRunsArray1,
+        fileName:"unsorted1.txt"
+    }))
+    await POST_REQUEST_FILES(var1).then((data) => {
+        console.log(data);
+    })
     setColorsArray([])
 
-    //run 2 unsorted
-    i = l/2
-    while (i < l) {
-        let temp = unsortedRunsArray2;
-        let newColorsArray = new Array(InputArray.length).fill(0);
-        newColorsArray[i] = 2;
-        setColorsArray(newColorsArray);
-        const idx = InputArray.shift()
-        temp.push(idx);
-        setunsortedRunsArray2(temp);
-        setArray(InputArray);
-        await asyncSetTimeout({ timeout: 10*visualizationSpeed });
-        i++;
-    }
-
-    //run 1 sorted
-    for(let i=0;i<runs[n-1].length;i++){
+     //run 1 sorted
+     for(let i=0;i<runs[n-1].length;i++){
         const idx1 = unsortedRunsArray1.indexOf(runs[n-1][i]);
         const idx2 = unsortedRunsArray2.indexOf(runs[n-1][i]);
         if(idx1 > -1){
@@ -204,6 +207,21 @@ const k_way_external = async ({
     }
     setColorsArray([])
     setunsortedRunsArray1([])
+
+    //run 2 unsorted
+    i = l/2
+    while (i < l) {
+        let temp = unsortedRunsArray2;
+        let newColorsArray = new Array(InputArray.length).fill(0);
+        newColorsArray[i] = 2;
+        setColorsArray(newColorsArray);
+        const idx = InputArray.shift()
+        temp.push(idx);
+        setunsortedRunsArray2(temp);
+        setArray(InputArray);
+        await asyncSetTimeout({ timeout: 10*visualizationSpeed });
+        i++;
+    }
 
     //run 2 sorted
     for (let i = 0; i < runs[n - 1].length; i++) {
