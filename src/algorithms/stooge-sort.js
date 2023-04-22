@@ -26,7 +26,6 @@ async function stoogesort(arr, l, h, setArray, setColorsArray, visualizationSpee
     stoogesort(arr, l, h - t, setArray, setColorsArray, visualizationSpeed, comparisons, setComparisons);
   }
   setArray(arr)
-  return;
 }
 
 
@@ -38,8 +37,8 @@ const Stoogesort = async ({
   comparisons,
   setComparisons
 } = {}) => {
+  comparisons=0
   stoogesort(array, 0, array.length, setArray, setColorsArray, visualizationSpeed,comparisons,setComparisons);
-  console.log(array)
 }
 
 export default Stoogesort

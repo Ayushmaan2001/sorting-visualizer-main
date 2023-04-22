@@ -97,7 +97,7 @@ const mergeSortWrapper = async ({
   setComparisons
 }) => {
   arr = array.concat();
-
+  comparisons=0;
   await mergeSort(
     leftIndex,
     rightIndex,

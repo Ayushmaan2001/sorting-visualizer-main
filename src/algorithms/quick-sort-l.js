@@ -156,7 +156,7 @@ const quickSortLWrapper = async ({
   comparisons,
   setComparisons
 } = {}) => {
-  
+  comparisons=0;
   arr = [];
   arr = array.concat();
   await quickSort({

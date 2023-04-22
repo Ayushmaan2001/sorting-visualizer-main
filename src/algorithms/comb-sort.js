@@ -11,6 +11,7 @@ const Combsort = async ({
   comparisons,
   setComparisons
 } = {}) => {
+  comparisons=0;
   function getNextGap(gap) {
     gap = parseInt((gap * 10) / 13, 10);
     if (gap < 1)

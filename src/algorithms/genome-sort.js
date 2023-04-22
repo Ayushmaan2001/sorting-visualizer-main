@@ -11,6 +11,7 @@ const Genomesort = async ({
     comparisons,
     setComparisons
 } = {}) => {
+    comparisons=0;
     let len = array.length
     let index = 0;
 

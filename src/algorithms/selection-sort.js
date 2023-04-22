@@ -12,7 +12,7 @@ const selectionSort = async ({
   comparisons,
   setComparisons
 } = {}) => {
-  setComparisons(0)
+  comparisons=0;
   array = array.concat();
   let len = array.length;
   for (let i = 0; i < len; i++) {

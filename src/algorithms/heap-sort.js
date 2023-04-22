@@ -12,6 +12,7 @@ const heapSort = async ({
     comparisons,
     setComparisons
 } = {}) => {
+    comparisons=0
     let len = array.length;
     for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
         heapify(array, len, i, comparisons, setComparisons);

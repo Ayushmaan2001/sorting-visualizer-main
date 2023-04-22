@@ -2,9 +2,7 @@
 
 body,
 html {
-  /* background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%); */
   background-color: black;
-  /* background-repeat:repeat-x; */
   margin: 0;
   height: 100vh;
   width: 100vw;
@@ -29,3 +27,9 @@ div::before {
 h2{
   color: orangered;
 }
+
+/* #home{
+  @media only screen and (min-width : 768px) {
+    display: none
+  }
+} */

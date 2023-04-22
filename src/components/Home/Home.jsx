@@ -39,6 +39,7 @@ const Home = () => {
   const [runsArray2, setrunsArray2] = useState([]);
   const [runsArray, setrunsArray] = useState([]);
   const [comparisons,setComparisons] = useState(0);
+  const [swaps, setswaps] = useState(0);
   const [I, setI] = useState(0);
   const [J, setJ] = useState(0);
   const [num1, setNum1] = useState(0);
@@ -400,7 +401,7 @@ const Home = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }} id='home'>
       <HomeHeader
         algorithms={algorithms}
         onAlgorithmChange={setCurrentAlgorithm}

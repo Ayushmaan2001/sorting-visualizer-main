@@ -13,7 +13,7 @@ const insertionSort = async ({
   setComparisons
 } = {}) => {
   let len = array.length;
-  setComparisons(0)
+  comparisons=0;
   for (let i = 1; i < len; i++) {
     let currentValue = array[i];
     setI(i);

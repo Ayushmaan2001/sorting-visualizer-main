@@ -90,6 +90,7 @@ const Strandsort = async ({
   comparisons,
   setComparisons
 } = {}) => {
+  comparisons=0;
   strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons);
 }
 
