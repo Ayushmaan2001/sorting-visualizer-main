@@ -477,7 +477,12 @@ const Home = () => {
         <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
       </div>
       <div>
-        <Downloadbtn />
+        <div>
+          <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
+            Download File
+          </div>
+          <Downloadbtn />
+          </div>
         </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
