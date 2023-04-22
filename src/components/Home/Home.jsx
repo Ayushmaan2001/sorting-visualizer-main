@@ -308,7 +308,9 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
       case 'Comb Sort':
