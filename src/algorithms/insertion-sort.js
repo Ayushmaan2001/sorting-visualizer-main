@@ -10,10 +10,13 @@ const insertionSort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
   let len = array.length;
   comparisons=0;
+  swaps=0;
   for (let i = 1; i < len; i++) {
     let currentValue = array[i];
     setI(i);
@@ -37,6 +40,8 @@ const insertionSort = async ({
       setArray(array);
       setNum1(array[j]);
       setNum2(array[j+1]);
+      swaps++;
+      setswaps(swaps);
       j--;
       await asyncSetTimeout({timeout:10*visualizationSpeed})
     }

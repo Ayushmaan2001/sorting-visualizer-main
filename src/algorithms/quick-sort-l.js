@@ -13,7 +13,9 @@ const partition = async (
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 ) => {
   let i = leftIndex - 1;
   let pivot = arr[rightIndex];
@@ -46,7 +48,6 @@ const partition = async (
     })
     if (arr[j] <= pivot) {
       i = i + 1;
-
       newColorsArray = new Array(arr.length).fill(0);
       newColorsArray[i] = 1;
       newColorsArray[j] = 2;
@@ -65,6 +66,8 @@ const partition = async (
       let temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
+      swaps++;
+      setswaps(swaps)
       setArray(arr.concat());
       await asyncSetTimeout({
         timeout: 10 * visualizationSpeed
@@ -97,7 +100,9 @@ const quickSort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
   if (leftIndex < rightIndex) {
     let index = await partition(
@@ -111,7 +116,9 @@ const quickSort = async ({
       setNum1,
       setNum2,
       comparisons,
-      setComparisons
+      setComparisons,
+      swaps,
+  setswaps
     );
     await quickSort({
       leftIndex: leftIndex,
@@ -124,7 +131,9 @@ const quickSort = async ({
       setNum1: setNum1,
       setNum2: setNum2,
       comparisons,
-      setComparisons
+      setComparisons,
+      swaps,
+  setswaps
     });
     await quickSort({
       leftIndex: index + 1,
@@ -137,7 +146,9 @@ const quickSort = async ({
       setNum1: setNum1,
       setNum2: setNum2,
       comparisons,
-      setComparisons
+      setComparisons,
+      swaps,
+  setswaps
     });
   }
 };
@@ -154,9 +165,12 @@ const quickSortLWrapper = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
   comparisons=0;
+  swaps=0;
   arr = [];
   arr = array.concat();
   await quickSort({
@@ -170,7 +184,9 @@ const quickSortLWrapper = async ({
     setNum1: setNum1,
     setNum2: setNum2,
     comparisons,
-    setComparisons
+    setComparisons,
+    swaps,
+  setswaps
   });
   setColorsArray([])
 };

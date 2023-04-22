@@ -9,13 +9,15 @@ const mergeSort = async (
   setColorsArray,
   visualizationSpeed,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 ) => {
   if (l >= r) return;
 
   let mid = Math.floor((l + r) / 2);
-  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons);
-  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons);
+  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons,swaps,setswaps);
+  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons,swaps,setswaps);
   let i = l;
   let j = mid + 1;
   let it = 0;
@@ -35,6 +37,8 @@ const mergeSort = async (
     if (arr[i] > arr[j]) {
       tempArr[it] = arr[j];
       j++;
+      swaps++;
+      setswaps(swaps);
     } else {
       tempArr[it] = arr[i];
       i++;
@@ -94,10 +98,13 @@ const mergeSortWrapper = async ({
   setColorsArray,
   visualizationSpeed,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 }) => {
   arr = array.concat();
   comparisons=0;
+  swaps=0;
   await mergeSort(
     leftIndex,
     rightIndex,
@@ -105,7 +112,9 @@ const mergeSortWrapper = async ({
     setColorsArray,
     visualizationSpeed,
     comparisons,
-    setComparisons
+    setComparisons,
+    swaps,
+  setswaps
   );
   setColorsArray([])
 };

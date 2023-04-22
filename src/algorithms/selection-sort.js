@@ -10,9 +10,12 @@ const selectionSort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
   comparisons=0;
+  swaps=0;
   array = array.concat();
   let len = array.length;
   for (let i = 0; i < len; i++) {
@@ -46,6 +49,8 @@ const selectionSort = async ({
     let temp = array[i];
     array[i] = array[minIndex];
     array[minIndex] = temp;
+    swaps++;
+    setswaps(swaps);
     setArray(array);
   }
   setColorsArray([])

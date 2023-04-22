@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Comparisons = ({comparisons}) => {
+const Swaps = ({swaps}) => {
     return (
         <div style={{color:'whitesmoke',marginLeft:'5px',marginTop:'2px'}}>
-            Comparisons: {comparisons}
+            Swaps: {swaps}
         </div>
     );
 }
 
-export default Comparisons;
+export default Swaps;

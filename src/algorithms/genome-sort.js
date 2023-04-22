@@ -9,9 +9,12 @@ const Genomesort = async ({
     setNum1,
     setNum2,
     comparisons,
-    setComparisons
+    setComparisons,
+    swaps,
+    setswaps
 } = {}) => {
-    comparisons=0;
+    comparisons = 0;
+    swaps=0;
     let len = array.length
     let index = 0;
 
@@ -46,9 +49,12 @@ const Genomesort = async ({
             await asyncSetTimeout({
                 timeout: 10 * visualizationSpeed
             });
+            //swapping
             temp = array[index];
             array[index] = array[index - 1];
             array[index - 1] = temp;
+            swaps++;
+            setswaps(swaps);
             await asyncSetTimeout({
                 timeout: 10 * visualizationSpeed
             });

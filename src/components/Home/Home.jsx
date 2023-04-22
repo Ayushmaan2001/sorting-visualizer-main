@@ -11,7 +11,7 @@ import { Inpbutton } from '../Input Button';
 import { Downloadbtn } from '../Download Btn';
 
 //import Analysis Components
-import { Comparisons } from '../Analysis';
+import { Comparisons, Swaps } from '../Analysis';
 
 //algorithms import
 import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort } from '../../algorithms';
@@ -197,7 +197,6 @@ const Home = () => {
     setIsVisualizing(true);
     switch (currentAlgorithm) {
       case 'Selection Sort':
-        setComparisons(0);
         await selectionSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
@@ -208,12 +207,12 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
-        // setComparisons(0)
         break;
       case 'Bubble Sort':
-        setComparisons(0)
         await bubbleSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
@@ -224,12 +223,12 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
-        // setComparisons(0)
         break;
       case 'Insertion Sort':
-        setComparisons(0);
         console.log(comparisons)
         await insertionSort({
           array: randomizedArray,
@@ -241,12 +240,12 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
-        // setComparisons(0);
         break;
       case 'QuickSort':
-        setComparisons(0);
         await quickSortLWrapper({
           array: randomizedArray,
           leftIndex: 0,
@@ -259,7 +258,9 @@ const Home = () => {
           setNum1:setNum1,          
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
       case 'Merge Sort':
@@ -271,7 +272,9 @@ const Home = () => {
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
       case 'Counting Sort':
@@ -318,7 +321,9 @@ const Home = () => {
           setNum1:setNum1,
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         })
         break;
       case "Genome Sort":
@@ -331,7 +336,9 @@ const Home = () => {
           setNum1:setNum1,
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         })
         break;
       case "Strand Sort":
@@ -412,8 +419,9 @@ const Home = () => {
         onStart={onVisualize}
         isVisualizing={isVisualizing}
       />
-      <div>
+      <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
         <Comparisons comparisons={comparisons}/>
+        <Swaps swaps={swaps}/>
       </div>
       <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',alignContent:'space-between',justifyContent:'space-between',maxHeight:'210px'}}>
         <GraphSelector algo={currentAlgorithm} val={'sample'}/>

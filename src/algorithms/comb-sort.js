@@ -9,9 +9,12 @@ const Combsort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
   comparisons=0;
+  swaps=0
   function getNextGap(gap) {
     gap = parseInt((gap * 10) / 13, 10);
     if (gap < 1)
@@ -46,6 +49,8 @@ const Combsort = async ({
         setNum2(array[i + gap]);
         array[i] = array[i + gap];
         array[i + gap] = temp;
+        swaps++;
+        setswaps(swaps)
         swapped = true;
         setArray(array);
         await asyncSetTimeout({
