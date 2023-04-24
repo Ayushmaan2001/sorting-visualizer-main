@@ -496,7 +496,6 @@ const Home = () => {
 export default Home;
 
 
-
 // {/* <div style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px',color:'white'}}>
 // {
 //     inpArray.map((item,idx) => {
