@@ -181,11 +181,9 @@ const GenomeSort = () => {
       >
         <div className='desc'>
           <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Genome Sort is an iterative sorting algorithm that imitates the movement of bubbles in sparkling water. The bubbles represents the elements of the data structure.</h2>
-            <h2 style={{ color: 'white' }}>The bigger bubbles reach the top faster than smaller bubbles, and this algorithm works in the same way. It iterates through the data structure and for each cycle compares the current element with the next one, swapping them if they are in the wrong order.
-            </h2>
-            <h2 style={{ color: 'white' }}>It's a simple algorithm to implement, but not much efficient: on average, quadratic sorting algorithms with the same time complexity such as Selection Sort or Insertion Sort perform better.
-              It has several variants to improve its performances, such as Shaker Sort, Odd Even Sort and Comb Sort.</h2>
+            <h2 style={{ color: 'white' }}>Gnome Sort also called Stupid sort is based on the concept of a Garden Gnome sorting his flower pots. A garden gnome sorts the flower pots by the following method</h2>
+            <h2 style={{ color: 'white' }}>He looks at the flower pot next to him and the previous one; if they are in the right order he steps one pot forward, otherwise he swaps them and steps one pot backwards.</h2>
+            <h2 style={{ color: 'white' }}>If there is no previous pot (he is at the starting of the pot line), he steps forwards; if there is no pot next to him (he is at the end of the pot line), he is done.</h2>
           </Col>
         </div>
         <div className="mobile-table">
@@ -201,7 +199,7 @@ const GenomeSort = () => {
               <tbody>
                 <tr>
                   <td>Best Case</td>
-                  <td>O(n<sup>2</sup>)</td>
+                  <td>O(n)</td>
                 </tr>
                 <tr>
                   <td>Worst Case</td>

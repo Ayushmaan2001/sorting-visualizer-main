@@ -181,11 +181,10 @@ const StrandSort = () => {
       >
         <div className='desc'>
           <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Strand Sort is an iterative sorting algorithm that imitates the movement of bubbles in sparkling water. The bubbles represents the elements of the data structure.</h2>
-            <h2 style={{ color: 'white' }}>The bigger bubbles reach the top faster than smaller bubbles, and this algorithm works in the same way. It iterates through the data structure and for each cycle compares the current element with the next one, swapping them if they are in the wrong order.
+            <h2 style={{ color: 'white' }}>Strand sort is a recursive sorting algorithm that sorts items of a list into increasing order. </h2>
+            <h2 style={{ color: 'white' }}>This mechanism at first transfers the first element of to be sorted list into a sub-list. It then compares the last element in the sub-list to each subsequent element in the unsorted list. 
             </h2>
-            <h2 style={{ color: 'white' }}>It's a simple algorithm to implement, but not much efficient: on average, quadratic sorting algorithms with the same time complexity such as Selection Sort or Insertion Sort perform better.
-              It has several variants to improve its performances, such as Shaker Sort, Odd Even Sort and Comb Sort.</h2>
+            <h2 style={{ color: 'white' }}>If there is an element in the original list that is greater than the last element in the sub-list, the element is transferred to the end of sub-list. This process continues until the last element in the sub-list is compared to the remaining elements in the original list. The sub-list is then added to a new list. Repeat this process and merge all sub-lists until all elements are sorted. </h2>
           </Col>
         </div>
         <div className="mobile-table">
@@ -201,7 +200,7 @@ const StrandSort = () => {
               <tbody>
                 <tr>
                   <td>Best Case</td>
-                  <td>O(n<sup>2</sup>)</td>
+                  <td>O(n)</td>
                 </tr>
                 <tr>
                   <td>Worst Case</td>
@@ -209,7 +208,7 @@ const StrandSort = () => {
                 </tr>
                 <tr>
                   <td>Space Complexity</td>
-                  <td>O(1)</td>
+                  <td>O(n)</td>
                 </tr>
               </tbody>
             </table>
