@@ -477,12 +477,16 @@ const Home = () => {
         <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
       </div>
       <div>
+        {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? 
         <div>
           <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
             Download File
           </div>
+          <div>
           <Downloadbtn />
           </div>
+        </div>
+        : null}
         </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
