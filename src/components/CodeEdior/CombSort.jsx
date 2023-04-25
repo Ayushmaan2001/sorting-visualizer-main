@@ -4,166 +4,257 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 
 let Cpp = `
-#include <iostream>
+// C++ implementation of Comb Sort
+#include<bits/stdc++.h>
+using namespace std;
 
-// Bubble sort function
-void bubbleSort(int *arr, int n)
+// To find gap between elements
+int getNextGap(int gap)
 {
-    bool sorted = false; // Flag to track if the array is sorted
- 
-    // Keep looping until the array is sorted
-    while (!sorted)
-    {
-        sorted = true; // Set the flag to true
- 
-        // Loop through the array and swap adjacent elements if they are out of order
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                // Swap the elements
-                std::swap(arr[i], arr[i + 1]);
- 
-                // Set the flag to false
-                sorted = false;
-            }
-        }
-    }
+	// Shrink gap by Shrink factor
+	gap = (gap*10)/13;
+
+	if (gap < 1)
+		return 1;
+	return gap;
 }
 
+// Function to sort a[0..n-1] using Comb Sort
+void combSort(int a[], int n)
+{
+	// Initialize gap
+	int gap = n;
+
+	// Initialize swapped as true to make sure that
+	// loop runs
+	bool swapped = true;
+
+	// Keep running while gap is more than 1 and last
+	// iteration caused a swap
+	while (gap != 1 || swapped == true)
+	{
+		// Find next gap
+		gap = getNextGap(gap);
+
+		// Initialize swapped as false so that we can
+		// check if swap happened or not
+		swapped = false;
+
+		// Compare all elements with current gap
+		for (int i=0; i<n-gap; i++)
+		{
+			if (a[i] > a[i+gap])
+			{
+				swap(a[i], a[i+gap]);
+				swapped = true;
+			}
+		}
+	}
+}
+
+// Driver program
 int main()
 {
-    int arr[] = {5, 3, 6, 2, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
- 
-    // Sort the array
-    bubbleSort(arr, n);
- 
-    // Print the sorted array
-    for (int i = 0; i < n; i++)
-        std::cout << arr[i] << " ";
- 
-    return 0;
-}
+	int a[] = {8, 4, 1, 56, 3, -44, 23, -6, 28, 0};
+	int n = sizeof(a)/sizeof(a[0]);
 
+	combSort(a, n);
+
+	printf("Sorted array: \n");
+	for (int i=0; i<n; i++)
+		printf("%d ", a[i]);
+
+	return 0;
+}
 `,
   Java = `
-  import java.util.*;
-
-  public class Main {
-    
-      void bubbleSortTechnique(int arr[]) {
-        
-        // length of the array
-        int len = arr.length;
-        
-        for(int i = 0; i < len; i++) {
-          for(int j = 1; j < len; j++) {
-            
-            // this will execute when two consecutive numbers are not in order 
-            if(arr[j] < arr[j - 1]) {
-              
-              int temp = arr[j];
-              arr[j] = arr[j - 1];
-              arr[j - 1] = temp;
-              
-            }
+  // Java program for implementation of Comb Sort
+  import java.io.*;
+  public class CombSort
+  {
+    // To find gap between elements
+    int getNextGap(int gap)
+    {
+      // Shrink gap by Shrink factor
+      gap = (gap*10)/13;
+      if (gap < 1)
+        return 1;
+      return gap;
+    }
+  
+    // Function to sort arr[] using Comb Sort
+    void sort(int arr[])
+    {
+      int n = arr.length;
+  
+      // initialize gap
+      int gap = n;
+  
+      // Initialize swapped as true to make sure that
+      // loop runs
+      boolean swapped = true;
+  
+      // Keep running while gap is more than 1 and last
+      // iteration caused a swap
+      while (gap != 1 || swapped == true)
+      {
+        // Find next gap
+        gap = getNextGap(gap);
+  
+        // Initialize swapped as false so that we can
+        // check if swap happened or not
+        swapped = false;
+  
+        // Compare all elements with current gap
+        for (int i=0; i<n-gap; i++)
+        {
+          if (arr[i] > arr[i+gap])
+          {
+            // Swap arr[i] and arr[i+gap]
+            int temp = arr[i];
+            arr[i] = arr[i+gap];
+            arr[i+gap] = temp;
+  
+            // Set swapped
+            swapped = true;
           }
         }
       }
-    
-      void printArr(int arr[]) {
-        for(int i = 0; i < arr.length; i++) {
-          System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-      }
-     
-      public static void main(String[] args) {
-        
-        // Given array
-        int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
-        
-        // Creating the object of class to access its member function
-        Main object = new Main();
-        
-        System.out.println("Array before sorting - ");
-        // function to print the original Array
-        object.printArr(arr);
-        // function which will sort the given array using bubble sort
-        object.bubbleSortTechnique(arr);
-        System.out.println("Array after sorting - ");
-        
-        // function to print the new array
-        object.printArr(arr);
+    }
+  
+    // Driver method
+    public static void main(String args[])
+    {
+      CombSort ob = new CombSort();
+      int arr[] = {8, 4, 1, 56, 3, -44, 23, -6, 28, 0};
+      ob.sort(arr);
+  
+      System.out.println("sorted array");
+      for (int i=0; i<arr.length; ++i)
+        System.out.print(arr[i] + " ");
+  
     }
   }
+  /* This code is contributed by Rajat Mishra */
+  
 `,
   Python = `
-  def bubble_sort(arr):
-  # Keep looping until the array is sorted
-  while True:
-      # Set a flag to track if any elements were swapped
-      swapped = False
+  # Python program for implementation of CombSort
 
-      # Loop through the array and swap adjacent elements if they are out of order
-      for i in range(len(arr) - 1):
-          if arr[i] > arr[i + 1]:
-              # Swap the elements
-              arr[i], arr[i + 1] = arr[i + 1], arr[i]
+# To find next gap from current
+def getNextGap(gap):
 
-              # Set the flag to True
-              swapped = True
+	# Shrink gap by Shrink factor
+	gap = (gap * 10)//13
+	if gap < 1:
+		return 1
+	return gap
 
-      # If no elements were swapped, the array is sorted
-      if not swapped:
-          break
+# Function to sort arr[] using Comb Sort
+def combSort(arr):
+	n = len(arr)
 
-# Test the function
-print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+	# Initialize gap
+	gap = n
+
+	# Initialize swapped as true to make sure that
+	# loop runs
+	swapped = True
+
+	# Keep running while gap is more than 1 and last
+	# iteration caused a swap
+	while gap !=1 or swapped == 1:
+
+		# Find next gap
+		gap = getNextGap(gap)
+
+		# Initialize swapped as false so that we can
+		# check if swap happened or not
+		swapped = False
+
+		# Compare all elements with current gap
+		for i in range(0, n-gap):
+			if arr[i] > arr[i + gap]:
+				arr[i], arr[i + gap]=arr[i + gap], arr[i]
+				swapped = True
+
+
+# Driver code to test above
+arr = [8, 4, 1, 56, 3, -44, 23, -6, 28, 0]
+combSort(arr)
+
+print ("Sorted array:")
+for i in range(len(arr)):
+	print (arr[i],end=" ")
+
+
+# This code is contributed by Mohit Kumra
 
 `,
   Javascript = `
-  let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+  <script>
+	// Javascript program for implementation of Comb Sort
+	
+	// To find gap between elements
+	function getNextGap(gap)
+	{
+		// Shrink gap by Shrink factor
+		gap = parseInt((gap*10)/13, 10);
+		if (gap < 1)
+			return 1;
+		return gap;
+	}
 
+	// Function to sort arr[] using Comb Sort
+	function sort(arr)
+	{
+		let n = arr.length;
 
-  let len = arr.length;
-  
-  
-  // function to print array
-  function print(str) {
-    
-    console.log(str);
-    arr.forEach(function(num) {
-      console.log(num);
-    });
-  }
-  
-  
-  // bubble sort
-  function bubbleSort() {
-    
-    for(let i = 0; i < len - 1; i++) {
-      for(let j = 1; j < len; j++) {
-         
-         if(arr[j] < arr[j - 1]) {
-           let temp = arr[j];
-           arr[j] = arr[j - 1];
-           arr[j - 1] = temp;
-         }
-      }
-      
-    }
-  }
-  
-  // this function call will print the original array
-  print("Before");
-  
-  // calling bubbleSort function 
-  bubbleSort();
-  
-  // after sorting this function call will print the final array
-  print("After");
+		// initialize gap
+		let gap = n;
+
+		// Initialize swapped as true to
+		// make sure that loop runs
+		let swapped = true;
+
+		// Keep running while gap is more than
+		// 1 and last iteration caused a swap
+		while (gap != 1 || swapped == true)
+		{
+			// Find next gap
+			gap = getNextGap(gap);
+
+			// Initialize swapped as false so that we can
+			// check if swap happened or not
+			swapped = false;
+
+			// Compare all elements with current gap
+			for (let i=0; i<n-gap; i++)
+			{
+				if (arr[i] > arr[i+gap])
+				{
+					// Swap arr[i] and arr[i+gap]
+					let temp = arr[i];
+					arr[i] = arr[i+gap];
+					arr[i+gap] = temp;
+
+					// Set swapped
+					swapped = true;
+				}
+			}
+		}
+	}
+	
+	let arr = [8, 4, 1, 56, 3, -44, 23, -6, 28, 0];
+	sort(arr);
+
+	document.write("sorted array" + "</br>");
+	for (let i=0; i<arr.length; ++i)
+	document.write(arr[i] + " ");
+
+// This code is contributed by decode2207
+</script>
+
 `
 
 const CombSort = () => {

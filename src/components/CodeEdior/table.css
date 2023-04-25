@@ -61,12 +61,12 @@
 
 .navMenu {
   display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: space-around;
-    justify-content: space-around;
-    align-items:center;
-    /* m-width: 100vh; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  /* m-width: 100vh; */
 }
 
 .navMenu a {
@@ -80,7 +80,7 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   margin-left: 1px;
-  color:chocolate
+  color: chocolate
 }
 
 .navMenu a:hover {
@@ -112,16 +112,16 @@
 }
 
 .card:hover {
- margin-top: 10px;
+  margin-top: 10px;
 }
 
-.bg{
+.bg {
   display: flex;
   flex-direction: row;
   align-content: space-between;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  margin:50px;
+  margin: 50px;
   /* width:max-content; */
 }

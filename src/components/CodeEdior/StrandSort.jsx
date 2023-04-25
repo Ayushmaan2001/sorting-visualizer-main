@@ -4,166 +4,240 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 
 let Cpp = `
-#include <iostream>
+// CPP program to implement Strand Sort
+#include <bits/stdc++.h>
+using namespace std;
 
-// Bubble sort function
-void bubbleSort(int *arr, int n)
+// A recursive function to implement Strand
+// sort.
+// ip is input list of items (unsorted).
+// op is output list of items (sorted)
+void strandSort(list<int> &ip, list<int> &op)
 {
-    bool sorted = false; // Flag to track if the array is sorted
- 
-    // Keep looping until the array is sorted
-    while (!sorted)
-    {
-        sorted = true; // Set the flag to true
- 
-        // Loop through the array and swap adjacent elements if they are out of order
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                // Swap the elements
-                std::swap(arr[i], arr[i + 1]);
- 
-                // Set the flag to false
-                sorted = false;
-            }
-        }
-    }
+	// Base case : input is empty
+	if (ip.empty())
+		return;
+
+	// Create a sorted sublist with
+	// first item of input list as
+	// first item of the sublist
+	list<int> sublist;
+	sublist.push_back(ip.front());
+	ip.pop_front();
+	
+	// Traverse remaining items of ip list
+	for (auto it = ip.begin(); it != ip.end(); ) {
+
+		// If current item of input list
+		// is greater than last added item
+		// to sublist, move current item
+		// to sublist as sorted order is
+		// maintained.
+		if (*it > sublist.back()) {
+			sublist.push_back(*it);
+
+			// erase() on list removes an
+			// item and returns iterator to
+			// next of removed item.
+			it = ip.erase(it);
+		}
+
+		// Otherwise ignore current element
+		else
+			it++;
+	}
+
+	// Merge current sublist into output
+	op.merge(sublist);
+
+	// Recur for remaining items in
+	// input and current items in op.
+	strandSort(ip, op);
 }
 
-int main()
+// Driver code
+int main(void)
 {
-    int arr[] = {5, 3, 6, 2, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
- 
-    // Sort the array
-    bubbleSort(arr, n);
- 
-    // Print the sorted array
-    for (int i = 0; i < n; i++)
-        std::cout << arr[i] << " ";
- 
-    return 0;
+	list<int> ip{10, 5, 30, 40, 2, 4, 9};
+
+	// To store sorted output list
+	list<int> op;
+
+	// Sorting the list
+	strandSort(ip, op);
+
+	// Printing the sorted list
+	for (auto x : op)
+		cout << x << " ";
+	return 0;
 }
 
 `,
   Java = `
-  import java.util.*;
-
-  public class Main {
-    
-      void bubbleSortTechnique(int arr[]) {
-        
-        // length of the array
-        int len = arr.length;
-        
-        for(int i = 0; i < len; i++) {
-          for(int j = 1; j < len; j++) {
-            
-            // this will execute when two consecutive numbers are not in order 
-            if(arr[j] < arr[j - 1]) {
-              
-              int temp = arr[j];
-              arr[j] = arr[j - 1];
-              arr[j - 1] = temp;
-              
-            }
+  import java.util.Arrays;
+  import java.util.LinkedList;
+  
+  public class Strand{
+    // note: the input list is destroyed
+    public static <E extends Comparable<? super E>> 
+    LinkedList<E> strandSort(LinkedList<E> list){
+      if(list.size() <= 1) return list;
+  
+      LinkedList<E> result = new LinkedList<E>();
+      while(list.size() > 0){
+        LinkedList<E> sorted = new LinkedList<E>();
+        sorted.add(list.removeFirst()); //same as remove() or remove(0)
+        for(Iterator<E> it = list.iterator(); it.hasNext(); ){
+          E elem = it.next();
+          if(sorted.peekLast().compareTo(elem) <= 0){
+            sorted.addLast(elem); //same as add(elem) or add(0, elem)
+            it.remove();
           }
         }
+        result = merge(sorted, result);
       }
+      return result;
+    }
+  
+    private static <E extends Comparable<? super E>>
+    LinkedList<E> merge(LinkedList<E> left, LinkedList<E> right){
+      LinkedList<E> result = new LinkedList<E>();
+      while(!left.isEmpty() && !right.isEmpty()){
+        //change the direction of this comparison to change the direction of the sort
+        if(left.peek().compareTo(right.peek()) <= 0)
+          result.add(left.remove());
+        else
+          result.add(right.remove());
+      }
+      result.addAll(left);
+      result.addAll(right);
+      return result;
+    }
     
-      void printArr(int arr[]) {
-        for(int i = 0; i < arr.length; i++) {
-          System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-      }
-     
-      public static void main(String[] args) {
-        
-        // Given array
-        int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
-        
-        // Creating the object of class to access its member function
-        Main object = new Main();
-        
-        System.out.println("Array before sorting - ");
-        // function to print the original Array
-        object.printArr(arr);
-        // function which will sort the given array using bubble sort
-        object.bubbleSortTechnique(arr);
-        System.out.println("Array after sorting - ");
-        
-        // function to print the new array
-        object.printArr(arr);
+    public static void main(String[] args){
+      System.out.println(strandSort(new LinkedList<Integer>(Arrays.asList(3,1,2,4,5))));
+      System.out.println(strandSort(new LinkedList<Integer>(Arrays.asList(3,3,1,2,4,5))));
+      System.out.println(strandSort(new LinkedList<Integer>(Arrays.asList(3,3,1,2,4,3,5,6))));
     }
   }
 `,
   Python = `
-  def bubble_sort(arr):
-  # Keep looping until the array is sorted
-  while True:
-      # Set a flag to track if any elements were swapped
-      swapped = False
-
-      # Loop through the array and swap adjacent elements if they are out of order
-      for i in range(len(arr) - 1):
-          if arr[i] > arr[i + 1]:
-              # Swap the elements
-              arr[i], arr[i + 1] = arr[i + 1], arr[i]
-
-              # Set the flag to True
-              swapped = True
-
-      # If no elements were swapped, the array is sorted
-      if not swapped:
-          break
-
-# Test the function
-print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
-
+  def strand_sort(inp):
+  output = strand(inp)
+  while len(inp):
+    output = merge(output, strand(inp))
+  return output
+   
+   
+def strand(inp):
+  element, sub = 0, [inp.pop(0)]
+  while element < len(inp):
+    if inp[element] > sub[-1]:
+      sub.append(inp.pop(element))
+    else:
+      element += 1
+  return sub
+  
+def merge(a, b):
+  output = []
+  while len(a) and len(b):
+    if a[0] < b[0]:
+      output.append(a.pop(0))
+    else:
+      output.append(b.pop(0))
+  output += a
+  output += b
+  return output
+  
+inputs = [9,2,0,4,1,8,2,3,7]
+print("Input List:")
+print(inputs)
+ 
+output = strand_sort(inputs)
+print("Output List:")
+print(output)
 `,
   Javascript = `
-  let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+  // Javascript program to implement Strand Sort
 
-
-  let len = arr.length;
-  
-  
-  // function to print array
-  function print(str) {
+  // A recursive function to implement Strand sort.
+  // ip is input list of items (unsorted).
+  // op is output list of items (sorted)
+  function strandSort(ip)
+  {
+    // Create a sorted sublist with
+    // first item of input list as
+    // first item of the sublist
+    var sublist=[];
+    sublist.push(ip[0]);
+    ip.shift();
     
-    console.log(str);
-    arr.forEach(function(num) {
-      console.log(num);
-    });
-  }
-  
-  
-  // bubble sort
-  function bubbleSort() {
     
-    for(let i = 0; i < len - 1; i++) {
-      for(let j = 1; j < len; j++) {
-         
-         if(arr[j] < arr[j - 1]) {
-           let temp = arr[j];
-           arr[j] = arr[j - 1];
-           arr[j - 1] = temp;
-         }
-      }
+    // Traverse remaining items of ip list
+    var len=ip.length-1;//last index of input list
+    var len2=sublist.length-1;//last index of sublist
+    
+    var it =0;
+    while(it<=len){
+  
+      // If current item of input list
+      // is greater than last added item
+      // to sublist, move current item
+      // to sublist as sorted order is
+      // maintained.
+      if (ip[it] >sublist[len2]) {
+        sublist.push(ip[it]);
+        len2++;
+        
+        // splice(index,1) on list removes an
+        // item and moves "it" to
+        // next of removed item.
+        
+        ip.splice(it,1);
       
+      }
+  
+      // Otherwise ignore current element
+      else{
+        it++;
+      }
+    }
+  
+  // Merge current sublist into output
+  while(sublist.length>0 && op.length>0){
+      if(sublist[0]>=op[0]){opp.push(op.shift());}
+      else{opp.push(sublist.shift());}
+    }
+    if(sublist.length==0){
+      opp=[...opp,...op];
+    }
+    if(op.length==0){
+      opp=[...opp,...sublist];
+    }
+    op=[...opp];
+    opp.length=0;
+    
+    // Recur for remaining items in input and current items in op.
+    //Added base case
+    if(ip.length>0){
+    strandSort(ip);
     }
   }
   
-  // this function call will print the original array
-  print("Before");
+  // Driver code
   
-  // calling bubbleSort function 
-  bubbleSort();
+    var ip=[10, 5, 30, 40, 2, 4, 9];
   
-  // after sorting this function call will print the final array
-  print("After");
+    // To store sorted output list
+    var op=[];
+    //list helping in merge operation
+    var opp=[];
+    // Sorting the list
+    strandSort(ip);
+    
+    // Printing the sorted list
+      console.log(op);
+  
 `
 
 const StrandSort = () => {

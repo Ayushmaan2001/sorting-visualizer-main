@@ -4,166 +4,151 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 
 let Cpp = `
+// A C++ Program to implement Gnome Sort
 #include <iostream>
+using namespace std;
 
-// Bubble sort function
-void bubbleSort(int *arr, int n)
+// A function to sort the algorithm using gnome sort
+void gnomeSort(int arr[], int n)
 {
-    bool sorted = false; // Flag to track if the array is sorted
- 
-    // Keep looping until the array is sorted
-    while (!sorted)
-    {
-        sorted = true; // Set the flag to true
- 
-        // Loop through the array and swap adjacent elements if they are out of order
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                // Swap the elements
-                std::swap(arr[i], arr[i + 1]);
- 
-                // Set the flag to false
-                sorted = false;
-            }
-        }
-    }
+	int index = 0;
+
+	while (index < n) {
+		if (index == 0)
+			index++;
+		if (arr[index] >= arr[index - 1])
+			index++;
+		else {
+			swap(arr[index], arr[index - 1]);
+			index--;
+		}
+	}
+	return;
 }
 
+// A utility function ot print an array of size n
+void printArray(int arr[], int n)
+{
+	cout << "Sorted sequence after Gnome sort: ";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << "\n";
+}
+
+// Driver program to test above functions.
 int main()
 {
-    int arr[] = {5, 3, 6, 2, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
- 
-    // Sort the array
-    bubbleSort(arr, n);
- 
-    // Print the sorted array
-    for (int i = 0; i < n; i++)
-        std::cout << arr[i] << " ";
- 
-    return 0;
+	int arr[] = { 34, 2, 10, -9 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	gnomeSort(arr, n);
+	printArray(arr, n);
+
+	return (0);
 }
 
 `,
   Java = `
-  import java.util.*;
+  // Java Program to implement Gnome Sort
 
-  public class Main {
-    
-      void bubbleSortTechnique(int arr[]) {
-        
-        // length of the array
-        int len = arr.length;
-        
-        for(int i = 0; i < len; i++) {
-          for(int j = 1; j < len; j++) {
-            
-            // this will execute when two consecutive numbers are not in order 
-            if(arr[j] < arr[j - 1]) {
-              
-              int temp = arr[j];
-              arr[j] = arr[j - 1];
-              arr[j - 1] = temp;
-              
-            }
-          }
+  import java.util.Arrays;
+  public class GFG {
+    static void gnomeSort(int arr[], int n)
+    {
+      int index = 0;
+  
+      while (index < n) {
+        if (index == 0)
+          index++;
+        if (arr[index] >= arr[index - 1])
+          index++;
+        else {
+          int temp = 0;
+          temp = arr[index];
+          arr[index] = arr[index - 1];
+          arr[index - 1] = temp;
+          index--;
         }
       }
-    
-      void printArr(int arr[]) {
-        for(int i = 0; i < arr.length; i++) {
-          System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-      }
-     
-      public static void main(String[] args) {
-        
-        // Given array
-        int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
-        
-        // Creating the object of class to access its member function
-        Main object = new Main();
-        
-        System.out.println("Array before sorting - ");
-        // function to print the original Array
-        object.printArr(arr);
-        // function which will sort the given array using bubble sort
-        object.bubbleSortTechnique(arr);
-        System.out.println("Array after sorting - ");
-        
-        // function to print the new array
-        object.printArr(arr);
+      return;
+    }
+  
+    // Driver program to test above functions.
+    public static void main(String[] args)
+    {
+      int arr[] = { 34, 2, 10, -9 };
+  
+      gnomeSort(arr, arr.length);
+  
+      System.out.print("Sorted sequence after applying Gnome sort: ");
+      System.out.println(Arrays.toString(arr));
     }
   }
+
 `,
   Python = `
-  def bubble_sort(arr):
-  # Keep looping until the array is sorted
-  while True:
-      # Set a flag to track if any elements were swapped
-      swapped = False
+  # Python program to implement Gnome Sort
 
-      # Loop through the array and swap adjacent elements if they are out of order
-      for i in range(len(arr) - 1):
-          if arr[i] > arr[i + 1]:
-              # Swap the elements
-              arr[i], arr[i + 1] = arr[i + 1], arr[i]
-
-              # Set the flag to True
-              swapped = True
-
-      # If no elements were swapped, the array is sorted
-      if not swapped:
-          break
-
-# Test the function
-print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
-
+  # A function to sort the given list using Gnome sort
+  def gnomeSort( arr, n):
+    index = 0
+    while index < n:
+      if index == 0:
+        index = index + 1
+      if arr[index] >= arr[index - 1]:
+        index = index + 1
+      else:
+        arr[index], arr[index-1] = arr[index-1], arr[index]
+        index = index - 1
+  
+    return arr
+  
+  # Driver Code
+  arr = [ 34, 2, 10, -9]
+  n = len(arr)
+  
+  arr = gnomeSort(arr, n)
+  print "Sorted sequence after applying Gnome Sort :",
+  for i in arr:
+    print i,
+  
 `,
   Javascript = `
-  let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+  <script>
 
-
-  let len = arr.length;
+  // Javascript Program to implement Gnome Sort
   
-  
-  // function to print array
-  function print(str) {
+  function gnomeSort(arr, n)
+    {
+      let index = 0;
     
-    console.log(str);
-    arr.forEach(function(num) {
-      console.log(num);
-    });
-  }
-  
-  
-  // bubble sort
-  function bubbleSort() {
-    
-    for(let i = 0; i < len - 1; i++) {
-      for(let j = 1; j < len; j++) {
-         
-         if(arr[j] < arr[j - 1]) {
-           let temp = arr[j];
-           arr[j] = arr[j - 1];
-           arr[j - 1] = temp;
-         }
+      while (index < n) {
+        if (index == 0)
+          index++;
+        if (arr[index] >= arr[index - 1])
+          index++;
+        else {
+          let temp = 0;
+          temp = arr[index];
+          arr[index] = arr[index - 1];
+          arr[index - 1] = temp;
+          index--;
+        }
       }
-      
+      return;
     }
-  }
   
-  // this function call will print the original array
-  print("Before");
+  // Driver Code
+    
+      let arr = [34, 2, 10, -9 ];
+    
+      gnomeSort(arr, arr.length);
+    
+      document.write("Sorted sequence after applying Gnome sort: ");
+      document.write(arr.toString());
+        
+  </script>
   
-  // calling bubbleSort function 
-  bubbleSort();
-  
-  // after sorting this function call will print the final array
-  print("After");
 `
 
 const GenomeSort = () => {

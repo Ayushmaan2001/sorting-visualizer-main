@@ -75,7 +75,7 @@ const Home = () => {
         return <CombSort {...props}/>
       case "Strand Sort":
         return <StrandSort {...props}/>
-      case "Genome Sort":
+      case "Gnome Sort":
         return <GenomeSort {...props}/>
       case "Stooge Sort":
         return <StoogeSort {...props}/>
@@ -109,7 +109,7 @@ const Home = () => {
         return <CombSortGraph {...props}/>
       case "Strand Sort":
         return <StrandSortGraph {...props}/>
-      case "Genome Sort":
+      case "Gnome Sort":
         return <GenomeSortGraph {...props}/>
       case "Stooge Sort":
         return <StoogeSortGraph {...props}/>
@@ -137,7 +137,7 @@ const Home = () => {
         return <CombSortDetails {...props} I={I} num1={num1} num2={num2} />
       case "Strand Sort":
         return <StrandSortDetails {...props} I={I} num1={num1} num2={num2} />
-      case "Genome Sort":
+      case "Gnome Sort":
         return <GenomeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       case "Stooge Sort":
         return <StoogeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
@@ -160,7 +160,7 @@ const Home = () => {
     'Radix Sort',
     'Heap Sort',
     'Comb Sort',
-    'Genome Sort',
+    'Gnome Sort',
     'Strand Sort',
     'Stooge Sort',
     'K-Way External Sort',
@@ -328,7 +328,7 @@ const Home = () => {
           setswaps:setswaps
         })
         break;
-      case "Genome Sort":
+      case "Gnome Sort":
         await Genomesort({
           array:randomizedArray,
           setArray:setRandomizedArray,

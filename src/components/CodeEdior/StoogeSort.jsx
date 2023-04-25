@@ -4,166 +4,201 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor'
 
 let Cpp = `
+// C++ code to implement stooge sort
 #include <iostream>
+using namespace std;
 
-// Bubble sort function
-void bubbleSort(int *arr, int n)
+// Function to implement stooge sort
+void stoogesort(int arr[], int l, int h)
 {
-    bool sorted = false; // Flag to track if the array is sorted
- 
-    // Keep looping until the array is sorted
-    while (!sorted)
-    {
-        sorted = true; // Set the flag to true
- 
-        // Loop through the array and swap adjacent elements if they are out of order
-        for (int i = 0; i < n - 1; i++)
-        {
-            if (arr[i] > arr[i + 1])
-            {
-                // Swap the elements
-                std::swap(arr[i], arr[i + 1]);
- 
-                // Set the flag to false
-                sorted = false;
-            }
-        }
-    }
+	if (l >= h)
+		return;
+
+	// If first element is smaller than last,
+	// swap them
+	if (arr[l] > arr[h])
+		swap(arr[l], arr[h]);
+
+	// If there are more than 2 elements in
+	// the array
+	if (h - l + 1 > 2) {
+		int t = (h - l + 1) / 3;
+
+		// Recursively sort first 2/3 elements
+		stoogesort(arr, l, h - t);
+
+		// Recursively sort last 2/3 elements
+		stoogesort(arr, l + t, h);
+
+		// Recursively sort first 2/3 elements
+		// again to confirm
+		stoogesort(arr, l, h - t);
+	}
 }
 
+// Driver Code
 int main()
 {
-    int arr[] = {5, 3, 6, 2, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
- 
-    // Sort the array
-    bubbleSort(arr, n);
- 
-    // Print the sorted array
-    for (int i = 0; i < n; i++)
-        std::cout << arr[i] << " ";
- 
-    return 0;
+	int arr[] = { 2, 4, 5, 3, 1 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+
+	// Calling Stooge Sort function to sort
+	// the array
+	stoogesort(arr, 0, n - 1);
+
+	// Display the sorted array
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+
+	return 0;
 }
+
 
 `,
   Java = `
-  import java.util.*;
-
-  public class Main {
-    
-      void bubbleSortTechnique(int arr[]) {
-        
-        // length of the array
-        int len = arr.length;
-        
-        for(int i = 0; i < len; i++) {
-          for(int j = 1; j < len; j++) {
-            
-            // this will execute when two consecutive numbers are not in order 
-            if(arr[j] < arr[j - 1]) {
-              
-              int temp = arr[j];
-              arr[j] = arr[j - 1];
-              arr[j - 1] = temp;
-              
-            }
-          }
-        }
+  // Java program to implement stooge sort
+  import java.io.*;
+  
+  public class stooge {
+    // Function to implement stooge sort
+    static void stoogesort(int arr[], int l, int h)
+    {
+      if (l >= h)
+        return;
+  
+      // If first element is smaller
+      // than last, swap them
+      if (arr[l] > arr[h]) {
+        int t = arr[l];
+        arr[l] = arr[h];
+        arr[h] = t;
       }
-    
-      void printArr(int arr[]) {
-        for(int i = 0; i < arr.length; i++) {
-          System.out.print(arr[i] + " ");
-        }
-        System.out.println();
+  
+      // If there are more than 2 elements in
+      // the array
+      if (h - l + 1 > 2) {
+        int t = (h - l + 1) / 3;
+  
+        // Recursively sort first 2/3 elements
+        stoogesort(arr, l, h - t);
+  
+        // Recursively sort last 2/3 elements
+        stoogesort(arr, l + t, h);
+  
+        // Recursively sort first 2/3 elements
+        // again to confirm
+        stoogesort(arr, l, h - t);
       }
-     
-      public static void main(String[] args) {
-        
-        // Given array
-        int arr[] = {1, 5, 3, 7, 200, 23, 12, 233, 101};
-        
-        // Creating the object of class to access its member function
-        Main object = new Main();
-        
-        System.out.println("Array before sorting - ");
-        // function to print the original Array
-        object.printArr(arr);
-        // function which will sort the given array using bubble sort
-        object.bubbleSortTechnique(arr);
-        System.out.println("Array after sorting - ");
-        
-        // function to print the new array
-        object.printArr(arr);
+    }
+  
+    // Driver Code
+    public static void main(String args[])
+    {
+      int arr[] = { 2, 4, 5, 3, 1 };
+      int n = arr.length;
+  
+      stoogesort(arr, 0, n - 1);
+  
+      for (int i = 0; i < n; i++)
+        System.out.print(arr[i] + " ");
     }
   }
+  // Code Contributed by Mohit Gupta_OMG <(0_o)>
+  
 `,
   Python = `
-  def bubble_sort(arr):
-  # Keep looping until the array is sorted
-  while True:
-      # Set a flag to track if any elements were swapped
-      swapped = False
+  # Python program to implement stooge sort
 
-      # Loop through the array and swap adjacent elements if they are out of order
-      for i in range(len(arr) - 1):
-          if arr[i] > arr[i + 1]:
-              # Swap the elements
-              arr[i], arr[i + 1] = arr[i + 1], arr[i]
+def stoogesort(arr, l, h):
+	if l >= h:
+		return
 
-              # Set the flag to True
-              swapped = True
+	# If first element is smaller
+	# than last, swap them
+	if arr[l]>arr[h]:
+		t = arr[l]
+		arr[l] = arr[h]
+		arr[h] = t
 
-      # If no elements were swapped, the array is sorted
-      if not swapped:
-          break
+	# If there are more than 2 elements in
+	# the array
+	if h-l + 1 > 2:
+		t = (int)((h-l + 1)/3)
 
-# Test the function
-print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+		# Recursively sort first 2 / 3 elements
+		stoogesort(arr, l, (h-t))
+
+		# Recursively sort last 2 / 3 elements
+		stoogesort(arr, l + t, (h))
+
+		# Recursively sort first 2 / 3 elements
+		# again to confirm
+		stoogesort(arr, l, (h-t))
+
+
+# deriver
+arr = [2, 4, 5, 3, 1]
+n = len(arr)
+
+stoogesort(arr, 0, n-1)
+
+for i in range(0, n):
+	print(arr[i], end = ' ')
+
+# Code Contributed by Mohit Gupta_OMG <(0_o)>
 
 `,
   Javascript = `
-  let arr = [1, 100, 3, 2, 34, 54, 89, 75, 37];
+  <script>
+	// Javascript program to implement stooge sort
+	
+	// Function to implement stooge sort
+	function stoogesort(arr, l, h)
+	{
+		if (l >= h)
+			return;
+	
+		// If first element is smaller
+		// than last, swap them
+		if (arr[l] > arr[h]) {
+			let t = arr[l];
+			arr[l] = arr[h];
+			arr[h] = t;
+		}
+	
+		// If there are more than 2
+		// elements in the array
+		if (h - l + 1 > 2) {
+			let t = parseInt((h - l + 1) / 3, 10);
+	
+			// Recursively sort first
+			// 2/3 elements
+			stoogesort(arr, l, h - t);
+	
+			// Recursively sort last
+			// 2/3 elements
+			stoogesort(arr, l + t, h);
+	
+			// Recursively sort first
+			// 2/3 elements again to
+			// confirm
+			stoogesort(arr, l, h - t);
+		}
+	}
+	
+	let arr = [ 2, 4, 5, 3, 1 ];
+	let n = arr.length;
 
+	// Calling Stooge Sort function
+	// to sort the array
+	stoogesort(arr, 0, n - 1);
 
-  let len = arr.length;
-  
-  
-  // function to print array
-  function print(str) {
-    
-    console.log(str);
-    arr.forEach(function(num) {
-      console.log(num);
-    });
-  }
-  
-  
-  // bubble sort
-  function bubbleSort() {
-    
-    for(let i = 0; i < len - 1; i++) {
-      for(let j = 1; j < len; j++) {
-         
-         if(arr[j] < arr[j - 1]) {
-           let temp = arr[j];
-           arr[j] = arr[j - 1];
-           arr[j - 1] = temp;
-         }
-      }
-      
-    }
-  }
-  
-  // this function call will print the original array
-  print("Before");
-  
-  // calling bubbleSort function 
-  bubbleSort();
-  
-  // after sorting this function call will print the final array
-  print("After");
+	// Display the sorted array
+	for (let i = 0; i < n; i++)
+	document.write(arr[i] + " ");
+	
+</script>
+
 `
 
 const StoogeSort = () => {
