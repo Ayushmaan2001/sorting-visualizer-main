@@ -169,22 +169,13 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
 const StoogeSort = () => {
     return (
         <React.Fragment>
-      <Row style={{
-        // display: 'flex',
-        marginTop: '30px',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignContent: 'space-between',
-        justifyContent: 'space-around',
-      }}
-        className="bg"
-      >
+      <Row className="bg">
         <div className='desc'>
-          <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Stooge Sort is a recursive sorting algorithm. It is not much efficient but interesting sorting algorithm. </h2>
-            <h2 style={{ color: 'white' }}>It generally divides the array into two overlapping parts (2/3 each). After that it performs sorting in first 2/3 part and then it performs sorting in last 2/3 part. And then, sorting is done on first 2/3 part to ensure that the array is sorted.
-            </h2>
-            <h2 style={{ color: 'white' }}>The key idea is that sorting the overlapping part twice exchanges the elements between the other two sections accordingly.</h2>
+          <Col span={60}><h1 style={{ color: 'orange'}}>Description</h1>
+            <h3 style={{ color: 'white' }}>Stooge Sort is a recursive sorting algorithm. It is not much efficient but interesting sorting algorithm. </h3>
+            <h3 style={{ color: 'white' }}>It generally divides the array into two overlapping parts (2/3 each). After that it performs sorting in first 2/3 part and then it performs sorting in last 2/3 part. And then, sorting is done on first 2/3 part to ensure that the array is sorted.
+            </h3>
+            <h3 style={{ color: 'white' }}>The key idea is that sorting the overlapping part twice exchanges the elements between the other two sections accordingly.</h3>
           </Col>
         </div>
         <div className="mobile-table">

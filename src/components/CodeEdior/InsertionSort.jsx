@@ -163,19 +163,12 @@ print("After");
 `
 export default function InsertionSort({text}) {
   return (
-    <React.Fragment><Row style={{
-      display: 'flex',
-      marginTop: '30px',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignContent: 'space-between',
-      justifyContent: 'space-around',
-      alignItems: 'center'
-    }}>
+    <React.Fragment>
+      <Row className='bg'>
       <div className='desc'>
-      <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. It's less performant than advanced sorting algorithms, but it can still have some advantages: it's really easy to implement and it's efficient on small data structures almost sorted.</h2>
-        <h2 style={{ color: 'white' }}>The algorithm divides the data structure in two sublists: a sorted one, and one still to sort. Initially, the sorted sublist is made up of just one element and it gets progressively filled. For every iteration, the algorithm picks an element on the unsorted sublist and inserts it at the right place in the sorted sublist.</h2>
+      <Col span={60} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
+        <h3 style={{ color: 'white' }}>Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time. It's less performant than advanced sorting algorithms, but it can still have some advantages: it's really easy to implement and it's efficient on small data structures almost sorted.</h3>
+        <h3 style={{ color: 'white' }}>The algorithm divides the data structure in two sublists: a sorted one, and one still to sort. Initially, the sorted sublist is made up of just one element and it gets progressively filled. For every iteration, the algorithm picks an element on the unsorted sublist and inserts it at the right place in the sorted sublist.</h3>
       </Col>
       </div>
       <div className="mobile-table">

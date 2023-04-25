@@ -9,21 +9,6 @@ html {
   font-weight:100;
 }
 
-div {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-div::after {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-div::before {
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
 h2{
   color: orangered;
 }

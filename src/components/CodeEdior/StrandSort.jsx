@@ -169,22 +169,14 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
 const StrandSort = () => {
     return (
         <React.Fragment>
-      <Row style={{
-        // display: 'flex',
-        marginTop: '30px',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignContent: 'space-between',
-        justifyContent: 'space-around',
-      }}
-        className="bg"
+      <Row className="bg"
       >
         <div className='desc'>
-          <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Strand sort is a recursive sorting algorithm that sorts items of a list into increasing order. </h2>
-            <h2 style={{ color: 'white' }}>This mechanism at first transfers the first element of to be sorted list into a sub-list. It then compares the last element in the sub-list to each subsequent element in the unsorted list. 
-            </h2>
-            <h2 style={{ color: 'white' }}>If there is an element in the original list that is greater than the last element in the sub-list, the element is transferred to the end of sub-list. This process continues until the last element in the sub-list is compared to the remaining elements in the original list. The sub-list is then added to a new list. Repeat this process and merge all sub-lists until all elements are sorted. </h2>
+          <Col span={60}><h1 style={{ color: 'orange'}}>Description</h1>
+            <h3 style={{ color: 'white' }}>Strand sort is a recursive sorting algorithm that sorts items of a list into increasing order. </h3>
+            <h3 style={{ color: 'white' }}>This mechanism at first transfers the first element of to be sorted list into a sub-list. It then compares the last element in the sub-list to each subsequent element in the unsorted list. 
+            </h3>
+            <h3 style={{ color: 'white' }}>If there is an element in the original list that is greater than the last element in the sub-list, the element is transferred to the end of sub-list. This process continues until the last element in the sub-list is compared to the remaining elements in the original list. The sub-list is then added to a new list. Repeat this process and merge all sub-lists until all elements are sorted. </h3>
           </Col>
         </div>
         <div className="mobile-table">

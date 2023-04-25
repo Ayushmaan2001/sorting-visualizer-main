@@ -169,21 +169,12 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
 const GenomeSort = () => {
     return (
         <React.Fragment>
-      <Row style={{
-        // display: 'flex',
-        marginTop: '30px',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignContent: 'space-between',
-        justifyContent: 'space-around',
-      }}
-        className="bg"
-      >
+      <Row className="bg">
         <div className='desc'>
-          <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Gnome Sort also called Stupid sort is based on the concept of a Garden Gnome sorting his flower pots. A garden gnome sorts the flower pots by the following method</h2>
-            <h2 style={{ color: 'white' }}>He looks at the flower pot next to him and the previous one; if they are in the right order he steps one pot forward, otherwise he swaps them and steps one pot backwards.</h2>
-            <h2 style={{ color: 'white' }}>If there is no previous pot (he is at the starting of the pot line), he steps forwards; if there is no pot next to him (he is at the end of the pot line), he is done.</h2>
+          <Col span={60}><h1 style={{ color: 'orange'}}>Description</h1>
+            <h3 style={{ color: 'white' }}>Gnome Sort also called Stupid sort is based on the concept of a Garden Gnome sorting his flower pots. A garden gnome sorts the flower pots by the following method</h3>
+            <h3 style={{ color: 'white' }}>He looks at the flower pot next to him and the previous one; if they are in the right order he steps one pot forward, otherwise he swaps them and steps one pot backwards.</h3>
+            <h3 style={{ color: 'white' }}>If there is no previous pot (he is at the starting of the pot line), he steps forwards; if there is no pot next to him (he is at the end of the pot line), he is done.</h3>
           </Col>
         </div>
         <div className="mobile-table">

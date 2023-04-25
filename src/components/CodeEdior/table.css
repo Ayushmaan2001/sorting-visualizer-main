@@ -23,15 +23,19 @@
 }
 
 .desc {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: space-around;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  /* max-width: 750px; */
+  /* width:100px; */
+  margin-left: 10px;
+  width: 700px;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .bg {
     display: flex;
   }
@@ -53,7 +57,7 @@
     height: max-content;
     max-width: 300px;
   }
-}
+} */
 
 .navMenu {
   display: flex;
@@ -109,4 +113,15 @@
 
 .card:hover {
  margin-top: 10px;
+}
+
+.bg{
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:50px;
+  /* width:max-content; */
 }

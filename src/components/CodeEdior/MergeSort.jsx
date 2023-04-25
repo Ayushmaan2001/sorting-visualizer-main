@@ -269,20 +269,13 @@ print("After");
 `
 export default function MergeSort({text}) {
   return (
-    <React.Fragment><Row style={{
-      display: 'flex',
-      marginTop: '30px',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignContent: 'space-between',
-      justifyContent: 'space-around',
-      alignItems: 'center'
-    }}>
+    <React.Fragment>
+      <Row className='bg'>
           <div className='desc'>
-      <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</h2>
-        <h2 style={{ color: 'white' }}>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.
-        </h2>
+      <Col span={60} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
+        <h3 style={{ color: 'white' }}>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</h3>
+        <h3 style={{ color: 'white' }}>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.
+        </h3>
       </Col>
       </div>
           <div className="mobile-table">

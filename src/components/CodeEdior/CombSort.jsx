@@ -169,27 +169,18 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
 const CombSort = () => {
     return (
         <React.Fragment>
-      <Row style={{
-        // display: 'flex',
-        marginTop: '30px',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignContent: 'space-between',
-        justifyContent: 'space-around',
-      }}
-        className="bg"
-      >
+      <Row className="bg">
         <div className='desc'>
-          <Col span={14}><h1 style={{ color: 'orange'}}>Description</h1>
-            <h2 style={{ color: 'white' }}>Comb Sort is mainly an improvement over Bubble Sort. Bubble sort always compares adjacent values. So all inversions are removed one by one. </h2>
-            <h2 style={{ color: 'white' }}> Comb Sort improves on Bubble Sort by using a gap of the size of more than 1. The gap starts with a large value and shrinks by a factor of 1.3 in every iteration until it reaches the value 1. 
-            </h2>
-            <h2 style={{ color: 'white' }}>Thus Comb Sort removes more than one inversion count with one swap and performs better than Bubble Sort.
-The shrink factor has been empirically found to be 1.3 (by testing Combsort on over 200,000 random lists). Although it works better than Bubble Sort on average, worst-case remains O(n2).</h2>
+          <Col span={60}><h1 style={{ color: 'orange'}}>Description</h1>
+            <h3 style={{ color: 'white' }}>Comb Sort is mainly an improvement over Bubble Sort. Bubble sort always compares adjacent values. So all inversions are removed one by one. </h3>
+            <h3 style={{ color: 'white' }}> Comb Sort improves on Bubble Sort by using a gap of the size of more than 1. The gap starts with a large value and shrinks by a factor of 1.3 in every iteration until it reaches the value 1. 
+            </h3>
+            <h3 style={{ color: 'white' }}>Thus Comb Sort removes more than one inversion count with one swap and performs better than Bubble Sort.
+The shrink factor has been empirically found to be 1.3 (by testing Combsort on over 200,000 random lists). Although it works better than Bubble Sort on average, worst-case remains O(n2).</h3>
           
-          <h2 style={{ color: 'white' }}>
+          <h3 style={{ color: 'white' }}>
             Here N is the size of array and p is the number of increment
-          </h2></Col>
+          </h3></Col>
         </div>
         <div className="mobile-table">
           <div>
