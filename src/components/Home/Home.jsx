@@ -27,8 +27,9 @@ import RunsBars from '../RunsBars/RunsBars';
 import StrandSortBars from '../RunsBars/StrandSortBars';
 
 //import details
-import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails } from '../Details';
+import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails, BucketSortDetails } from '../Details';
 import BucketSortBars from '../RunsBars/BucketSortBars';
+import BucketSortGraph from '../GraphShows/BucketSortGraph';
 
 
 const Home = () => {
@@ -118,6 +119,8 @@ const Home = () => {
         return <KWayExternalSortGraph {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
         return <ReplacementSelectionSortGraph {...props} runs={runsArray} />
+      case "Bucket Sort":
+        return <BucketSortGraph {...props}/>
       default:
         return null;
     }
@@ -146,6 +149,8 @@ const Home = () => {
       // //   return <RadixSort {...props} />
       case "Heap Sort":
         return <HeapSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Bucket Sort":
+        return <BucketSortDetails {...props} I={I} J={J} num1={num1} num2={num2}/>
       default:
         return null;
     }
@@ -224,6 +229,8 @@ const Home = () => {
           unsortedRunsArray2:unsortedRunsArray2,
           setunsortedRunsArray2: setunsortedRunsArray2,
           setunsortedRunsArray1: setunsortedRunsArray1,
+          setNum1:setNum1,
+          setI:setI,
         })
         break;
       case 'Bubble Sort':

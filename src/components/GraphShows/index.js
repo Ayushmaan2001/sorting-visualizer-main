@@ -12,3 +12,4 @@ export {default as GenomeSortGraph} from './GenomeSortGraph';
 export {default as StoogeSortGraph} from './StoogeSortGraph';
 export {default as StrandSortGraph} from './StrandSortGraph';
 export {default as ReplacementSelectionSortGraph} from './ReplacementSelectionSortGraph';
+export {default as BucketSortDetails} from './BucketSortGraph'
