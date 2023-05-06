@@ -4,30 +4,66 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor';
 
 let Cpp = `
-void heapify(int arr[], int N, int i)
+#include <iostream>
+#include <vector>
+
+// Function to fix the heap property at the given index
+void heapify(std::vector<int>& heap, int i, int heap_size)
 {
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
-    if (l < N && arr[l] > arr[largest])
-        largest = l;
-    if (r < N && arr[r] > arr[largest])
-        largest = r;
-    if (largest != i) {
-        swap(arr[i], arr[largest]);
-        heapify(arr, N, largest);
-    }
-}
-void heapSort(int arr[], int N)
-{
+    int left = 2 * i + 1;    // Index of the left child
+    int right = 2 * i + 2;   // Index of the right child
+    int largest = i;         // Index of the largest element
  
-    for (int i = N / 2 - 1; i >= 0; i--)
-        heapify(arr, N, i);
-    for (int i = N - 1; i > 0; i--) {
-        swap(arr[0], arr[i]);
-        heapify(arr, i, 0);
+    // If the left child is larger than the root
+    if (left < heap_size && heap[left] > heap[largest])
+        largest = left;
+ 
+    // If the right child is larger than the largest element
+    if (right < heap_size && heap[right] > heap[largest])
+        largest = right;
+ 
+    // If the largest element is not the root
+    if (largest != i)
+    {
+        std::swap(heap[i], heap[largest]); // Swap the root with the largest element
+ 
+        // Fix the heap property for the new subtree
+        heapify(heap, largest, heap_size);
     }
 }
+
+// Heapsort function
+void heapsort(std::vector<int>& heap)
+{
+    // Build the heap
+    for (int i = heap.size() / 2 - 1; i >= 0; i--)
+        heapify(heap, i, heap.size());
+ 
+    // Sort the heap
+    for (int i = heap.size() - 1; i >= 0; i--)
+    {
+        std::swap(heap[0], heap[i]); // Swap the root with the last element
+ 
+        // Fix the heap property for the new subtree
+        heapify(heap, 0, i);
+    }
+}
+
+int main()
+{
+    std::vector<int> arr = {5, 3, 6, 2, 10};
+ 
+    // Sort the array
+    heapsort(arr);
+ 
+    // Print the sorted array
+    for (int i : arr)
+        std::cout << i << " ";
+ 
+    return 0;
+}
+
+
 `,
     Java = `
     import java.util.*;
@@ -107,25 +143,41 @@ void heapSort(int arr[], int N)
     }
 `,
     Python = `
-def heapify(arr, N, i):
-    largest = i  # Initialize largest as root
-    l = 2 * i + 1     # left = 2*i + 1
-    r = 2 * i + 2     # right = 2*i + 2
-    if l < N and arr[largest] < arr[l]:
-        largest = l
-    if r < N and arr[largest] < arr[r]:
-        largest = r
+    def heapify(heap, i, heap_size):
+    left = 2 * i + 1    # Index of the left child
+    right = 2 * i + 2   # Index of the right child
+    largest = i         # Index of the largest element
+ 
+    # If the left child is larger than the root
+    if left < heap_size and heap[left] > heap[largest]:
+        largest = left
+ 
+    # If the right child is larger than the largest element
+    if right < heap_size and heap[right] > heap[largest]:
+        largest = right
+ 
+    # If the largest element is not the root
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
-        heapify(arr, N, largest)
+        heap[i], heap[largest] = heap[largest], heap[i] # Swap the root with the largest element
+ 
+        # Fix the heap property for the new subtree
+        heapify(heap, largest, heap_size)
 
-def heapSort(arr):
-    N = len(arr)
-    for i in range(N//2 - 1, -1, -1):
-        heapify(arr, N, i)
-    for i in range(N-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
-        heapify(arr, i, 0)
+def heapsort(heap):
+    # Build the heap
+    for i in range(len(heap) // 2 - 1, -1, -1):
+        heapify(heap, i, len(heap))
+ 
+    # Sort the heap
+    for i in range(len(heap) - 1, 0, -1):
+        heap[0], heap[i] = heap[i], heap[0] # Swap the root with the last element
+ 
+        # Fix the heap property for the new subtree
+        heapify(heap, 0, i)
+
+# Test the function
+print(heapsort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
     Javascript = `
     // In this code we have taken pivot as the last value of range, but you can
@@ -199,20 +251,13 @@ def heapSort(arr):
 `
 const HeapSort = () => {
     return (
-        <React.Fragment><Row style={{
-            display: 'flex',
-            marginTop: '30px',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            alignContent: 'space-between',
-            justifyContent: 'space-around',
-            alignItems: 'center'
-        }}>
+        <React.Fragment>
+          <Row className='bg'>
             <div className='desc'>
-            <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-                <h2 style={{ color: 'white' }}>Heap Sort is an in-place iterative sorting algorithm based on auxiliary data structures called heap. It's less efficient than algorithm with the same time complexity and it's not suitable for data structures with few elements</h2>
-                <h2 style={{ color: 'white' }}>The heap is a data structure representable as a binary tree, where each node has a value bigger or equal to its children. Consequently, the root will hold the maximum value.</h2>
-                <h2 style={{ color: 'white' }}>The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.</h2>
+            <Col span={60} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
+                <h3 style={{ color: 'white' }}>Heap Sort is an in-place iterative sorting algorithm based on auxiliary data structures called heap. It's less efficient than algorithm with the same time complexity and it's not suitable for data structures with few elements</h3>
+                <h3 style={{ color: 'white' }}>The heap is a data structure representable as a binary tree, where each node has a value bigger or equal to its children. Consequently, the root will hold the maximum value.</h3>
+                <h3 style={{ color: 'white' }}>The data structure gets ordered to form the heap initially, and then it gets progressively reordered with an algorithm similar to Selection Sort, starting from the bigger elements.</h3>
             </Col>
             </div>
             <div className="mobile-table">

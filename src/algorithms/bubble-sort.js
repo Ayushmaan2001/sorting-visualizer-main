@@ -8,10 +8,15 @@ const bubbleSort = async ({
   setI,
   setJ,
   setNum1,
-  setNum2
+  setNum2,
+  comparisons,
+  setComparisons,
+  swaps,
+  setswaps
 } = {}) => {
+  comparisons=0;
+  swaps=0;
   let len = array.length;
-
   for (let i = 0; i < len - 1; i++) {
     setI(i);
     for (let j = 0; j < len - 1 - i; j++) {
@@ -21,16 +26,25 @@ const bubbleSort = async ({
       newColorsArray[j] = 1;
       newColorsArray[j + 1] = 2;
       setColorsArray(newColorsArray);
-      await asyncSetTimeout({timeout: 10*visualizationSpeed});
-      setNum1(array[j]);;
+      await asyncSetTimeout({
+        timeout: 10 * visualizationSpeed
+      });
+      setNum1(array[j]);
       setNum2(array[j + 1]);
+      comparisons++;
+      setComparisons(comparisons)
       if (array[j + 1] < array[j]) {
         let temp = array[j + 1];
         array[j + 1] = array[j];
         array[j] = temp;
+        swaps++;
+        setswaps(swaps)
+        
         setArray(array);
       }
-      await asyncSetTimeout({timeout:10*visualizationSpeed})
+      await asyncSetTimeout({
+        timeout: 10 * visualizationSpeed
+      })
     }
   }
   setColorsArray([])

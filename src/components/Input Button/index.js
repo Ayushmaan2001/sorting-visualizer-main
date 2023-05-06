@@ -1,0 +1,1 @@
+export {default as Inpbutton} from './Inpbutton'

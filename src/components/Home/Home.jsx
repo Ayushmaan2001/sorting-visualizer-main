@@ -4,31 +4,44 @@ import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
 
+//Button Import
+import { Inpbutton } from '../Input Button';
+
+//import Download Button
+import { Downloadbtn } from '../Download Btn';
+
+//import Analysis Components
+import { Comparisons, Swaps } from '../Analysis';
+
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort, bucketSort } from '../../algorithms';
 
 //CodeEditors import
-import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort} from '../CodeEdior';
+import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort, BucketSort} from '../CodeEdior';
 
 //import graphs
-import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph } from '../GraphShows';
+import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph,CombSortGraph,StrandSortGraph,GenomeSortGraph,StoogeSortGraph,RadixSortGraph,ReplacementSelectionSortGraph } from '../GraphShows';
 
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
+import StrandSortBars from '../RunsBars/StrandSortBars';
 
 //import details
-import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails } from '../Details';
+import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails, BucketSortDetails } from '../Details';
+import BucketSortBars from '../RunsBars/BucketSortBars';
+import BucketSortGraph from '../GraphShows/BucketSortGraph';
+
 
 const Home = () => {
   const arraySize = 40;
-
-
   const [isVisualizing, setIsVisualizing] = useState(false);
   const [runsArray1, setrunsArray1] = useState([]);
   const [unsortedRunsArray1, setunsortedRunsArray1] = useState([]);
   const [unsortedRunsArray2,setunsortedRunsArray2] = useState([]);
   const [runsArray2, setrunsArray2] = useState([]);
   const [runsArray, setrunsArray] = useState([]);
+  const [comparisons,setComparisons] = useState(0);
+  const [swaps, setswaps] = useState(0);
   const [I, setI] = useState(0);
   const [J, setJ] = useState(0);
   const [num1, setNum1] = useState(0);
@@ -41,7 +54,6 @@ const Home = () => {
   );
   const [visualizationSpeed, setVisualizationSpeed] = useState(30);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
-
 
   const EditorSelector = ({ algo, ...props }) => {
     switch (algo) {
@@ -61,10 +73,20 @@ const Home = () => {
         return <RadixSort {...props} />
       case "Heap Sort":
         return <HeapSort {...props} />
+      case "Comb Sort":
+        return <CombSort {...props}/>
+      case "Strand Sort":
+        return <StrandSort {...props}/>
+      case "Gnome Sort":
+        return <GenomeSort {...props}/>
+      case "Stooge Sort":
+        return <StoogeSort {...props}/>
       case "K-Way External Sort":
-        return <KwayExternal {...props} array={randomizedArray} />
+        return <KwayExternal {...props} />
       case "Replacement Ext Sort":
         return <ReplacementSort {...props} runs={runsArray} />
+      case "Bucket Sort":
+        return <BucketSort {...props} />
       default:
         return null;
     }
@@ -83,14 +105,24 @@ const Home = () => {
         return <MergeSortGraph {...props} />
       case "Counting Sort":
         return <CountingSortGraph {...props} />
-      // case "Radix Sort":
-      //   return <RadixSort {...props} />
+      case "Radix Sort":
+        return <RadixSortGraph {...props} />
       case "Heap Sort":
         return <HeapSortGraph {...props} />
+      case "Comb Sort":
+        return <CombSortGraph {...props}/>
+      case "Strand Sort":
+        return <StrandSortGraph {...props}/>
+      case "Gnome Sort":
+        return <GenomeSortGraph {...props}/>
+      case "Stooge Sort":
+        return <StoogeSortGraph {...props}/>
       case "K-Way External Sort":
         return <KWayExternalSortGraph {...props} array={randomizedArray} />
-      // case "Replacement Ext Sort":
-      //   return <ReplacementSort {...props} runs={runsArray} />
+      case "Replacement Ext Sort":
+        return <ReplacementSelectionSortGraph {...props} runs={runsArray} />
+      case "Bucket Sort":
+        return <BucketSortGraph {...props}/>
       default:
         return null;
     }
@@ -107,10 +139,20 @@ const Home = () => {
         return <QuickSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       case "Counting Sort":
         return <CountingSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Comb Sort":
+        return <CombSortDetails {...props} I={I} num1={num1} num2={num2} />
+      case "Strand Sort":
+        return <StrandSortDetails {...props} I={I} num1={num1} num2={num2} />
+      case "Gnome Sort":
+        return <GenomeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Stooge Sort":
+        return <StoogeSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       // // case "Radix Sort":
       // //   return <RadixSort {...props} />
       case "Heap Sort":
         return <HeapSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
+      case "Bucket Sort":
+        return <BucketSortDetails {...props} I={I} J={J} num1={num1} num2={num2}/>
       default:
         return null;
     }
@@ -125,6 +167,11 @@ const Home = () => {
     'Counting Sort',
     'Radix Sort',
     'Heap Sort',
+    'Bucket Sort',
+    'Comb Sort',
+    'Gnome Sort',
+    'Strand Sort',
+    'Stooge Sort',
     'K-Way External Sort',
     'Replacement Ext Sort'
   ];
@@ -150,6 +197,10 @@ const Home = () => {
   };
 
   const onVisualize = async () => {
+    if(randomizedArray.length<6 || randomizedArray.length>40){
+      alert('Array size should be in between 6 and 40')
+      return;
+    }
     if (isVisualizing) return;
 
     setIsVisualizing(true);
@@ -163,10 +214,27 @@ const Home = () => {
           setI:setI,
           setJ:setJ,          
           setNum1:setNum1,          
-          setNum2:setNum2
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
-
+      case 'Bucket Sort':
+        await bucketSort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          unsortedRunsArray1:unsortedRunsArray1,
+          unsortedRunsArray2:unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1,
+          setNum1:setNum1,
+          setI:setI,
+        })
+        break;
       case 'Bubble Sort':
         await bubbleSort({
           array: randomizedArray,
@@ -176,19 +244,30 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
-
       case 'Insertion Sort':
+        console.log(comparisons)
         await insertionSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          setI:setI,
+          setJ:setJ,
+          setNum1:setNum1,          
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
-
       case 'QuickSort':
         await quickSortLWrapper({
           array: randomizedArray,
@@ -200,10 +279,13 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
-
       case 'Merge Sort':
         await mergeSortWrapper({
           array: randomizedArray,
@@ -212,6 +294,10 @@ const Home = () => {
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
           setColorsArray: setColorsArray,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
         break;
       case 'Counting Sort':
@@ -243,8 +329,68 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
         });
+        break;
+      case 'Comb Sort':
+        await Combsort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          setI:setI,
+          setNum1:setNum1,
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
+        })
+        break;
+      case "Gnome Sort":
+        await Genomesort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          setI:setI,
+          setNum1:setNum1,
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons,
+          swaps:swaps,
+          setswaps:setswaps
+        })
+        break;
+      case "Strand Sort":
+        await Strandsort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          unsortedRunsArray1:unsortedRunsArray1,
+          unsortedRunsArray2:unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1,
+          setNum1:setNum1,
+          setNum2:setNum2,
+          comparisons:comparisons,
+          setComparisons:setComparisons
+        })
+        break;
+      case "Stooge Sort":
+        await Stoogesort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          comparisons:comparisons,
+          setComparisons:setComparisons
+        })
         break;
       case 'K-Way External Sort':
         await KWAYEXTSORT.k_way_external({
@@ -287,7 +433,7 @@ const Home = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }} id='home'>
       <HomeHeader
         algorithms={algorithms}
         onAlgorithmChange={setCurrentAlgorithm}
@@ -298,6 +444,10 @@ const Home = () => {
         onStart={onVisualize}
         isVisualizing={isVisualizing}
       />
+      <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
+        <Comparisons comparisons={comparisons}/>
+        <Swaps swaps={swaps}/>
+      </div>
       <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',alignContent:'space-between',justifyContent:'space-between',maxHeight:'210px'}}>
         <GraphSelector algo={currentAlgorithm} val={'sample'}/>
           <DetailsSelector algo={currentAlgorithm} val={'sample'}/>
@@ -338,15 +488,30 @@ const Home = () => {
                   zIndex:'1'
                 }}
               >
-                
               </SortingBar>
               <div style={{color:' #4169e1',fontWeight:'bold',position:'absolute',zIndex:'1',marginLeft:`${width+15}%`}}>{item}</div>
-              
             </div>
           );
         })}
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
+      {currentAlgorithm === 'Strand Sort' ? <StrandSortBars colorsArray={colorsArray} sublist={unsortedRunsArray1} output={unsortedRunsArray2} maxItem={maxItem}/> : null}
+      {currentAlgorithm === 'Bucket Sort' ? <BucketSortBars colorsArray={colorsArray} tmp1={unsortedRunsArray1} tmp2={unsortedRunsArray2} maxItem={maxItem}/> : null}
+      <div>
+        <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
+      </div>
+      <div>
+        {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? 
+        <div>
+          <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
+            Download File
+          </div>
+          <div>
+          <Downloadbtn />
+          </div>
+        </div>
+        : null}
+        </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
     </div>
   );

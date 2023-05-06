@@ -58,7 +58,7 @@ const HomeHeader = ({
         isVisualizing={isVisualizing}
       />
       <RandomizeButton onClick={onRandomize} />
-      <StartButton onClick={onStart} />
+      <StartButton onClick={onStart}/>
     </Row>
   );
 };

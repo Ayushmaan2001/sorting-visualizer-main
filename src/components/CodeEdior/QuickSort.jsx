@@ -4,34 +4,55 @@ import './table.css'
 import CodeEditor from './codeEditor'
 
 let Cpp = `
-void swap(int* a, int* b)
+#include <iostream>
+
+// Function to partition the array and return the pivot index
+int partition(int *arr, int start, int end)
 {
-    int t = *a;
-    *a = *b;
-    *b = t;
-}
-int partition(int arr[], int low, int high)
-{
-    int pivot = arr[high]; // pivot
-    int i
-        = (low
-           - 1);   
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++; 
-            swap(&arr[i], &arr[j]);
+    int pivot = arr[end]; // Choose the last element as the pivot
+    int i = start - 1;   // Index of the smaller element
+ 
+    // Loop through the array and swap elements if necessary
+    for (int j = start; j < end; j++)
+    {
+        // If the current element is smaller than the pivot
+        if (arr[j] < pivot)
+        {
+            i++; // Increment the index of the smaller element
+            std::swap(arr[i], arr[j]); // Swap the elements
         }
     }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
+ 
+    std::swap(arr[i + 1], arr[end]); // Swap the pivot element into its correct position
+    return i + 1; // Return the pivot index
 }
-void quickSort(int arr[], int low, int high)
+
+// Recursive quicksort function
+void quicksort(int *arr, int start, int end)
 {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+    if (start < end) // If the array has more than one element
+    {
+        int pivotIndex = partition(arr, start, end); // Partition the array and get the pivot index
+ 
+        // Sort the elements before and after the pivot
+        quicksort(arr, start, pivotIndex - 1);
+        quicksort(arr, pivotIndex + 1, end);
     }
+}
+
+int main()
+{
+    int arr[] = {5, 3, 6, 2, 10};
+    int n = sizeof(arr) / sizeof(arr[0]);
+ 
+    // Sort the array
+    quicksort(arr, 0, n - 1);
+ 
+    // Print the sorted array
+    for (int i = 0; i < n; i++)
+        std::cout << arr[i] << " ";
+ 
+    return 0;
 }
 `,
 Java = `
@@ -107,21 +128,37 @@ public class Main {
 }
 `,
 Python = `
-def partition(array, low, high):
-    pivot = array[high]
-    i = low - 1
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i = i + 1
-            (array[i], array[j]) = (array[j], array[i])
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
+def partition(arr, start, end):
+    # Choose the last element as the pivot
+    pivot = arr[end]
+ 
+    # Index of the smaller element
+    i = start - 1
+ 
+    # Loop through the array and swap elements if necessary
+    for j in range(start, end):
+        # If the current element is smaller than the pivot
+        if arr[j] < pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+ 
+    # Swap the pivot element into its correct position
+    arr[i + 1], arr[end] = arr[end], arr[i + 1]
+ 
     return i + 1
 
-def quick_sort(array, low, high):
-    if low < high:
-        pi = partition(array, low, high)
-        quick_sort(array, low, pi - 1)
-        quick_sort(array, pi + 1, high)
+def quicksort(arr, start, end):
+    if start < end:
+        # Partition the array and get the pivot index
+        pivot_index = partition(arr, start, end)
+ 
+        # Sort the elements before and after the pivot
+        quicksort(arr, start, pivot_index - 1)
+        quicksort(arr, pivot_index + 1, end)
+
+# Test the function
+print(quicksort([5, 3, 6, 2, 10], 0, 4)) # [2, 3, 5, 6, 10]
+
 `,
 Javascript = `
 // In this code we have taken pivot as the last value of range, but you can
@@ -193,20 +230,14 @@ print("After");
 
 export default function QuickSort({text}) {
   return (
-    <React.Fragment><Row style={{
-      display: 'flex',
-      marginTop:'30px',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignContent: 'space-between',
-      justifyContent: 'space-around',
-      alignItems: 'center' }}>
+    <React.Fragment>
+      <Row className='bg'>
           <div className='desc'>
       <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.</h2>
-        <h2 style={{ color: 'white' }}>This division in partitions is done based on an element, called pivot: all the elements bigger than the pivot get placed on the right side of the structure, the smaller ones to the left, creating two partitions. Next, this procedure gets applied recursively to the two partitions and so on.
-        </h2>
-        <h2 style={{ color: 'white' }}>This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.</h2>
+        <h3 style={{ color: 'white' }}>Quick Sort is a sorting algorithm based on splitting the data structure in smaller partitions and sort them recursively until the data structure is sorted.</h3>
+        <h3 style={{ color: 'white' }}>This division in partitions is done based on an element, called pivot: all the elements bigger than the pivot get placed on the right side of the structure, the smaller ones to the left, creating two partitions. Next, this procedure gets applied recursively to the two partitions and so on.
+        </h3>
+        <h3 style={{ color: 'white' }}>This partition technique based on the pivot is called Divide and conquer. It's a performant strategy also used by other sorting algorithms, such as Merge Sort.</h3>
       </Col>
         </div>
           <div className="mobile-table">
