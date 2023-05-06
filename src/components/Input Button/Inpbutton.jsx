@@ -6,6 +6,7 @@ import React from 'react';
 const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
     const val = useRef("")
     const [ipArray,setIpArray] = useState([]);
+    let check = true;
     const pushArrayValues = () => {
         let str = val.current.input.defaultValue;
         for(let i=0;i<str.length;i++){
@@ -19,12 +20,23 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
               i++;
             }
             if(tmp.length!==0)
+            if(tmp>= 'a' && tmp<='z'){
+              alert("Enter correct array")
+              check = false;
+              return;
+            }
               ipArray.push(Number(tmp));
           }
         }
-        setMaxItem(Math.max(...ipArray));
+        if(check){
+          setMaxItem(Math.max(...ipArray));
         setRandomizedArray(ipArray)
         setIpArray([])
+        }
+        else{
+          return;
+        }
+        check = true;
     }
     return (
         <React.Fragment>
