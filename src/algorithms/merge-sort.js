@@ -1,20 +1,23 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 
 let arr = [];
-
+let cmp = 0;
 const mergeSort = async (
   l,
   r,
   setArray,
   setColorsArray,
-  visualizationSpeed
+  visualizationSpeed,
+  comparisons,
+  setComparisons,
+  swaps,
+  setswaps
 ) => {
   if (l >= r) return;
 
   let mid = Math.floor((l + r) / 2);
-  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed);
-  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed);
-
+  await mergeSort(l, mid, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons,swaps,setswaps);
+  await mergeSort(mid + 1, r, setArray, setColorsArray, visualizationSpeed, comparisons,setComparisons,swaps,setswaps);
   let i = l;
   let j = mid + 1;
   let it = 0;
@@ -26,11 +29,16 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
-
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
+    cmp++;
+    setComparisons(cmp)
     if (arr[i] > arr[j]) {
       tempArr[it] = arr[j];
       j++;
+      swaps++;
+      setswaps(swaps);
     } else {
       tempArr[it] = arr[i];
       i++;
@@ -44,7 +52,9 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
 
     tempArr[it] = arr[i];
     it++;
@@ -56,7 +66,9 @@ const mergeSort = async (
     newColorsArray[i] = 2;
     newColorsArray[j] = 2;
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
 
     tempArr[it] = arr[j];
     it++;
@@ -72,7 +84,9 @@ const mergeSort = async (
     newColorsArray[j - 1] = 2;
     setArray(arr.concat());
     setColorsArray(newColorsArray.concat());
-    await asyncSetTimeout({timeout: 10*visualizationSpeed});
+    await asyncSetTimeout({
+      timeout: 10 * visualizationSpeed
+    });
   }
 };
 
@@ -83,15 +97,24 @@ const mergeSortWrapper = async ({
   setArray,
   setColorsArray,
   visualizationSpeed,
+  comparisons,
+  setComparisons,
+  swaps,
+  setswaps
 }) => {
   arr = array.concat();
-
+  comparisons=0;
+  swaps=0;
   await mergeSort(
     leftIndex,
     rightIndex,
     setArray,
     setColorsArray,
-    visualizationSpeed
+    visualizationSpeed,
+    comparisons,
+    setComparisons,
+    swaps,
+  setswaps
   );
   setColorsArray([])
 };

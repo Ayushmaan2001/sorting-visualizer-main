@@ -4,61 +4,74 @@ import { Col, Row } from 'antd';
 import CodeEditor from './codeEditor';
 
 let Cpp = `
-void merge(int array[], int const left, int const mid,
-           int const right)
+#include <iostream>
+#include <vector>
+
+// Function to merge two sorted arrays
+std::vector<int> merge(const std::vector<int>& left, const std::vector<int>& right)
 {
-    auto const subArrayOne = mid - left + 1;
-    auto const subArrayTwo = right - mid;
-    auto *leftArray = new int[subArrayOne],
-         *rightArray = new int[subArrayTwo];
-    for (auto i = 0; i < subArrayOne; i++)
-        leftArray[i] = array[left + i];
-    for (auto j = 0; j < subArrayTwo; j++)
-        rightArray[j] = array[mid + 1 + j];
-    auto indexOfSubArrayOne
-        = 0, // Initial index of first sub-array
-        indexOfSubArrayTwo
-        = 0; // Initial index of second sub-array
-    int indexOfMergedArray
-        = left; // Initial index of merged array
-    while (indexOfSubArrayOne < subArrayOne
-           && indexOfSubArrayTwo < subArrayTwo) {
-        if (leftArray[indexOfSubArrayOne]
-            <= rightArray[indexOfSubArrayTwo]) {
-            array[indexOfMergedArray]
-                = leftArray[indexOfSubArrayOne];
-            indexOfSubArrayOne++;
-        }
-        else {
-            array[indexOfMergedArray]
-                = rightArray[indexOfSubArrayTwo];
-            indexOfSubArrayTwo++;
-        }
-        indexOfMergedArray++;
+    std::vector<int> result; // Vector to store the merged array
+ 
+    // Indexes to track the current position in the left and right arrays
+    int i = 0, j = 0;
+ 
+    // Loop until one of the arrays is fully processed
+    while (i < left.size() && j < right.size())
+    {
+        // If the element in the left array is smaller, add it to the result
+        if (left[i] < right[j])
+            result.push_back(left[i++]);
+        else // Otherwise, add the element in the right array
+            result.push_back(right[j++]);
     }
-    while (indexOfSubArrayOne < subArrayOne) {
-        array[indexOfMergedArray]
-            = leftArray[indexOfSubArrayOne];
-        indexOfSubArrayOne++;
-        indexOfMergedArray++;
-    }
-    while (indexOfSubArrayTwo < subArrayTwo) {
-        array[indexOfMergedArray]
-            = rightArray[indexOfSubArrayTwo];
-        indexOfSubArrayTwo++;
-        indexOfMergedArray++;
-    }
-    delete[] leftArray;
-    delete[] rightArray;
+ 
+    // Add the remaining elements from the left array (if any)
+    while (i < left.size())
+        result.push_back(left[i++]);
+ 
+    // Add the remaining elements from the right array (if any)
+    while (j < right.size())
+        result.push_back(right[j++]);
+ 
+    return result;
 }
-void mergeSort(int array[], int const begin, int const end)
+
+// Recursive function to sort an array using mergesort
+std::vector<int> mergesort(std::vector<int> arr)
 {
-    if (begin >= end)
-        return; 
-    auto mid = begin + (end - begin) / 2;
-    mergeSort(array, begin, mid);
-    mergeSort(array, mid + 1, end);
-    merge(array, begin, mid, end);
+    // If the array has more than one element, split it in half
+    if (arr.size() > 1)
+    {
+        // Calculate the midpoint of the array
+        int mid = arr.size() / 2;
+ 
+        // Split the array into two halves
+        std::vector<int> left(arr.begin(), arr.begin() + mid);
+        std::vector<int> right(arr.begin() + mid, arr.end());
+ 
+        // Sort the two halves
+        left = mergesort(left);
+        right = mergesort(right);
+ 
+        // Merge the sorted halves
+        arr = merge(left, right);
+    }
+ 
+    return arr;
+}
+
+int main()
+{
+    std::vector<int> arr = {5, 3, 6, 2, 10};
+ 
+    // Sort the array
+    arr = mergesort(arr);
+ 
+    // Print the sorted array
+    for (int i : arr)
+        std::cout << i << " ";
+ 
+    return 0;
 }
 `,
 Java = `
@@ -140,31 +153,53 @@ public class Main {
 }
 `,
 Python = `
-def mergeSort(arr):
-    if len(arr) > 1:
-        mid = len(arr)//2
-        L = arr[:mid]
-        R = arr[mid:]
-        mergeSort(L)
-        mergeSort(R)
-        i = j = k = 0
-        while i < len(L) and j < len(R):
-            if L[i] <= R[j]:
-                arr[k] = L[i]
-                i += 1
-            else:
-                arr[k] = R[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
+def merge(left, right):
+    result = [] # List to store the merged array
  
-        while j < len(R):
-            arr[k] = R[j]
+    # Indexes to track the current position in the left and right lists
+    i = 0
+    j = 0
+ 
+    # Loop until one of the lists is fully processed
+    while i < len(left) and j < len(right):
+        # If the element in the left list is smaller, add it to the result
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else: # Otherwise, add the element in the right list
+            result.append(right[j])
             j += 1
-            k += 1
+ 
+    # Add the remaining elements from the left list (if any)
+    result.extend(left[i:])
+ 
+    # Add the remaining elements from the right list (if any)
+    result.extend(right[j:])
+ 
+    return result
+
+def mergesort(arr):
+    # If the array has more than one element, split it in half
+    if len(arr) > 1:
+        # Calculate the midpoint of the array
+        mid = len(arr) // 2
+ 
+        # Split the array into two halves
+        left = arr[:mid]
+        right = arr[mid:]
+ 
+        # Sort the two halves
+        left = mergesort(left)
+        right = mergesort(right)
+ 
+        # Merge the sorted halves
+        arr = merge(left, right)
+ 
+    return arr
+
+# Test the function
+print(mergesort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
+
 `,
 Javascript = `
 let arr = [1000, 1, 100, 3, 2, 34, 54, 89, 75, 37];
@@ -234,20 +269,13 @@ print("After");
 `
 export default function MergeSort({text}) {
   return (
-    <React.Fragment><Row style={{
-      display: 'flex',
-      marginTop: '30px',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      alignContent: 'space-between',
-      justifyContent: 'space-around',
-      alignItems: 'center'
-    }}>
+    <React.Fragment>
+      <Row className='bg'>
           <div className='desc'>
-      <Col span={14} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
-        <h2 style={{ color: 'white' }}>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</h2>
-        <h2 style={{ color: 'white' }}>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.
-        </h2>
+      <Col span={60} style={{ color: 'white' }}><h1 style={{ color: 'orange' }}>Description</h1>
+        <h3 style={{ color: 'white' }}>Merge Sort is a sorting algorithm based on the Divide et Impera technique, like Quick Sort. It can be implemented iteratively or recursively, using the Top-Down and Bottom-Up algorithms respectively. We represented the first one.</h3>
+        <h3 style={{ color: 'white' }}>The algorithm divides the data structure recursively until the subsequences contain only one element. At this point, the subsequences get merged and ordered sequentially. To do so, the algorithm progressively builds the sorted sublist by adding each time the minimum element of the next two unsorted subsequences until there is only one sublist remaining. This will be the sorted data structure.
+        </h3>
       </Col>
       </div>
           <div className="mobile-table">
