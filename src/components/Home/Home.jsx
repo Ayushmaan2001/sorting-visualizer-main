@@ -82,7 +82,7 @@ const Home = () => {
       case "Stooge Sort":
         return <StoogeSort {...props}/>
       case "K-Way External Sort":
-        return <KwayExternal {...props} array={randomizedArray} />
+        return <KwayExternal {...props} />
       case "Replacement Ext Sort":
         return <ReplacementSort {...props} runs={runsArray} />
       case "Bucket Sort":

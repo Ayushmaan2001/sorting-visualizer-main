@@ -186,7 +186,7 @@ def main():
 if __name__ == '__main__':
     main()
 `
-export default function KwayExternal({array,runs}) {
+export default function KwayExternal({runs}) {
 	return (
 		<React.Fragment>
 			<Row className='bg'>
@@ -196,9 +196,7 @@ export default function KwayExternal({array,runs}) {
 					<h3 style={{ color: 'white' }}>External sorting typically uses a hybrid sort-merge strategy. In the sorting phase, chunks of data small enough to fit in the main memory are read, sorted, and written out to a temporary file. In the merge phase, the sorted sub-files are combined into a single larger file.</h3>
 					<h3 style={{ color: 'white' }}>The external merge sort algorithm, which sorts chunks that each fit in RAM, then merges the sorted chunks together. We first divide the file into runs such that the size of a run is small enough to fit into the main memory. Then sort each run in the main memory using the merge sort sorting algorithm. Finally merge the resulting runs together into successively bigger runs, until the file is sorted.
 						Here N is the size of the array.
-					</h3>
-					<h3 style={{ color: 'whitesmoke' }}><mark style={{backgroundColor:'Highlight'}}>Array Length({array.length}) = Run Size({2}) * Number of Runs({array.length/2})</mark></h3>
-				</Col>
+					</h3></Col>
 				</div>
 				<div className="mobile-table">
 				<Col span={8}>
