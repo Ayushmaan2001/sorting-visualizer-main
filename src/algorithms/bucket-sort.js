@@ -48,11 +48,10 @@ async function main(arr, noOfBuckets, setArray, unsortedRunsArray1,unsortedRunsA
                 arr[k] = i;
                 k++;
                 setArray(arr);
-                // await asyncSetTimeout({timeout:10*visualizationSpeed})
+                await asyncSetTimeout({timeout:10*visualizationSpeed})
             }
         }
     }
-    setArray(arr)
 }
 
 const bucketSort = async ({
@@ -65,7 +64,7 @@ const bucketSort = async ({
     setunsortedRunsArray2,
     setunsortedRunsArray1
 } = {}) => {
-    main(array, 2, setArray, unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray2,setunsortedRunsArray1,visualizationSpeed,setColorsArray)
+    await main(array, 2, setArray, unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray2,setunsortedRunsArray1,visualizationSpeed,setColorsArray)
 }
 
 export default bucketSort;
