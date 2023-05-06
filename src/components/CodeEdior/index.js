@@ -12,3 +12,4 @@ export {default as GenomeSort} from './GenomeSort';
 export {default as StoogeSort} from './StoogeSort';
 export {default as StrandSort} from './StrandSort'
 export { default as ReplacementSort } from './ReplacementSort';
+export {default as BucketSort} from './BucketSort'

@@ -17,7 +17,7 @@ import { Comparisons, Swaps } from '../Analysis';
 import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort, bucketSort } from '../../algorithms';
 
 //CodeEditors import
-import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort} from '../CodeEdior';
+import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort, BucketSort} from '../CodeEdior';
 
 //import graphs
 import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph,CombSortGraph,StrandSortGraph,GenomeSortGraph,StoogeSortGraph,RadixSortGraph,ReplacementSelectionSortGraph } from '../GraphShows';
@@ -85,6 +85,8 @@ const Home = () => {
         return <KwayExternal {...props} array={randomizedArray} />
       case "Replacement Ext Sort":
         return <ReplacementSort {...props} runs={runsArray} />
+      case "Bucket Sort":
+        return <BucketSort {...props} />
       default:
         return null;
     }
