@@ -40,6 +40,7 @@ const radixSort = async ({
     }
     let res = radixsort(array);
     //change here to correct the visualization
+    await asyncSetTimeout({timeout:10*visualizationSpeed})
     for(let i=0;i<test.length;i++){
         await asyncSetTimeout({timeout:200});
         setArray(test[i]);

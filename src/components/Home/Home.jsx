@@ -14,7 +14,7 @@ import { Downloadbtn } from '../Download Btn';
 import { Comparisons, Swaps } from '../Analysis';
 
 //algorithms import
-import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort } from '../../algorithms';
+import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort, bucketSort } from '../../algorithms';
 
 //CodeEditors import
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort} from '../CodeEdior';
@@ -28,6 +28,7 @@ import StrandSortBars from '../RunsBars/StrandSortBars';
 
 //import details
 import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails } from '../Details';
+import BucketSortBars from '../RunsBars/BucketSortBars';
 
 
 const Home = () => {
@@ -159,6 +160,7 @@ const Home = () => {
     'Counting Sort',
     'Radix Sort',
     'Heap Sort',
+    'Bucket Sort',
     'Comb Sort',
     'Gnome Sort',
     'Strand Sort',
@@ -211,6 +213,18 @@ const Home = () => {
           swaps:swaps,
           setswaps:setswaps
         });
+        break;
+      case 'Bucket Sort':
+        await bucketSort({
+          array:randomizedArray,
+          setArray:setRandomizedArray,
+          setColorsArray:setColorsArray,
+          visualizationSpeed:visualizationSpeed,
+          unsortedRunsArray1:unsortedRunsArray1,
+          unsortedRunsArray2:unsortedRunsArray2,
+          setunsortedRunsArray2: setunsortedRunsArray2,
+          setunsortedRunsArray1: setunsortedRunsArray1,
+        })
         break;
       case 'Bubble Sort':
         await bubbleSort({
@@ -473,6 +487,7 @@ const Home = () => {
       </div>
       {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? <RunsBars colorsArray={colorsArray} runsArray1={runsArray1} runsArray2={runsArray2} maxItem={maxItem} unsortedRunsArray2={unsortedRunsArray2} unsortedRunsArray1={unsortedRunsArray1}/> : null}
       {currentAlgorithm === 'Strand Sort' ? <StrandSortBars colorsArray={colorsArray} sublist={unsortedRunsArray1} output={unsortedRunsArray2} maxItem={maxItem}/> : null}
+      {currentAlgorithm === 'Bucket Sort' ? <BucketSortBars colorsArray={colorsArray} tmp1={unsortedRunsArray1} tmp2={unsortedRunsArray2} maxItem={maxItem}/> : null}
       <div>
         <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
       </div>

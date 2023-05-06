@@ -12,3 +12,4 @@ export {default as Stoogesort} from './stooge-sort';
 export {default as Combsort} from './comb-sort';
 export {default as Strandsort} from './strand-sort';
 export { default as externalReplacementSort } from './external-replacement-sort';
+export {default as bucketSort} from './bucket-sort';
