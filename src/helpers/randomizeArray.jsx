@@ -7,4 +7,57 @@ const generateRandomizedArray = ({arraySize} = {}) =>{
     return randomizedArray;
 }
 
+const swapInArray = (arr, swaps) => {
+    let size = arr.length;
+
+    for (let i = 0; i < swaps; i++) {
+      let index1 = Math.floor(Math.random() * size);
+      let index2 = index1 + 1;
+      if (index2 >= size) {
+        index2 = index1 - 1;
+      }
+      let temp = arr[index1];
+      arr[index1] = arr[index2];
+      arr[index2] = temp;
+    }
+    return arr;
+}
+  
+
+const generateNearlySortedArray = ({arraySize} = {}) => {
+    let arr = generateRandomizedArray({arraySize: arraySize});
+    arr.sort((a, b) => a - b); 
+    // 10 - 30% of length direct inversions created
+    let numSwaps = Math.floor(((Math.floor(Math.random() * 11) + 20) * arr.length) / 100.0); 
+    // console.log(numSwaps);
+    return swapInArray(arr, numSwaps);
+}
+
+const generateNearlyReverseSortedArray = ({arraySize} = {}) => {
+    let arr = generateRandomizedArray({arraySize: arraySize});
+    arr.sort((a, b) => b - a); 
+    let numSwaps = Math.floor(((Math.floor(Math.random() * 11) + 20) * arr.length) / 100.0);
+    // console.log(numSwaps);
+    return swapInArray(arr, numSwaps);
+}
+
+const generateSortedArray = ({arraySize} = {}) => {
+    let arr = generateRandomizedArray({arraySize: arraySize});
+    arr.sort((a, b) => a - b); 
+    return arr;
+}
+
+const generateReverseSortedArray = ({arraySize} = {}) => {
+    let arr = generateRandomizedArray({arraySize: arraySize});
+    arr.sort((a, b) => b - a); 
+    return arr;
+}
+
+
+// console.log("Random: " + generateRandomizedArray({arraySize: 10}));
+// console.log("Sorted: " + generateSortedArray({arraySize: 10}));
+// console.log("Reverse Sorted: " + generateReverseSortedArray({arraySize: 10}));
+// console.log("Nearly Sorted: " + generateNearlySortedArray({arraySize: 50}));
+// console.log("Nearly Reverse Sorted: " + generateNearlyReverseSortedArray({arraySize: 50}));
+
 export default generateRandomizedArray;
