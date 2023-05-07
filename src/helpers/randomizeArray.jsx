@@ -53,11 +53,5 @@ const generateReverseSortedArray = ({arraySize} = {}) => {
     return arr;
 }
 
-
-// console.log("Random: " + generateRandomizedArray({arraySize: 10}));
-// console.log("Sorted: " + generateSortedArray({arraySize: 10}));
-// console.log("Reverse Sorted: " + generateReverseSortedArray({arraySize: 10}));
-// console.log("Nearly Sorted: " + generateNearlySortedArray({arraySize: 50}));
-// console.log("Nearly Reverse Sorted: " + generateNearlyReverseSortedArray({arraySize: 50}));
-
-export default generateRandomizedArray;
+const generateArray = {generateRandomizedArray,generateNearlySortedArray,generateNearlyReverseSortedArray,generateSortedArray,generateReverseSortedArray}
+export default generateArray;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import generateRandomizedArray from '../../helpers/randomizeArray';
+import generateArray from '../../helpers/randomizeArray';
 import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import '../../index.css';
@@ -47,7 +47,7 @@ const Home = () => {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [randomizedArray, setRandomizedArray] = useState(
-    generateRandomizedArray({ arraySize: arraySize })
+    generateArray.generateRandomizedArray({ arraySize: arraySize })
   );
   const [colorsArray, setColorsArray] = useState(
     new Array(randomizedArray.length).fill(0)
@@ -178,7 +178,7 @@ const Home = () => {
 
   const onRandomize = () => {
     if (isVisualizing) return;
-    const nextRandomizedArray = generateRandomizedArray({
+    const nextRandomizedArray = generateArray.generateRandomizedArray({
       arraySize: randomizedArray.length,
     });
     setRandomizedArray(nextRandomizedArray);
@@ -186,7 +186,7 @@ const Home = () => {
   };
   const onInputSizeChanged = (val) => {
     if (isVisualizing) return;
-    const nextRandomizedArray = generateRandomizedArray({ arraySize: val });
+    const nextRandomizedArray = generateArray.generateRandomizedArray({ arraySize: val });
     setRandomizedArray(nextRandomizedArray);
     setMaxItem(Math.max(...nextRandomizedArray));
     setColorsArray(new Array(nextRandomizedArray.length).fill(0));
