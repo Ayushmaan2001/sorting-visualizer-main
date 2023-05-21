@@ -31,6 +31,8 @@ import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, Counting
 import BucketSortBars from '../RunsBars/BucketSortBars';
 import BucketSortGraph from '../GraphShows/BucketSortGraph';
 import Footer from '../Footer/Footer';
+import FlowChart from '../FlowChart/FlowChart';
+import assets from '../../assets';
 
 
 const Home = () => {
@@ -155,6 +157,43 @@ const Home = () => {
         return <HeapSortDetails {...props} I={I} J={J} num1={num1} num2={num2} />
       case "Bucket Sort":
         return <BucketSortDetails {...props} I={I} J={J} num1={num1} num2={num2}/>
+      default:
+        return null;
+    }
+  }
+
+  const FlowChartSelector = ({algo,...props}) => {
+    switch(algo){
+      case "Bubble Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.bubbleSort1}/>
+      case "Insertion Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.insertionSort} />
+      case "Selection Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.selectionSort}/>
+      case "QuickSort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.quickSort}/>
+      case "Merge Sort":
+        return <FlowChart {...props} f1={true} f2={true} f3={false} val1={assets.images.mergeSort1} val2={assets.images.mergeSort2}/>
+      case "Counting Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.countSort}/>
+      case "Radix Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.radixSort}/>
+      case "Heap Sort":
+        return<FlowChart {...props} f1={true} f2={true} f3={true} val1={assets.images.heapSort1} val2={assets.images.heapSort2} val3={assets.images.heapSort3}/>
+      case "Comb Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.combSort}/>
+      case "Strand Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.strandSort}/>
+      case "Gnome Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.gnomeSort}/>
+      case "Stooge Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.stoogeSort}/>
+      case "K-Way External Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.kWayExternal}/>
+      case "Replacement Ext Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.replacementSort}/>
+      case "Bucket Sort":
+        return <FlowChart {...props} f1={true} f2={false} f3={false} val1={assets.images.bucketSort}/>
       default:
         return null;
     }
@@ -556,6 +595,7 @@ const Home = () => {
         : null}
         </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
+      <FlowChartSelector algo={currentAlgorithm} val={'sample'}/>
       <Footer />
     </div>
   );
