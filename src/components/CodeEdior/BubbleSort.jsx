@@ -168,16 +168,7 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
 export default function BubbleSort() {
   return (
     <React.Fragment>
-      <Row style={{
-        // // display: 'flex',
-        // marginTop: '30px',
-        // flexDirection: 'row',
-        // flexWrap: 'wrap',
-        // alignContent: 'space-between',
-        // justifyContent: 'space-around',
-      }}
-        className="bg"
-      >
+      <Row className="bg">
         <div className='desc'>
           <Col span={60}><h1 style={{ color: 'orange'}}>Description</h1>
             <h3 style={{ color: 'white' }}>Bubble Sort is an iterative sorting algorithm that imitates the movement of bubbles in sparkling water. The bubbles represents the elements of the data structure.</h3>

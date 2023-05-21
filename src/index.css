@@ -12,9 +12,3 @@ html {
 h2{
   color: orangered;
 }
-
-/* #home{
-  @media only screen and (min-width : 768px) {
-    display: none
-  }
-} */

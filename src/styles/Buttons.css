@@ -1,4 +1,4 @@
-button {
+.color-style {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 10px 20px;
@@ -10,32 +10,32 @@ button {
   color: #fff;
 }
 
-button:hover {
+.color-style:hover {
   letter-spacing: 0.25em;
   background: #ff1867;
   color: #ff1867;
   box-shadow: 0 0 45px #ff1867;
 }
 
-button::before {
+.color-style::before {
   content: '';
   position: absolute;
   inset: 2px;
   background: #222222;
 }
 
-button span {
+.color-style span {
   position: relative;
   z-index: 1;
 }
 
-button i {
+.color-style i {
   position: absolute;
   inset: 0;
   display: block;
 }
 
-button i::before {
+.color-style i::before {
   content: '';
   position: absolute;
   border: 2px solid #ff1867;
@@ -48,12 +48,12 @@ button i::before {
   transition: 0.5s;
 }
 
-button:hover i::before {
+.color-style:hover i::before {
   width: 20px;
   left: 20%;
 }
 
-button i::after {
+.color-style i::after {
   content: '';
   position: absolute;
   border: 2px solid #ff1867;
@@ -66,7 +66,7 @@ button i::after {
   transition: 0.5s;
 }
 
-button:hover i::after {
+.color-style:hover i::after {
   width: 20px;
   left: 80%;
 }
