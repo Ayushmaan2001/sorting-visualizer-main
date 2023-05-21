@@ -30,6 +30,7 @@ import StrandSortBars from '../RunsBars/StrandSortBars';
 import { BubbleSortDetails, InsertionSortDetails, SelectionSortDetails, CountingSortDetails, HeapSortDetails, QuickSortDetails,CombSortDetails,StrandSortDetails,GenomeSortDetails,StoogeSortDetails, BucketSortDetails } from '../Details';
 import BucketSortBars from '../RunsBars/BucketSortBars';
 import BucketSortGraph from '../GraphShows/BucketSortGraph';
+import Footer from '../Footer/Footer';
 
 
 const Home = () => {
@@ -555,6 +556,7 @@ const Home = () => {
         : null}
         </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
+      <Footer />
     </div>
   );
 };
