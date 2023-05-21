@@ -161,7 +161,6 @@ const Home = () => {
         return null;
     }
   }
-
   const FlowChartSelector = ({algo,...props}) => {
     switch(algo){
       case "Bubble Sort":
@@ -224,10 +223,8 @@ const Home = () => {
     "Sorted",
     "Reverse Sorted"
   ];
-
   function generateArrayChoice(array,val){
     let tmp;
-    console.log(val)
     switch(array){
       case "Random Array":
         tmp = generateArray.generateRandomizedArray({arraySize:val});
@@ -250,22 +247,19 @@ const Home = () => {
   }
 
   useEffect(() => {
-    let tmp = generateArrayChoice(currentArray,maxItem)
+    let tmp = generateArrayChoice(currentArray,randomizedArray.length)
     setRandomizedArray(tmp)
-  }, [currentArray,maxItem]);
+  }, [currentArray]);
 
   const onRandomize = () => {
     if (isVisualizing) return;
-    const nextRandomizedArray = generateArray.generateRandomizedArray({
-      arraySize: randomizedArray.length,
-    });
+    const nextRandomizedArray = generateArrayChoice(currentArray,randomizedArray.length)
     setRandomizedArray(nextRandomizedArray);
     setMaxItem(Math.max(...nextRandomizedArray));
   };
   const onInputSizeChanged = (val) => {
     if (isVisualizing) return;
-    const nextRandomizedArray = generateArray.generateRandomizedArray({arraySize:val})
-    // generateArrayChoice(currentAlgorithm,val)
+    const nextRandomizedArray = generateArrayChoice(currentArray,val)
     setRandomizedArray(nextRandomizedArray);
     setMaxItem(Math.max(...nextRandomizedArray));
     setColorsArray(new Array(nextRandomizedArray.length).fill(0));
