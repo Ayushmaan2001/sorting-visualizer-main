@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import generateArray from '../../helpers/randomizeArray';
 import SortingBar from '../SortingBar/SortingBar';
 import HomeHeader from '../HomeHeader/HomeHeader';
@@ -48,6 +48,7 @@ const Home = () => {
   const [num2, setNum2] = useState(0);
   const [randomizedArray, setRandomizedArray] = useState(
     generateArray.generateRandomizedArray({ arraySize: arraySize })
+
   );
   const [colorsArray, setColorsArray] = useState(
     new Array(randomizedArray.length).fill(0)
@@ -175,6 +176,43 @@ const Home = () => {
     'K-Way External Sort',
     'Replacement Ext Sort'
   ];
+  const [currentArray,setCurrentArray] = useState('Random Array')
+  const array = [
+    "Random Array",
+    "Nearly Sorted",
+    "Nearly Reverse Sorted",
+    "Sorted",
+    "Reverse Sorted"
+  ];
+
+  function generateArrayChoice(array,val){
+    let tmp;
+    console.log(val)
+    switch(array){
+      case "Random Array":
+        tmp = generateArray.generateRandomizedArray({arraySize:val});
+        return tmp;
+      case "Nearly Sorted":
+        tmp = generateArray.generateNearlySortedArray({arraySize:val});
+        return tmp;
+      case "Nearly Reverse Sorted":
+        tmp = generateArray.generateReverseSortedArray({arraySize:val});
+        return tmp
+      case "Sorted":
+        tmp = generateArray.generateSortedArray({arraySize:val});
+        return tmp;
+      case "Reverse Sorted":
+        tmp = generateArray.generateReverseSortedArray({arraySize:val});
+        return tmp;
+      default:
+        break;
+    }
+  }
+
+  useEffect(() => {
+    let tmp = generateArrayChoice(currentArray,maxItem)
+    setRandomizedArray(tmp)
+  }, [currentArray,maxItem]);
 
   const onRandomize = () => {
     if (isVisualizing) return;
@@ -186,7 +224,8 @@ const Home = () => {
   };
   const onInputSizeChanged = (val) => {
     if (isVisualizing) return;
-    const nextRandomizedArray = generateArray.generateRandomizedArray({ arraySize: val });
+    const nextRandomizedArray = generateArray.generateRandomizedArray({arraySize:val})
+    // generateArrayChoice(currentAlgorithm,val)
     setRandomizedArray(nextRandomizedArray);
     setMaxItem(Math.max(...nextRandomizedArray));
     setColorsArray(new Array(nextRandomizedArray.length).fill(0));
@@ -436,6 +475,9 @@ const Home = () => {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }} id='home'>
       <HomeHeader
         algorithms={algorithms}
+        array={array}
+        onArrayChange={setCurrentArray}
+        currentArray = {currentArray}
         onAlgorithmChange={setCurrentAlgorithm}
         currentAlgorithm={currentAlgorithm}
         onRandomize={onRandomize}

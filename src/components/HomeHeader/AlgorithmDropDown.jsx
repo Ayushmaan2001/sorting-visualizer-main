@@ -8,7 +8,7 @@ const AlgorithmDropDown = ({
   isVisualizing,
   onAlgorithmChange,
 }) => {
-  const width = 170;
+  const width = 140;
 
   const menu = (
     <Menu style={{width: width}}>
