@@ -1,6 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1;
 const Combsort = async ({
   array,
   setArray,
@@ -62,7 +63,8 @@ const Combsort = async ({
         array:array,
         fileName:"internal_array_output.txt",
         cmp:comparisons,
-        swap:swaps
+        swap:swaps,
+        check:check++,
     }))
     await ARRAY_FINAL_OUTPUT(var1)
     }

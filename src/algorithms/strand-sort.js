@@ -1,6 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1;
 var opp = [];
 async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons)
 {  
@@ -56,7 +57,8 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
           array:array,
           fileName:"internal_array_output.txt",
           cmp:comparisons,
-          swap:0
+          swap:0,
+          check:check++,
       }))
       await ARRAY_FINAL_OUTPUT(var1)
     }

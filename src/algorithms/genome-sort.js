@@ -1,6 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
 import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1;
 const Genomesort = async ({
     array,
     setArray,
@@ -64,7 +65,8 @@ const Genomesort = async ({
                 array:array,
                 fileName:"internal_array_output.txt",
                 cmp:comparisons,
-                swap:swaps
+                swap:swaps,
+                check:check++,
             }))
             await ARRAY_FINAL_OUTPUT(var1)
         }
