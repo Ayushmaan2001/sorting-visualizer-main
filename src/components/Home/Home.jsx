@@ -249,7 +249,7 @@ const Home = () => {
   useEffect(() => {
     let tmp = generateArrayChoice(currentArray,randomizedArray.length)
     setRandomizedArray(tmp)
-  }, [currentArray]);
+  }, [currentArray,randomizedArray.length]);
 
   const onRandomize = () => {
     if (isVisualizing) return;

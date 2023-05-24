@@ -20,7 +20,7 @@ return (
                     </span><span>Ayushmaan Jangid 
                 <i class="fa fa-envelope"></i>
                 <p><a href="mailto:support@company.com">ayushmaan.jangid.e21@nsut.ac.in</a></p>
-                    </span> <span>Pawan Kuamr Verma
+                    </span> <span>Pawan Kumar Verma
                     <i class="fa fa-envelope"></i>
                 <p><a href="mailto:support@company.com">kumarpp9718@gmail.com</a></p>
                         </span></p>
