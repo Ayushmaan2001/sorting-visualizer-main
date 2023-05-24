@@ -1,4 +1,5 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
 const selectionSort = async ({
   array,
@@ -52,6 +53,13 @@ const selectionSort = async ({
     swaps++;
     setswaps(swaps);
     setArray(array);
+    let var1 = JSON.parse(JSON.stringify({
+      array:array,
+      fileName:"internal_array_output.txt",
+      cmp:comparisons,
+      swaps:swaps
+  }))
+  await ARRAY_FINAL_OUTPUT(var1)
   }
   setColorsArray([])
 };

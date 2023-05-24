@@ -8,7 +8,7 @@ import '../../index.css';
 import { Inpbutton } from '../Input Button';
 
 //import Download Button
-import { Downloadbtn } from '../Download Btn';
+import { Downloadbtn,DownloadArray } from '../Download Btn';
 
 //import Analysis Components
 import { Comparisons, Swaps } from '../Analysis';
@@ -577,6 +577,18 @@ const Home = () => {
         <Inpbutton setRandomizedArray={setRandomizedArray} setMaxItem={setMaxItem} isVisualizing={isVisualizing}/>
       </div>
       <div>
+        {
+          currentAlgorithm === 'Stooge Sort' || currentAlgorithm === 'Bucket Sort' || currentAlgorithm === 'Counting Sort' || currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' || currentAlgorithm === 'Quick Sort' || currentAlgorithm === 'Radix Sort' ? 
+          null :
+          <div>
+          <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
+            Download File
+          </div>
+          <div>
+          <DownloadArray />
+          </div>
+        </div>
+        }
         {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? 
         <div>
           <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>

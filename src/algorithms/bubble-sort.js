@@ -1,4 +1,5 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
 const bubbleSort = async ({
   array,
@@ -39,12 +40,18 @@ const bubbleSort = async ({
         array[j] = temp;
         swaps++;
         setswaps(swaps)
-        
         setArray(array);
       }
       await asyncSetTimeout({
         timeout: 10 * visualizationSpeed
       })
+      let var1 = JSON.parse(JSON.stringify({
+        array:array,
+        fileName:"internal_array_output.txt",
+        cmp:comparisons,
+        swaps:swaps
+    }))
+    await ARRAY_FINAL_OUTPUT(var1)
     }
   }
   setColorsArray([])

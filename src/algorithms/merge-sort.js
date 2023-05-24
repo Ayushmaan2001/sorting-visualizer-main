@@ -43,7 +43,6 @@ const mergeSort = async (
       tempArr[it] = arr[i];
       i++;
     }
-
     it++;
   }
 

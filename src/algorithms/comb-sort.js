@@ -1,4 +1,5 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
 const Combsort = async ({
   array,
@@ -57,6 +58,13 @@ const Combsort = async ({
           timeout: 10 * visualizationSpeed
         });
       }
+      let var1 = JSON.parse(JSON.stringify({
+        array:array,
+        fileName:"internal_array_output.txt",
+        cmp:comparisons,
+        swaps:swaps
+    }))
+    await ARRAY_FINAL_OUTPUT(var1)
     }
   }
   for (let i = 0; i < len; i++) {

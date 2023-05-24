@@ -175,6 +175,7 @@ const externalReplacementSort = async ({
         array:unsortedRunsArray1,
         fileName:"unsorted1.txt"
     }))
+    await POST_REQUEST_FILES(var1)
 
     //run 1 sorted
     for (let i = 0; i < runs[0].length; i++) {
