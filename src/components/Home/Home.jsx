@@ -33,6 +33,7 @@ import BucketSortGraph from '../GraphShows/BucketSortGraph';
 import Footer from '../Footer/Footer';
 import FlowChart from '../FlowChart/FlowChart';
 import assets from '../../assets';
+import { Divider } from 'antd';
 
 
 const Home = () => {
