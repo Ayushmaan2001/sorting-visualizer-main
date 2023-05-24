@@ -56,7 +56,7 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
           array:array,
           fileName:"internal_array_output.txt",
           cmp:comparisons,
-          swaps:0
+          swap:0
       }))
       await ARRAY_FINAL_OUTPUT(var1)
     }

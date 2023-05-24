@@ -64,7 +64,7 @@ const Genomesort = async ({
                 array:array,
                 fileName:"internal_array_output.txt",
                 cmp:comparisons,
-                swaps:swaps
+                swap:swaps
             }))
             await ARRAY_FINAL_OUTPUT(var1)
         }

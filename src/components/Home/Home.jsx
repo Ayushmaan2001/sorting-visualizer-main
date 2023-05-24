@@ -578,7 +578,7 @@ const Home = () => {
       </div>
       <div>
         {
-          currentAlgorithm === 'Stooge Sort' || currentAlgorithm === 'Bucket Sort' || currentAlgorithm === 'Counting Sort' || currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' || currentAlgorithm === 'Quick Sort' || currentAlgorithm === 'Radix Sort' ? 
+          currentAlgorithm === 'Stooge Sort' || currentAlgorithm === 'Bucket Sort' || currentAlgorithm === 'Counting Sort' || currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' || currentAlgorithm === 'Quick Sort' || currentAlgorithm === 'Radix Sort' || currentAlgorithm === 'Merge Sort' ? 
           null :
           <div>
           <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
