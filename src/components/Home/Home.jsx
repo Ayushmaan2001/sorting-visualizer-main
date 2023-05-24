@@ -233,7 +233,7 @@ const Home = () => {
         tmp = generateArray.generateNearlySortedArray({arraySize:val});
         return tmp;
       case "Nearly Reverse Sorted":
-        tmp = generateArray.generateReverseSortedArray({arraySize:val});
+        tmp = generateArray.generateNearlyReverseSortedArray({arraySize:val});
         return tmp
       case "Sorted":
         tmp = generateArray.generateSortedArray({arraySize:val});
@@ -612,8 +612,8 @@ const Home = () => {
           currentAlgorithm === 'Stooge Sort' || currentAlgorithm === 'Bucket Sort' || currentAlgorithm === 'Counting Sort' || currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' || currentAlgorithm === 'Quick Sort' || currentAlgorithm === 'Radix Sort' || currentAlgorithm === 'Merge Sort' ? 
           null :
           <div>
-          <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
-            Download File
+          <div style={{color:'orange',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
+            See all Intermediate Stages
           </div>
           <div>
           <DownloadArray />
@@ -622,7 +622,7 @@ const Home = () => {
         }
         {currentAlgorithm === 'K-Way External Sort' || currentAlgorithm === 'Replacement Ext Sort' ? 
         <div>
-          <div style={{color:'red',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
+          <div style={{color:'orange',display:'flex',justifyContent:'space-around',marginTop:'60px',fontSize:'30px'}}>
             Download File
           </div>
           <div>

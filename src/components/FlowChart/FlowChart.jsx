@@ -4,6 +4,11 @@ import "./FlowChart.css"
 const FlowChart = ({f1,f2,f3,val1,val2,val3}) => {
     return (
         <React.Fragment>
+            <div style={{color:'orange',display:'flex',justifyContent:'space-around'}}>
+                <h1>
+                    FlowChart
+                </h1>
+            </div>
            <div className='flow-chart'>
            <div>
            {

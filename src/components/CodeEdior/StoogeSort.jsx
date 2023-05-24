@@ -215,11 +215,11 @@ const StoogeSort = () => {
         </div>
         <div className="mobile-table">
           <div>
-            <h1 style={{ color: 'white' }}>Complexity</h1>
+            <h1 style={{ color: 'white' }}>Asymptotic Complexity</h1>
             <table className="styled-table">
               <thead>
                 <tr>
-                  <th>Average Complexity</th>
+                  <th>Average Time Complexity</th>
                   <th>O(n<sup>2.709</sup>)</th>
                 </tr>
               </thead>
@@ -229,11 +229,11 @@ const StoogeSort = () => {
                   <td>O(n<sup>2.709</sup>)</td>
                 </tr>
                 <tr>
-                  <td>Worst Case</td>
+                  <td>Worst Case Time Complexity</td>
                   <td>O(n<sup>2.709</sup>)</td>
                 </tr>
                 <tr>
-                  <td>Space Complexity</td>
+                  <td>Space Complexity Time Complexity</td>
                   <td>O(n)</td>
                 </tr>
               </tbody>
