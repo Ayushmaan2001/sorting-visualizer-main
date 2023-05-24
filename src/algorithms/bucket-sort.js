@@ -69,9 +69,16 @@ const bucketSort = async ({
     setunsortedRunsArray2,
     setunsortedRunsArray1,
     setNum1,
-    setI
+    setI,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     await main(array, 2, setArray, unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray2,setunsortedRunsArray1,visualizationSpeed,setColorsArray,setNum1,setI)
+    var t2 = performance.now();
+    setTimeRequired(t2-t1);
     setColorsArray([])
 }
 

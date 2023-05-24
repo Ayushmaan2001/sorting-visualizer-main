@@ -11,7 +11,7 @@ import { Inpbutton } from '../Input Button';
 import { Downloadbtn,DownloadArray } from '../Download Btn';
 
 //import Analysis Components
-import { Comparisons, Swaps } from '../Analysis';
+import { Comparisons, Swaps, Time } from '../Analysis';
 
 //algorithms import
 import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort, bucketSort } from '../../algorithms';
@@ -33,8 +33,6 @@ import BucketSortGraph from '../GraphShows/BucketSortGraph';
 import Footer from '../Footer/Footer';
 import FlowChart from '../FlowChart/FlowChart';
 import assets from '../../assets';
-import { Divider } from 'antd';
-
 
 const Home = () => {
   const arraySize = 40;
@@ -50,6 +48,7 @@ const Home = () => {
   const [J, setJ] = useState(0);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
+  const [timeRequired, setTimeRequired] = useState(0);
   const [randomizedArray, setRandomizedArray] = useState(
     generateArray.generateRandomizedArray({ arraySize: arraySize })
 
@@ -292,7 +291,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Bucket Sort':
@@ -307,6 +308,8 @@ const Home = () => {
           setunsortedRunsArray1: setunsortedRunsArray1,
           setNum1:setNum1,
           setI:setI,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         })
         break;
       case 'Bubble Sort':
@@ -322,7 +325,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Insertion Sort':
@@ -339,7 +344,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'QuickSort':
@@ -357,7 +364,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Merge Sort':
@@ -371,7 +380,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Counting Sort':
@@ -383,7 +394,9 @@ const Home = () => {
           setI:setI,
           setJ:setJ,
           setNum1:setNum1,          
-          setNum2:setNum2
+          setNum2:setNum2,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Radix Sort':
@@ -391,7 +404,9 @@ const Home = () => {
           array: randomizedArray,
           setArray: setRandomizedArray,
           visualizationSpeed: visualizationSpeed,
-          setColorsArray: setColorsArray
+          setColorsArray: setColorsArray,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Heap Sort':
@@ -407,7 +422,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Comb Sort':
@@ -422,7 +439,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         })
         break;
       case "Gnome Sort":
@@ -437,7 +456,9 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           swaps:swaps,
-          setswaps:setswaps
+          setswaps:setswaps,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         })
         break;
       case "Strand Sort":
@@ -453,7 +474,9 @@ const Home = () => {
           setNum1:setNum1,
           setNum2:setNum2,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         })
         break;
       case "Stooge Sort":
@@ -463,7 +486,9 @@ const Home = () => {
           setColorsArray:setColorsArray,
           visualizationSpeed:visualizationSpeed,
           comparisons:comparisons,
-          setComparisons:setComparisons
+          setComparisons:setComparisons,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         })
         break;
       case 'K-Way External Sort':
@@ -480,7 +505,9 @@ const Home = () => {
           unsortedRunsArray1:unsortedRunsArray1,
           unsortedRunsArray2:unsortedRunsArray2,
           setunsortedRunsArray2: setunsortedRunsArray2,
-          setunsortedRunsArray1: setunsortedRunsArray1
+          setunsortedRunsArray1: setunsortedRunsArray1,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       case 'Replacement Ext Sort':
@@ -497,7 +524,9 @@ const Home = () => {
           unsortedRunsArray1: unsortedRunsArray1,
           unsortedRunsArray2: unsortedRunsArray2,
           setunsortedRunsArray2: setunsortedRunsArray2,
-          setunsortedRunsArray1: setunsortedRunsArray1
+          setunsortedRunsArray1: setunsortedRunsArray1,
+          timeRequired:timeRequired,
+          setTimeRequired:setTimeRequired
         });
         break;
       default:
@@ -524,6 +553,7 @@ const Home = () => {
       <div style={{display:'flex',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
         <Comparisons comparisons={comparisons}/>
         <Swaps swaps={swaps}/>
+        <Time Time={timeRequired}/>
       </div>
       <div style={{display:'flex',flexDirection:'row',flexWrap:'wrap',alignContent:'space-between',justifyContent:'space-between',maxHeight:'210px'}}>
         <GraphSelector algo={currentAlgorithm} val={'sample'}/>

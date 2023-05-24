@@ -14,8 +14,13 @@ const insertionSort = async ({
   comparisons,
   setComparisons,
   swaps,
-  setswaps
+  setswaps,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   let len = array.length;
   comparisons=0;
   swaps=0;
@@ -56,6 +61,8 @@ const insertionSort = async ({
       await asyncSetTimeout({timeout:10*visualizationSpeed})
     }
   }
+  var t2 = performance.now();
+  setTimeRequired(t2-t1);
   setColorsArray([])
 };
 

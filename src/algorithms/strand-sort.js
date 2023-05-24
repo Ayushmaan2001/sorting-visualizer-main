@@ -98,10 +98,17 @@ const Strandsort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0;
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons);
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
 }
 
 export default Strandsort

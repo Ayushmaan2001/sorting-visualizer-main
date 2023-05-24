@@ -14,10 +14,15 @@ const selectionSort = async ({
   comparisons,
   setComparisons,
   swaps,
-  setswaps
+  setswaps,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0;
   swaps=0;
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   array = array.concat();
   let len = array.length;
   for (let i = 0; i < len; i++) {
@@ -63,6 +68,8 @@ const selectionSort = async ({
   }))
   await ARRAY_FINAL_OUTPUT(var1)
   }
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
   setColorsArray([])
 };
 

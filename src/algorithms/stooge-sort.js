@@ -35,10 +35,17 @@ const Stoogesort = async ({
   setColorsArray,
   visualizationSpeed,
   comparisons,
-  setComparisons
+  setComparisons,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   stoogesort(array, 0, array.length, setArray, setColorsArray, visualizationSpeed,comparisons,setComparisons);
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
 }
 
 export default Stoogesort

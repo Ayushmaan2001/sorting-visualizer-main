@@ -14,10 +14,15 @@ const heapSort = async ({
     comparisons,
     setComparisons,
     swaps,
-    setswaps
+    setswaps,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
     comparisons=0
     swaps=0
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let len = array.length;
     for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
         heapify(array, len, i, comparisons, setComparisons);
@@ -75,6 +80,8 @@ const heapSort = async ({
             heapify(arr, len, largest);
         }
     }
+    var t2 = performance.now();
+    setTimeRequired(t2-t1)
 }
 
 

@@ -8,8 +8,13 @@ const countingSort = async ({
     setI,
     setJ,
     setNum1,
-    setNum2
+    setNum2,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let len = array.length;
     const map = {};
     for (let i = 0; i < array.length; i++) {
@@ -47,6 +52,8 @@ const countingSort = async ({
             timeout: 10 * visualizationSpeed
         })
     }
+    var t2 = performance.now();
+    setTimeRequired(t2-t1)
     setColorsArray([])
 };
 

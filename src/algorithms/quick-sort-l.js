@@ -167,10 +167,15 @@ const quickSortLWrapper = async ({
   comparisons,
   setComparisons,
   swaps,
-  setswaps
+  setswaps,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0;
   swaps=0;
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   arr = [];
   arr = array.concat();
   await quickSort({
@@ -188,6 +193,8 @@ const quickSortLWrapper = async ({
     swaps,
   setswaps
   });
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
   setColorsArray([])
 };
 export default quickSortLWrapper;

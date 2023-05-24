@@ -13,10 +13,15 @@ const Combsort = async ({
   comparisons,
   setComparisons,
   swaps,
-  setswaps
+  setswaps,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0;
   swaps=0
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   function getNextGap(gap) {
     gap = parseInt((gap * 10) / 13, 10);
     if (gap < 1)
@@ -77,6 +82,8 @@ const Combsort = async ({
       timeout: 10 * visualizationSpeed
     });
   }
+  var t2 = performance.now();
+  setTimeRequired(t2-t1);
   let newColorsArray = new Array(len).fill(0);
   setColorsArray(newColorsArray);
 }
