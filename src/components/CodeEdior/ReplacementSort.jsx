@@ -179,13 +179,13 @@ It should be clear that the minimum length of a run will be M records if the siz
           <thead>
             <tr>
               <th>Average Time Complexity</th>
-              <th>O(nlogn)</th>
+              <th>Θ(nlogn)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case Time Complexity</td>
-              <td>O(nlogn)</td>
+              <td>Ω(nlogn)</td>
             </tr>
             <tr>
               <td>Worst Case Time Complexity</td>

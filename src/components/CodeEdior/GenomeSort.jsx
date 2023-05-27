@@ -169,21 +169,21 @@ const GenomeSort = () => {
               <thead>
                 <tr>
                   <th>Average Time Complexity</th>
-                  <th>O(n<sup>2</sup>)</th>
+                  <th>Θ(n log n)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Best Case Time Complexity</td>
-                  <td>O(n)</td>
+                  <td>Ω(n log n)</td>
                 </tr>
                 <tr>
                   <td>Worst Case Time Complexity</td>
-                  <td>O(n<sup>2</sup>)</td>
+                  <td>O(nlogn)</td>
                 </tr>
                 <tr>
                   <td>Space Complexity</td>
-                  <td>O(1)</td>
+                  <td>O(B)</td>
                 </tr>
               </tbody>
             </table>

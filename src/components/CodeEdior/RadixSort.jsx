@@ -308,21 +308,21 @@ export default function RadixSort({text}) {
           <thead>
             <tr>
               <th>Average Time Complexity</th>
-              <th>O(d×(n+b))</th>
+              <th>Θ(d*(n+k))</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case Time Complexity</td>
-              <td>O(d×(n+b))</td>
+              <td>Ω(d*(n+k))</td>
             </tr>
             <tr>
               <td>Worst Case Time Complexity</td>
-              <td>O(d×(n+b))</td>
+              <td>O(d*(n+k))</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(n+2^d)</td>
+              <td>O(n+k)</td>
             </tr>
           </tbody>
         </table>

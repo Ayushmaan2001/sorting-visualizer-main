@@ -280,13 +280,13 @@ The shrink factor has been empirically found to be 1.3 (by testing Combsort on o
               <thead>
                 <tr>
                   <th>Average Time Complexity</th>
-                  <th>O(N<sup>2</sup>/2<sup>p</sup>)</th>
+                  <th>Θ(n<sup>2</sup>)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Best Case Time Complexity</td>
-                  <td>O(Nlog(N))</td>
+                  <td>Ω(nlog(n))</td>
                 </tr>
                 <tr>
                   <td>Worst Case Time Complexity</td>

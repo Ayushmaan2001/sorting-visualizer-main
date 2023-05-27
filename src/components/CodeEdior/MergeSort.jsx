@@ -285,17 +285,17 @@ export default function MergeSort({text}) {
           <thead>
             <tr>
               <th>Average Time Complexity</th>
-              <th>O(nxlogn)</th>
+              <th>Θ(nlogn)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case Time Complexity</td>
-              <td>O(nxlogn)</td>
+              <td>Ω(nlogn)</td>
             </tr>
             <tr>
               <td>Worst Case Time Complexity</td>
-              <td>O(nxlogn)</td>
+              <td>O(nlogn)</td>
             </tr>
             <tr>
               <td>Space Complexity</td>

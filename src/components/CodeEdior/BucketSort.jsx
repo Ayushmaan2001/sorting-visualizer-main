@@ -289,17 +289,17 @@ const BucketSort = () => {
               <thead>
                 <tr>
                   <th>Average Time Complexity</th>
-                  <th>O(n+k)</th>
+                  <th>Θ(n+k)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Best Case Time Complexity</td>
-                  <td>O(n+k)</td>
+                  <td>Ω(n+k)</td>
                 </tr>
                 <tr>
                   <td>Worst Case Time Complexity</td>
-                  <td>O(n+k)</td>
+                  <td>O(n<sup>2</sup>)</td>
                 </tr>
                 <tr>
                   <td>Space Complexity</td>

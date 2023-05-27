@@ -211,21 +211,21 @@ export default function CountingSort() {
           <thead>
             <tr>
               <th>Average Time Complexity</th>
-              <th>O(nxk)</th>
+              <th>Θ(n+k)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case Time Complexity</td>
-              <td>O(nxk)</td>
+              <td>Ω(nxk)</td>
             </tr>
             <tr>
               <td>Worst Case Time Complexity</td>
-              <td>O(nxk)</td>
+              <td>O(n+k)</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(1)</td>
+              <td>O(n+k)</td>
             </tr>
           </tbody>
         </table>

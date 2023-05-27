@@ -199,13 +199,13 @@ export default function SelectionSort({text}) {
           <thead>
             <tr>
               <th>Average Time Complexity</th>
-              <th>O(n<sup>2</sup>)</th>
+              <th>Θ(n<sup>2</sup>)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Best Case Time Complexity</td>
-              <td>O(n<sup>2</sup>)</td>
+              <td>Ω(n<sup>2</sup>)</td>
             </tr>
             <tr>
               <td>Worst Case Time Complexity</td>

@@ -220,13 +220,13 @@ const StoogeSort = () => {
               <thead>
                 <tr>
                   <th>Average Time Complexity</th>
-                  <th>O(n<sup>2.709</sup>)</th>
+                  <th>Θ(n<sup>2.709</sup>)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>Best Case</td>
-                  <td>O(n<sup>2.709</sup>)</td>
+                  <td>Ω(n<sup>2.709</sup>)</td>
                 </tr>
                 <tr>
                   <td>Worst Case Time Complexity</td>
@@ -234,7 +234,7 @@ const StoogeSort = () => {
                 </tr>
                 <tr>
                   <td>Space Complexity Time Complexity</td>
-                  <td>O(n)</td>
+                  <td>O(1)</td>
                 </tr>
               </tbody>
             </table>
