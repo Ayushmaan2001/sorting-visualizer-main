@@ -1,8 +1,9 @@
 import React from 'react';
+import './analysis.css'
 
 const Comparisons = ({comparisons}) => {
     return (
-        <div style={{color:'whitesmoke',marginLeft:'5px',marginTop:'2px'}}>
+        <div className='analysis'>
             Comparisons: {comparisons}
         </div>
     );

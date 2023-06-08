@@ -303,26 +303,26 @@ export default function RadixSort({text}) {
       </div>
           <div className="mobile-table">
       <Col span={8}>
-        <h1 style={{ color: 'white' }}>Complexity</h1>
+        <h1 style={{ color: 'white' }}>Asymptotic Complexity</h1>
         <table className="styled-table">
           <thead>
             <tr>
-              <th>Average Complexity</th>
-              <th>O(d×(n+b))</th>
+              <th>Average Time Complexity</th>
+              <th>Θ(d*(n+k))</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Best Case</td>
-              <td>O(d×(n+b))</td>
+              <td>Best Case Time Complexity</td>
+              <td>Ω(d*(n+k))</td>
             </tr>
             <tr>
-              <td>Worst Case</td>
-              <td>O(d×(n+b))</td>
+              <td>Worst Case Time Complexity</td>
+              <td>O(d*(n+k))</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(n+2^d)</td>
+              <td>O(n+k)</td>
             </tr>
           </tbody>
         </table>

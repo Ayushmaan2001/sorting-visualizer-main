@@ -42,7 +42,7 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
         <React.Fragment>
         <Space style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'20px'}}>
         <Input placeholder="Enter the Values" ref={val} disabled={isVisualizing} style={{backgroundColor:'white'}}/>
-      <button onClick={() => {
+      <button className="color-style" onClick={() => {
         pushArrayValues()
       }} icon={<PlayCircleOutlined />}
       disabled={isVisualizing}
@@ -50,7 +50,7 @@ const Inpbutton = ({setRandomizedArray,setMaxItem,isVisualizing}) => {
         <span></span>
         <span> Push into the array</span><i></i>
       </button>
-      <button onClick={() => {
+      <button className="color-style" onClick={() => {
         setRandomizedArray([])
       }} icon={<PlayCircleOutlined />}
       disabled={isVisualizing}

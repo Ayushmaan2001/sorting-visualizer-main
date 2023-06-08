@@ -1,5 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1;
 var opp = [];
 async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons)
 {  
@@ -51,6 +53,14 @@ async function strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,s
         else{
             it++;
         }
+        let var1 = JSON.parse(JSON.stringify({
+          array:array,
+          fileName:"internal_array_output.txt",
+          cmp:comparisons,
+          swap:0,
+          check:check++,
+      }))
+      await ARRAY_FINAL_OUTPUT(var1)
     }
     setColorsArray([]);
    while(sublist.length>0 && unsortedRunsArray2.length>0){
@@ -88,10 +98,17 @@ const Strandsort = async ({
   setNum1,
   setNum2,
   comparisons,
-  setComparisons
+  setComparisons,
+  timeRequired,
+  setTimeRequired
 } = {}) => {
   comparisons=0;
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   strandSort(array,setArray,unsortedRunsArray1,unsortedRunsArray2,setunsortedRunsArray1,setunsortedRunsArray2,visualizationSpeed,setColorsArray,setNum1,setNum2,comparisons,setComparisons);
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
 }
 
 export default Strandsort

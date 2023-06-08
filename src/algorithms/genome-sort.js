@@ -1,5 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1;
 const Genomesort = async ({
     array,
     setArray,
@@ -11,10 +13,15 @@ const Genomesort = async ({
     comparisons,
     setComparisons,
     swaps,
-    setswaps
+    setswaps,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
     comparisons = 0;
     swaps=0;
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let len = array.length
     let index = 0;
 
@@ -58,8 +65,15 @@ const Genomesort = async ({
             await asyncSetTimeout({
                 timeout: 10 * visualizationSpeed
             });
-
             index--;
+            let var1 = JSON.parse(JSON.stringify({
+                array:array,
+                fileName:"internal_array_output.txt",
+                cmp:comparisons,
+                swap:swaps,
+                check:check++,
+            }))
+            await ARRAY_FINAL_OUTPUT(var1)
         }
         setArray(array)
     }
@@ -73,6 +87,8 @@ const Genomesort = async ({
     }
     let newColorsArray = new Array(len).fill(0);
     setColorsArray(newColorsArray);
+    var t2 = performance.now();
+    setTimeRequired(t2-t1);
 }
 
 export default Genomesort

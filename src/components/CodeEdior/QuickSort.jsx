@@ -242,26 +242,26 @@ export default function QuickSort({text}) {
         </div>
           <div className="mobile-table">
       <Col span={8}>
-        <h1 style={{color:'white'}}>Complexity</h1>
+        <h1 style={{color:'white'}}>Asymptotic Complexity</h1>
         <table Name="styled-table">
           <thead>
             <tr>
-              <th>Average Complexity</th>
-              <th>O(nxlogn)</th>
+              <th>Average Time Complexity</th>
+              <th>Θ(nlogn)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Best Case</td>
-              <td>O(nxlogn)</td>
+              <td>Best Case Time Complexity</td>
+              <td>Ω(nlogn)</td>
             </tr>
             <tr>
-              <td>Worst Case</td>
+              <td>Worst Case Time Complexity</td>
               <td>O(n<sup>2</sup>)</td>
             </tr>
             <tr>
               <td>Space Complexity</td>
-              <td>O(n)</td>
+              <td>O(logn)</td>
             </tr>
           </tbody>
         </table>
