@@ -1,12 +1,12 @@
 import React from 'react';
 import './analysis.css'
 
-const Swaps = ({swaps}) => {
+const Time = ({Time}) => {
     return (
         <div className='analysis'>
-            Swaps: {swaps}
+            Time: {Time}  milliseconds
         </div>
     );
 }
 
-export default Swaps;
+export default Time;

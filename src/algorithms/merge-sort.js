@@ -43,7 +43,6 @@ const mergeSort = async (
       tempArr[it] = arr[i];
       i++;
     }
-
     it++;
   }
 
@@ -100,11 +99,16 @@ const mergeSortWrapper = async ({
   comparisons,
   setComparisons,
   swaps,
-  setswaps
+  setswaps,
+  timeRequired,
+  setTimeRequired
 }) => {
   arr = array.concat();
   comparisons=0;
   swaps=0;
+  timeRequired = 0;
+  setTimeRequired(timeRequired)
+  var t1 = performance.now();
   await mergeSort(
     leftIndex,
     rightIndex,
@@ -116,6 +120,8 @@ const mergeSortWrapper = async ({
     swaps,
   setswaps
   );
+  var t2 = performance.now();
+  setTimeRequired(t2-t1)
   setColorsArray([])
 };
 

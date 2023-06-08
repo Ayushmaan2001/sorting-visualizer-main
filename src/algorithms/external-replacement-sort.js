@@ -89,12 +89,16 @@ const externalReplacementSort = async ({
     unsortedRunsArray2,
     unsortedRunsArray1,
     setunsortedRunsArray2,
-    setunsortedRunsArray1
+    setunsortedRunsArray1,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let maxSize = array.length;
     let runSize = maxSize/2;
     let numOfRuns = 0;
-
     let InputArray = array;
 
     let runs = []
@@ -175,6 +179,7 @@ const externalReplacementSort = async ({
         array:unsortedRunsArray1,
         fileName:"unsorted1.txt"
     }))
+    await POST_REQUEST_FILES(var1)
 
     //run 1 sorted
     for (let i = 0; i < runs[0].length; i++) {
@@ -297,6 +302,9 @@ const externalReplacementSort = async ({
         fileName:"output.txt"
     }))
     await POST_REQUEST_FILES(var1)
+
+    var t2 = performance.now();
+    setTimeRequired(t2-t1)
 }
 
 export default externalReplacementSort;

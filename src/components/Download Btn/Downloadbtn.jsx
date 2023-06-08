@@ -25,23 +25,23 @@ const downloadFile = async(file) => {
 
 return (
 <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-around',marginTop:'20px'}}>
-    <button onClick={() => {downloadFile('unsorted1.txt')}}>
+    <button className="color-style" onClick={() => {downloadFile('unsorted1.txt')}}>
         <span></span>
         <span> Unsorted1</span><i></i>
     </button>
-    <button onClick={() => {downloadFile('unsorted2.txt')}}>
+    <button className="color-style" onClick={() => {downloadFile('unsorted2.txt')}}>
         <span></span>
         <span> Unsorted2</span><i></i>
     </button>
-    <button onClick={() => {downloadFile('sorted1.txt')}}>
+    <button className="color-style" onClick={() => {downloadFile('sorted1.txt')}}>
         <span></span>
         <span> Sorted1</span><i></i>
     </button>
-    <button onClick={() => {downloadFile('sorted2.txt')}}>
+    <button className="color-style" onClick={() => {downloadFile('sorted2.txt')}}>
         <span></span>
         <span> Sorted2</span><i></i>
     </button>
-    <button onClick={() => {downloadFile('output.txt')}}>
+    <button className="color-style" onClick={() => {downloadFile('output.txt')}}>
         <span></span>
         <span> Final Array</span><i></i>
     </button>

@@ -5,7 +5,7 @@ import '../../styles/Buttons.css'
 const RandomizeButton = ({onClick}) => {
   return (
     <div >
-      <button onClick={onClick} icon={<RedoOutlined />}>
+      <button className="color-style" onClick={onClick} icon={<RedoOutlined />}>
         <span> Randomize</span><i></i>
       </button>
     </div>

@@ -1,0 +1,9 @@
+.analysis{
+    color:whitesmoke;
+    margin-left:5px;
+    margin-top:20px;
+    padding:15px;
+    border-style:inset;
+    border-color: white;
+    cursor: pointer;
+}

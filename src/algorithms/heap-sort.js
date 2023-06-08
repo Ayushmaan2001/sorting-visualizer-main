@@ -1,5 +1,7 @@
 import asyncSetTimeout from '../helpers/asyncSetTimeout';
+import ARRAY_FINAL_OUTPUT from './arrayFinalOutput';
 
+var check = 1
 const heapSort = async ({
     array,
     setArray,
@@ -12,10 +14,15 @@ const heapSort = async ({
     comparisons,
     setComparisons,
     swaps,
-    setswaps
+    setswaps,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
     comparisons=0
     swaps=0
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let len = array.length;
     for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
         heapify(array, len, i, comparisons, setComparisons);
@@ -40,6 +47,14 @@ const heapSort = async ({
             timeout: 10 * visualizationSpeed
         })
         setColorsArray(newColorsArray)
+        let var1 = JSON.parse(JSON.stringify({
+            array:array,
+            fileName:"internal_array_output.txt",
+            cmp:comparisons,
+            swap:swaps,
+            check:check++,
+        }))
+        await ARRAY_FINAL_OUTPUT(var1)
     }
 
     function heapify(arr, len, i) {
@@ -65,6 +80,8 @@ const heapSort = async ({
             heapify(arr, len, largest);
         }
     }
+    var t2 = performance.now();
+    setTimeRequired(t2-t1)
 }
 
 

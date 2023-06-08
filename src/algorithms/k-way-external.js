@@ -87,8 +87,13 @@ const k_way_external = async ({
     unsortedRunsArray2,
     unsortedRunsArray1,
     setunsortedRunsArray2,
-    setunsortedRunsArray1
+    setunsortedRunsArray1,
+    timeRequired,
+  setTimeRequired
 } = {}) => {
+    timeRequired = 0;
+    setTimeRequired(timeRequired)
+    var t1 = performance.now();
     let InputArray = array;
     let maxSize = array.length;
     let runSize = maxSize / 2;
@@ -302,6 +307,8 @@ const k_way_external = async ({
         fileName:"output.txt"
     }))
     await POST_REQUEST_FILES(var1)
+    var t2 = performance.now();
+    setTimeRequired(t2-t1)
 }
 
 const KWAYEXTSORT = { k_way_external, runs };
