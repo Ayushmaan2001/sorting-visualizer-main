@@ -1,0 +1,122 @@
+Making C++ Executable
+Cleaning previous reports
+Reporting to reports/bubbleSort
+Generating User Report for bubbleSort
+Generating PMAP for bubbleSort
+Generating SMEM for bubbleSort
+Running Valgrind Massif for bubbleSort
+Valgrind Massif complete for bubbleSort
+Running Valgrind Memcheck for bubbleSort
+Valgrind Memcheck complete for bubbleSort
+Running Valgrind Cachegrind for bubbleSort
+Valgrind Cachegrind complete for bubbleSort
+Running Valgrind Callgrind for bubbleSort
+Valgrind Callgrind complete for bubbleSort
+Reporting to reports/insertionSort
+Generating User Report for insertionSort
+Generating PMAP for insertionSort
+Generating SMEM for insertionSort
+Running Valgrind Massif for insertionSort
+Valgrind Massif complete for insertionSort
+Running Valgrind Memcheck for insertionSort
+Valgrind Memcheck complete for insertionSort
+Running Valgrind Cachegrind for insertionSort
+Valgrind Cachegrind complete for insertionSort
+Running Valgrind Callgrind for insertionSort
+Valgrind Callgrind complete for insertionSort
+Reporting to reports/selectionSort
+Generating User Report for selectionSort
+Generating PMAP for selectionSort
+Generating SMEM for selectionSort
+Running Valgrind Massif for selectionSort
+Valgrind Massif complete for selectionSort
+Running Valgrind Memcheck for selectionSort
+Valgrind Memcheck complete for selectionSort
+Running Valgrind Cachegrind for selectionSort
+Valgrind Cachegrind complete for selectionSort
+Running Valgrind Callgrind for selectionSort
+Valgrind Callgrind complete for selectionSort
+Reporting to reports/quickSort
+Generating User Report for quickSort
+Generating PMAP for quickSort
+Generating SMEM for quickSort
+Running Valgrind Massif for quickSort
+Valgrind Massif complete for quickSort
+Running Valgrind Memcheck for quickSort
+Valgrind Memcheck complete for quickSort
+Running Valgrind Cachegrind for quickSort
+Valgrind Cachegrind complete for quickSort
+Running Valgrind Callgrind for quickSort
+Valgrind Callgrind complete for quickSort
+Reporting to reports/mergeSort
+Generating User Report for mergeSort
+Generating PMAP for mergeSort
+Generating SMEM for mergeSort
+Running Valgrind Massif for mergeSort
+Valgrind Massif complete for mergeSort
+Running Valgrind Memcheck for mergeSort
+Valgrind Memcheck complete for mergeSort
+Running Valgrind Cachegrind for mergeSort
+Valgrind Cachegrind complete for mergeSort
+Running Valgrind Callgrind for mergeSort
+Valgrind Callgrind complete for mergeSort
+Reporting to reports/countingSort
+Generating User Report for countingSort
+Generating PMAP for countingSort
+Generating SMEM for countingSort
+Running Valgrind Massif for countingSort
+Valgrind Massif complete for countingSort
+Running Valgrind Memcheck for countingSort
+Valgrind Memcheck complete for countingSort
+Running Valgrind Cachegrind for countingSort
+Valgrind Cachegrind complete for countingSort
+Running Valgrind Callgrind for countingSort
+Valgrind Callgrind complete for countingSort
+Reporting to reports/radixSort
+Generating User Report for radixSort
+Generating PMAP for radixSort
+Generating SMEM for radixSort
+Running Valgrind Massif for radixSort
+Valgrind Massif complete for radixSort
+Running Valgrind Memcheck for radixSort
+Valgrind Memcheck complete for radixSort
+Running Valgrind Cachegrind for radixSort
+Valgrind Cachegrind complete for radixSort
+Running Valgrind Callgrind for radixSort
+Valgrind Callgrind complete for radixSort
+Reporting to reports/heapSort
+Generating User Report for heapSort
+Generating PMAP for heapSort
+Generating SMEM for heapSort
+Running Valgrind Massif for heapSort
+Valgrind Massif complete for heapSort
+Running Valgrind Memcheck for heapSort
+Valgrind Memcheck complete for heapSort
+Running Valgrind Cachegrind for heapSort
+Valgrind Cachegrind complete for heapSort
+Running Valgrind Callgrind for heapSort
+Valgrind Callgrind complete for heapSort
+Reporting to reports/gnomeSort
+Generating User Report for gnomeSort
+Generating PMAP for gnomeSort
+Generating SMEM for gnomeSort
+Running Valgrind Massif for gnomeSort
+Valgrind Massif complete for gnomeSort
+Running Valgrind Memcheck for gnomeSort
+Valgrind Memcheck complete for gnomeSort
+Running Valgrind Cachegrind for gnomeSort
+Valgrind Cachegrind complete for gnomeSort
+Running Valgrind Callgrind for gnomeSort
+Valgrind Callgrind complete for gnomeSort
+Reporting to reports/combSort
+Generating User Report for combSort
+Generating PMAP for combSort
+Generating SMEM for combSort
+Running Valgrind Massif for combSort
+Valgrind Massif complete for combSort
+Running Valgrind Memcheck for combSort
+Valgrind Memcheck complete for combSort
+Running Valgrind Cachegrind for combSort
+Valgrind Cachegrind complete for combSort
+Running Valgrind Callgrind for combSort
+Valgrind Callgrind complete for combSort

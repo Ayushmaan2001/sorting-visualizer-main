@@ -1,0 +1,14 @@
+==44826== Memcheck, a memory error detector
+==44826== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==44826== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44826== Command: ./main 7 0 
+==44826== 
+==44826== 
+==44826== HEAP SUMMARY:
+==44826==     in use at exit: 0 bytes in 0 blocks
+==44826==   total heap usage: 1,935 allocs, 1,935 frees, 10,382,024 bytes allocated
+==44826== 
+==44826== All heap blocks were freed -- no leaks are possible
+==44826== 
+==44826== For lists of detected and suppressed errors, rerun with: -s
+==44826== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

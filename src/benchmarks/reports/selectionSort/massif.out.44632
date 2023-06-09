@@ -1,0 +1,1155 @@
+desc: (none)
+cmd: ./main 3 0 
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=31649545
+mem_heap_B=196880
+mem_heap_extra_B=520
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=79380856
+mem_heap_B=347840
+mem_heap_extra_B=608
+mem_stacks_B=0
+heap_tree=detailed
+n4: 347840 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 200000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 200000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 73856 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 73856 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 73856 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 73856 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 73856 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 73728 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 24576 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 24576 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 24576 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=3
+#-----------
+time=111248942
+mem_heap_B=417840
+mem_heap_extra_B=648
+mem_stacks_B=0
+heap_tree=detailed
+n4: 417840 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 270000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 270000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 73856 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 73856 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 73856 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 73856 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 73856 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 73728 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 24576 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 24576 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 24576 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=148410648
+mem_heap_B=497840
+mem_heap_extra_B=688
+mem_stacks_B=0
+heap_tree=detailed
+n4: 497840 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 350000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 350000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 73856 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 73856 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 73856 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 73856 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 73856 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 73728 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 24576 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 24576 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 24576 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 16384 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 16384 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 16384 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=5
+#-----------
+time=192066235
+mem_heap_B=661568
+mem_heap_extra_B=728
+mem_stacks_B=0
+heap_tree=detailed
+n4: 661568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 440000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 440000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=241505554
+mem_heap_B=761568
+mem_heap_extra_B=768
+mem_stacks_B=0
+heap_tree=detailed
+n4: 761568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 540000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 540000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=296898179
+mem_heap_B=871568
+mem_heap_extra_B=808
+mem_stacks_B=0
+heap_tree=detailed
+n4: 871568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 650000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 650000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=8
+#-----------
+time=334399401
+mem_heap_B=855184
+mem_heap_extra_B=800
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=358167412
+mem_heap_B=991568
+mem_heap_extra_B=848
+mem_stacks_B=0
+heap_tree=detailed
+n4: 991568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 770000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 770000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=399565765
+mem_heap_B=975184
+mem_heap_extra_B=840
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=425168116
+mem_heap_B=1121568
+mem_heap_extra_B=888
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1121568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 900000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 900000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=470290047
+mem_heap_B=1105184
+mem_heap_extra_B=880
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=498078231
+mem_heap_B=1261568
+mem_heap_extra_B=928
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1261568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1040000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1040000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=547573848
+mem_heap_B=1245184
+mem_heap_extra_B=920
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=577302137
+mem_heap_B=1411568
+mem_heap_extra_B=968
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1411568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1190000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1190000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=16
+#-----------
+time=631484448
+mem_heap_B=1395184
+mem_heap_extra_B=960
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=663088031
+mem_heap_B=1571568
+mem_heap_extra_B=1008
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1571568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1350000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1350000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 147584 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 147584 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 147584 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 147584 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 147584 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 147456 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 49152 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 49152 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 49152 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 32768 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 32768 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 32768 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=18
+#-----------
+time=719903737
+mem_heap_B=1555184
+mem_heap_extra_B=1000
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=755346139
+mem_heap_B=1889024
+mem_heap_extra_B=1048
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1889024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1520000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1520000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 295040 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 295040 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 295040 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 295040 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 295040 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 294912 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=816416851
+mem_heap_B=1856256
+mem_heap_extra_B=1040
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=853620335
+mem_heap_B=2069024
+mem_heap_extra_B=1088
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2069024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1700000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1700000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 295040 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 295040 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 295040 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 295040 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 295040 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 294912 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=886780928
+mem_heap_B=2134560
+mem_heap_extra_B=1096
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2134560 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1700000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1700000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 360576 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 360576 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 360576 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 360576 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 360576 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 360448 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112677: generateNearlyReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D0AC: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=23
+#-----------
+time=918296676
+mem_heap_B=2036256
+mem_heap_extra_B=1080
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=957939336
+mem_heap_B=2259024
+mem_heap_extra_B=1128
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2259024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1890000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1890000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 295040 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 295040 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 295040 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 295040 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 295040 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 294912 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=993496443
+mem_heap_B=2324560
+mem_heap_extra_B=1136
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2324560 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1890000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 1890000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 360576 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 360576 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 360576 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 360576 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 360576 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 360448 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112677: generateNearlyReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D0AC: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=1027864827
+mem_heap_B=2226256
+mem_heap_extra_B=1120
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=1069449801
+mem_heap_B=2459024
+mem_heap_extra_B=1168
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2459024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2090000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 2090000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 295040 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 295040 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 295040 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 295040 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 295040 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 294912 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n0: 0 in 1 place, below massif's threshold (1.00%)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=28
+#-----------
+time=1107168274
+mem_heap_B=2524560
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=peak
+n4: 2524560 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2090000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 2090000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 360576 0x111321: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (in /mnt/d/benchmarks/main)
+  n1: 360576 0x110BC5: std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) (in /mnt/d/benchmarks/main)
+   n1: 360576 0x1101D1: std::_Vector_base<int, std::allocator<int> >::_M_allocate(unsigned long) (in /mnt/d/benchmarks/main)
+    n1: 360576 0x10F38A: void std::vector<int, std::allocator<int> >::_M_realloc_insert<int const&>(__gnu_cxx::__normal_iterator<int*, std::vector<int, std::allocator<int> > >, int const&) (in /mnt/d/benchmarks/main)
+     n2: 360576 0x10E673: std::vector<int, std::allocator<int> >::push_back(int const&) (in /mnt/d/benchmarks/main)
+      n5: 360448 0x1123F1: generateRandomizedArray(int) (in /mnt/d/benchmarks/main)
+       n1: 98304 0x112677: generateNearlyReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 98304 0x10D0AC: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 98304 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x10CFDC: getInputs() (in /mnt/d/benchmarks/main)
+        n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112578: generateNearlySortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CEFD: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112789: generateSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10CF6E: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+       n1: 65536 0x112821: generateReverseSortedArray(int) (in /mnt/d/benchmarks/main)
+        n1: 65536 0x10D044: getInputs() (in /mnt/d/benchmarks/main)
+         n0: 65536 0x10B9FD: main (in /mnt/d/benchmarks/main)
+      n0: 128 in 1 place, below massif's threshold (1.00%)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1280 in 4 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=1142640549
+mem_heap_B=2426256
+mem_heap_extra_B=1160
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=1186268101
+mem_heap_B=2180152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=1283568574
+mem_heap_B=2188152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=1455805218
+mem_heap_B=2196152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1724206242
+mem_heap_B=2204152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=2110043627
+mem_heap_B=2212152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=2111460132
+mem_heap_B=2235328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=2634562110
+mem_heap_B=2220152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=2636178615
+mem_heap_B=2245328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=3319018630
+mem_heap_B=2228152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2228152 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2090000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 2090000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n1: 64000 0x10CCDA: getCopies(std::vector<std::vector<int*, std::allocator<int*> >, std::allocator<std::vector<int*, std::allocator<int*> > > >, int) (in /mnt/d/benchmarks/main)
+  n0: 64000 0x10BE88: main (in /mnt/d/benchmarks/main)
+ n0: 1448 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=3320835135
+mem_heap_B=2255328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=4184649270
+mem_heap_B=2236152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=4186665775
+mem_heap_B=2265328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=5252696001
+mem_heap_B=2244152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=5254912506
+mem_heap_B=2275328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=6544437423
+mem_heap_B=2252152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=6546853928
+mem_heap_B=2285328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=8081092136
+mem_heap_B=2260152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=8083708641
+mem_heap_B=2295328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=9883899733
+mem_heap_B=2268152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2268152 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2090000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 2090000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 104000 0x10CCDA: getCopies(std::vector<std::vector<int*, std::allocator<int*> >, std::allocator<std::vector<int*, std::allocator<int*> > > >, int) (in /mnt/d/benchmarks/main)
+  n0: 104000 0x10BE88: main (in /mnt/d/benchmarks/main)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1448 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=9886716238
+mem_heap_B=2305328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=11974160404
+mem_heap_B=2276152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=11977176909
+mem_heap_B=2315328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=14373098418
+mem_heap_B=2284152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=14376314923
+mem_heap_B=2325328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=17101953649
+mem_heap_B=2292152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=17105370154
+mem_heap_B=2335328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=20182010067
+mem_heap_B=2300152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=20185626572
+mem_heap_B=2345328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=23634497618
+mem_heap_B=2308152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=detailed
+n4: 2308152 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2090000 0x10CE98: getInputs() (in /mnt/d/benchmarks/main)
+  n0: 2090000 0x10B9FD: main (in /mnt/d/benchmarks/main)
+ n1: 144000 0x10CCDA: getCopies(std::vector<std::vector<int*, std::allocator<int*> >, std::allocator<std::vector<int*, std::allocator<int*> > > >, int) (in /mnt/d/benchmarks/main)
+  n0: 144000 0x10BE88: main (in /mnt/d/benchmarks/main)
+ n1: 72704 0x4900979: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n1: 72704 0x40202E9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFF000236: ???
+        n1: 72704 0x1FFF00023D: ???
+         n1: 72704 0x1FFF00023F: ???
+          n0: 72704 0x1FFF000241: ???
+ n0: 1448 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=59
+#-----------
+time=23638314123
+mem_heap_B=2355328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=27480638382
+mem_heap_B=2316152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=27484654887
+mem_heap_B=2365328
+mem_heap_extra_B=1488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=31741685795
+mem_heap_B=2324152
+mem_heap_extra_B=1176
+mem_stacks_B=0
+heap_tree=empty
