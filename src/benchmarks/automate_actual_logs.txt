@@ -1,0 +1,523 @@
+homepc@Parth:/mnt/d/benchmarks$ scripts/automate.sh 
+Making C++ Executable
+g++ -o main src/benchmark.cpp src/inputGenerator.cpp src/sortings.cpp src/timer.cpp
+Cleaning previous reports
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+rm: cannot remove '*': No such file or directory
+Reporting to reports/bubbleSort
+Generating User Report for bubbleSort
+Generating PMAP for bubbleSort
+Generating SMEM for bubbleSort
+Running Valgrind Massif for bubbleSort
+==43993== Massif, a heap profiler
+==43993== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==43993== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==43993== Command: ./main 1 0
+==43993==
+==43993==
+Valgrind Massif complete for bubbleSort
+Running Valgrind Memcheck for bubbleSort
+Valgrind Memcheck complete for bubbleSort
+Running Valgrind Cachegrind for bubbleSort
+==44001== Cachegrind, a cache and branch-prediction profiler
+==44001== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44001== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44001== Command: ./main 1 0
+==44001==
+--44001-- warning: L3 cache found, using its data for the LL simulation.
+==44001== 
+==44001== I   refs:      108,503,488,234
+==44001== I1  misses:              2,729
+==44001== LLi misses:              2,617
+==44001== I1  miss rate:            0.00%
+==44001== LLi miss rate:            0.00%
+==44001==
+==44001== D   refs:       63,852,030,049  (46,264,323,827 rd   + 17,587,706,222 wr)
+==44001== D1  misses:         49,685,420  (    49,521,784 rd   +        163,636 wr)
+==44001== LLd misses:             47,178  (         7,822 rd   +         39,356 wr)
+==44001== D1  miss rate:             0.1% (           0.1%     +            0.0%  )
+==44001== LLd miss rate:             0.0% (           0.0%     +            0.0%  )
+==44001==
+==44001== LL refs:            49,688,149  (    49,524,513 rd   +        163,636 wr)
+==44001== LL misses:              49,795  (        10,439 rd   +         39,356 wr)
+==44001== LL miss rate:              0.0% (           0.0%     +            0.0%  )
+Valgrind Cachegrind complete for bubbleSort
+Running Valgrind Callgrind for bubbleSort
+==44006== Callgrind, a call-graph generating cache profiler
+==44006== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44006== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44006== Command: ./main 1 0 
+==44006==
+==44006== For interactive control, run 'callgrind_control -h'.
+==44006== 
+==44006== Events    : Ir
+==44006== Collected : 108413659073
+==44006==
+==44006== I   refs:      108,413,659,073
+Valgrind Callgrind complete for bubbleSort
+Reporting to reports/insertionSort
+Generating User Report for insertionSort
+Generating PMAP for insertionSort
+Generating SMEM for insertionSort
+Running Valgrind Massif for insertionSort
+==44265== Massif, a heap profiler
+==44265== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44265== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44265== Command: ./main 2 0
+==44265==
+==44265== 
+Valgrind Massif complete for insertionSort
+Running Valgrind Memcheck for insertionSort
+Valgrind Memcheck complete for insertionSort
+Running Valgrind Cachegrind for insertionSort
+==44269== Cachegrind, a cache and branch-prediction profiler
+==44269== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44269== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44269== Command: ./main 2 0
+==44269==
+--44269-- warning: L3 cache found, using its data for the LL simulation.
+==44269== 
+==44269== I   refs:      28,652,510,258
+==44269== I1  misses:             2,763
+==44269== LLi misses:             2,617
+==44269== I1  miss rate:           0.00%
+==44269== LLi miss rate:           0.00%
+==44269==
+==44269== D   refs:      16,910,094,889  (14,164,463,708 rd   + 2,745,631,181 wr)
+==44269== D1  misses:         1,831,232  (     1,681,844 rd   +       149,388 wr)
+==44269== LLd misses:            47,178  (         7,822 rd   +        39,356 wr)
+==44269== D1  miss rate:            0.0% (           0.0%     +           0.0%  )
+==44269== LLd miss rate:            0.0% (           0.0%     +           0.0%  )
+==44269==
+==44269== LL refs:            1,833,995  (     1,684,607 rd   +       149,388 wr)
+==44269== LL misses:             49,795  (        10,439 rd   +        39,356 wr)
+==44269== LL miss rate:             0.0% (           0.0%     +           0.0%  )
+Valgrind Cachegrind complete for insertionSort
+Running Valgrind Callgrind for insertionSort
+==44271== Callgrind, a call-graph generating cache profiler
+==44271== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44271== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44271== Command: ./main 2 0
+==44271==
+==44271== For interactive control, run 'callgrind_control -h'.
+==44271== 
+==44271== Events    : Ir
+==44271== Collected : 28658223976
+==44271==
+==44271== I   refs:      28,658,223,976
+Valgrind Callgrind complete for insertionSort
+Reporting to reports/selectionSort
+Generating User Report for selectionSort
+Generating PMAP for selectionSort
+Generating SMEM for selectionSort
+Running Valgrind Massif for selectionSort
+==44632== Massif, a heap profiler
+==44632== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44632== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44632== Command: ./main 3 0
+==44632==
+==44632== 
+Valgrind Massif complete for selectionSort
+Running Valgrind Memcheck for selectionSort
+Valgrind Memcheck complete for selectionSort
+Running Valgrind Cachegrind for selectionSort
+==44636== Cachegrind, a cache and branch-prediction profiler
+==44636== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44636== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44636== Command: ./main 3 0
+==44636==
+--44636-- warning: L3 cache found, using its data for the LL simulation.
+==44636== 
+==44636== I   refs:      31,742,186,039
+==44636== I1  misses:             2,768
+==44636== LLi misses:             2,620
+==44636== I1  miss rate:           0.00%
+==44636== LLi miss rate:           0.00%
+==44636==
+==44636== D   refs:      20,525,996,515  (18,393,852,522 rd   + 2,132,143,993 wr)
+==44636== D1  misses:         8,575,214  (     8,392,734 rd   +       182,480 wr)
+==44636== LLd misses:            47,178  (         7,822 rd   +        39,356 wr)
+==44636== D1  miss rate:            0.0% (           0.0%     +           0.0%  )
+==44636== LLd miss rate:            0.0% (           0.0%     +           0.0%  )
+==44636==
+==44636== LL refs:            8,577,982  (     8,395,502 rd   +       182,480 wr)
+==44636== LL misses:             49,798  (        10,442 rd   +        39,356 wr)
+==44636== LL miss rate:             0.0% (           0.0%     +           0.0%  )
+Valgrind Cachegrind complete for selectionSort
+Running Valgrind Callgrind for selectionSort
+==44638== Callgrind, a call-graph generating cache profiler
+==44638== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44638== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44638== Command: ./main 3 0
+==44638==
+==44638== For interactive control, run 'callgrind_control -h'.
+==44638== 
+==44638== Events    : Ir
+==44638== Collected : 31742003491
+==44638==
+==44638== I   refs:      31,742,003,491
+Valgrind Callgrind complete for selectionSort
+Reporting to reports/quickSort
+Generating User Report for quickSort
+Generating PMAP for quickSort
+Generating SMEM for quickSort
+Running Valgrind Massif for quickSort
+==44708== Massif, a heap profiler
+==44708== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44708== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44708== Command: ./main 4 0
+==44708==
+==44708== 
+Valgrind Massif complete for quickSort
+Running Valgrind Memcheck for quickSort
+Valgrind Memcheck complete for quickSort
+Running Valgrind Cachegrind for quickSort
+==44712== Cachegrind, a cache and branch-prediction profiler
+==44712== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44712== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44712== Command: ./main 4 0
+==44712==
+--44712-- warning: L3 cache found, using its data for the LL simulation.
+==44712== 
+==44712== I   refs:      4,528,405,616
+==44712== I1  misses:            2,733
+==44712== LLi misses:            2,622
+==44712== I1  miss rate:          0.00%
+==44712== LLi miss rate:          0.00%
+==44712==
+==44712== D   refs:      2,916,530,373  (2,353,033,785 rd   + 563,496,588 wr)
+==44712== D1  misses:          745,437  (      396,067 rd   +     349,370 wr)
+==44712== LLd misses:           48,188  (        7,822 rd   +      40,366 wr)
+==44712== D1  miss rate:           0.0% (          0.0%     +         0.1%  )
+==44712== LLd miss rate:           0.0% (          0.0%     +         0.0%  )
+==44712==
+==44712== LL refs:             748,170  (      398,800 rd   +     349,370 wr)
+==44712== LL misses:            50,810  (       10,444 rd   +      40,366 wr)
+==44712== LL miss rate:            0.0% (          0.0%     +         0.0%  )
+Valgrind Cachegrind complete for quickSort
+Running Valgrind Callgrind for quickSort
+==44717== Callgrind, a call-graph generating cache profiler
+==44717== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44717== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44717== Command: ./main 4 0
+==44717==
+==44717== For interactive control, run 'callgrind_control -h'.
+==44717== 
+==44717== Events    : Ir
+==44717== Collected : 4530346633
+==44717==
+==44717== I   refs:      4,530,346,633
+Valgrind Callgrind complete for quickSort
+Reporting to reports/mergeSort
+Generating User Report for mergeSort
+Generating PMAP for mergeSort
+Generating SMEM for mergeSort
+Running Valgrind Massif for mergeSort
+==44752== Massif, a heap profiler
+==44752== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44752== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44752== Command: ./main 5 0
+==44752==
+==44752== 
+Valgrind Massif complete for mergeSort
+Running Valgrind Memcheck for mergeSort
+Valgrind Memcheck complete for mergeSort
+Running Valgrind Cachegrind for mergeSort
+==44756== Cachegrind, a cache and branch-prediction profiler
+==44756== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44756== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44756== Command: ./main 5 0
+==44756==
+--44756-- warning: L3 cache found, using its data for the LL simulation.
+==44756== 
+==44756== I   refs:      1,590,912,626
+==44756== I1  misses:            2,749
+==44756== LLi misses:            2,630
+==44756== I1  miss rate:          0.00%
+==44756== LLi miss rate:          0.00%
+==44756==
+==44756== D   refs:        989,443,876  (629,131,997 rd   + 360,311,879 wr)
+==44756== D1  misses:          465,722  (    244,639 rd   +     221,083 wr)
+==44756== LLd misses:           47,737  (      7,830 rd   +      39,907 wr)
+==44756== D1  miss rate:           0.0% (        0.0%     +         0.1%  )
+==44756== LLd miss rate:           0.0% (        0.0%     +         0.0%  )
+==44756==
+==44756== LL refs:             468,471  (    247,388 rd   +     221,083 wr)
+==44756== LL misses:            50,367  (     10,460 rd   +      39,907 wr)
+==44756== LL miss rate:            0.0% (        0.0%     +         0.0%  )
+Valgrind Cachegrind complete for mergeSort
+Running Valgrind Callgrind for mergeSort
+==44758== Callgrind, a call-graph generating cache profiler
+==44758== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44758== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44758== Command: ./main 5 0
+==44758==
+==44758== For interactive control, run 'callgrind_control -h'.
+==44758== 
+==44758== Events    : Ir
+==44758== Collected : 1591930681
+==44758==
+==44758== I   refs:      1,591,930,681
+Valgrind Callgrind complete for mergeSort
+Reporting to reports/countingSort
+Generating User Report for countingSort
+Generating PMAP for countingSort
+Generating SMEM for countingSort
+Running Valgrind Massif for countingSort
+==44788== Massif, a heap profiler
+==44788== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44788== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44788== Command: ./main 6 0
+==44788==
+==44788== 
+Valgrind Massif complete for countingSort
+Running Valgrind Memcheck for countingSort
+Valgrind Memcheck complete for countingSort
+Running Valgrind Cachegrind for countingSort
+==44792== Cachegrind, a cache and branch-prediction profiler
+==44792== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44792== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44792== Command: ./main 6 0
+==44792==
+--44792-- warning: L3 cache found, using its data for the LL simulation.
+==44792== 
+==44792== I   refs:      1,227,128,095
+==44792== I1  misses:            2,735
+==44792== LLi misses:            2,622
+==44792== I1  miss rate:          0.00%
+==44792== LLi miss rate:          0.00%
+==44792==
+==44792== D   refs:        778,692,988  (452,940,863 rd   + 325,752,125 wr)
+==44792== D1  misses:          346,498  (    187,567 rd   +     158,931 wr)
+==44792== LLd misses:           47,178  (      7,822 rd   +      39,356 wr)
+==44792== D1  miss rate:           0.0% (        0.0%     +         0.0%  )
+==44792== LLd miss rate:           0.0% (        0.0%     +         0.0%  )
+==44792==
+==44792== LL refs:             349,233  (    190,302 rd   +     158,931 wr)
+==44792== LL misses:            49,800  (     10,444 rd   +      39,356 wr)
+==44792== LL miss rate:            0.0% (        0.0%     +         0.0%  )
+Valgrind Cachegrind complete for countingSort
+Running Valgrind Callgrind for countingSort
+==44794== Callgrind, a call-graph generating cache profiler
+==44794== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44794== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44794== Command: ./main 6 0
+==44794==
+==44794== For interactive control, run 'callgrind_control -h'.
+==44794== 
+==44794== Events    : Ir
+==44794== Collected : 1227443435
+==44794==
+==44794== I   refs:      1,227,443,435
+Valgrind Callgrind complete for countingSort
+Reporting to reports/radixSort
+Generating User Report for radixSort
+Generating PMAP for radixSort
+Generating SMEM for radixSort
+Running Valgrind Massif for radixSort
+==44824== Massif, a heap profiler
+==44824== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44824== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44824== Command: ./main 7 0
+==44824==
+==44824== 
+Valgrind Massif complete for radixSort
+Running Valgrind Memcheck for radixSort
+Valgrind Memcheck complete for radixSort
+Running Valgrind Cachegrind for radixSort
+==44828== Cachegrind, a cache and branch-prediction profiler
+==44828== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44828== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44828== Command: ./main 7 0
+==44828==
+--44828-- warning: L3 cache found, using its data for the LL simulation.
+==44828== 
+==44828== I   refs:      1,327,035,026
+==44828== I1  misses:            2,750
+==44828== LLi misses:            2,630
+==44828== I1  miss rate:          0.00%
+==44828== LLi miss rate:          0.00%
+==44828==
+==44828== D   refs:        805,963,208  (477,554,424 rd   + 328,408,784 wr)
+==44828== D1  misses:          510,619  (    278,834 rd   +     231,785 wr)
+==44828== LLd misses:           47,736  (      7,831 rd   +      39,905 wr)
+==44828== D1  miss rate:           0.1% (        0.1%     +         0.1%  )
+==44828== LLd miss rate:           0.0% (        0.0%     +         0.0%  )
+==44828==
+==44828== LL refs:             513,369  (    281,584 rd   +     231,785 wr)
+==44828== LL misses:            50,366  (     10,461 rd   +      39,905 wr)
+==44828== LL miss rate:            0.0% (        0.0%     +         0.0%  )
+Valgrind Cachegrind complete for radixSort
+Running Valgrind Callgrind for radixSort
+==44830== Callgrind, a call-graph generating cache profiler
+==44830== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44830== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44830== Command: ./main 7 0
+==44830==
+==44830== For interactive control, run 'callgrind_control -h'.
+==44830== 
+==44830== Events    : Ir
+==44830== Collected : 1326526520
+==44830==
+==44830== I   refs:      1,326,526,520
+Valgrind Callgrind complete for radixSort
+Reporting to reports/heapSort
+Generating User Report for heapSort
+Generating PMAP for heapSort
+Generating SMEM for heapSort
+Running Valgrind Massif for heapSort
+==44870== Massif, a heap profiler
+==44870== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==44870== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44870== Command: ./main 8 0
+==44870==
+==44870== 
+Valgrind Massif complete for heapSort
+Running Valgrind Memcheck for heapSort
+Valgrind Memcheck complete for heapSort
+Running Valgrind Cachegrind for heapSort
+==44874== Cachegrind, a cache and branch-prediction profiler
+==44874== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==44874== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44874== Command: ./main 8 0
+==44874==
+--44874-- warning: L3 cache found, using its data for the LL simulation.
+==44874== 
+==44874== I   refs:      2,013,065,950
+==44874== I1  misses:            2,737
+==44874== LLi misses:            2,622
+==44874== I1  miss rate:          0.00%
+==44874== LLi miss rate:          0.00%
+==44874==
+==44874== D   refs:      1,274,283,085  (789,644,593 rd   + 484,638,492 wr)
+==44874== D1  misses:          338,828  (    188,914 rd   +     149,914 wr)
+==44874== LLd misses:           47,178  (      7,822 rd   +      39,356 wr)
+==44874== D1  miss rate:           0.0% (        0.0%     +         0.0%  )
+==44874== LLd miss rate:           0.0% (        0.0%     +         0.0%  )
+==44874==
+==44874== LL refs:             341,565  (    191,651 rd   +     149,914 wr)
+==44874== LL misses:            49,800  (     10,444 rd   +      39,356 wr)
+==44874== LL miss rate:            0.0% (        0.0%     +         0.0%  )
+Valgrind Cachegrind complete for heapSort
+Running Valgrind Callgrind for heapSort
+==44876== Callgrind, a call-graph generating cache profiler
+==44876== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==44876== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==44876== Command: ./main 8 0
+==44876==
+==44876== For interactive control, run 'callgrind_control -h'.
+==44876== 
+==44876== Events    : Ir
+==44876== Collected : 2008450332
+==44876==
+==44876== I   refs:      2,008,450,332
+Valgrind Callgrind complete for heapSort
+Reporting to reports/gnomeSort
+Generating User Report for gnomeSort
+Generating PMAP for gnomeSort
+Generating SMEM for gnomeSort
+Running Valgrind Massif for gnomeSort
+==46041== Massif, a heap profiler
+==46041== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==46041== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46041== Command: ./main 9 0
+==46041==
+==46041== 
+Valgrind Massif complete for gnomeSort
+Running Valgrind Memcheck for gnomeSort
+Valgrind Memcheck complete for gnomeSort
+Running Valgrind Cachegrind for gnomeSort
+==46046== Cachegrind, a cache and branch-prediction profiler
+==46046== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==46046== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46046== Command: ./main 9 0
+==46046==
+--46046-- warning: L3 cache found, using its data for the LL simulation.
+==46046== 
+==46046== I   refs:      105,197,930,429
+==46046== I1  misses:              2,733
+==46046== LLi misses:              2,618
+==46046== I1  miss rate:            0.00%
+==46046== LLi miss rate:            0.00%
+==46046==
+==46046== D   refs:       62,030,948,189  (45,585,495,567 rd   + 16,445,452,622 wr)
+==46046== D1  misses:            741,380  (       582,464 rd   +        158,916 wr)
+==46046== LLd misses:             47,178  (         7,822 rd   +         39,356 wr)
+==46046== D1  miss rate:             0.0% (           0.0%     +            0.0%  )
+==46046== LLd miss rate:             0.0% (           0.0%     +            0.0%  )
+==46046==
+==46046== LL refs:               744,113  (       585,197 rd   +        158,916 wr)
+==46046== LL misses:              49,796  (        10,440 rd   +         39,356 wr)
+==46046== LL miss rate:              0.0% (           0.0%     +            0.0%  )
+Valgrind Cachegrind complete for gnomeSort
+Running Valgrind Callgrind for gnomeSort
+==46055== Callgrind, a call-graph generating cache profiler
+==46055== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==46055== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46055== Command: ./main 9 0
+==46055==
+==46055== For interactive control, run 'callgrind_control -h'.
+==46055== 
+==46055== Events    : Ir
+==46055== Collected : 105213524709
+==46055==
+==46055== I   refs:      105,213,524,709
+Valgrind Callgrind complete for gnomeSort
+Reporting to reports/combSort
+Generating User Report for combSort
+Generating PMAP for combSort
+Generating SMEM for combSort
+Running Valgrind Massif for combSort
+==46094== Massif, a heap profiler
+==46094== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
+==46094== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46094== Command: ./main 10 0
+==46094==
+==46094== 
+Valgrind Massif complete for combSort
+Running Valgrind Memcheck for combSort
+Valgrind Memcheck complete for combSort
+Running Valgrind Cachegrind for combSort
+==46098== Cachegrind, a cache and branch-prediction profiler
+==46098== Copyright (C) 2002-2017, and GNU GPL'd, by Nicholas Nethercote et al.
+==46098== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46098== Command: ./main 10 0
+==46098==
+--46098-- warning: L3 cache found, using its data for the LL simulation.
+==46098== 
+==46098== I   refs:      1,582,511,744
+==46098== I1  misses:            2,732
+==46098== LLi misses:            2,619
+==46098== I1  miss rate:          0.00%
+==46098== LLi miss rate:          0.00%
+==46098==
+==46098== D   refs:        983,999,664  (641,400,382 rd   + 342,599,282 wr)
+==46098== D1  misses:          592,599  (    442,782 rd   +     149,817 wr)
+==46098== LLd misses:           47,179  (      7,819 rd   +      39,360 wr)
+==46098== D1  miss rate:           0.1% (        0.1%     +         0.0%  )
+==46098== LLd miss rate:           0.0% (        0.0%     +         0.0%  )
+==46098==
+==46098== LL refs:             595,331  (    445,514 rd   +     149,817 wr)
+==46098== LL misses:            49,798  (     10,438 rd   +      39,360 wr)
+==46098== LL miss rate:            0.0% (        0.0%     +         0.0%  )
+Valgrind Cachegrind complete for combSort
+Running Valgrind Callgrind for combSort
+==46100== Callgrind, a call-graph generating cache profiler
+==46100== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==46100== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==46100== Command: ./main 10 0
+==46100==
+==46100== For interactive control, run 'callgrind_control -h'.
+==46100== 
+==46100== Events    : Ir
+==46100== Collected : 1581020534
+==46100==
+==46100== I   refs:      1,581,020,534
+Valgrind Callgrind complete for combSort
