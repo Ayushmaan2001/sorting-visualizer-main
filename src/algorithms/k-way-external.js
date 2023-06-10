@@ -272,6 +272,7 @@ const k_way_external = async ({
 
     //output array
     for (let i = 0; i < outputArray.length; i++) {
+        setArray(InputArray)
         let find = false;
         const t1 = runsArray1.indexOf(outputArray[i]);
         if (t1 > -1) {

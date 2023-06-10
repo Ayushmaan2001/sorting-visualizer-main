@@ -37,30 +37,6 @@
   width: 700px;
 }
 
-/* @media (max-width: 900px) {
-  .bg {
-    display: flex;
-  }
-
-  .desc {
-    margin-left: 10px;
-  }
-
-  .mobile-table {
-    margin-left: 50%;
-    margin-right: 50%;
-  }
-
-  .styled-table {
-    min-width: 300px;
-  }
-
-  .card{
-    height: max-content;
-    max-width: 300px;
-  }
-} */
-
 .navMenu {
   display: flex;
   flex-wrap: wrap;
@@ -145,8 +121,9 @@
 
 nav {
   margin: 27px auto 0;
+
   position: relative;
-  width: 400px;
+  width: 590px;
   height: 50px;
   background-color: #34495e;
   border-radius: 8px;
@@ -177,47 +154,39 @@ a:nth-child(1) {
   width: 100px;
 }
 a:nth-child(2) {
-  width: 100px;
+  width: 110px;
 }
 a:nth-child(3) {
   width: 100px;
 }
 a:nth-child(4) {
-  width: 100px;
+  width: 160px;
 }
-
+a:nth-child(5) {
+  width: 120px;
+}
 nav .start-home, a:nth-child(1):hover~.animation {
   width: 100px;
   left: 0;
   background-color: #1abc9c;
 }
 nav .start-about, a:nth-child(2):hover~.animation {
-  width: 100px;
+  width: 110px;
   left: 100px;
   background-color: #e74c3c;
 }
 nav .start-blog, a:nth-child(3):hover~.animation {
   width: 100px;
-  left: 200px;
+  left: 210px;
   background-color: #3498db;
 }
 nav .start-portefolio, a:nth-child(4):hover~.animation {
-  width: 100px;
-  left: 300px;
+  width: 160px;
+  left: 310px;
   background-color: #9b59b6;
 }
-
-/* p {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    color: #ecf0f1;
-    font-family: 'Cherry Swash',cursive;
-    font-size: 16px;
-} */
-/* 
-span {
-    color: #2BD6B4;
-} */
-
+nav .start-contact, a:nth-child(5):hover~.animation {
+  width: 120px;
+  left: 470px;
+  background-color: #e67e22;
+}

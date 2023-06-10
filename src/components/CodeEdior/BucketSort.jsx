@@ -261,7 +261,88 @@ print("Sorted array: ", arr)
 
 # This code is contributed by
 # Vinita Yadav
-`;
+`,
+C=`#include <stdio.h>
+#include <stdlib.h>
+
+void insertionSort(int arr[], int n) {
+    int i, j, key;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+
+void bucketSort(int arr[], int n, int maxVal) {
+    int i, j;
+    int* buckets = (int*)malloc(maxVal * sizeof(int));
+
+    for (i = 0; i < maxVal; i++)
+        buckets[i] = 0;
+
+    for (i = 0; i < n; i++)
+        buckets[arr[i]]++;
+
+    for (i = 0, j = 0; i < maxVal; i++) {
+        while (buckets[i] > 0) {
+            arr[j++] = i;
+            buckets[i]--;
+        }
+    }
+
+    free(buckets);
+}
+`,
+C_opt= `#include <stdio.h>
+#include <stdlib.h>
+
+void insertionSort(int arr[], int n) {
+    int i, j, key;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+
+void bucketSort(int arr[], int n, int maxVal) {
+    int i, j;
+    int* buckets = (int*)malloc(maxVal * sizeof(int));
+    int bucketIndex = 0;
+
+    for (i = 0; i < maxVal; i++)
+        buckets[i] = 0;
+
+    for (i = 0; i < n; i++)
+        buckets[arr[i]]++;
+
+    for (i = 0; i < maxVal; i++) {
+        while (buckets[i] > 0) {
+            arr[bucketIndex++] = i;
+            buckets[i]--;
+        }
+    }
+
+    free(buckets);
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 
 const BucketSort = () => {
     return (
@@ -310,7 +391,7 @@ const BucketSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
     );
 }

@@ -11,7 +11,7 @@ import { Inpbutton } from '../Input Button';
 import { Downloadbtn,DownloadArray } from '../Download Btn';
 
 //import Analysis Components
-import { Comparisons, Swaps, Time } from '../Analysis';
+import { Comparisons, Swaps, Time, AnalysisGraph } from '../Analysis';
 
 //algorithms import
 import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLWrapper, countingSort, heapSort, KWAYEXTSORT, externalReplacementSort, radixSort, Combsort,Genomesort, Strandsort, Stoogesort, bucketSort } from '../../algorithms';
@@ -20,7 +20,7 @@ import { selectionSort, bubbleSort, insertionSort, mergeSortWrapper, quickSortLW
 import {SelectionSort, RadixSort, QuickSort, MergeSort, InsertionSort, HeapSort, CountingSort, BubbleSort, KwayExternal,ReplacementSort,CombSort,StrandSort,GenomeSort,StoogeSort, BucketSort} from '../CodeEdior';
 
 //import graphs
-import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph,CombSortGraph,StrandSortGraph,GenomeSortGraph,StoogeSortGraph,RadixSortGraph,ReplacementSelectionSortGraph } from '../GraphShows';
+import { BubbleSortGraph,CountingSortGraph,InsertionSortGraph,HeapSortGraph,KWayExternalSortGraph,MergeSortGraph,QuickSortGraph,SelectionSortGraph,CombSortGraph,StrandSortGraph,GenomeSortGraph,StoogeSortGraph,ReplacementSelectionSortGraph } from '../GraphShows';
 
 //Runs Bars Import
 import RunsBars from '../RunsBars/RunsBars';
@@ -58,6 +58,7 @@ const Home = () => {
   );
   const [visualizationSpeed, setVisualizationSpeed] = useState(30);
   const [maxItem, setMaxItem] = useState(Math.max(...randomizedArray));
+  const [changesize, setChangesize] = useState(true);
 
   const EditorSelector = ({ algo, ...props }) => {
     switch (algo) {
@@ -109,8 +110,8 @@ const Home = () => {
         return <MergeSortGraph {...props} />
       case "Counting Sort":
         return <CountingSortGraph {...props} />
-      case "Radix Sort":
-        return <RadixSortGraph {...props} />
+      // case "Radix Sort":
+      //   return <RadixSortGraph {...props} />
       case "Heap Sort":
         return <HeapSortGraph {...props} />
       case "Comb Sort":
@@ -197,6 +198,40 @@ const Home = () => {
         return null;
     }
   }
+
+  const AnalysisGraphSelector = ({algo,...props}) => {
+    switch(algo){
+      case "Bubble Sort":
+        return <AnalysisGraph cmp={assets.images.bubble_cmp} swap={assets.images.bubble_swap} time={assets.images.bubble_time} mem={assets.images.bubble_mem} {...props}/>
+      case "Insertion Sort":
+        return <AnalysisGraph cmp={assets.images.insertion_cmp} swap={assets.images.insertion_swap} time={assets.images.insertion_time} mem={assets.images.insertion_mem} {...props}/>
+      case "Selection Sort":
+        return <AnalysisGraph cmp={assets.images.selection_cmp} swap={assets.images.selection_swap} time={assets.images.selection_time} mem={null} {...props}/>
+      case "QuickSort":
+        return <AnalysisGraph cmp={assets.images.quick_cmp} swap={assets.images.quick_swap} time={assets.images.quick_time} mem={assets.images.quick_mem} {...props}/>
+      case "Merge Sort":
+        return <AnalysisGraph cmp={assets.images.merge_cmp} swap={null} time={assets.images.merge_time} mem={assets.images.merge_mem} {...props}/>
+      case "Counting Sort":
+        return <AnalysisGraph cmp={assets.images.counting_cmp} swap={null} time={assets.images.counting_time} mem={null} {...props}/>
+      case "Radix Sort":
+        return <AnalysisGraph cmp={assets.images.radix_cmp} swap={null} time={assets.images.radix_time} mem={null} {...props}/>
+      case "Heap Sort":
+        return <AnalysisGraph cmp={assets.images.heap_cmp} swap={assets.images.heap_swap} time={assets.images.heap_time} mem={null} {...props}/>
+      case "Comb Sort":
+        return <AnalysisGraph cmp={assets.images.comb_cmp} swap={assets.images.comb_swap} time={assets.images.comb_time} mem={null} {...props}/>
+      case "Strand Sort":
+        return <AnalysisGraph cmp={assets.images.strand_cmp} swap={null} time={assets.images.strand_time} mem={null} {...props}/>
+      case "Gnome Sort":
+        return <AnalysisGraph cmp={assets.images.gnome_cmp} swap={assets.images.gnome_swap} time={assets.images.gnome_time} mem={null} {...props}/>
+      case "Stooge Sort":
+        return <AnalysisGraph cmp={assets.images.stooge_cmp} swap={assets.images.stooge_swap} time={assets.images.stooge_time} mem={null} {...props}/>
+      case "Bucket Sort":
+        return <AnalysisGraph cmp={assets.images.bucket_cmp} swap={null} time={assets.images.bucket_time} mem={null} {...props}/>
+      default:
+        return null;
+    }
+  }
+
   const [currentAlgorithm, setCurrentAlgorithm] = useState('Bubble Sort');
   const algorithms = [
     'Bubble Sort',
@@ -247,8 +282,10 @@ const Home = () => {
   }
 
   useEffect(() => {
-    let tmp = generateArrayChoice(currentArray,randomizedArray.length)
+    if(changesize === true){
+      let tmp = generateArrayChoice(currentArray,randomizedArray.length)
     setRandomizedArray(tmp)
+    }
   }, [currentArray,randomizedArray.length]);
 
   const onRandomize = () => {
@@ -492,6 +529,7 @@ const Home = () => {
         })
         break;
       case 'K-Way External Sort':
+        setChangesize(false)
         await KWAYEXTSORT.k_way_external({
           array: randomizedArray,
           setArray: setRandomizedArray,
@@ -509,8 +547,10 @@ const Home = () => {
           timeRequired:timeRequired,
           setTimeRequired:setTimeRequired
         });
+        setChangesize(true);
         break;
       case 'Replacement Ext Sort':
+        setChangesize(false)
         await externalReplacementSort({
           array: randomizedArray,
           setArray: setRandomizedArray,
@@ -528,6 +568,7 @@ const Home = () => {
           timeRequired:timeRequired,
           setTimeRequired:setTimeRequired
         });
+        setChangesize(true)
         break;
       default:
         break;
@@ -633,6 +674,7 @@ const Home = () => {
         </div>
       <EditorSelector algo={currentAlgorithm} val={'sample'} />
       <FlowChartSelector algo={currentAlgorithm} val={'sample'}/>
+      <AnalysisGraphSelector algo={currentAlgorithm} val={'sample'}/>
       <Footer />
     </div>
   );

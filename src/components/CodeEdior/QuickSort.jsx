@@ -226,7 +226,68 @@ quickSort(0, len - 1);
 
 // after sorting this function call will print the final array
 print("After");
-`
+`,C=`void swap(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+int partition(int arr[], int low, int high) {
+  int pivot = arr[high];
+  int i = (low - 1);
+
+  for (int j = low; j <= high - 1; j++) {
+      if (arr[j] < pivot) {
+          i++;
+          swap(&arr[i], &arr[j]);
+      }
+  }
+  swap(&arr[i + 1], &arr[high]);
+  return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high) {
+  if (low < high) {
+      int pi = partition(arr, low, high);
+
+      quickSort(arr, low, pi - 1);
+      quickSort(arr, pi + 1, high);
+  }
+}
+`,
+C_opt= `void swap(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+int partition(int arr[], int low, int high) {
+  int pivot = arr[high];
+  int i = (low - 1);
+
+  for (int j = low; j <= high - 1; j++) {
+      if (arr[j] < pivot) {
+          i++;
+          swap(&arr[i], &arr[j]);
+      }
+  }
+  swap(&arr[i + 1], &arr[high]);
+  return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high) {
+  if (low < high) {
+      int pi = partition(arr, low, high);
+
+      quickSort(arr, low, pi - 1);
+      quickSort(arr, pi + 1, high);
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 
 export default function QuickSort({text}) {
   return (
@@ -268,7 +329,7 @@ export default function QuickSort({text}) {
       </Col>
       </div>
     </Row>
-          <CodeEditor Cpp={Cpp} Python={Python} Java={Java} Javascript={Javascript} d2={false} d3={false} d4={false} />
+          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
   )
 }

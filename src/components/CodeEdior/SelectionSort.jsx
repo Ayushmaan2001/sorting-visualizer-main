@@ -179,7 +179,53 @@ selectionSort();
 
 // after sorting this function call will print the final array
 print("After");
-`
+`,
+C=`void selectionSort(int arr[], int n) {
+  int i, j, minIndex, temp;
+  for (i = 0; i < n - 1; i++) {
+      minIndex = i;
+      for (j = i + 1; j < n; j++) {
+          if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+          }
+      }
+      // Swap arr[i] and arr[minIndex]
+      temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+  }
+}
+`,
+C_opt= `void selectionSort(int arr[], int n) {
+  int i, j, minIndex, maxIndex, temp;
+  for (i = 0; i < n / 2; i++) {
+      minIndex = i;
+      maxIndex = i;
+      for (j = i + 1; j < n - i; j++) {
+          if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+          } else if (arr[j] > arr[maxIndex]) {
+              maxIndex = j;
+          }
+      }
+      // Swap arr[i] and arr[minIndex]
+      temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+      // Handle the case when the maximum element is swapped with arr[i]
+      if (maxIndex == i)
+          maxIndex = minIndex;
+      // Swap arr[n-i-1] and arr[maxIndex]
+      temp = arr[n - i - 1];
+      arr[n - i - 1] = arr[maxIndex];
+      arr[maxIndex] = temp;
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 export default function SelectionSort({text}) {
   return (
     <React.Fragment>
@@ -220,7 +266,7 @@ export default function SelectionSort({text}) {
       </Col>
       </div>
     </Row>
-      <CodeEditor Cpp={Cpp} Python={Python} Java={Java} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
   )
 }

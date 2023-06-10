@@ -160,7 +160,37 @@ insertionSort();
 
 // after sorting this function call will print the final array
 print("After"); 
-`
+`,
+C=`void insertionSort(int arr[], int n) {
+  int i, j, key;
+  for (i = 1; i < n; i++) {
+      key = arr[i];
+      j = i - 1;
+      while (j >= 0 && arr[j] > key) {
+          arr[j + 1] = arr[j];
+          j = j - 1;
+      }
+      arr[j + 1] = key;
+  }
+}
+`,
+C_opt= `void insertionSort(int arr[], int n) {
+  int i, j, key;
+  for (i = 1; i < n; i++) {
+      key = arr[i];
+      j = i - 1;
+      while (j >= 0 && arr[j] > key) {
+          arr[j + 1] = arr[j];
+          j = j - 1;
+      }
+      arr[j + 1] = key;
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 export default function InsertionSort({text}) {
   return (
     <React.Fragment>
@@ -199,7 +229,7 @@ export default function InsertionSort({text}) {
       </Col>
       </div>
     </Row>
-      <CodeEditor Cpp={Cpp} Python={Python} Java={Java} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
   )
 }

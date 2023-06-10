@@ -199,7 +199,59 @@ for i in range(0, n):
 	
 </script>
 
-`
+`,
+C=`#include <stdio.h>
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void stoogeSort(int arr[], int low, int high) {
+    if (low >= high)
+        return;
+
+    if (arr[low] > arr[high])
+        swap(&arr[low], &arr[high]);
+
+    if (high - low + 1 > 2) {
+        int third = (high - low + 1) / 3;
+
+        stoogeSort(arr, low, high - third);
+        stoogeSort(arr, low + third, high);
+        stoogeSort(arr, low, high - third);
+    }
+}
+`,
+C_opt= `#include <stdio.h>
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void stoogeSort(int arr[], int low, int high) {
+    if (low >= high)
+        return;
+
+    if (arr[low] > arr[high])
+        swap(&arr[low], &arr[high]);
+
+    if (high - low + 1 > 2) {
+        int third = (high - low + 1) / 3;
+
+        stoogeSort(arr, low, high - third);
+        stoogeSort(arr, low + third, high);
+        stoogeSort(arr, low, high - third);
+    }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 
 const StoogeSort = () => {
     return (
@@ -241,7 +293,7 @@ const StoogeSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
     );
 }

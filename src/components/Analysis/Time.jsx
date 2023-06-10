@@ -4,7 +4,7 @@ import './analysis.css'
 const Time = ({Time}) => {
     return (
         <div className='analysis'>
-            Time: {Time}  milliseconds
+            Time: {Time}  units
         </div>
     );
 }

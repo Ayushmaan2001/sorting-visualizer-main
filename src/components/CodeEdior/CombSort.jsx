@@ -255,7 +255,63 @@ for i in range(len(arr)):
 // This code is contributed by decode2207
 </script>
 
-`
+`,
+C=`void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void combSort(int arr[], int n) {
+    int gap = n;
+    float shrink = 1.3;
+    int sorted = 0;
+
+    while (gap > 1 || sorted == 0) {
+        gap = (int)(gap / shrink);
+        if (gap < 1)
+            gap = 1;
+
+        sorted = 1;
+        for (int i = 0; i < n - gap; i++) {
+            if (arr[i] > arr[i + gap]) {
+                swap(&arr[i], &arr[i + gap]);
+                sorted = 0;
+            }
+        }
+    }
+}
+`,
+C_opt= `void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void combSort(int arr[], int n) {
+    int gap = n;
+    float shrink = 1.3;
+    int sorted = 0;
+
+    while (gap > 1 || sorted == 0) {
+        gap = (int)(gap / shrink);
+        if (gap < 1)
+            gap = 1;
+
+        sorted = 1;
+        for (int i = 0; i < n - gap; i++) {
+            if (arr[i] > arr[i + gap]) {
+                swap(&arr[i], &arr[i + gap]);
+                sorted = 0;
+            }
+        }
+    }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 
 const CombSort = () => {
     return (
@@ -301,7 +357,7 @@ The shrink factor has been empirically found to be 1.3 (by testing Combsort on o
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
     );
 }

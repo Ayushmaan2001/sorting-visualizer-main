@@ -185,6 +185,110 @@ def main():
 
 if __name__ == '__main__':
     main()
+`,
+C=`#include <stdio.h>
+#include <stdlib.h>
+
+void merge(int arr[], int left[], int leftSize, int right[], int rightSize) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < leftSize && j < rightSize) {
+        if (left[i] <= right[j])
+            arr[k++] = left[i++];
+        else
+            arr[k++] = right[j++];
+    }
+
+    while (i < leftSize)
+        arr[k++] = left[i++];
+
+    while (j < rightSize)
+        arr[k++] = right[j++];
+}
+
+void mergeSort(int arr[], int n, int k) {
+    if (n <= 1)
+        return;
+
+    int chunkSize = (n + k - 1) / k; // Size of each chunk
+
+    // Perform sorting on each chunk individually
+    for (int i = 0; i < n; i += chunkSize)
+        mergeSort(arr + i, chunkSize, k);
+
+    // Merge the sorted chunks
+    for (int size = chunkSize; size < n; size *= k) {
+        for (int i = 0; i < n - size; i += k * size) {
+            int leftIndex = i;
+            int rightIndex = i + size;
+            int endIndex = i + k * size;
+
+            if (endIndex > n)
+                endIndex = n;
+
+            int* left = arr + leftIndex;
+            int leftSize = size;
+
+            int* right = arr + rightIndex;
+            int rightSize = endIndex - rightIndex;
+
+            merge(arr + leftIndex, left, leftSize, right, rightSize);
+        }
+    }
+}
+`,
+C_opt = `#include <stdio.h>
+#include <stdlib.h>
+
+void merge(int arr[], int left[], int leftSize, int right[], int rightSize) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < leftSize && j < rightSize) {
+        if (left[i] <= right[j])
+            arr[k++] = left[i++];
+        else
+            arr[k++] = right[j++];
+    }
+
+    while (i < leftSize)
+        arr[k++] = left[i++];
+
+    while (j < rightSize)
+        arr[k++] = right[j++];
+}
+
+void mergeSort(int arr[], int temp[], int low, int high, int k) {
+    if (low < high) {
+        int mid = (low + high) / 2;
+        mergeSort(arr, temp, low, mid, k);
+        mergeSort(arr, temp, mid + 1, high, k);
+
+        int i, j;
+        for (i = low; i <= high; i++)
+            temp[i] = arr[i];
+
+        i = low;
+        int chunkSize = (high - low + 1) / k;
+
+        for (int chunk = 0; chunk < k; chunk++) {
+            int chunkStart = i;
+            int chunkEnd = (chunk == k - 1) ? high : (chunkStart + chunkSize - 1);
+
+            int* chunkArr = temp + chunkStart;
+            int chunkSize = chunkEnd - chunkStart + 1;
+
+            merge(arr + chunkStart, chunkArr, chunkSize, arr + chunkStart + chunkSize, chunkSize);
+
+            i += chunkSize;
+        }
+    }
+}
+
+void externalKWayMergeSort(int arr[], int n, int k) {
+    int* temp = (int*)malloc(n * sizeof(int));
+    mergeSort(arr, temp, 0, n - 1, k);
+    free(temp);
+}
 `
 export default function KwayExternal({runs}) {
 	return (
@@ -226,7 +330,7 @@ export default function KwayExternal({runs}) {
 				</Col>
 				</div>
 			</Row>
-			<CodeEditor Cpp={Cpp} d2={true} Python={Python} d4={true} />
+			<CodeEditor Cpp={Cpp} Python={Python} C={C} C_opt={C_opt} />
 		</React.Fragment>
 	)
 }

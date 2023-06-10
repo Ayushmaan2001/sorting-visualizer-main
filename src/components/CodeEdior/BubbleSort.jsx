@@ -163,7 +163,46 @@ print(bubble_sort([5, 3, 6, 2, 10])) # [2, 3, 5, 6, 10]
   
   // after sorting this function call will print the final array
   print("After");
-`
+`,
+C=`void bubbleSort(int arr[], int n) {
+  int i, j;
+  for (i = 0; i < n - 1; i++) {
+      for (j = 0; j < n - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+              // Swap arr[j] and arr[j+1]
+              int temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+          }
+      }
+  }
+}
+`,
+C_opt= `void bubbleSort(int arr[], int n) {
+  int i, j;
+  int swapped;
+  for (i = 0; i < n - 1; i++) {
+      swapped = 0;
+      for (j = 0; j < n - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+              // Swap arr[j] and arr[j+1]
+              int temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+              swapped = 1;
+          }
+      }
+      // If no two elements were swapped in the inner loop, the array is already sorted
+      if (!swapped)
+          break;
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
+
 
 export default function BubbleSort() {
   return (
@@ -206,7 +245,7 @@ export default function BubbleSort() {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt}/>
     </React.Fragment>
   )
 }

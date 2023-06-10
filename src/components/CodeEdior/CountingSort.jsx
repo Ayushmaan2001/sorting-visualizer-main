@@ -195,7 +195,66 @@ countingSort();
 
 // after sorting this function call will print the final array
 print("After");
-`
+`,
+C=`void countingSort(int arr[], int n, int max) {
+  int count[max + 1];
+  int output[n];
+
+  // Initialize count array with all elements as 0
+  for (int i = 0; i <= max; i++) {
+      count[i] = 0;
+  }
+
+  // Store the count of each element
+  for (int i = 0; i < n; i++) {
+      count[arr[i]]++;
+  }
+
+  // Calculate the cumulative count
+  for (int i = 1; i <= max; i++) {
+      count[i] += count[i - 1];
+  }
+
+  // Build the output array
+  for (int i = 0; i < n; i++) {
+      output[count[arr[i]] - 1] = arr[i];
+      count[arr[i]]--;
+  }
+
+  // Copy the sorted elements to the original array
+  for (int i = 0; i < n; i++) {
+      arr[i] = output[i];
+  }
+}
+`,
+C_opt= `void countingSort(int arr[], int n, int max) {
+  int count[max + 1];
+
+  // Initialize count array with all elements as 0
+  for (int i = 0; i <= max; i++) {
+      count[i] = 0;
+  }
+
+  // Store the count of each element
+  for (int i = 0; i < n; i++) {
+      count[arr[i]]++;
+  }
+
+  int outputIndex = 0;
+  // Build the output array directly from the count array
+  for (int i = 0; i <= max; i++) {
+      while (count[i] > 0) {
+          arr[outputIndex] = i;
+          outputIndex++;
+          count[i]--;
+      }
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 export default function CountingSort() {
   return (
     <React.Fragment><Row className='bg'>
@@ -232,7 +291,7 @@ export default function CountingSort() {
       </Col>
       </div>
     </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
   )
 }

@@ -149,7 +149,52 @@ int main()
         
   </script>
   
-`
+`,C=`void swap(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+void gnomeSort(int arr[], int n) {
+  int pos = 0;
+
+  while (pos < n) {
+      if (pos == 0 || arr[pos] >= arr[pos - 1]) {
+          pos++;
+      } else {
+          swap(&arr[pos], &arr[pos - 1]);
+          pos--;
+      }
+  }
+}
+`,
+C_opt= `void swap(int* a, int* b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+void gnomeSort(int arr[], int n) {
+  int pos = 0;
+
+  while (pos < n) {
+      if (pos == 0 || arr[pos] >= arr[pos - 1]) {
+          pos++;
+      } else {
+          swap(&arr[pos], &arr[pos - 1]);
+          pos--;
+      }
+
+      if (pos > 1 && arr[pos] < arr[pos - 1]) {
+          pos--;
+      }
+  }
+}
+`,
+Cpp_opt = ``,
+Java_opt=``,
+Python_opt=``,
+Javascript_opt=``
 
 const GenomeSort = () => {
     return (
@@ -190,7 +235,7 @@ const GenomeSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} d2={false} d3={false} d4={false} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
     </React.Fragment>
     );
 }

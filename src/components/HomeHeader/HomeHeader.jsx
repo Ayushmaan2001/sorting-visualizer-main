@@ -7,6 +7,7 @@ import RandomizeButton from './RandomizeButton';
 import SpeedSlider from './SpeedSlider';
 import StartButton from './StartButton';
 import ArrayDropDown from './ArrayDropDown';
+import BenchmarkingButton from './BenchmarkingButton';
 
 const HomeHeader = ({
   algorithms,
@@ -67,6 +68,7 @@ const HomeHeader = ({
         onInputSizeChanged={onInputSizeChanged}
         isVisualizing={isVisualizing}
       />
+      <BenchmarkingButton />
       <RandomizeButton onClick={onRandomize} />
       <StartButton onClick={onStart}/>
     </Row>
