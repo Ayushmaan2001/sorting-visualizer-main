@@ -249,9 +249,45 @@ void stoogeSort(int arr[], int low, int high) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`public class StoogeSort {
+  public static void stoogeSort(int arr[], int low, int high) {
+      if (low >= high) {
+          return;
+      }
+      if (arr[low] > arr[high]) {
+          int temp = arr[low];
+          arr[low] = arr[high];
+          arr[high] = temp;
+      }
+      if (high - low + 1 > 2) {
+          int t = (high - low + 1) / 3;
+          stoogeSort(arr, low, high - t);
+          stoogeSort(arr, low + t, high);
+          stoogeSort(arr, low, high - t);
+      }
+  }
+
+  public static void main(String[] args) {
+      //Starting Code
+  }
+}
+`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function stoogeSort(arr, low, high) {
+  if (low >= high) {
+    return;
+  }
+  if (arr[low] > arr[high]) {
+    [arr[low], arr[high]] = [arr[high], arr[low]];
+  }
+  if (high - low + 1 > 2) {
+    let t = Math.floor((high - low + 1) / 3);
+    stoogeSort(arr, low, high - t);
+    stoogeSort(arr, low + t, high);
+    stoogeSort(arr, low, high - t);
+  }
+}
+`
 
 const StoogeSort = () => {
     return (

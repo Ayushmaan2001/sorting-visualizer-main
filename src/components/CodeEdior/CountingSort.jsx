@@ -252,9 +252,58 @@ C_opt= `void countingSort(int arr[], int n, int max) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`void countingSort(int arr[], int n) {
+  int max_val = Arrays.stream(arr).max().getAsInt();
+  int min_val = Arrays.stream(arr).min().getAsInt();
+  int range = max_val - min_val + 1;
+
+  int[] count = new int[range];
+  int[] output = new int[n];
+
+  for (int i = 0; i < n; i++) {
+      count[arr[i] - min_val]++;
+  }
+
+  for (int i = 1; i < range; i++) {
+      count[i] += count[i - 1];
+  }
+
+  for (int i = n - 1; i >= 0; i--) {
+      output[count[arr[i] - min_val] - 1] = arr[i];
+      count[arr[i] - min_val]--;
+  }
+
+  for (int i = 0; i < n; i++) {
+      arr[i] = output[i];
+  }
+}
+`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function countingSort(arr) {
+  let max_val = Math.max(...arr);
+  let min_val = Math.min(...arr);
+  let range = max_val - min_val + 1;
+
+  let count = new Array(range).fill(0);
+  let output = new Array(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    count[arr[i] - min_val]++;
+  }
+
+  for (let i = 1; i < range; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    output[count[arr[i] - min_val] - 1] = arr[i];
+    count[arr[i] - min_val]--;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = output[i];
+  }
+}`
 export default function CountingSort() {
   return (
     <React.Fragment><Row className='bg'>

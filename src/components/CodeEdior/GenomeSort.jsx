@@ -192,9 +192,41 @@ void gnomeSort(int arr[], int n) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`public class GnomeSort {
+  public static void gnomeSort(int arr[], int n) {
+      int index = 0;
+
+      while (index < n) {
+          if (index == 0 || arr[index] >= arr[index - 1]) {
+              index++;
+          } else {
+              int temp = arr[index];
+              arr[index] = arr[index - 1];
+              arr[index - 1] = temp;
+              index--;
+          }
+      }
+  }
+
+  public static void main(String[] args) {
+      //Starting Code
+  }
+}
+`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function gnomeSort(arr, n) {
+  let index = 0;
+
+  while (index < n) {
+    if (index === 0 || arr[index] >= arr[index - 1]) {
+      index++;
+    } else {
+      [arr[index], arr[index - 1]] = [arr[index - 1], arr[index]];
+      index--;
+    }
+  }
+}
+`
 
 const GenomeSort = () => {
     return (

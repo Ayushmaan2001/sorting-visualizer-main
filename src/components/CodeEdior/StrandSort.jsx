@@ -334,9 +334,100 @@ void strandSort(int arr[], int n) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`import java.util.List;
+import java.util.LinkedList;
+
+public class StrandSort {
+    public static List<Integer> strandSort(List<Integer> input) {
+        if (input.size() <= 1) {
+            return input;
+        }
+        List<Integer> sublist = new LinkedList<>();
+        sublist.add(input.get(0));
+        input.remove(0);
+        for (int i = 0; i < input.size(); ) {
+            if (input.get(i) > sublist.get(sublist.size() - 1)) {
+                sublist.add(input.get(i));
+                input.remove(i);
+            } else {
+                i++;
+            }
+        }
+        if (sublist.size() == input.size()) {
+            return sublist;  // List is already sorted, no need to merge
+        }
+        return mergeStrands(sublist, strandSort(input));
+    }
+
+    public static List<Integer> mergeStrands(List<Integer> strand1, List<Integer> strand2) {
+        List<Integer> merged = new LinkedList<>();
+        while (!strand1.isEmpty() && !strand2.isEmpty()) {
+            if (strand1.get(0) < strand2.get(0)) {
+                merged.add(strand1.get(0));
+                strand1.remove(0);
+            } else {
+                merged.add(strand2.get(0));
+                strand2.remove(0);
+            }
+        }
+        while (!strand1.isEmpty()) {
+            merged.add(strand1.get(0));
+            strand1.remove(0);
+        }
+        while (!strand2.isEmpty()) {
+            merged.add(strand2.get(0));
+            strand2.remove(0);
+        }
+        return merged;
+    }
+
+    public static void main(String[] args) {
+        //Starting Code
+    }
+}
+`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function strandSort(input) {
+  if (input.length <= 1) {
+    return input;
+  }
+
+  let sublist = [input.shift()];
+
+  for (let i = 0; i < input.length; ) {
+    if (input[i] > sublist[sublist.length - 1]) {
+      sublist.push(input[i]);
+      input.splice(i, 1);
+    } else {
+      i++;
+    }
+  }
+
+  if (sublist.length === input.length) {
+    return sublist; // Array is already sorted, no need to merge
+  }
+
+  return mergeStrands(sublist, strandSort(input));
+}
+
+function mergeStrands(strand1, strand2) {
+  let merged = [];
+  while (strand1.length > 0 && strand2.length > 0) {
+    if (strand1[0] < strand2[0]) {
+      merged.push(strand1.shift());
+    } else {
+      merged.push(strand2.shift());
+    }
+  }
+  while (strand1.length > 0) {
+    merged.push(strand1.shift());
+  }
+  while (strand2.length > 0) {
+    merged.push(strand2.shift());
+  }
+  return merged;
+}
+`
 
 const StrandSort = () => {
     return (

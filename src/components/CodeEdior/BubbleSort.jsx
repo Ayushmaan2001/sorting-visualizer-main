@@ -199,9 +199,39 @@ C_opt= `void bubbleSort(int arr[], int n) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`void bubbleSort(int arr[], int n) {
+  boolean swapped;
+  for (int i = 0; i < n - 1; i++) {
+      swapped = false;
+      for (int j = 0; j < n - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+              int temp = arr[j];
+              arr[j] = arr[j + 1];
+              arr[j + 1] = temp;
+              swapped = true;
+          }
+      }
+      if (!swapped) {
+          break;  // Array is already sorted, no need to continue
+      }
+  }
+}`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function bubbleSort(arr) {
+  let n = arr.length;
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < n - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+        swapped = true;
+      }
+    }
+    n--;
+  } while (swapped);
+}
+`
 
 
 export default function BubbleSort() {

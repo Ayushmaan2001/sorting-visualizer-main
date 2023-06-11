@@ -340,9 +340,77 @@ void bucketSort(int arr[], int n, int maxVal) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`import java.util.ArrayList;
+import java.util.Collections;
+
+public class BucketSort {
+    public static void bucketSort(int arr[], int n) {
+        int min_val = Integer.MAX_VALUE;
+        int max_val = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            min_val = Math.min(min_val, arr[i]);
+            max_val = Math.max(max_val, arr[i]);
+        }
+
+        int bucket_count = max_val - min_val + 1;
+        ArrayList<ArrayList<Integer>> buckets = new ArrayList<>(bucket_count);
+
+        for (int i = 0; i < bucket_count; i++) {
+            buckets.add(new ArrayList<Integer>());
+        }
+
+        for (int i = 0; i < n; i++) {
+            int index = arr[i] - min_val;
+            buckets.get(index).add(arr[i]);
+        }
+
+        int k = 0;
+        for (int i = 0; i < bucket_count; i++) {
+            if (buckets.get(i).size() > 1) {
+                int[] bucketArray = new int[buckets.get(i).size()];
+                for (int j = 0; j < buckets.get(i).size(); j++) {
+                    bucketArray[j] = buckets.get(i).get(j);
+                }
+                bucketSort(bucketArray, bucketArray.length);
+                for (int j = 0; j < bucketArray.length; j++) {
+                    arr[k++] = bucketArray[j];
+                }
+            } else if (buckets.get(i).size() == 1) {
+                arr[k++] = buckets.get(i).get(0);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+       //Starting Code
+    }
+}
+`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function bucketSort(arr, n) {
+  let min_val = Math.min(...arr);
+  let max_val = Math.max(...arr);
+  let bucket_count = max_val - min_val + 1;
+
+  let buckets = Array(bucket_count).fill().map(() => []);
+
+  for (let i = 0; i < n; i++) {
+    let index = arr[i] - min_val;
+    buckets[index].push(arr[i]);
+  }
+
+  let k = 0;
+  for (let i = 0; i < bucket_count; i++) {
+    if (buckets[i].length > 1) {
+      bucketSort(buckets[i], buckets[i].length);
+    }
+    for (let j = 0; j < buckets[i].length; j++) {
+      arr[k++] = buckets[i][j];
+    }
+  }
+}
+`
 
 const BucketSort = () => {
     return (

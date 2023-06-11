@@ -413,9 +413,94 @@ void radixSort(int arr[], int n) {
 }
 `,
 Cpp_opt = ``,
-Java_opt=``,
+Java_opt=`import java.util.Arrays;
+
+public class RadixSort {
+    public static void radixSort(int arr[], int n) {
+        int max_val = getMax(arr, n);
+        int exp = 1;
+        while (max_val / exp > 0) {
+            countingSortByDigit(arr, n, exp);
+            exp *= 10;
+        }
+    }
+
+    public static int getMax(int arr[], int n) {
+        int max_val = arr[0];
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max_val) {
+                max_val = arr[i];
+            }
+        }
+        return max_val;
+    }
+
+    public static void countingSortByDigit(int arr[], int n, int exp) {
+        int output[] = new int[n];
+        int count[] = new int[10];
+
+        Arrays.fill(count, 0);
+
+        for (int i = 0; i < n; i++) {
+            count[(arr[i] / exp) % 10]++;
+        }
+
+        for (int i = 1; i < 10; i++) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+            count[(arr[i] / exp) % 10]--;
+        }
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = output[i];
+        }
+    }
+}`,
 Python_opt=``,
-Javascript_opt=``
+Javascript_opt=`function getMax(arr, n) {
+  let max_val = arr[0];
+  for (let i = 1; i < n; i++) {
+    if (arr[i] > max_val) {
+      max_val = arr[i];
+    }
+  }
+  return max_val;
+}
+
+function countingSortByDigit(arr, n, exp) {
+  let output = new Array(n);
+  let count = new Array(10).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    count[Math.floor(arr[i] / exp) % 10]++;
+  }
+
+  for (let i = 1; i < 10; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (let i = n - 1; i >= 0; i--) {
+    output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+    count[Math.floor(arr[i] / exp) % 10]--;
+  }
+
+  for (let i = 0; i < n; i++) {
+    arr[i] = output[i];
+  }
+}
+
+function radixSort(arr, n) {
+  let max_val = getMax(arr, n);
+  let exp = 1;
+  while (Math.floor(max_val / exp) > 0) {
+    countingSortByDigit(arr, n, exp);
+    exp *= 10;
+  }
+}
+`
 
 export default function RadixSort({text}) {
   return (
