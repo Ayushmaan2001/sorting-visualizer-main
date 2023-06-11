@@ -1,0 +1,40 @@
+function strandSort(input) {
+  if (input.length <= 1) {
+    return input;
+  }
+
+  let sublist = [input.shift()];
+
+  for (let i = 0; i < input.length; ) {
+    if (input[i] > sublist[sublist.length - 1]) {
+      sublist.push(input[i]);
+      input.splice(i, 1);
+    } else {
+      i++;
+    }
+  }
+
+  if (sublist.length === input.length) {
+    return sublist; // Array is already sorted, no need to merge
+  }
+
+  return mergeStrands(sublist, strandSort(input));
+}
+
+function mergeStrands(strand1, strand2) {
+  let merged = [];
+  while (strand1.length > 0 && strand2.length > 0) {
+    if (strand1[0] < strand2[0]) {
+      merged.push(strand1.shift());
+    } else {
+      merged.push(strand2.shift());
+    }
+  }
+  while (strand1.length > 0) {
+    merged.push(strand1.shift());
+  }
+  while (strand2.length > 0) {
+    merged.push(strand2.shift());
+  }
+  return merged;
+}

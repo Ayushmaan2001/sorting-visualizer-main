@@ -1,0 +1,12 @@
+function gnomeSort(arr, n) {
+  let index = 0;
+
+  while (index < n) {
+    if (index === 0 || arr[index] >= arr[index - 1]) {
+      index++;
+    } else {
+      [arr[index], arr[index - 1]] = [arr[index - 1], arr[index]];
+      index--;
+    }
+  }
+}
