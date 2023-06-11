@@ -5,9 +5,9 @@ import { Dropdown } from 'antd';
 import { useEffect } from 'react';
 
 
-const CodeEditor = ({ Cpp, Java, Python, Javascript, C, C_opt }) => {
+const CodeEditor = ({ Cpp, Java, Python, Javascript, C, C_opt, Java_opt, Javascript_opt, Cpp_opt }) => {
   const [codeUrl, setCodeUrl] = React.useState('Cpp')
-  const [type, setType] = useState('Average and Worst Case');
+  const [type, setType] = useState('Simple');
   const [selector, setSelector] = useState('cpp1');
 
   const codeSelector = () => {
@@ -116,9 +116,12 @@ const CodeEditor = ({ Cpp, Java, Python, Javascript, C, C_opt }) => {
           <pre style={{color:'white',display:'flex',justifyContent:'space-around',marginTop:'20px',marginDown:'20px'}}>
           {
             selector === 'cpp1' ? Cpp :
+            selector === 'cpp2' ? Cpp_opt :
             selector === 'p1' ? Python :
             selector === 'j1' ? Java :
+            selector === 'j2' ? Java_opt :
             selector === 'js1' ? Javascript :
+            selector === 'js2' ? Javascript_opt :
             selector === 'c1' ? C :
             selector === 'c2' ? C_opt :
             null 

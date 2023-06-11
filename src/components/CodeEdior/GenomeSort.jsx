@@ -191,7 +191,20 @@ void gnomeSort(int arr[], int n) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void gnomeSort(int arr[], int n) {
+  int index = 0;
+
+  while (index < n) {
+      if (index == 0 || arr[index] >= arr[index - 1]) {
+          index++;
+      }
+      else {
+          std::swap(arr[index], arr[index - 1]);
+          index--;
+      }
+  }
+}
+`,
 Java_opt=`public class GnomeSort {
   public static void gnomeSort(int arr[], int n) {
       int index = 0;
@@ -267,7 +280,7 @@ const GenomeSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
     );
 }

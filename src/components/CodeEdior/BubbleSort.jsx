@@ -198,7 +198,21 @@ C_opt= `void bubbleSort(int arr[], int n) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void bubbleSort(int arr[], int n) {
+  bool swapped;
+  for (int i = 0; i < n - 1; i++) {
+      swapped = false;
+      for (int j = 0; j < n - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+              std::swap(arr[j], arr[j + 1]);
+              swapped = true;
+          }
+      }
+      if (!swapped) {
+          break;  // Array is already sorted, no need to continue
+      }
+  }
+}`,
 Java_opt=`void bubbleSort(int arr[], int n) {
   boolean swapped;
   for (int i = 0; i < n - 1; i++) {
@@ -275,7 +289,7 @@ export default function BubbleSort() {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt}/>
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
   )
 }

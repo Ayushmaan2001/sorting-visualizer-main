@@ -222,7 +222,19 @@ C_opt= `void selectionSort(int arr[], int n) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void selectionSort(int arr[], int n) {
+  for (int i = 0; i < n - 1; i++) {
+      int min_idx = i;
+      for (int j = i + 1; j < n; j++) {
+          if (arr[j] < arr[min_idx]) {
+              min_idx = j;
+          }
+      }
+      if (min_idx != i) {
+          std::swap(arr[i], arr[min_idx]);
+      }
+  }
+}`,
 Java_opt=`void selectionSort(int arr[], int n) {
   for (int i = 0; i < n - 1; i++) {
       int min_idx = i;
@@ -295,7 +307,7 @@ export default function SelectionSort({text}) {
       </Col>
       </div>
     </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
   )
 }

@@ -333,7 +333,51 @@ void strandSort(int arr[], int n) {
     free(remaining);
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `std::list<int> strandSort(std::list<int> input) {
+  if (input.size() <= 1) {
+      return input;
+  }
+  std::list<int> sublist;
+  sublist.push_back(input.front());
+  input.pop_front();
+  for (auto it = input.begin(); it != input.end(); ) {
+      if (*it > sublist.back()) {
+          sublist.push_back(*it);
+          it = input.erase(it);
+      }
+      else {
+          ++it;
+      }
+  }
+  if (sublist.size() == input.size()) {
+      return sublist;  // Array is already sorted, no need to merge
+  }
+  return mergeStrands(sublist, strandSort(input));
+}
+
+std::list<int> mergeStrands(std::list<int> strand1, std::list<int> strand2) {
+  std::list<int> merged;
+  while (!strand1.empty() && !strand2.empty()) {
+      if (strand1.front() < strand2.front()) {
+          merged.push_back(strand1.front());
+          strand1.pop_front();
+      }
+      else {
+          merged.push_back(strand2.front());
+          strand2.pop_front();
+      }
+  }
+  while (!strand1.empty()) {
+      merged.push_back(strand1.front());
+      strand1.pop_front();
+  }
+  while (!strand2.empty()) {
+      merged.push_back(strand2.front());
+      strand2.pop_front();
+  }
+  return merged;
+}
+`,
 Java_opt=`import java.util.List;
 import java.util.LinkedList;
 
@@ -470,7 +514,7 @@ const StrandSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
     );
 }

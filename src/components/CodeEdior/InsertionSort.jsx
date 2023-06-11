@@ -187,7 +187,17 @@ C_opt= `void insertionSort(int arr[], int n) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void insertionSort(int arr[], int n) {
+  for (int i = 1; i < n; i++) {
+      int key = arr[i];
+      int j = i - 1;
+      while (j >= 0 && arr[j] > key) {
+          arr[j + 1] = arr[j];
+          j--;
+      }
+      arr[j + 1] = key;
+  }
+}`,
 Java_opt=`void insertionSort(int arr[], int n) {
   for (int i = 1; i < n; i++) {
       int key = arr[i];
@@ -252,7 +262,7 @@ export default function InsertionSort({text}) {
       </Col>
       </div>
     </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
   )
 }

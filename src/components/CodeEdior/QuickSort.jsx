@@ -284,7 +284,27 @@ void quickSort(int arr[], int low, int high) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pivot = partition(arr, low, high);
+        quickSort(arr, low, pivot - 1);
+        quickSort(arr, pivot + 1, high);
+    }
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    std::swap(arr[i + 1], arr[high]);
+    return i + 1;
+}`,
 Java_opt=`void quickSort(int arr[], int low, int high) {
   if (low < high) {
       int pivot = partition(arr, low, high);
@@ -373,7 +393,7 @@ export default function QuickSort({text}) {
       </Col>
       </div>
     </Row>
-          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
   )
 }

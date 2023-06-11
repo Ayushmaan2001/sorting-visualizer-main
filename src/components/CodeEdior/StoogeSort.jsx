@@ -248,7 +248,20 @@ void stoogeSort(int arr[], int low, int high) {
     }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void stoogeSort(int arr[], int low, int high) {
+  if (low >= high) {
+      return;
+  }
+  if (arr[low] > arr[high]) {
+      std::swap(arr[low], arr[high]);
+  }
+  if (high - low + 1 > 2) {
+      int t = (high - low + 1) / 3;
+      stoogeSort(arr, low, high - t);
+      stoogeSort(arr, low + t, high);
+      stoogeSort(arr, low, high - t);
+  }
+}`,
 Java_opt=`public class StoogeSort {
   public static void stoogeSort(int arr[], int low, int high) {
       if (low >= high) {
@@ -329,7 +342,7 @@ const StoogeSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
     );
 }

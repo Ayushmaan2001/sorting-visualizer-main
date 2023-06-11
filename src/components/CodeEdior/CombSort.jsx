@@ -308,7 +308,35 @@ void combSort(int arr[], int n) {
     }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `int getNextGap(int gap) {
+  gap = (gap * 10) / 13;
+  if (gap < 1) {
+      return 1;
+  }
+  return gap;
+}
+
+void combSort(int arr[], int n) {
+  int gap = n;
+  bool swapped = true;
+
+  while (gap != 1 || swapped) {
+      gap = getNextGap(gap);
+      swapped = false;
+
+      for (int i = 0; i < n - gap; i++) {
+          if (arr[i] > arr[i + gap]) {
+              std::swap(arr[i], arr[i + gap]);
+              swapped = true;
+          }
+      }
+
+      if (!swapped && gap == 1) {
+          break;  // Array is already sorted, no need to continue
+      }
+  }
+}
+`,
 Java_opt=`public class CombSort {
   public static int getNextGap(int gap) {
       gap = (gap * 10) / 13;
@@ -421,7 +449,7 @@ The shrink factor has been empirically found to be 1.3 (by testing Combsort on o
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
     );
 }

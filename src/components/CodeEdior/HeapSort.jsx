@@ -313,7 +313,36 @@ void heapSort(int arr[], int n) {
   }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void heapify(int arr[], int n, int i) {
+  int largest = i;
+  int left = 2 * i + 1;
+  int right = 2 * i + 2;
+
+  if (left < n && arr[left] > arr[largest]) {
+      largest = left;
+  }
+
+  if (right < n && arr[right] > arr[largest]) {
+      largest = right;
+  }
+
+  if (largest != i) {
+      std::swap(arr[i], arr[largest]);
+      heapify(arr, n, largest);
+  }
+}
+
+void heapSort(int arr[], int n) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
+      heapify(arr, n, i);
+  }
+
+  for (int i = n - 1; i > 0; i--) {
+      std::swap(arr[0], arr[i]);
+      heapify(arr, i, 0);
+  }
+}
+`,
 Java_opt=`public class HeapSort {
   public static void heapify(int arr[], int n, int i) {
       int largest = i;
@@ -420,7 +449,7 @@ const HeapSort = () => {
             </Col>
             </div>
         </Row>
-            <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+            <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
         </React.Fragment>
     );
 }

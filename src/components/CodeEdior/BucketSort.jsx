@@ -339,7 +339,29 @@ void bucketSort(int arr[], int n, int maxVal) {
     free(buckets);
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `void bucketSort(int arr[], int n) {
+  int min_val = *std::min_element(arr, arr + n);
+  int max_val = *std::max_element(arr, arr + n);
+  int bucket_count = max_val - min_val + 1;
+
+  std::vector<std::vector<int>> buckets(bucket_count);
+
+  for (int i = 0; i < n; i++) {
+      int index = arr[i] - min_val;
+      buckets[index].push_back(arr[i]);
+  }
+
+  int k = 0;
+  for (int i = 0; i < bucket_count; i++) {
+      if (buckets[i].size() > 1) {
+          bucketSort(buckets[i].data(), buckets[i].size());
+      }
+      for (int j = 0; j < buckets[i].size(); j++) {
+          arr[k++] = buckets[i][j];
+      }
+  }
+}
+`,
 Java_opt=`import java.util.ArrayList;
 import java.util.Collections;
 
@@ -459,7 +481,7 @@ const BucketSort = () => {
           </div>
         </div>
       </Row>
-      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+      <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
     );
 }

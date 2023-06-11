@@ -412,7 +412,47 @@ void radixSort(int arr[], int n) {
     }
 }
 `,
-Cpp_opt = ``,
+Cpp_opt = `int getMax(int arr[], int n) {
+  int max_val = arr[0];
+  for (int i = 1; i < n; i++) {
+      if (arr[i] > max_val) {
+          max_val = arr[i];
+      }
+  }
+  return max_val;
+}
+
+void countingSortByDigit(int arr[], int n, int exp) {
+  int output[n];
+  int count[10] = { 0 };
+
+  for (int i = 0; i < n; i++) {
+      count[(arr[i] / exp) % 10]++;
+  }
+
+  for (int i = 1; i < 10; i++) {
+      count[i] += count[i - 1];
+  }
+
+  for (int i = n - 1; i >= 0; i--) {
+      output[count[(arr[i] / exp) % 10] - 1] = arr[i];
+      count[(arr[i] / exp) % 10]--;
+  }
+
+  for (int i = 0; i < n; i++) {
+      arr[i] = output[i];
+  }
+}
+
+void radixSort(int arr[], int n) {
+  int max_val = getMax(arr, n);
+  int exp = 1;
+  while (max_val / exp > 0) {
+      countingSortByDigit(arr, n, exp);
+      exp *= 10;
+  }
+}
+`,
 Java_opt=`import java.util.Arrays;
 
 public class RadixSort {
@@ -542,7 +582,7 @@ export default function RadixSort({text}) {
       </Col>
       </div>
     </Row>
-          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} />
+          <CodeEditor Cpp={Cpp} Java={Java} Python={Python} Javascript={Javascript} C={C} C_opt={C_opt} Java_opt={Java_opt} Javascript_opt={Javascript_opt} Cpp_opt={Cpp_opt}/>
     </React.Fragment>
   )
 }
