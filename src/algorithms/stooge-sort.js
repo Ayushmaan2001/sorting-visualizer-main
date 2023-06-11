@@ -8,8 +8,6 @@ async function stoogesort(arr, l, h, setArray, setColorsArray, visualizationSpee
   await asyncSetTimeout({
     timeout: 10 * visualizationSpeed
   });
-  // comparisons++;
-  // setComparisons(comparisons)
   if (l >= h)
     return;
   if (arr[l] > arr[h]) {
@@ -37,13 +35,20 @@ const Stoogesort = async ({
   comparisons,
   setComparisons,
   timeRequired,
-  setTimeRequired
+  setTimeRequired,
+  swaps,
+  setSwaps
 } = {}) => {
   comparisons=0
   timeRequired = 0;
+  swaps = 0;
+  setSwaps(swaps);
+  setComparisons(comparisons)
   setTimeRequired(timeRequired)
   var t1 = performance.now();
-  stoogesort(array, 0, array.length, setArray, setColorsArray, visualizationSpeed,comparisons,setComparisons);
+  await stoogesort(array, 0, array.length, setArray, setColorsArray, visualizationSpeed,comparisons,setComparisons);
+  setColorsArray([])
+  setArray(array)
   var t2 = performance.now();
   setTimeRequired(t2-t1)
 }

@@ -525,7 +525,10 @@ const Home = () => {
           comparisons:comparisons,
           setComparisons:setComparisons,
           timeRequired:timeRequired,
-          setTimeRequired:setTimeRequired
+          setTimeRequired:setTimeRequired,
+          comparisons:comparisons,
+          swaps:swaps,
+          setSwaps:setswaps
         })
         break;
       case 'K-Way External Sort':
