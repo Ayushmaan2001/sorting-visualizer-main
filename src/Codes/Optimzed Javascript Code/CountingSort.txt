@@ -1,0 +1,25 @@
+function countingSort(arr) {
+  let max_val = Math.max(...arr);
+  let min_val = Math.min(...arr);
+  let range = max_val - min_val + 1;
+
+  let count = new Array(range).fill(0);
+  let output = new Array(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    count[arr[i] - min_val]++;
+  }
+
+  for (let i = 1; i < range; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    output[count[arr[i] - min_val] - 1] = arr[i];
+    count[arr[i] - min_val]--;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = output[i];
+  }
+}

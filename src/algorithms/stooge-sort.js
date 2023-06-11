@@ -14,7 +14,7 @@ async function stoogesort(arr, l, h, setArray, setColorsArray, visualizationSpee
     let t = arr[l];
     arr[l] = arr[h];
     arr[h] = t;
-    setArray(arr)
+    // setArray(arr)
   }
   console.log(arr)
   if (h - l + 1 > 2) {
@@ -22,6 +22,7 @@ async function stoogesort(arr, l, h, setArray, setColorsArray, visualizationSpee
     stoogesort(arr, l, h - t, setArray, setColorsArray, visualizationSpeed, comparisons, setComparisons);
     stoogesort(arr, l + t, h, setArray, setColorsArray, visualizationSpeed, comparisons, setComparisons);
     stoogesort(arr, l, h - t, setArray, setColorsArray, visualizationSpeed, comparisons, setComparisons);
+    // setArray(arr)
   }
   setArray(arr)
 }

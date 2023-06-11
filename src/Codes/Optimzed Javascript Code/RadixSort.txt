@@ -1,0 +1,40 @@
+function getMax(arr, n) {
+  let max_val = arr[0];
+  for (let i = 1; i < n; i++) {
+    if (arr[i] > max_val) {
+      max_val = arr[i];
+    }
+  }
+  return max_val;
+}
+
+function countingSortByDigit(arr, n, exp) {
+  let output = new Array(n);
+  let count = new Array(10).fill(0);
+
+  for (let i = 0; i < n; i++) {
+    count[Math.floor(arr[i] / exp) % 10]++;
+  }
+
+  for (let i = 1; i < 10; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (let i = n - 1; i >= 0; i--) {
+    output[count[Math.floor(arr[i] / exp) % 10] - 1] = arr[i];
+    count[Math.floor(arr[i] / exp) % 10]--;
+  }
+
+  for (let i = 0; i < n; i++) {
+    arr[i] = output[i];
+  }
+}
+
+function radixSort(arr, n) {
+  let max_val = getMax(arr, n);
+  let exp = 1;
+  while (Math.floor(max_val / exp) > 0) {
+    countingSortByDigit(arr, n, exp);
+    exp *= 10;
+  }
+}
